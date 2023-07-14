@@ -9,8 +9,9 @@ var BeansCuest;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            { scene: BeansCuest.scene1_1, name: "Scene 1.1" },
-            { scene: BeansCuest.scene1_2, name: "Scene 1.2" }
+            // { scene: scene1_1, name: "Scene 1.1" },
+            // { scene: scene1_2, name: "Scene 1.2" },
+            { scene: BeansCuest.scene2_1, name: "Scene 2.1" }
         ];
         let uiElement = document.querySelector("[type=interface]");
         BeansCuest.dataForSave = BeansCuest.fS.Progress.setData(BeansCuest.dataForSave, uiElement);
@@ -40,11 +41,34 @@ var BeansCuest;
                 curious: "Images/Characters/Bean/curious.png",
                 charmed: "Images/Characters/Bean/charmed.png",
                 proud: "Images/Characters/Bean/proud.png",
-                scared: "Images/Characters/Bean/scared.png"
+                scared: "Images/Characters/Bean/scared.png",
+                confused: "Images/Characters/Bean/confused.png",
+                questioning: "Images/Characters/Bean/questioning.png",
+                guilty: "Images/Characters/Bean/guilty.png",
+                unsure: "Images/Characters/Bean/unsure.png",
+                resigned: "Images/Characters/Bean/resigned.png"
+            }
+        },
+        Stool: {
+            name: "Stool",
+            origin: BeansCuest.fS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                worried: "Images/Characters/Stool/worried.png",
+                explanatory: "Images/Characters/Stool/explanatory.png",
+                hysterical: "Images/Characters/Stool/hysterical.png",
+                sad: "Images/Characters/Stool/sad.png",
+                confused: "Images/Characters/Stool/confused.png",
+                happy: "Images/Characters/Stool/happy.png",
+                crying: "Images/Characters/Stool/crying.png"
             }
         },
         Narrator: {
             name: "Narrator",
+            origin: BeansCuest.fS.ORIGIN.BOTTOMCENTER,
+            pose: null
+        },
+        Unknown: {
+            name: "Unknown",
             origin: BeansCuest.fS.ORIGIN.BOTTOMCENTER,
             pose: null
         }
@@ -104,6 +128,11 @@ var BeansCuest;
     BeansCuest.TRANSITIONS = {
         pix4: {
             alpha: "Images/Transitions/pix4.jpg",
+            duration: 1,
+            edge: 1
+        },
+        pix1: {
+            alpha: "Images/Transitions/pix1.jpg",
             duration: 1,
             edge: 1
         }
@@ -274,6 +303,184 @@ var BeansCuest;
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "scared", BeansCuest.fS.positionPercent(15, 100));
         await BeansCuest.makeTransition("fade_in", 0.1);
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0005);
+    }
+})(BeansCuest || (BeansCuest = {}));
+var BeansCuest;
+(function (BeansCuest) {
+    let askedBothOptions = [false, false];
+    let text = {
+        Unknown: {
+            T0000: "Hellooo? Are you okay? U don't look okay! Are you dead? Have I witnessed a decease??? Oh that's a CAT-ASTROPHE!",
+            T0001: "OH you're alive! I'm Stool. Are you alright? I heard a loud noise and then you were just… here. I was SO scared."
+        },
+        Bean: {
+            T0000: "...urgh... Oliver...?",
+            T0001: "Where am I? I was playing hide and seek with Oliver, and then everything is just a blur. I hope he's alright!",
+            T0002: "Wha...?",
+            T0003: "To get back home I have to find... stones?",
+            T0004: "Enchantica? I'm not in the garden? With Oliver? Am I dreaming?",
+            T0005: "How is that even pawssible? How are YOU pawssible?",
+            T0006: "No that's not it. Don't get me wrong but you're a talking mushroom. This is enchanted!",
+            T0007: "... Um - nevermind",
+            T0008: "Can you tell me the best place to start looking for the stones? I want to go home. I hope Oliver is fine...",
+            T0009: "It will definitely come in handy if you accompany me! Also, I'm looking forward to some company.",
+            T0010: "I don't know. I think it would be safer for you to stay here.",
+            T0011: "Sigh. Okay you can come with me."
+        },
+        Stool: {
+            T0000: "I don't know what happened either. I usually just sit here and watch the portal...",
+            T0001: "You know, in Enchantica we sometimes get visitors from other worlds! But suddenly BOOM and I've never seen something strange like you.",
+            T0002: "You look funny!",
+            T0003: "JUST NOW there was this loud noise! And all the three stones got lost! You know? The stones for the portal.",
+            T0004: "If we won't fix it fast enough the portal might implode! And the could be everywhere in Enchantica!",
+            T0005: "You're quick-witted! The stones to power the portal are the moonstone, the sunstone and the starstone. Without the stones we can never use the portal again!",
+            T0006: "But it's im-paw-sible to find them",
+            T0007: "Oliver?",
+            T0008: "We're in Enchantica - to be exact in the Wistful Woods. I lived here for like - …forever. I take care of the portal and the stones.",
+            T0009: "Me? I knew it! I shouldn't have pushed you like that, I'm SO sorry!",
+            T0010: "What's a mushroom?",
+            T0011: "Hmm. I'm not sure, but I have a dare hunch. Maybe you should start at the Lillypond next to the Wistful Woods.",
+            T0012: "BUT WAIT - you can't leave me! What if something bad happens again? Will you take me with you? Pleeease?",
+            T0013: "*Shivers* Didn't you hear that? There was a noise! Back there!",
+            T0014: "Pawsome! Let's go!"
+        }
+    };
+    async function scene2_1() {
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
+        await BeansCuest.makeTransition("fade_in");
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Unknown, text.Unknown.T0000);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "confused", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0000);
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "worried", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("pix1");
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Unknown, text.Unknown.T0001);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0001);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "explanatory", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createMultiLineSpeech(BeansCuest.CHARACTERS.Stool, ["T0000", "T0001"], text);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "happy", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0002);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "questioning", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0002);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "hysterical", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createMultiLineSpeech(BeansCuest.CHARACTERS.Stool, ["T0003", "T0004"], text);
+        await showDialog1();
+    }
+    BeansCuest.scene2_1 = scene2_1;
+    async function showDialog1() {
+        let dialogue = {
+            A: "Stones?",
+            B: "Enchantica?"
+        };
+        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
+        switch (dialogueElement) {
+            case dialogue.A:
+                await optionA();
+                break;
+            case dialogue.B:
+                await optionB();
+                break;
+        }
+    }
+    async function optionA() {
+        askedBothOptions[0] = true;
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "confused", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0003);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "hysterical", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0005);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "sad", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0006);
+        await optionC();
+    }
+    async function optionB() {
+        askedBothOptions[1] = true;
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "questioning", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0004);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "confused", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0007);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "explanatory", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0008);
+        await optionC();
+    }
+    async function optionC() {
+        if (!askedBothOptions.every((val) => val)) {
+            await showDialog1();
+            return;
+        }
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "confused", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0005);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "worried", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0009);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "guilty", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0006);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "confused", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0010);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "confused", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0007);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "questioning", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0008);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "questioning", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0011);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "hysterical", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0012);
+        let dialogue = {
+            C1: "Take Stool with you?",
+            C2: "Don't take Stool with you?"
+        };
+        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
+        switch (dialogueElement) {
+            case dialogue.C1:
+                await optionC1();
+                break;
+            case dialogue.C2:
+                await optionC2();
+                break;
+        }
+    }
+    async function optionC1() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0009);
+        await optionD();
+    }
+    async function optionC2() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "unsure", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0010);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "crying", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0013);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "resigned", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0011);
+        await optionD();
+    }
+    async function optionD() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "happy", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0014);
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
+        await BeansCuest.makeTransition("fade_in");
     }
 })(BeansCuest || (BeansCuest = {}));
 //# sourceMappingURL=source.js.map

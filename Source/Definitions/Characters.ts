@@ -1,7 +1,22 @@
 namespace BeansCuest {
-    export type CharacterName = "Bean" | "Stool" | "Lillypad" | "Charm" | "Chant" | "Spook" | "Bandit" | "Oliver" | "Narrator";
+    export type CharacterName = "Bean" | "Stool" | "Lillypad" | "Charm" | "Chant" | "Spook" | "Bandit" | "Oliver" | "Narrator" | "Unknown";
 
-    export type EmotionName = "happy" | "worried" | "sad" | "focused" | "proud" | "curious" | "charmed" | "scared";
+    export type EmotionName = "happy" | 
+    "worried" | 
+    "sad" | 
+    "focused" | 
+    "proud" | 
+    "curious" | 
+    "charmed" | 
+    "scared" | 
+    "confused" | 
+    "explanatory" | 
+    "questioning" | 
+    "hysterical" |
+    "guilty" |
+    "unsure" |
+    "crying" |
+    "resigned";
 
     export type Pose = `Images/Characters/${CharacterName}/${EmotionName}.png`;
     type PoseDefinition = Partial<Record<EmotionName, Pose>>;
@@ -31,11 +46,34 @@ namespace BeansCuest {
                 curious: "Images/Characters/Bean/curious.png",
                 charmed: "Images/Characters/Bean/charmed.png",
                 proud: "Images/Characters/Bean/proud.png",
-                scared: "Images/Characters/Bean/scared.png"
+                scared: "Images/Characters/Bean/scared.png",
+                confused: "Images/Characters/Bean/confused.png",
+                questioning: "Images/Characters/Bean/questioning.png",
+                guilty: "Images/Characters/Bean/guilty.png",
+                unsure: "Images/Characters/Bean/unsure.png",
+                resigned: "Images/Characters/Bean/resigned.png"
+            }
+        },
+        Stool: {
+            name: "Stool",
+            origin: fS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                worried: "Images/Characters/Stool/worried.png",
+                explanatory: "Images/Characters/Stool/explanatory.png",
+                hysterical: "Images/Characters/Stool/hysterical.png",
+                sad: "Images/Characters/Stool/sad.png",
+                confused: "Images/Characters/Stool/confused.png",
+                happy: "Images/Characters/Stool/happy.png",
+                crying: "Images/Characters/Stool/crying.png"
             }
         },
         Narrator: {
             name: "Narrator",
+            origin: fS.ORIGIN.BOTTOMCENTER,
+            pose: null
+        },
+        Unknown: {
+            name: "Unknown",
             origin: fS.ORIGIN.BOTTOMCENTER,
             pose: null
         }

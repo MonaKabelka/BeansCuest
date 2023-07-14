@@ -1,5 +1,5 @@
 namespace BeansCuest {
-    type TransitionName = "fade_in" | "pix4";
+    type TransitionName = "fade_in" | "pix4" | "pix1";
     type Transition<T extends TransitionName> = {
         alpha: `Images/Transitions/${T}.jpg`,
         edge: number,
@@ -8,6 +8,11 @@ namespace BeansCuest {
     export let TRANSITIONS: Partial<Record<TransitionName, Transition<TransitionName>>> = {
         pix4: {
             alpha: "Images/Transitions/pix4.jpg",
+            duration: 1,
+            edge: 1
+        },
+        pix1: {
+            alpha: "Images/Transitions/pix1.jpg",
             duration: 1,
             edge: 1
         }

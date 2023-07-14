@@ -6,8 +6,8 @@ declare namespace BeansCuest {
     };
 }
 declare namespace BeansCuest {
-    export type CharacterName = "Bean" | "Stool" | "Lillypad" | "Charm" | "Chant" | "Spook" | "Bandit" | "Oliver" | "Narrator";
-    export type EmotionName = "happy" | "worried" | "sad" | "focused" | "proud" | "curious" | "charmed" | "scared";
+    export type CharacterName = "Bean" | "Stool" | "Lillypad" | "Charm" | "Chant" | "Spook" | "Bandit" | "Oliver" | "Narrator" | "Unknown";
+    export type EmotionName = "happy" | "worried" | "sad" | "focused" | "proud" | "curious" | "charmed" | "scared" | "confused" | "explanatory" | "questioning" | "hysterical" | "guilty" | "unsure" | "crying" | "resigned";
     export type Pose = `Images/Characters/${CharacterName}/${EmotionName}.png`;
     type PoseDefinition = Partial<Record<EmotionName, Pose>>;
     export type CharacterDefinition = {
@@ -39,7 +39,7 @@ declare namespace BeansCuest {
     export {};
 }
 declare namespace BeansCuest {
-    type TransitionName = "fade_in" | "pix4";
+    type TransitionName = "fade_in" | "pix4" | "pix1";
     type Transition<T extends TransitionName> = {
         alpha: `Images/Transitions/${T}.jpg`;
         edge: number;
@@ -62,4 +62,7 @@ declare namespace BeansCuest {
 }
 declare namespace BeansCuest {
     function scene1_2(): fS.SceneReturn;
+}
+declare namespace BeansCuest {
+    function scene2_1(): fS.SceneReturn;
 }
