@@ -66,3 +66,6 @@ declare namespace BeansCuest {
 declare namespace BeansCuest {
     function scene2_1(): fS.SceneReturn;
 }
+declare namespace BeansCuest {
+    function scene3_1(): fS.SceneReturn;
+}
