@@ -6,8 +6,8 @@ declare namespace BeansCuest {
     };
 }
 declare namespace BeansCuest {
-    export type CharacterName = "Bean" | "Stool" | "Lillypad" | "Charm" | "Chant" | "Spook" | "Bandit" | "Oliver";
-    export type EmotionName = "happy" | "worried" | "sad" | "focused" | "proud";
+    export type CharacterName = "Bean" | "Stool" | "Lillypad" | "Charm" | "Chant" | "Spook" | "Bandit" | "Oliver" | "Narrator";
+    export type EmotionName = "happy" | "worried" | "sad" | "focused" | "proud" | "curious" | "charmed" | "scared";
     export type Pose = `Images/Characters/${CharacterName}/${EmotionName}.png`;
     type PoseDefinition = Partial<Record<EmotionName, Pose>>;
     export type CharacterDefinition = {
@@ -22,7 +22,7 @@ declare namespace BeansCuest {
     type Dialog = Record<string, string>;
 }
 declare namespace BeansCuest {
-    type LocationName = "cloud" | "lilypond" | "mansion" | "mansion2" | "meadow" | "meadow2" | "wistfulwoods" | "woods" | "woods2" | "woods3";
+    type LocationName = "cloud" | "lilypond" | "mansion" | "mansion2" | "meadow" | "meadow2" | "wistfulwoods" | "woods" | "woods2" | "woods3" | "black";
     type Location<T extends LocationName> = {
         name: T;
         background: `Images/Backgrounds/${T}.png`;

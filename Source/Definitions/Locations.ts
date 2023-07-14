@@ -1,5 +1,5 @@
 namespace BeansCuest {
-    type LocationName = "cloud" | "lilypond" | "mansion" | "mansion2" | "meadow" | "meadow2" | "wistfulwoods" | "woods" | "woods2" | "woods3";
+    type LocationName = "cloud" | "lilypond" | "mansion" | "mansion2" | "meadow" | "meadow2" | "wistfulwoods" | "woods" | "woods2" | "woods3" | "black";
     type Location<T extends LocationName> = {
         name: T,
         background: `Images/Backgrounds/${T}.png`
@@ -45,6 +45,10 @@ namespace BeansCuest {
         woods3: {
             background: "Images/Backgrounds/woods3.png",
             name: "woods3"
+        },
+        black: {
+            background: "Images/Backgrounds/black.png",
+            name: "black",
         }
     }
 }

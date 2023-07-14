@@ -36,8 +36,17 @@ var BeansCuest;
             pose: {
                 happy: "Images/Characters/Bean/happy.png",
                 sad: "Images/Characters/Bean/sad.png",
-                focused: "Images/Characters/Bean/focused.png"
+                focused: "Images/Characters/Bean/focused.png",
+                curious: "Images/Characters/Bean/curious.png",
+                charmed: "Images/Characters/Bean/charmed.png",
+                proud: "Images/Characters/Bean/proud.png",
+                scared: "Images/Characters/Bean/scared.png"
             }
+        },
+        Narrator: {
+            name: "Narrator",
+            origin: BeansCuest.fS.ORIGIN.BOTTOMCENTER,
+            pose: null
         }
     };
 })(BeansCuest || (BeansCuest = {}));
@@ -83,6 +92,10 @@ var BeansCuest;
         woods3: {
             background: "Images/Backgrounds/woods3.png",
             name: "woods3"
+        },
+        black: {
+            background: "Images/Backgrounds/black.png",
+            name: "black",
         }
     };
 })(BeansCuest || (BeansCuest = {}));
@@ -163,11 +176,9 @@ var BeansCuest;
         switch (dialogueElement) {
             case dialogue.A:
                 await optionA();
-                await optionC();
                 break;
             case dialogue.B:
                 await optionB();
-                await optionC();
                 break;
         }
         BeansCuest.fS.Speech.hide();
@@ -179,11 +190,13 @@ var BeansCuest;
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "sad", BeansCuest.fS.positionPercent(15, 100));
         await BeansCuest.makeTransition("fade_in");
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0000);
+        await optionC();
     }
     async function optionB() {
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
         await BeansCuest.makeTransition("fade_in");
         await BeansCuest.createMultiLineSpeech(BeansCuest.CHARACTERS.Bean, ["T0001", "T0002"], text);
+        await optionC();
     }
     async function optionC() {
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Oliver, "happy", BeansCuest.fS.positionPercent(85, 100));
@@ -202,10 +215,65 @@ var BeansCuest;
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
+    let text = {
+        Oliver: {
+            T0000: "1, 2, 3... 10, 11, 12...",
+            T0001: "Okay, I'm done counting. Bean, where are you? I know you're hiding somewhere, and I'll find you!"
+        },
+        Bean: {
+            T0000: "it's getting rather dark around here... this seems like the purr-fect spot to hide. oliver never ventures beyond the garden. but what is this weird light?",
+            T0001: "wow it looks so beautiful and sparkly! i wonder what it could be… oh looks like a portal!",
+            T0002: "must be magic or something. i wonder how… OAAAHH",
+            T0003: "the light... it's... magical...",
+            T0004: "i'll return later, fully prepared. for now, i'll show oliver who truly excels at hiding.",
+            T0005: "Oh no! My paw... it's stuck! AHHH!"
+        }
+    };
     async function scene1_2() {
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods2);
+        await BeansCuest.makeTransition("pix4");
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, text.Oliver.T0000);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "curious", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in");
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0000);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, text.Oliver.T0001);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "charmed", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0001);
+        let dialogue = {
+            C1: "Investigate",
+            C2: "Ignore"
+        };
+        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
+        switch (dialogueElement) {
+            case dialogue.C1:
+                await optionC1();
+                break;
+            case dialogue.C2:
+                await optionC2();
+                break;
+        }
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
         await BeansCuest.makeTransition("fade_in");
     }
     BeansCuest.scene1_2 = scene1_2;
+    async function optionC1() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "curious", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0002);
+    }
+    async function optionC2() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "charmed", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0003);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "proud", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0004);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "scared", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0005);
+    }
 })(BeansCuest || (BeansCuest = {}));
 //# sourceMappingURL=source.js.map

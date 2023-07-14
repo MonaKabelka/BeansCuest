@@ -35,11 +35,9 @@ namespace BeansCuest {
         switch (dialogueElement) {
             case dialogue.A:
                 await optionA();
-                await optionC();
                 break;
             case dialogue.B:
                 await optionB();
-                await optionC();
                 break;
         }
 
@@ -52,12 +50,14 @@ namespace BeansCuest {
         await showCharacter(CHARACTERS.Bean, "sad", fS.positionPercent(15, 100));
         await makeTransition("fade_in");
         await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0000);
+        await optionC();
     }
 
     async function optionB() {
         await showCharacter(CHARACTERS.Bean, "happy", fS.positionPercent(15, 100));
         await makeTransition("fade_in");
         await createMultiLineSpeech(CHARACTERS.Bean, ["T0001", "T0002"], text);
+        await optionC();
     }
 
     async function optionC() {
