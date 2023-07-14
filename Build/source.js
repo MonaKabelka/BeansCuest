@@ -9,7 +9,8 @@ var BeansCuest;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            { scene: BeansCuest.scene1_1, name: "Scene 1.1" }
+            { scene: BeansCuest.scene1_1, name: "Scene 1.1" },
+            { scene: BeansCuest.scene1_2, name: "Scene 1.2" }
         ];
         let uiElement = document.querySelector("[type=interface]");
         BeansCuest.dataForSave = BeansCuest.fS.Progress.setData(BeansCuest.dataForSave, uiElement);
@@ -130,23 +131,23 @@ var BeansCuest;
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
+    let text = {
+        Oliver: {
+            T0000: "Hey Bean, finally!",
+            T0001: "I was afraid something might have happened to you. I thought you weren't going to show up.",
+            T0002: "No worries! I'm just happy you're here now. Are you ready to play hide and seek?",
+            T0003: "Yeah, I do. But I'm getting better at finding you every time so don't underestimate me! Prepare to be found!",
+            T0004: "We'll see about that! Alright, I'll start counting while you go and conceal yourself. Ready... set... go!"
+        },
+        Bean: {
+            T0000: "Sorry Oliver, I'm a bit late today. Unfurtunately I got caught up in some stuff and forgot the time.",
+            T0001: "I apologize for being late, but I had the most purr-fect dream last night. I was engaged in an epic yarn chase with the most exquisite yarn balls.",
+            T0002: "It was so captivating that when I woke up, I realized I couldn't resist the temptation and ended up yarning my way through the morning.",
+            T0003: "Absolutely! I've been improving my hiding skills, you know?",
+            T0004: "Ha! Challenge accepted. This time, I'll find the most extraordinary hiding spot. You won't stand a chance!",
+        }
+    };
     async function scene1_1() {
-        let text = {
-            Oliver: {
-                T0000: "Hey Bean, finally!",
-                T0001: "I was afraid something might have happened to you. I thought you weren't going to show up.",
-                T0002: "No worries! I'm just happy you're here now. Are you ready to play hide and seek?",
-                T0003: "Yeah, I do. But I'm getting better at finding you every time so don't underestimate me! Prepare to be found!",
-                T0004: "We'll see about that! Alright, I'll start counting while you go and conceal yourself. Ready... set... go!"
-            },
-            Bean: {
-                T0000: "Sorry Oliver, I'm a bit late today. Unfurtunately I got caught up in some stuff and forgot the time.",
-                T0001: "I apologize for being late, but I had the most purr-fect dream last night. I was engaged in an epic yarn chase with the most exquisite yarn balls.",
-                T0002: "It was so captivating that when I woke up, I realized I couldn't resist the temptation and ended up yarning my way through the morning.",
-                T0003: "Absolutely! I've been improving my hiding skills, you know?",
-                T0004: "Ha! Challenge accepted. This time, I'll find the most extraordinary hiding spot. You won't stand a chance!",
-            }
-        };
         BeansCuest.fS.Speech.hide();
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods);
         await BeansCuest.makeTransition("fade_in");
@@ -161,16 +162,30 @@ var BeansCuest;
         let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
         switch (dialogueElement) {
             case dialogue.A:
-                await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "sad", BeansCuest.fS.positionPercent(15, 100));
-                await BeansCuest.makeTransition("fade_in");
-                await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0000);
+                await optionA();
+                await optionC();
                 break;
             case dialogue.B:
-                await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
-                await BeansCuest.makeTransition("fade_in");
-                await BeansCuest.createMultiLineSpeech(BeansCuest.CHARACTERS.Bean, ["T0001", "T0002"], text);
+                await optionB();
+                await optionC();
                 break;
         }
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
+        await BeansCuest.makeTransition("fade_in");
+    }
+    BeansCuest.scene1_1 = scene1_1;
+    async function optionA() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "sad", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in");
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0000);
+    }
+    async function optionB() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in");
+        await BeansCuest.createMultiLineSpeech(BeansCuest.CHARACTERS.Bean, ["T0001", "T0002"], text);
+    }
+    async function optionC() {
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Oliver, "happy", BeansCuest.fS.positionPercent(85, 100));
         await BeansCuest.makeTransition("fade_in", 0.1);
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, text.Oliver.T0002);
@@ -184,6 +199,13 @@ var BeansCuest;
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Oliver, "proud", BeansCuest.fS.positionPercent(85, 100));
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, text.Oliver.T0004);
     }
-    BeansCuest.scene1_1 = scene1_1;
+})(BeansCuest || (BeansCuest = {}));
+var BeansCuest;
+(function (BeansCuest) {
+    async function scene1_2() {
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods2);
+        await BeansCuest.makeTransition("fade_in");
+    }
+    BeansCuest.scene1_2 = scene1_2;
 })(BeansCuest || (BeansCuest = {}));
 //# sourceMappingURL=source.js.map
