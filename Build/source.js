@@ -9,8 +9,8 @@ var BeansCuest;
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            // { scene: scene1_1, name: "Scene 1.1" },
-            // { scene: scene1_2, name: "Scene 1.2" },
+            { scene: BeansCuest.scene1_1, name: "Scene 1.1" },
+            { scene: BeansCuest.scene1_2, name: "Scene 1.2" },
             { scene: BeansCuest.scene2_1, name: "Scene 2.1" }
         ];
         let uiElement = document.querySelector("[type=interface]");
