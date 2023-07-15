@@ -645,109 +645,361 @@ var BeansCuest;
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
-    let text = {
+    let script = {
         Bean: {
-            T0000: "Are you sure this is the best place to start looking for the first stone?",
-            T0001: "I can barely make out features, but it looks something like a... frog?",
-            T0002: "HELLOOOO??",
-            T0003: "HELLO!? CAN YOU HELP US? WE'RE SEARCHING FOR SOMETHING AND IT'S URGENT!",
-            T0004: "Shhh...",
-            T0005: "Hello there. It's okay, we won't hurt you. We just need some information about something lost. Oh, by the way - I'm Bean.",
-            T0006: "Nice to meet you, Lillypad! I'm searching for a lost relict, and I think you might be able to help. By any chance - Have you noticed anything strange lately?",
-            T0007: "That's catastic!",
-            T0008: "Well, not entirely catastic... I have no idea how to get there. I hate water!",
-            T0009: "Nothing is impawssible, Stool. We will keep looking and keep trying until we find a way!",
-            T0010: "What was it you wanted to say?",
-            T0011: "Don't be shy! I'm listening!",
-            T0012: "Fur-real?? That's great!",
-            T0013: "No, of course not! Why would you think so?",
-            T0014: "That's mean. I wish I could swim too. I've been afraid of water all my life. It's really distressing. You have a su-paw-power!",
-            T0015: "That would be amazing!",
-            T0016: "Wow, you're amazing, Lillypad! Thank you so much. I really appreciate your help. I'm a little closer to home now!",
-            T0017: "Thanks for the kind offer - but I wouldn't feel good knowing you're putting yourself at risk for us. I think I'll search for a solution myself.",
-            T0018: "I'll look around there. Thanks very much!",
-            T0019: "Thank you Lilypad! You helped us a lot!",
-            T0020: "I can't see anything, Stool. We need to find a way to get the relic.",
-            T0021: "She's probably just diving for something. Let her be.",
-            T0022: "Maybe we can search for something to help us.",
-            T0023: "Have you been sitting in the pond for a long time? - If yes, surely you could help us.",
-            T0024: "It's about a lost stone that I need to get back home. I came from another world and just ended up here by accident...",
-            T0025: "... Because at home I played hide and seek with my best friend Oliver! But now I'm traveling with Sto-",
-            T0026: "Oh? What happened?",
-            T0027: "Oh no! My bad.",
-            T0028: "Let's search the area for the stones.",
-            T0029: "Stool you are great! That could be the stone! We just have to find something to reach it...",
-            T0030: "Stool. Hear me out. I hold you by your feet.",
-            T0031: "You dunk your head under the waterlily leaves and search for something to help us reach the stone.",
-            T0032: "Well, but it was worth a try. Let's look elsewhere.",
-            T0033: "Let's check in between these mossy stones.",
-            T0034: "HAHAHA Stool! You have to be more careful!",
-            T0035: "Did you hurt yourself?",
-            T0036: "Hihi - paw promise! Now let's check somewhere else.",
-            T0037: "Stool, see the reeds? I think I can see something peeking through...",
-            T0038: "Uhaaah - but - arh - I'm too big -uhh - to fit between the - arhhhg -... Stool? Can you just take a look?",
-            T0039: "Pweaaaase?",
-            T0040: "Everything's alright?",
-            T0041: "A Rod! I think this will work! Let's use this rod to try and hook the stone.",
-            T0042: "Almost... there... got it!",
-            T0043: "We've already found one! Finding the other two will be a piece of cake.",
-            T0044: "We'll find the stones. It wasn't THAT difficult. Let's keep looking. Soo - where are we heading next? What do you suggest?",
-            T0045: "Let's go!"
+            defaultPosition: BeansCuest.mainPosition,
+            texts: {
+                T0000: {
+                    text: "Are you sure this is the best place to start looking for the first stone?",
+                    emotion: "questioning",
+                },
+                T0001: {
+                    text: "I can barely make out features, but it looks something like a... frog?",
+                    emotion: "curious",
+                },
+                T0002: {
+                    text: "HELLOOOO??",
+                    emotion: "happy",
+                },
+                T0003: {
+                    text: "HELLO!? CAN YOU HELP US? WE'RE SEARCHING FOR SOMETHING AND IT'S URGENT!",
+                    emotion: "happy",
+                },
+                T0004: {
+                    text: "Shhh...",
+                    emotion: "curious",
+                },
+                T0005: {
+                    text: "Hello there. It's okay, we won't hurt you. We just need some information about something lost. Oh, by the way - I'm Bean.",
+                    emotion: "smiling",
+                },
+                T0006: {
+                    text: "Nice to meet you, Lillypad! I'm searching for a lost relict, and I think you might be able to help. By any chance - Have you noticed anything strange lately?",
+                    emotion: "happy",
+                },
+                T0007: {
+                    text: "That's catastic!",
+                    emotion: "happy",
+                },
+                T0008: {
+                    text: "Well, not entirely catastic... I have no idea how to get there. I hate water!",
+                    emotion: "resigned",
+                },
+                T0009: {
+                    text: "Nothing is impawssible, Stool. We will keep looking and keep trying until we find a way!",
+                    emotion: "determined",
+                },
+                T0010: {
+                    text: "What was it you wanted to say?",
+                    emotion: "questioning",
+                },
+                T0011: {
+                    text: "Don't be shy! I'm listening!",
+                    emotion: "smiling",
+                },
+                T0012: {
+                    text: "Fur-real?? That's great!",
+                    emotion: "surprised",
+                },
+                T0013: {
+                    text: "No, of course not! Why would you think so?",
+                    emotion: "curious",
+                },
+                T0014: {
+                    text: "That's mean. I wish I could swim too. I've been afraid of water all my life. It's really distressing. You have a su-paw-power!",
+                    emotion: "smiling",
+                },
+                T0015: {
+                    text: "That would be amazing!",
+                    emotion: "happy",
+                },
+                T0016: {
+                    text: "Wow, you're amazing, Lillypad! Thank you so much. I really appreciate your help. I'm a little closer to home now!",
+                    emotion: "happy",
+                },
+                T0017: {
+                    text: "Thanks for the kind offer - but I wouldn't feel good knowing you're putting yourself at risk for us. I think I'll search for a solution myself.",
+                    emotion: "smiling",
+                },
+                T0018: {
+                    text: "I'll look around there. Thanks very much!",
+                    emotion: "smiling",
+                },
+                T0019: {
+                    text: "Thank you Lilypad! You helped us a lot!",
+                    emotion: "smiling",
+                },
+                T0020: {
+                    text: "I can't see anything, Stool. We need to find a way to get the relic.",
+                    emotion: "focused",
+                },
+                T0021: {
+                    text: "She's probably just diving for something. Let her be.",
+                    emotion: "focused",
+                },
+                T0022: {
+                    text: "Maybe we can search for something to help us.",
+                    emotion: "smiling",
+                },
+                T0023: {
+                    text: "Have you been sitting in the pond for a long time? - If yes, surely you could help us.",
+                    emotion: "smiling",
+                },
+                T0024: {
+                    text: "It's about a lost stone that I need to get back home. I came from another world and just ended up here by accident...",
+                    emotion: "smiling",
+                },
+                T0025: {
+                    text: "... Because at home I played hide and seek with my best friend Oliver! But now I'm traveling with Sto-",
+                    emotion: "focused",
+                },
+                T0026: {
+                    text: "Oh? What happened?",
+                    emotion: "confused",
+                },
+                T0027: {
+                    text: "Oh no! My bad.",
+                    emotion: "resigned",
+                },
+                T0028: {
+                    text: "Let's search the area for the stones.",
+                    emotion: "thinking",
+                },
+                T0029: {
+                    text: "Stool you are great! That could be the stone! We just have to find something to reach it...",
+                    emotion: "happy",
+                },
+                T0030: {
+                    text: "Stool. Hear me out. I hold you by your feet.",
+                    emotion: "serious",
+                },
+                T0031: {
+                    text: "You dunk your head under the waterlily leaves and search for something to help us reach the stone.",
+                    emotion: "serious",
+                },
+                T0032: {
+                    text: "Well, but it was worth a try. Let's look elsewhere.",
+                    emotion: "smiling",
+                },
+                T0033: {
+                    text: "Let's check in between these mossy stones.",
+                    emotion: "thinking",
+                },
+                T0034: {
+                    text: "HAHAHA Stool! You have to be more careful!",
+                    emotion: "laughing",
+                },
+                T0035: {
+                    text: "Did you hurt yourself?",
+                    emotion: "smiling",
+                },
+                T0036: {
+                    text: "Hihi - paw promise! Now let's check somewhere else.",
+                    emotion: "happy",
+                },
+                T0037: {
+                    text: "Stool, see the reeds? I think I can see something peeking through...",
+                    emotion: "focused",
+                },
+                T0038: {
+                    text: "Uhaaah - but - arh - I'm too big -uhh - to fit between the - arhhhg -... Stool? Can you just take a look?",
+                    emotion: "thinking",
+                },
+                T0039: {
+                    text: "Pweaaaase?",
+                    emotion: "charmed",
+                },
+                T0040: {
+                    text: "Everything's alright?",
+                    emotion: "curious",
+                },
+                T0041: {
+                    text: "A Rod! I think this will work! Let's use this rod to try and hook the stone.",
+                    emotion: "happy",
+                },
+                T0042: {
+                    text: "Almost... there... got it!",
+                    emotion: "focused",
+                },
+                T0043: {
+                    text: "We've already found one! Finding the other two will be a piece of cake.",
+                    emotion: "smiling",
+                },
+                T0044: {
+                    text: "We'll find the stones. It wasn't THAT difficult. Let's keep looking. Soo - where are we heading next? What do you suggest?",
+                    emotion: "smiling",
+                },
+                T0045: {
+                    text: "Let's go!",
+                    emotion: "happy",
+                },
+            }
         },
         Stool: {
-            T0000: "Well, I don't know why but something draws me here. Oh Bean - can you see that? Right there, in the pond.",
-            T0001: "SHH - Be careful! You don't know wha-",
-            T0002: "Be careful! You don't know wha-",
-            T0003: "See?? Maybe this wasn't such a good idea after all.",
-            T0004: "Oh no, what happened to Lillypad?",
-            T0005: "...Bean...?",
-            T0006: "I think… you might have overwhelmed it...",
-            T0007: "Alright - but let's search together. This pond is a bit fishy...",
-            T0008: "By the way - do you see this glowy thing at the bottom of the pond?",
-            T0009: "I don't like where this is going.",
-            T0010: "Absolutely no way.",
-            T0011: "*Gurgling* I CRN'T REE A THRING! *Splash*",
-            T0012: "It's pitch black - I literally can't see anything.",
-            T0013: "BuT iT wAs WoRtH a TrY.",
-            T0014: "But they are so slippy and slimyYYAHHHHHHHH",
-            T0015: "I don't think so. But don't ever make me do that again!",
-            T0016: "... You know I'm scared, right?",
-            T0017: "Okay I'll do it.",
-            T0018: "Yeah, I think I found something.",
-            T0019: "You're doing great, Bean! Keep going!",
-            T0020: "Yes! We did it!",
-            T0021: "Okay now we have one stone to repair the portal. But we'll NEVER find the other two! They could be anywhere!",
-            T0022: "Why are you asking ME??? I don't know! - But...",
-            T0023: "...Something tells me we should search by the Mystique Meadows down the hill. I just can't tell why..."
+            defaultPosition: BeansCuest.secondaryPosition,
+            texts: {
+                T0000: {
+                    text: "Well, I don't know why but something draws me here. Oh Bean - can you see that? Right there, in the pond.",
+                    emotion: "anxious"
+                },
+                T0001: {
+                    text: "SHH - Be careful! You don't know wha-",
+                    emotion: "anxious"
+                },
+                T0002: {
+                    text: "Be careful! You don't know wha-",
+                    emotion: "anxious"
+                },
+                T0003: {
+                    text: "See?? Maybe this wasn't such a good idea after all.",
+                    emotion: "disappointed"
+                },
+                T0004: {
+                    text: "Oh no, what happened to Lillypad?",
+                    emotion: "worried"
+                },
+                T0005: {
+                    text: "...Bean...?",
+                    emotion: "worried"
+                },
+                T0006: {
+                    text: "I think… you might have overwhelmed it...",
+                    emotion: "worried"
+                },
+                T0007: {
+                    text: "Alright - but let's search together. This pond is a bit fishy...",
+                    emotion: "anxious"
+                },
+                T0008: {
+                    text: "By the way - do you see this glowy thing at the bottom of the pond?",
+                    emotion: "questioning"
+                },
+                T0009: {
+                    text: "I don't like where this is going.",
+                    emotion: "anxious"
+                },
+                T0010: {
+                    text: "Absolutely no way.",
+                    emotion: "serious"
+                },
+                T0011: {
+                    text: "*Gurgling* I CRN'T REE A THRING! *Splash*",
+                },
+                T0012: {
+                    text: "It's pitch black - I literally can't see anything.",
+                    emotion: "serious"
+                },
+                T0013: {
+                    text: "BuT iT wAs WoRtH a TrY.",
+                    emotion: "mocking"
+                },
+                T0014: {
+                    text: "But they are so slippy and slimyYYAHHHHHHHH",
+                    emotion: "disgusted"
+                },
+                T0015: {
+                    text: "I don't think so. But don't ever make me do that again!",
+                    emotion: "crying"
+                },
+                T0016: {
+                    text: "... You know I'm scared, right?",
+                    emotion: "anxious"
+                },
+                T0017: {
+                    text: "Okay I'll do it.",
+                    emotion: "crying"
+                },
+                T0018: {
+                    text: "Yeah, I think I found something.",
+                },
+                T0019: {
+                    text: "You're doing great, Bean! Keep going!",
+                    emotion: "cheering"
+                },
+                T0020: {
+                    text: "Yes! We did it!",
+                    emotion: "happy"
+                },
+                T0021: {
+                    text: "Okay now we have one stone to repair the portal. But we'll NEVER find the other two! They could be anywhere!",
+                    emotion: "hysterical"
+                },
+                T0022: {
+                    text: "Why are you asking ME??? I don't know! - But...",
+                    emotion: "anxious"
+                },
+                T0023: {
+                    text: "...Something tells me we should search by the Mystique Meadows down the hill. I just can't tell why...",
+                    emotion: "explanatory"
+                },
+            }
         },
         Lillypad: {
-            T0000: "I-I'm Lillypad.",
-            T0001: "I-I don't know much, but I heard a big splash. And I-I think something fell into the pond and now it might be under the lily pads.",
-            T0002: "A-Actually...",
-            T0003: "N...Nothing. Nothing important.",
-            T0004: "I-... I can swim. And dive...",
-            T0005: "S-So you're not going to laugh at me?",
-            T0006: "Oh... I-I was laughed at by everyone the whole time. That's why I ran away and now I live alone in this pond.",
-            T0007: "Thank you. I-I may could help you dive down and search for the relict if you'd like.",
-            T0008: "Is it this gem you've been looking for?",
-            T0009: "It was nothing, really. I- I'm just happy to help. Good luck!",
-            T0010: "Too bad. M- Maybe I can help you in some other way.",
-            T0011: "I saw something in the reeds recently… M- Maybe this can help you.",
-            T0012: "I-..."
+            defaultPosition: BeansCuest.secondaryPosition,
+            texts: {
+                T0000: {
+                    text: "I-I'm Lillypad.",
+                    emotion: "hiding"
+                },
+                T0001: {
+                    text: "I-I don't know much, but I heard a big splash. And I-I think something fell into the pond and now it might be under the lily pads.",
+                    emotion: "shy"
+                },
+                T0002: {
+                    text: "A-Actually...",
+                    emotion: "shy"
+                },
+                T0003: {
+                    text: "N...Nothing. Nothing important.",
+                    emotion: "shy"
+                },
+                T0004: {
+                    text: "I-... I can swim. And dive...",
+                    emotion: "blushing"
+                },
+                T0005: {
+                    text: "S-So you're not going to laugh at me?",
+                    emotion: "blushing"
+                },
+                T0006: {
+                    text: "Oh... I-I was laughed at by everyone the whole time. That's why I ran away and now I live alone in this pond.",
+                    emotion: "sad"
+                },
+                T0007: {
+                    text: "Thank you. I-I may could help you dive down and search for the relict if you'd like.",
+                    emotion: "blushing"
+                },
+                T0008: {
+                    text: "Is it this gem you've been looking for?",
+                    emotion: "smiling"
+                },
+                T0009: {
+                    text: "It was nothing, really. I- I'm just happy to help. Good luck!",
+                    emotion: "blushing"
+                },
+                T0010: {
+                    text: "Too bad. M- Maybe I can help you in some other way.",
+                    emotion: "sad"
+                },
+                T0011: {
+                    text: "I saw something in the reeds recently… M- Maybe this can help you.",
+                    emotion: "shy"
+                },
+                T0012: {
+                    text: "I-...",
+                    emotion: "sad"
+                },
+            }
         },
     };
     async function scene3_1() {
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.lilypond);
         await BeansCuest.makeTransition("pix4");
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "questioning", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0000);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0000);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "curious", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0001);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0000],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0000],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0001],
+        ], script);
         let dialog = {
             A: {
                 label: "Draw attention",
@@ -762,24 +1014,18 @@ var BeansCuest;
     }
     BeansCuest.scene3_1 = scene3_1;
     async function optionA() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0002);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0001);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0003);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0002],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0001],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0003],
+        ], script);
         await optionC();
     }
     async function optionB() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0002);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "curious", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0004);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0002],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0004],
+        ], script);
         await optionC();
     }
     async function optionC() {
@@ -800,35 +1046,21 @@ var BeansCuest;
         await BeansCuest.createDialog(dialog);
     }
     async function optionC1() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0005);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "hiding", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0000);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0006);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "shy", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0001);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0007);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "resigned", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0008);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "shy", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0002);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0005],
+            [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0000],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0006],
+            [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0001],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0007],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0008],
+            [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0002],
+        ], script);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Lillypad);
         await BeansCuest.makeTransition("fade_in", 0.5);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "disappointed", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.5);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0003);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "determined", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0009);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0003],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0009],
+        ], script);
         let dialog = {
             C1_1: {
                 label: "Ask Lillypad",
@@ -842,65 +1074,44 @@ var BeansCuest;
         await BeansCuest.createDialog(dialog);
     }
     async function optionC2() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createMultiLineSpeech(BeansCuest.CHARACTERS.Bean, ["T0023", "T0024"], text);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0023],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0024],
+        ], script);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Lillypad);
         await BeansCuest.makeTransition("fade_in", 0.5);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "worried", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.5);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0005);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0005],
+        ], script);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
         await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "scared", BeansCuest.fS.positionPercent(85, 100));
         await BeansCuest.makeTransition("fade_in", 0.5);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "focused", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0025);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0025],
+        ], script);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Lillypad);
         await BeansCuest.makeTransition("fade_in", 0.25);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "confused", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0026);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "worried", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0006);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "resigned", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0027);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0026],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0006],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0027],
+        ], script);
         await optionD();
     }
     async function optionC1_1() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "questioning", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0010);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "shy", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0003);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0011);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "blushing", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0004);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "surprised", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0012);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "blushing", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0005);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "curious", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0013);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "sad", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0006);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0014);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "blushing", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0007);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0010],
+            [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0003],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0011],
+            [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0004],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0012],
+            [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0005],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0013],
+            [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0006],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0014],
+            [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0007],
+        ], script);
         let dialog = {
             C1_1_1: {
                 label: "Accept help",
@@ -914,73 +1125,49 @@ var BeansCuest;
         await BeansCuest.createDialog(dialog);
     }
     async function optionC1_2() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "sad", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0012);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0019);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "focused", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0020);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0012],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0019],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0020],
+        ], script);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Lillypad);
         await BeansCuest.makeTransition("fade_in", 0.5);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "worried", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.5);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0004);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "focused", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0021);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0022);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0004],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0021],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0022],
+        ], script);
         await optionD();
     }
     async function optionC1_1_1() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0015);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "smiling", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0008);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0016);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "smiling", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0009);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0015],
+            [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0008],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0016],
+            [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0009],
+        ], script);
         await optionE();
     }
     async function optionC1_1_2() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0017);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "sad", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0010);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "shy", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0011);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0018);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0017],
+            [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0010],
+            [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0011],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0018],
+        ], script);
         await optionD();
     }
     async function optionD() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "thinking", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0028);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0028],
+        ], script);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Lillypad);
         await BeansCuest.makeTransition("fade_in", 0.25);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.25);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0007);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "questioning", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0008);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0029);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0007],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0008],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0029],
+        ], script);
         let dialog = {
             D1: {
                 label: "Check waterlilies",
@@ -998,117 +1185,76 @@ var BeansCuest;
         await BeansCuest.createDialog(dialog);
     }
     async function optionD1() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "serious", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0030);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0009);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "serious", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0031);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "serious", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0010);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0030],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0009],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0031],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0010],
+        ], script);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Bean);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
         await BeansCuest.makeTransition("fade_in");
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0011);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in");
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0012);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0011.text);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0012],
+        ], script);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Bean);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.lilypond);
         await BeansCuest.makeTransition("pix4");
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.5);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0032);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "mocking", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0013);
+        const [x, y] = BeansCuest.secondaryPosition;
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(x, y));
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0032],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0013],
+        ], script);
         await optionD();
     }
     async function optionD2() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "thinking", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0033);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "disgusted", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0014);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "laughing", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0034);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0035);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "crying", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0015);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0036);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0033],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0014],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0034],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0035],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0015],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0036],
+        ], script);
         await optionD();
     }
     async function optionD3() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "focused", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0037);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "thinking", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0038);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0016);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "begging", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0039);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "crying", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0017);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0037],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0038],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0016],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0039],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0017],
+        ], script);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
         await BeansCuest.makeTransition("fade_in");
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "curious", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0040);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0018);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0040],
+        ], script);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0018.text);
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "happy", BeansCuest.fS.positionPercent(85, 100));
         await BeansCuest.makeTransition("fade_in");
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0041);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "cheering", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0019);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "focused", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0042);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0041],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0019],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0042],
+        ], script);
         await optionE();
     }
     async function optionE() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "happy", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0020);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0043);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "hysterical", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0021);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0044);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0022);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "explanatory", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0023);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0045);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0020],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0043],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0021],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0044],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0022],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0023],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0045],
+        ], script);
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
     }
