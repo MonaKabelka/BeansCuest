@@ -9,7 +9,7 @@ declare namespace BeansCuest {
 }
 declare namespace BeansCuest {
     export type CharacterName = "Bean" | "Stool" | "Lillypad" | "Charm" | "Chant" | "Spook" | "Bandit" | "Oliver" | "Narrator" | "Unknown";
-    export type EmotionName = "happy" | "worried" | "sad" | "focused" | "proud" | "curious" | "charmed" | "scared" | "confused" | "explanatory" | "questioning" | "hysterical" | "guilty" | "unsure" | "crying" | "resigned" | "anxious" | "hiding" | "smiling" | "shy" | "disappointed" | "determined" | "blushing" | "surprised" | "thinking" | "serious" | "mocking" | "disgusted" | "laughing" | "begging" | "cheering";
+    export type EmotionName = "happy" | "worried" | "sad" | "focused" | "proud" | "curious" | "charmed" | "scared" | "confused" | "explanatory" | "questioning" | "hysterical" | "guilty" | "unsure" | "crying" | "resigned" | "anxious" | "hiding" | "smiling" | "shy" | "disappointed" | "determined" | "blushing" | "surprised" | "thinking" | "serious" | "mocking" | "disgusted" | "laughing" | "begging" | "cheering" | "impressed" | "shivers" | "concerned" | "annoyed" | "angry" | "snapped" | "whispering" | "muttering" | "grumpy" | "sleepy";
     export type Pose = `Images/Characters/${CharacterName}/${EmotionName}.png`;
     type PoseDefinition = Partial<Record<EmotionName, Pose>>;
     export type CharacterDefinition = {
@@ -53,7 +53,7 @@ declare namespace BeansCuest {
         texts: Partial<Record<TextName, ScriptText>>;
     };
     export type ScriptDefinition = Partial<Record<CharacterName, SingleCharacterScript>>;
-    export function letCharacterSayText(character: CharacterDefinition, emotion: EmotionName, text: string, position: f.Vector2): Promise<void>;
+    export function letCharacterSayText(character: CharacterDefinition, scriptText: ScriptText, position: [number, number]): Promise<void>;
     export function letCharactersHaveDialogue(texts: [CharacterDefinition, ScriptText][], script: ScriptDefinition): Promise<void>;
     export {};
 }

@@ -15,21 +15,20 @@ namespace BeansCuest {
     };
     export type ScriptDefinition = Partial<Record<CharacterName, SingleCharacterScript>>;
 
-    export async function letCharacterSayText(character: CharacterDefinition, emotion: EmotionName, text: string, position: f.Vector2) {
-        await showCharacter(character, emotion, position);
+    export async function letCharacterSayText(character: CharacterDefinition, scriptText: ScriptText, position: [number, number]) {
+        const [x, y] = position;
+        const positionVector = fS.positionPercent(x, y);
+        await showCharacter(character, scriptText.emotion, positionVector);
         await makeTransition("fade_in", 0.1);
-        await createSingleLineSpeech(character, text);
+        await createSingleLineSpeech(character, scriptText.text);
     }
 
     export async function letCharactersHaveDialogue(texts: [CharacterDefinition, ScriptText][], script: ScriptDefinition) {
         for (let [character, scriptText] of texts) {
-            const [x, y] = script[character.name].defaultPosition;
-            const position = fS.positionPercent(x, y);
             await letCharacterSayText(
                 character, 
-                scriptText.emotion, 
-                scriptText.text,
-                position
+                scriptText,
+                script[character.name].defaultPosition
             );
         }
     }

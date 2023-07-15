@@ -31,7 +31,17 @@ namespace BeansCuest {
     "disgusted" |
     "laughing" |
     "begging" |
-    "cheering";
+    "cheering" |
+    "impressed" |
+    "shivers" |
+    "concerned" |
+    "annoyed" |
+    "angry" |
+    "snapped" |
+    "whispering" |
+    "muttering" |
+    "grumpy" |
+    "sleepy";
 
     export type Pose = `Images/Characters/${CharacterName}/${EmotionName}.png`;
     type PoseDefinition = Partial<Record<EmotionName, Pose>>;
@@ -73,7 +83,9 @@ namespace BeansCuest {
                 thinking: "Images/Characters/Bean/thinking.png",
                 serious: "Images/Characters/Bean/serious.png",
                 laughing: "Images/Characters/Bean/laughing.png",
-                begging: "Images/Characters/Bean/begging.png"
+                begging: "Images/Characters/Bean/begging.png",
+                impressed: "Images/Characters/Bean/impressed.png",
+                whispering: "Images/Characters/Bean/whispering.png"
             }
         },
         Stool: {
@@ -92,7 +104,12 @@ namespace BeansCuest {
                 serious: "Images/Characters/Stool/serious.png",
                 mocking: "Images/Characters/Stool/mocking.png",
                 disgusted: "Images/Characters/Stool/disgusted.png",
-                cheering: "Images/Characters/Stool/cheering.png"
+                cheering: "Images/Characters/Stool/cheering.png",
+                shivers: "Images/Characters/Stool/shivers.png",
+                concerned: "Images/Characters/Stool/concerned.png",
+                annoyed: "Images/Characters/Stool/annoyed.png",
+                impressed: "Images/Characters/Stool/impressed.png",
+                whispering: "Images/Characters/Stool/whispering.png"
             }
         },
         Narrator: {
@@ -115,6 +132,33 @@ namespace BeansCuest {
                 sad: "Images/Characters/Lillypad/sad.png",
                 smiling: "Images/Characters/Lillypad/smiling.png",
                 scared: "Images/Characters/Lillypad/scared.png"
+            }
+        },
+        Chant: {
+            name: "Chant",
+            origin: fS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                angry: "Images/Characters/Chant/angry.png",
+                snapped: "Images/Characters/Chant/snapped.png",
+                happy: "Images/Characters/Chant/happy.png"
+            }
+        },
+        Charm: {
+            name: "Charm",
+            origin: fS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                angry: "Images/Characters/Charm/angry.png",
+                snapped: "Images/Characters/Charm/snapped.png",
+                confused: "Images/Characters/Charm/confused.png"
+            }
+        },
+        Bandit: {
+            name: "Bandit",
+            origin: fS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                muttering: "Images/Characters/Bandit/muttering.png",
+                grumpy: "Images/Characters/Bandit/grumpy.png",
+                sleepy: "Images/Characters/Bandit/sleepy.png"
             }
         }
     }
