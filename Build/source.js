@@ -408,67 +408,157 @@ var BeansCuest;
 var BeansCuest;
 (function (BeansCuest) {
     let askedBothOptions = [false, false];
-    let text = {
+    let script = {
         Unknown: {
-            T0000: "Hellooo? Are you okay? U don't look okay! Are you dead? Have I witnessed a decease??? Oh that's a CAT-ASTROPHE!",
-            T0001: "OH you're alive! I'm Stool. Are you alright? I heard a loud noise and then you were just… here. I was SO scared."
+            defaultPosition: BeansCuest.secondaryPosition,
+            texts: {
+                T0000: {
+                    text: "Hellooo? Are you okay? U don't look okay! Are you dead? Have I witnessed a decease??? Oh that's a CAT-ASTROPHE!"
+                },
+                T0001: {
+                    text: "OH you're alive! I'm Stool. Are you alright? I heard a loud noise and then you were just… here. I was SO scared."
+                }
+            }
         },
         Bean: {
-            T0000: "...urgh... Oliver...?",
-            T0001: "Where am I? I was playing hide and seek with Oliver, and then everything is just a blur. I hope he's alright!",
-            T0002: "Wha...?",
-            T0003: "To get back home I have to find... stones?",
-            T0004: "Enchantica? I'm not in the garden? With Oliver? Am I dreaming?",
-            T0005: "How is that even pawssible? How are YOU pawssible?",
-            T0006: "No that's not it. Don't get me wrong but you're a talking mushroom. This is enchanted!",
-            T0007: "... Um - nevermind",
-            T0008: "Can you tell me the best place to start looking for the stones? I want to go home. I hope Oliver is fine...",
-            T0009: "It will definitely come in handy if you accompany me! Also, I'm looking forward to some company.",
-            T0010: "I don't know. I think it would be safer for you to stay here.",
-            T0011: "Sigh. Okay you can come with me."
+            defaultPosition: BeansCuest.mainPosition,
+            texts: {
+                T0000: {
+                    text: "...urgh... Oliver...?",
+                    emotion: "confused"
+                },
+                T0001: {
+                    text: "Where am I? I was playing hide and seek with Oliver, and then everything is just a blur. I hope he's alright!",
+                    emotion: "confused"
+                },
+                T0002: {
+                    text: "Wha...?",
+                    emotion: "questioning"
+                },
+                T0003: {
+                    text: "To get back home I have to find... stones?",
+                    emotion: "confused"
+                },
+                T0004: {
+                    text: "Enchantica? I'm not in the garden? With Oliver? Am I dreaming?",
+                    emotion: "questioning"
+                },
+                T0005: {
+                    text: "How is that even pawssible? How are YOU pawssible?",
+                    emotion: "confused"
+                },
+                T0006: {
+                    text: "No that's not it. Don't get me wrong but you're a talking mushroom. This is enchanted!",
+                    emotion: "guilty"
+                },
+                T0007: {
+                    text: "... Um - nevermind",
+                    emotion: "confused"
+                },
+                T0008: {
+                    text: "Can you tell me the best place to start looking for the stones? I want to go home. I hope Oliver is fine...",
+                    emotion: "questioning"
+                },
+                T0009: {
+                    text: "It will definitely come in handy if you accompany me! Also, I'm looking forward to some company.",
+                    emotion: "happy"
+                },
+                T0010: {
+                    text: "I don't know. I think it would be safer for you to stay here.",
+                    emotion: "unsure"
+                },
+                T0011: {
+                    text: "Sigh. Okay you can come with me.",
+                    emotion: "resigned"
+                },
+            }
         },
         Stool: {
-            T0000: "I don't know what happened either. I usually just sit here and watch the portal...",
-            T0001: "You know, in Enchantica we sometimes get visitors from other worlds! But suddenly BOOM and I've never seen something strange like you.",
-            T0002: "You look funny!",
-            T0003: "JUST NOW there was this loud noise! And all the three stones got lost! You know? The stones for the portal.",
-            T0004: "If we won't fix it fast enough the portal might implode! And the could be everywhere in Enchantica!",
-            T0005: "You're quick-witted! The stones to power the portal are the moonstone, the sunstone and the starstone. Without the stones we can never use the portal again!",
-            T0006: "But it's im-paw-sible to find them",
-            T0007: "Oliver?",
-            T0008: "We're in Enchantica - to be exact in the Wistful Woods. I lived here for like - …forever. I take care of the portal and the stones.",
-            T0009: "Me? I knew it! I shouldn't have pushed you like that, I'm SO sorry!",
-            T0010: "What's a mushroom?",
-            T0011: "Hmm. I'm not sure, but I have a dare hunch. Maybe you should start at the Lillypond next to the Wistful Woods.",
-            T0012: "BUT WAIT - you can't leave me! What if something bad happens again? Will you take me with you? Pleeease?",
-            T0013: "*Shivers* Didn't you hear that? There was a noise! Back there!",
-            T0014: "Pawsome! Let's go!"
+            defaultPosition: BeansCuest.secondaryPosition,
+            texts: {
+                T0000: {
+                    text: "I don't know what happened either. I usually just sit here and watch the portal...",
+                    emotion: "explanatory",
+                },
+                T0001: {
+                    text: "You know, in Enchantica we sometimes get visitors from other worlds! But suddenly BOOM and I've never seen something strange like you.",
+                    emotion: "explanatory",
+                },
+                T0002: {
+                    text: "You look funny!",
+                    emotion: "happy",
+                },
+                T0003: {
+                    text: "JUST NOW there was this loud noise! And all the three stones got lost! You know? The stones for the portal.",
+                    emotion: "hysterical",
+                },
+                T0004: {
+                    text: "If we won't fix it fast enough the portal might implode! And the could be everywhere in Enchantica!",
+                    emotion: "hysterical",
+                },
+                T0005: {
+                    text: "You're quick-witted! The stones to power the portal are the moonstone, the sunstone and the starstone. Without the stones we can never use the portal again!",
+                    emotion: "hysterical",
+                },
+                T0006: {
+                    text: "But it's im-paw-sible to find them",
+                    emotion: "sad",
+                },
+                T0007: {
+                    text: "Oliver?",
+                    emotion: "confused",
+                },
+                T0008: {
+                    text: "We're in Enchantica - to be exact in the Wistful Woods. I lived here for like - …forever. I take care of the portal and the stones.",
+                    emotion: "explanatory",
+                },
+                T0009: {
+                    text: "Me? I knew it! I shouldn't have pushed you like that, I'm SO sorry!",
+                    emotion: "worried",
+                },
+                T0010: {
+                    text: "What's a mushroom?",
+                    emotion: "confused",
+                },
+                T0011: {
+                    text: "Hmm. I'm not sure, but I have a dare hunch. Maybe you should start at the Lillypond next to the Wistful Woods.",
+                    emotion: "questioning",
+                },
+                T0012: {
+                    text: "BUT WAIT - you can't leave me! What if something bad happens again? Will you take me with you? Pleeease?",
+                    emotion: "hysterical",
+                },
+                T0013: {
+                    text: "*Shivers* Didn't you hear that? There was a noise! Back there!",
+                    emotion: "crying",
+                },
+                T0014: {
+                    text: "Pawsome! Let's go!",
+                    emotion: "happy",
+                }
+            }
         }
     };
     async function scene2_1() {
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
         await BeansCuest.makeTransition("fade_in");
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Unknown, text.Unknown.T0000);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "confused", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.5);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0000);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Unknown, script.Unknown.texts.T0000.text);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0000]
+        ], script);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods);
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "worried", BeansCuest.fS.positionPercent(85, 100));
         await BeansCuest.makeTransition("pix1");
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Unknown, text.Unknown.T0001);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0001);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "explanatory", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createMultiLineSpeech(BeansCuest.CHARACTERS.Stool, ["T0000", "T0001"], text);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "happy", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0002);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "questioning", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0002);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "hysterical", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createMultiLineSpeech(BeansCuest.CHARACTERS.Stool, ["T0003", "T0004"], text);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Unknown, script.Unknown.texts.T0001.text);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0001],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0000],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0001],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0002],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0002],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0003],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0004],
+        ], script);
         await showDialog1();
     }
     BeansCuest.scene2_1 = scene2_1;
@@ -487,28 +577,20 @@ var BeansCuest;
     }
     async function optionA() {
         askedBothOptions[0] = true;
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "confused", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0003);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "hysterical", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0005);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "sad", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0006);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0003],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0005],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0006],
+        ], script);
         await optionC();
     }
     async function optionB() {
         askedBothOptions[1] = true;
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "questioning", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0004);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "confused", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0007);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "explanatory", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0008);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0004],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0007],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0008],
+        ], script);
         await optionC();
     }
     async function optionC() {
@@ -516,30 +598,16 @@ var BeansCuest;
             await showDialog1();
             return;
         }
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "confused", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0005);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "worried", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0009);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "guilty", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0006);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "confused", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0010);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "confused", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0007);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "questioning", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0008);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "questioning", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0011);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "hysterical", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0012);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0005],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0009],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0006],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0010],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0007],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0008],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0011],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0012],
+        ], script);
         let dialog = {
             C1: {
                 label: "Take Stool with you",
@@ -553,27 +621,23 @@ var BeansCuest;
         await BeansCuest.createDialog(dialog);
     }
     async function optionC1() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0009);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0009],
+        ], script);
         await optionD();
     }
     async function optionC2() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "unsure", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0010);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "crying", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0013);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "resigned", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0011);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0010],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0013],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0011],
+        ], script);
         await optionD();
     }
     async function optionD() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "happy", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0014);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0014],
+        ], script);
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
         await BeansCuest.makeTransition("fade_in");
