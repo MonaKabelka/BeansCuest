@@ -328,31 +328,55 @@ var BeansCuest;
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
-    let text = {
+    let script = {
         Oliver: {
-            T0000: "1, 2, 3... 10, 11, 12...",
-            T0001: "Okay, I'm done counting. Bean, where are you? I know you're hiding somewhere, and I'll find you!"
+            defaultPosition: BeansCuest.secondaryPosition,
+            texts: {
+                T0000: {
+                    text: "1, 2, 3... 10, 11, 12...",
+                },
+                T0001: {
+                    text: "Okay, I'm done counting. Bean, where are you? I know you're hiding somewhere, and I'll find you!"
+                }
+            }
         },
         Bean: {
-            T0000: "it's getting rather dark around here... this seems like the purr-fect spot to hide. oliver never ventures beyond the garden. but what is this weird light?",
-            T0001: "wow it looks so beautiful and sparkly! i wonder what it could be… oh looks like a portal!",
-            T0002: "must be magic or something. i wonder how… OAAAHH",
-            T0003: "the light... it's... magical...",
-            T0004: "i'll return later, fully prepared. for now, i'll show oliver who truly excels at hiding.",
-            T0005: "Oh no! My paw... it's stuck! AHHH!"
+            defaultPosition: BeansCuest.mainPosition,
+            texts: {
+                T0000: {
+                    emotion: "curious",
+                    text: "it's getting rather dark around here... this seems like the purr-fect spot to hide. oliver never ventures beyond the garden. but what is this weird light?"
+                },
+                T0001: {
+                    emotion: "charmed",
+                    text: "wow it looks so beautiful and sparkly! i wonder what it could be… oh looks like a portal!",
+                },
+                T0002: {
+                    emotion: "curious",
+                    text: "must be magic or something. i wonder how… OAAAHH",
+                },
+                T0003: {
+                    emotion: "charmed",
+                    text: "the light... it's... magical...",
+                },
+                T0004: {
+                    emotion: "happy",
+                    text: "i'll return later, fully prepared. for now, i'll show oliver who truly excels at hiding.",
+                },
+                T0005: {
+                    emotion: "scared",
+                    text: "Oh no! My paw... it's stuck! AHHH!"
+                }
+            }
         }
     };
     async function scene1_2() {
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods2);
         await BeansCuest.makeTransition("pix4");
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, text.Oliver.T0000);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "curious", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in");
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0000);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, text.Oliver.T0001);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "charmed", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0001);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, script.Oliver.texts.T0000.text);
+        await BeansCuest.letCharactersHaveDialogue([[BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0000]], script);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, script.Oliver.texts.T0001.text);
+        await BeansCuest.letCharactersHaveDialogue([[BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0001]], script);
         let dialog = {
             C1: {
                 label: "Investigate",
@@ -371,20 +395,14 @@ var BeansCuest;
     }
     BeansCuest.scene1_2 = scene1_2;
     async function optionC1() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "curious", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0002);
+        await BeansCuest.letCharactersHaveDialogue([[BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0002]], script);
     }
     async function optionC2() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "charmed", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0003);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "proud", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0004);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "scared", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0005);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0003],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0004],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0005]
+        ], script);
     }
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;

@@ -6,7 +6,7 @@ namespace BeansCuest {
 
     type ScriptText = {
         text: SingleText;
-        emotion: EmotionName;
+        emotion?: EmotionName;
     }
 
     export type SingleCharacterScript = {

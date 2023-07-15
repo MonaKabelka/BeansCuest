@@ -46,7 +46,7 @@ declare namespace BeansCuest {
     export type SceneText = Partial<Record<CharacterName, Partial<Record<TextName, SingleText>>>>;
     type ScriptText = {
         text: SingleText;
-        emotion: EmotionName;
+        emotion?: EmotionName;
     };
     export type SingleCharacterScript = {
         defaultPosition: [number, number];
