@@ -1,45 +1,79 @@
 namespace BeansCuest {
-    let text: SceneText = {
+
+    let text: ScriptDefinition = {
         Oliver: {
-            T0000: "Hey Bean, finally!",
-            T0001: "I was afraid something might have happened to you. I thought you weren't going to show up.",
-            T0002: "No worries! I'm just happy you're here now. Are you ready to play hide and seek?",
-            T0003: "Yeah, I do. But I'm getting better at finding you every time so don't underestimate me! Prepare to be found!",
-            T0004: "We'll see about that! Alright, I'll start counting while you go and conceal yourself. Ready... set... go!"
+            defaultPosition: secondaryPosition,
+            texts: {
+                T0000: {
+                    emotion: "happy",
+                    text: "Hey Bean, finally!"
+                },
+                T0001: {
+                    emotion: "worried",
+                    text: "I was afraid something might have happened to you. I thought you weren't going to show up.",
+                },
+                T0002: {
+                    emotion: "happy",
+                    text: "No worries! I'm just happy you're here now. Are you ready to play hide and seek?"
+                },
+                T0003: {
+                    emotion: "happy",
+                    text: "Yeah, I do. But I'm getting better at finding you every time so don't underestimate me! Prepare to be found!"
+                },
+                T0004: {
+                    emotion: "proud",
+                    text: "We'll see about that! Alright, I'll start counting while you go and conceal yourself. Ready... set... go!"
+                }
+            }
         },
         Bean: {
-            T0000: "Sorry Oliver, I'm a bit late today. Unfurtunately I got caught up in some stuff and forgot the time.",
-            T0001: "I apologize for being late, but I had the most purr-fect dream last night. I was engaged in an epic yarn chase with the most exquisite yarn balls.",
-            T0002: "It was so captivating that when I woke up, I realized I couldn't resist the temptation and ended up yarning my way through the morning.",
-            T0003: "Absolutely! I've been improving my hiding skills, you know?",
-            T0004: "Ha! Challenge accepted. This time, I'll find the most extraordinary hiding spot. You won't stand a chance!",
+            defaultPosition: mainPosition,
+            texts: {
+                T0000: {
+                    emotion: "sad",
+                    text: "Sorry Oliver, I'm a bit late today. Unfurtunately I got caught up in some stuff and forgot the time."
+                },
+                T0001: {
+                    emotion: "happy",
+                    text: "I apologize for being late, but I had the most purr-fect dream last night. I was engaged in an epic yarn chase with the most exquisite yarn balls."
+                },
+                T0002: {
+                    emotion: "happy",
+                    text: "It was so captivating that when I woke up, I realized I couldn't resist the temptation and ended up yarning my way through the morning."
+                },
+                T0003: {
+                    emotion: "focused",
+                    text: "Absolutely! I've been improving my hiding skills, you know?"
+                },
+                T0004: {
+                    emotion: "happy",
+                    text: "Ha! Challenge accepted. This time, I'll find the most extraordinary hiding spot. You won't stand a chance!"
+                }
+            }
         }
-    }
-    export async function scene1_1(): fS.SceneReturn {
+    };
 
+    export async function scene1_1(): fS.SceneReturn {
         fS.Speech.hide();
         await fS.Location.show(LOCATIONS.woods);
         await makeTransition("fade_in");
-        await createSingleLineSpeech(CHARACTERS.Oliver, text.Oliver.T0000);
-        await showCharacter(CHARACTERS.Oliver, "worried", fS.positionPercent(85, 100));
-        await makeTransition("fade_in");
-        await createSingleLineSpeech(CHARACTERS.Oliver, text.Oliver.T0001);
+        
+        await letCharactersHaveDialogue([[CHARACTERS.Oliver, text.Oliver.texts.T0000]], text);
+        
+        await letCharactersHaveDialogue([[CHARACTERS.Oliver, text.Oliver.texts.T0001]], text);
 
-        let dialogue: Dialog = {
-            A: "Apologize",
-            B: "Try to be funny"
-        };
-
-        let dialogueElement = await fS.Menu.getInput(dialogue, "choice");
-
-        switch (dialogueElement) {
-            case dialogue.A:
-                await optionA();
-                break;
-            case dialogue.B:
-                await optionB();
-                break;
+        let dialog: DialogConfig = {
+            A: {
+                callback: optionA,
+                label: "Apologize"
+            },
+            B: {
+                callback: optionB,
+                label: "Try to be funny"
+            }
         }
+
+        await createDialog(dialog);
 
         fS.Speech.hide();
         fS.Character.hideAll();
@@ -47,31 +81,27 @@ namespace BeansCuest {
     }
 
     async function optionA() {
-        await showCharacter(CHARACTERS.Bean, "sad", fS.positionPercent(15, 100));
-        await makeTransition("fade_in");
-        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0000);
+        await letCharactersHaveDialogue([[CHARACTERS.Bean, text.Bean.texts.T0000]], text);
         await optionC();
     }
 
     async function optionB() {
-        await showCharacter(CHARACTERS.Bean, "happy", fS.positionPercent(15, 100));
-        await makeTransition("fade_in");
-        await createMultiLineSpeech(CHARACTERS.Bean, ["T0001", "T0002"], text);
+        await letCharactersHaveDialogue([
+            [CHARACTERS.Bean, text.Bean.texts.T0001],
+            [CHARACTERS.Bean, text.Bean.texts.T0002],
+        ], text);
         await optionC();
     }
 
     async function optionC() {
-        await showCharacter(CHARACTERS.Oliver, "happy", fS.positionPercent(85, 100));
-        await makeTransition("fade_in", 0.1);
-        await createSingleLineSpeech(CHARACTERS.Oliver, text.Oliver.T0002);
-        await showCharacter(CHARACTERS.Bean, "focused", fS.positionPercent(15, 100));
-        await makeTransition("fade_in", 0.1);
-        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0003);
-        await createSingleLineSpeech(CHARACTERS.Oliver, text.Oliver.T0003);
-        await showCharacter(CHARACTERS.Bean, "happy", fS.positionPercent(15, 100));
-        await makeTransition("fade_in", 0.1);
-        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0004);
-        await showCharacter(CHARACTERS.Oliver, "proud", fS.positionPercent(85, 100));
-        await createSingleLineSpeech(CHARACTERS.Oliver, text.Oliver.T0004);
+        await letCharactersHaveDialogue([
+            [CHARACTERS.Oliver, text.Oliver.texts.T0002],
+            [CHARACTERS.Bean, text.Bean.texts.T0003],
+            [CHARACTERS.Oliver, text.Oliver.texts.T0003],
+            [CHARACTERS.Bean, text.Bean.texts.T0004],
+            [CHARACTERS.Oliver, text.Oliver.texts.T0004],
+        ], text);
     }
+
+    
 }

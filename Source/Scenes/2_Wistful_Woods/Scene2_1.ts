@@ -73,21 +73,18 @@ namespace BeansCuest {
     }
 
     async function showDialog1() {
-        let dialogue: Dialog = {
-            A: "Stones?",
-            B: "Enchantica?"
-        };
-
-        let dialogueElement = await fS.Menu.getInput(dialogue, "choice");
-
-        switch (dialogueElement) {
-            case dialogue.A:
-                await optionA();
-                break;
-            case dialogue.B:
-                await optionB();
-                break;
+        let dialog: DialogConfig = {
+            A: {
+                label: "Stones?",
+                callback: optionA,
+            },
+            B: {
+                label: "Enchantica?",
+                callback: optionB,
+            }
         }
+
+        await createDialog(dialog);
     }
 
     async function optionA() {
@@ -163,21 +160,18 @@ namespace BeansCuest {
         await makeTransition("fade_in", 0.1);
         await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0012);
 
-        let dialogue: Dialog = {
-            C1: "Take Stool with you?",
-            C2: "Don't take Stool with you?"
+        let dialog: DialogConfig = {
+            C1: {
+                label: "Take Stool with you", 
+                callback: optionC1
+            },
+            C2: {
+                label: "Don't take Stool with you",
+                callback: optionC2
+            }
         };
 
-        let dialogueElement = await fS.Menu.getInput(dialogue, "choice");
-
-        switch (dialogueElement) {
-            case dialogue.C1:
-                await optionC1();
-                break;
-            case dialogue.C2:
-                await optionC2();
-                break;
-        }
+        await createDialog(dialog);
     }
 
     async function optionC1() {

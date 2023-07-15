@@ -106,21 +106,18 @@ namespace BeansCuest {
         await makeTransition("fade_in", 0.1);
         await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0001);
 
-        let dialogue: Dialog = {
-            A: "Draw attention",
-            B: "Sneak up"
-        };
-
-        let dialogueElement = await fS.Menu.getInput(dialogue, "choice");
-
-        switch (dialogueElement) {
-            case dialogue.A:
-                await optionA();
-                break;
-            case dialogue.B:
-                await optionB();
-                break;
+        let dialog: DialogConfig = {
+            A: {
+                label: "Draw attention",
+                callback: optionA
+            },
+            B: {
+                label: "Sneak up",
+                callback: optionB
+            }
         }
+
+        await createDialog(dialog);
     }
 
     async function optionA() {
@@ -158,21 +155,18 @@ namespace BeansCuest {
         await showCharacter(CHARACTERS.Lillypad, "hiding", fS.positionPercent(85, 100));
         await makeTransition("fade_in", 0.5);
 
-        let dialogue: Dialog = {
-            C1: "Introduce yourself",
-            C2: "Don't waste time"
-        };
-
-        let dialogueElement = await fS.Menu.getInput(dialogue, "choice");
-
-        switch (dialogueElement) {
-            case dialogue.C1:
-                await optionC1();
-                break;
-            case dialogue.C2:
-                await optionC2();
-                break;
+        let dialog: DialogConfig = {
+            C1: {
+                label: "Introduce yourself",
+                callback: optionC1
+            },
+            C2: {
+                label: "Don't waste time",
+                callback: optionC2
+            }
         }
+
+        await createDialog(dialog);
     }
 
     async function optionC1() {
@@ -215,21 +209,18 @@ namespace BeansCuest {
         await makeTransition("fade_in", 0.1);
         await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0009);
 
-        let dialogue: Dialog = {
-            C1_1: "Ask Lillypad",
-            C1_2: "Ignore Lillypad"
-        };
-
-        let dialogueElement = await fS.Menu.getInput(dialogue, "choice");
-
-        switch (dialogueElement) {
-            case dialogue.C1_1:
-                await optionC1_1();
-                break;
-            case dialogue.C1_2:
-                await optionC1_2();
-                break;
+        let dialog: DialogConfig = {
+            C1_1: {
+                label: "Ask Lillypad",
+                callback: optionC1_1
+            },
+            C1_2: {
+                label: "Ignore Lillypad",
+                callback: optionC1_2
+            }
         }
+
+        await createDialog(dialog);
     }
 
     async function optionC2() {
@@ -312,21 +303,18 @@ namespace BeansCuest {
         await makeTransition("fade_in", 0.1);
         await createSingleLineSpeech(CHARACTERS.Lillypad, text.Lillypad.T0007);
 
-        let dialogue: Dialog = {
-            C1_1_1: "Accept help",
-            C1_1_2: "Reject help"
-        };
-
-        let dialogueElement = await fS.Menu.getInput(dialogue, "choice");
-
-        switch (dialogueElement) {
-            case dialogue.C1_1_1:
-                await optionC1_1_1();
-                break;
-            case dialogue.C1_1_2:
-                await optionC1_1_2();
-                break;
+        let dialog: DialogConfig = {
+            C1_1_1: {
+                label: "Accept help",
+                callback: optionC1_1_1
+            },
+            C1_1_2: {
+                label: "Reject help",
+                callback: optionC1_1_2
+            }
         }
+
+        await createDialog(dialog);
     }
 
     async function optionC1_2() {
@@ -420,25 +408,22 @@ namespace BeansCuest {
         await makeTransition("fade_in", 0.1);
         await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0029);
 
-        let dialogue: Dialog = {
-            D1: "Check waterlilies",
-            D2: "Check mossy stones",
-            D3: "Check reeds"
-        };
-
-        let dialogueElement = await fS.Menu.getInput(dialogue, "choice");
-
-        switch (dialogueElement) {
-            case dialogue.D1:
-                await optionD1();
-                break;
-            case dialogue.D2:
-                await optionD2();
-                break;
-            case dialogue.D3:
-                await optionD3();
-                break;
+        let dialog: DialogConfig = {
+            D1: {
+                label: "Check waterlilies",
+                callback: optionD1
+            },
+            D2: {
+                label: "Check mossy stones",
+                callback: optionD2
+            },
+            D3: {
+                label: "Check reeds",
+                callback: optionD3
+            }
         }
+
+        await createDialog(dialog);
     }
 
     async function optionD1() {

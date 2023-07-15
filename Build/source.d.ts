@@ -4,6 +4,8 @@ declare namespace BeansCuest {
     let dataForSave: {
         nameProtagonist: string;
     };
+    let mainPosition: [number, number];
+    let secondaryPosition: [number, number];
 }
 declare namespace BeansCuest {
     export type CharacterName = "Bean" | "Stool" | "Lillypad" | "Charm" | "Chant" | "Spook" | "Bandit" | "Oliver" | "Narrator" | "Unknown";
@@ -20,6 +22,12 @@ declare namespace BeansCuest {
 }
 declare namespace BeansCuest {
     type Dialog = Record<string, string>;
+    type Option = {
+        callback: () => Promise<void>;
+        label: string;
+    };
+    type DialogConfig = Record<string, Option>;
+    function createDialog(config: DialogConfig): Promise<void>;
 }
 declare namespace BeansCuest {
     type LocationName = "cloud" | "lilypond" | "mansion" | "mansion2" | "meadow" | "meadow2" | "wistfulwoods" | "woods" | "woods2" | "woods3" | "black";
@@ -36,6 +44,17 @@ declare namespace BeansCuest {
     export type TextName = `T${SingleNumber}${SingleNumber}${SingleNumber}${SingleNumber}`;
     export type SingleText = string;
     export type SceneText = Partial<Record<CharacterName, Partial<Record<TextName, SingleText>>>>;
+    type ScriptText = {
+        text: SingleText;
+        emotion: EmotionName;
+    };
+    export type SingleCharacterScript = {
+        defaultPosition: [number, number];
+        texts: Partial<Record<TextName, ScriptText>>;
+    };
+    export type ScriptDefinition = Partial<Record<CharacterName, SingleCharacterScript>>;
+    export function letCharacterSayText(character: CharacterDefinition, emotion: EmotionName, text: string, position: f.Vector2): Promise<void>;
+    export function letCharactersHaveDialogue(texts: [CharacterDefinition, ScriptText][], script: ScriptDefinition): Promise<void>;
     export {};
 }
 declare namespace BeansCuest {
@@ -68,4 +87,7 @@ declare namespace BeansCuest {
 }
 declare namespace BeansCuest {
     function scene3_1(): fS.SceneReturn;
+}
+declare namespace BeansCuest {
+    function scene4_1(): fS.SceneReturn;
 }

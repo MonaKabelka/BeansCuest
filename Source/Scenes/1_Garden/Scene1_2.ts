@@ -26,21 +26,18 @@ namespace BeansCuest {
         await makeTransition("fade_in", 0.1);
         await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0001);
 
-        let dialogue: Dialog = {
-            C1: "Investigate",
-            C2: "Ignore"
+        let dialog: DialogConfig = {
+            C1: {
+                label: "Investigate",
+                callback: optionC1
+            },
+            C2: {
+                label: "Ignore",
+                callback: optionC2,
+            }
         };
 
-        let dialogueElement = await fS.Menu.getInput(dialogue, "choice");
-
-        switch (dialogueElement) {
-            case dialogue.C1:
-                await optionC1();
-                break;
-            case dialogue.C2:
-                await optionC2();
-                break;
-        }
+        await createDialog(dialog);
 
         fS.Speech.hide();
         fS.Character.hideAll();

@@ -6,13 +6,16 @@ var BeansCuest;
     BeansCuest.dataForSave = {
         nameProtagonist: ""
     };
+    BeansCuest.mainPosition = [15, 100];
+    BeansCuest.secondaryPosition = [85, 100];
     window.addEventListener("load", start);
     function start(_event) {
         let scenes = [
-            // { scene: scene1_1, name: "Scene 1.1" },
+            { scene: BeansCuest.scene1_1, name: "Scene 1.1" },
             // { scene: scene1_2, name: "Scene 1.2" },
             // { scene: scene2_1, name: "Scene 2.1" },
-            { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
+            // { scene: scene3_1, name: "Scene 3.1" },
+            // { scene: scene4_1, name: "Scene 4.1" },
         ];
         let uiElement = document.querySelector("[type=interface]");
         BeansCuest.dataForSave = BeansCuest.fS.Progress.setData(BeansCuest.dataForSave, uiElement);
@@ -102,6 +105,18 @@ var BeansCuest;
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
+    async function createDialog(config) {
+        const dialogue = Object.entries(config).reduce((acc, [name, { label }]) => ({
+            ...acc,
+            [name]: label
+        }), {});
+        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
+        await Object.values(config).find(({ label }) => label === dialogueElement).callback();
+    }
+    BeansCuest.createDialog = createDialog;
+})(BeansCuest || (BeansCuest = {}));
+var BeansCuest;
+(function (BeansCuest) {
     BeansCuest.LOCATIONS = {
         cloud: {
             name: "cloud",
@@ -148,6 +163,23 @@ var BeansCuest;
             name: "black",
         }
     };
+})(BeansCuest || (BeansCuest = {}));
+var BeansCuest;
+(function (BeansCuest) {
+    async function letCharacterSayText(character, emotion, text, position) {
+        await BeansCuest.showCharacter(character, emotion, position);
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(character, text);
+    }
+    BeansCuest.letCharacterSayText = letCharacterSayText;
+    async function letCharactersHaveDialogue(texts, script) {
+        for (let [character, scriptText] of texts) {
+            const [x, y] = script[character.name].defaultPosition;
+            const position = BeansCuest.fS.positionPercent(x, y);
+            await letCharacterSayText(character, scriptText.emotion, scriptText.text, position);
+        }
+    }
+    BeansCuest.letCharactersHaveDialogue = letCharactersHaveDialogue;
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
@@ -201,71 +233,97 @@ var BeansCuest;
 (function (BeansCuest) {
     let text = {
         Oliver: {
-            T0000: "Hey Bean, finally!",
-            T0001: "I was afraid something might have happened to you. I thought you weren't going to show up.",
-            T0002: "No worries! I'm just happy you're here now. Are you ready to play hide and seek?",
-            T0003: "Yeah, I do. But I'm getting better at finding you every time so don't underestimate me! Prepare to be found!",
-            T0004: "We'll see about that! Alright, I'll start counting while you go and conceal yourself. Ready... set... go!"
+            defaultPosition: BeansCuest.secondaryPosition,
+            texts: {
+                T0000: {
+                    emotion: "happy",
+                    text: "Hey Bean, finally!"
+                },
+                T0001: {
+                    emotion: "worried",
+                    text: "I was afraid something might have happened to you. I thought you weren't going to show up.",
+                },
+                T0002: {
+                    emotion: "happy",
+                    text: "No worries! I'm just happy you're here now. Are you ready to play hide and seek?"
+                },
+                T0003: {
+                    emotion: "happy",
+                    text: "Yeah, I do. But I'm getting better at finding you every time so don't underestimate me! Prepare to be found!"
+                },
+                T0004: {
+                    emotion: "proud",
+                    text: "We'll see about that! Alright, I'll start counting while you go and conceal yourself. Ready... set... go!"
+                }
+            }
         },
         Bean: {
-            T0000: "Sorry Oliver, I'm a bit late today. Unfurtunately I got caught up in some stuff and forgot the time.",
-            T0001: "I apologize for being late, but I had the most purr-fect dream last night. I was engaged in an epic yarn chase with the most exquisite yarn balls.",
-            T0002: "It was so captivating that when I woke up, I realized I couldn't resist the temptation and ended up yarning my way through the morning.",
-            T0003: "Absolutely! I've been improving my hiding skills, you know?",
-            T0004: "Ha! Challenge accepted. This time, I'll find the most extraordinary hiding spot. You won't stand a chance!",
+            defaultPosition: BeansCuest.mainPosition,
+            texts: {
+                T0000: {
+                    emotion: "sad",
+                    text: "Sorry Oliver, I'm a bit late today. Unfurtunately I got caught up in some stuff and forgot the time."
+                },
+                T0001: {
+                    emotion: "happy",
+                    text: "I apologize for being late, but I had the most purr-fect dream last night. I was engaged in an epic yarn chase with the most exquisite yarn balls."
+                },
+                T0002: {
+                    emotion: "happy",
+                    text: "It was so captivating that when I woke up, I realized I couldn't resist the temptation and ended up yarning my way through the morning."
+                },
+                T0003: {
+                    emotion: "focused",
+                    text: "Absolutely! I've been improving my hiding skills, you know?"
+                },
+                T0004: {
+                    emotion: "happy",
+                    text: "Ha! Challenge accepted. This time, I'll find the most extraordinary hiding spot. You won't stand a chance!"
+                }
+            }
         }
     };
     async function scene1_1() {
         BeansCuest.fS.Speech.hide();
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods);
         await BeansCuest.makeTransition("fade_in");
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, text.Oliver.T0000);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Oliver, "worried", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in");
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, text.Oliver.T0001);
-        let dialogue = {
-            A: "Apologize",
-            B: "Try to be funny"
+        await BeansCuest.letCharactersHaveDialogue([[BeansCuest.CHARACTERS.Oliver, text.Oliver.texts.T0000]], text);
+        await BeansCuest.letCharactersHaveDialogue([[BeansCuest.CHARACTERS.Oliver, text.Oliver.texts.T0001]], text);
+        let dialog = {
+            A: {
+                callback: optionA,
+                label: "Apologize"
+            },
+            B: {
+                callback: optionB,
+                label: "Try to be funny"
+            }
         };
-        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
-        switch (dialogueElement) {
-            case dialogue.A:
-                await optionA();
-                break;
-            case dialogue.B:
-                await optionB();
-                break;
-        }
+        await BeansCuest.createDialog(dialog);
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
         await BeansCuest.makeTransition("fade_in");
     }
     BeansCuest.scene1_1 = scene1_1;
     async function optionA() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "sad", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in");
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0000);
+        await BeansCuest.letCharactersHaveDialogue([[BeansCuest.CHARACTERS.Bean, text.Bean.texts.T0000]], text);
         await optionC();
     }
     async function optionB() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in");
-        await BeansCuest.createMultiLineSpeech(BeansCuest.CHARACTERS.Bean, ["T0001", "T0002"], text);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, text.Bean.texts.T0001],
+            [BeansCuest.CHARACTERS.Bean, text.Bean.texts.T0002],
+        ], text);
         await optionC();
     }
     async function optionC() {
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Oliver, "happy", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, text.Oliver.T0002);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "focused", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0003);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, text.Oliver.T0003);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
-        await BeansCuest.makeTransition("fade_in", 0.1);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0004);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Oliver, "proud", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, text.Oliver.T0004);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Oliver, text.Oliver.texts.T0002],
+            [BeansCuest.CHARACTERS.Bean, text.Bean.texts.T0003],
+            [BeansCuest.CHARACTERS.Oliver, text.Oliver.texts.T0003],
+            [BeansCuest.CHARACTERS.Bean, text.Bean.texts.T0004],
+            [BeansCuest.CHARACTERS.Oliver, text.Oliver.texts.T0004],
+        ], text);
     }
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
@@ -295,19 +353,17 @@ var BeansCuest;
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "charmed", BeansCuest.fS.positionPercent(15, 100));
         await BeansCuest.makeTransition("fade_in", 0.1);
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0001);
-        let dialogue = {
-            C1: "Investigate",
-            C2: "Ignore"
+        let dialog = {
+            C1: {
+                label: "Investigate",
+                callback: optionC1
+            },
+            C2: {
+                label: "Ignore",
+                callback: optionC2,
+            }
         };
-        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
-        switch (dialogueElement) {
-            case dialogue.C1:
-                await optionC1();
-                break;
-            case dialogue.C2:
-                await optionC2();
-                break;
-        }
+        await BeansCuest.createDialog(dialog);
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
@@ -399,19 +455,17 @@ var BeansCuest;
     }
     BeansCuest.scene2_1 = scene2_1;
     async function showDialog1() {
-        let dialogue = {
-            A: "Stones?",
-            B: "Enchantica?"
+        let dialog = {
+            A: {
+                label: "Stones?",
+                callback: optionA,
+            },
+            B: {
+                label: "Enchantica?",
+                callback: optionB,
+            }
         };
-        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
-        switch (dialogueElement) {
-            case dialogue.A:
-                await optionA();
-                break;
-            case dialogue.B:
-                await optionB();
-                break;
-        }
+        await BeansCuest.createDialog(dialog);
     }
     async function optionA() {
         askedBothOptions[0] = true;
@@ -468,19 +522,17 @@ var BeansCuest;
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "hysterical", BeansCuest.fS.positionPercent(85, 100));
         await BeansCuest.makeTransition("fade_in", 0.1);
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0012);
-        let dialogue = {
-            C1: "Take Stool with you?",
-            C2: "Don't take Stool with you?"
+        let dialog = {
+            C1: {
+                label: "Take Stool with you",
+                callback: optionC1
+            },
+            C2: {
+                label: "Don't take Stool with you",
+                callback: optionC2
+            }
         };
-        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
-        switch (dialogueElement) {
-            case dialogue.C1:
-                await optionC1();
-                break;
-            case dialogue.C2:
-                await optionC2();
-                break;
-        }
+        await BeansCuest.createDialog(dialog);
     }
     async function optionC1() {
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
@@ -614,19 +666,17 @@ var BeansCuest;
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "curious", BeansCuest.fS.positionPercent(15, 100));
         await BeansCuest.makeTransition("fade_in", 0.1);
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0001);
-        let dialogue = {
-            A: "Draw attention",
-            B: "Sneak up"
+        let dialog = {
+            A: {
+                label: "Draw attention",
+                callback: optionA
+            },
+            B: {
+                label: "Sneak up",
+                callback: optionB
+            }
         };
-        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
-        switch (dialogueElement) {
-            case dialogue.A:
-                await optionA();
-                break;
-            case dialogue.B:
-                await optionB();
-                break;
-        }
+        await BeansCuest.createDialog(dialog);
     }
     BeansCuest.scene3_1 = scene3_1;
     async function optionA() {
@@ -655,19 +705,17 @@ var BeansCuest;
         await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "hiding", BeansCuest.fS.positionPercent(85, 100));
         await BeansCuest.makeTransition("fade_in", 0.5);
-        let dialogue = {
-            C1: "Introduce yourself",
-            C2: "Don't waste time"
+        let dialog = {
+            C1: {
+                label: "Introduce yourself",
+                callback: optionC1
+            },
+            C2: {
+                label: "Don't waste time",
+                callback: optionC2
+            }
         };
-        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
-        switch (dialogueElement) {
-            case dialogue.C1:
-                await optionC1();
-                break;
-            case dialogue.C2:
-                await optionC2();
-                break;
-        }
+        await BeansCuest.createDialog(dialog);
     }
     async function optionC1() {
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
@@ -699,19 +747,17 @@ var BeansCuest;
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "determined", BeansCuest.fS.positionPercent(15, 100));
         await BeansCuest.makeTransition("fade_in", 0.1);
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0009);
-        let dialogue = {
-            C1_1: "Ask Lillypad",
-            C1_2: "Ignore Lillypad"
+        let dialog = {
+            C1_1: {
+                label: "Ask Lillypad",
+                callback: optionC1_1
+            },
+            C1_2: {
+                label: "Ignore Lillypad",
+                callback: optionC1_2
+            }
         };
-        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
-        switch (dialogueElement) {
-            case dialogue.C1_1:
-                await optionC1_1();
-                break;
-            case dialogue.C1_2:
-                await optionC1_2();
-                break;
-        }
+        await BeansCuest.createDialog(dialog);
     }
     async function optionC2() {
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
@@ -773,19 +819,17 @@ var BeansCuest;
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "blushing", BeansCuest.fS.positionPercent(85, 100));
         await BeansCuest.makeTransition("fade_in", 0.1);
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0007);
-        let dialogue = {
-            C1_1_1: "Accept help",
-            C1_1_2: "Reject help"
+        let dialog = {
+            C1_1_1: {
+                label: "Accept help",
+                callback: optionC1_1_1
+            },
+            C1_1_2: {
+                label: "Reject help",
+                callback: optionC1_1_2
+            }
         };
-        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
-        switch (dialogueElement) {
-            case dialogue.C1_1_1:
-                await optionC1_1_1();
-                break;
-            case dialogue.C1_1_2:
-                await optionC1_1_2();
-                break;
-        }
+        await BeansCuest.createDialog(dialog);
     }
     async function optionC1_2() {
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "sad", BeansCuest.fS.positionPercent(85, 100));
@@ -855,23 +899,21 @@ var BeansCuest;
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
         await BeansCuest.makeTransition("fade_in", 0.1);
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0029);
-        let dialogue = {
-            D1: "Check waterlilies",
-            D2: "Check mossy stones",
-            D3: "Check reeds"
+        let dialog = {
+            D1: {
+                label: "Check waterlilies",
+                callback: optionD1
+            },
+            D2: {
+                label: "Check mossy stones",
+                callback: optionD2
+            },
+            D3: {
+                label: "Check reeds",
+                callback: optionD3
+            }
         };
-        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
-        switch (dialogueElement) {
-            case dialogue.D1:
-                await optionD1();
-                break;
-            case dialogue.D2:
-                await optionD2();
-                break;
-            case dialogue.D3:
-                await optionD3();
-                break;
-        }
+        await BeansCuest.createDialog(dialog);
     }
     async function optionD1() {
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "serious", BeansCuest.fS.positionPercent(15, 100));
@@ -988,5 +1030,35 @@ var BeansCuest;
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
     }
+})(BeansCuest || (BeansCuest = {}));
+var BeansCuest;
+(function (BeansCuest) {
+    async function scene4_1() {
+    }
+    BeansCuest.scene4_1 = scene4_1;
+    // async function optionA() {
+    // }
+    // async function optionA_1() {
+    // }
+    // async function optionA_2() {
+    // }
+    // async function optionC() {
+    // }
+    // async function optionB() {
+    // }
+    // async function optionC_1() {
+    // }
+    // async function optionC_2() {
+    // }
+    // async function optionD() {
+    // }
+    // async function optionC1_1() {
+    // }
+    // async function optionC1_2() {
+    // }
+    // async function optionE() {
+    // }
+    // async function optionF() {
+    // }
 })(BeansCuest || (BeansCuest = {}));
 //# sourceMappingURL=source.js.map
