@@ -7,7 +7,7 @@ declare namespace BeansCuest {
 }
 declare namespace BeansCuest {
     export type CharacterName = "Bean" | "Stool" | "Lillypad" | "Charm" | "Chant" | "Spook" | "Bandit" | "Oliver" | "Narrator" | "Unknown";
-    export type EmotionName = "happy" | "worried" | "sad" | "focused" | "proud" | "curious" | "charmed" | "scared" | "confused" | "explanatory" | "questioning" | "hysterical" | "guilty" | "unsure" | "crying" | "resigned";
+    export type EmotionName = "happy" | "worried" | "sad" | "focused" | "proud" | "curious" | "charmed" | "scared" | "confused" | "explanatory" | "questioning" | "hysterical" | "guilty" | "unsure" | "crying" | "resigned" | "anxious" | "hiding" | "smiling" | "shy" | "disappointed" | "determined" | "blushing" | "surprised" | "thinking" | "serious" | "mocking" | "disgusted" | "laughing" | "begging" | "cheering";
     export type Pose = `Images/Characters/${CharacterName}/${EmotionName}.png`;
     type PoseDefinition = Partial<Record<EmotionName, Pose>>;
     export type CharacterDefinition = {

@@ -16,7 +16,22 @@ namespace BeansCuest {
     "guilty" |
     "unsure" |
     "crying" |
-    "resigned";
+    "resigned" |
+    "anxious" |
+    "hiding" |
+    "smiling" |
+    "shy" |
+    "disappointed" |
+    "determined" |
+    "blushing" | 
+    "surprised" |
+    "thinking" |
+    "serious" |
+    "mocking" |
+    "disgusted" |
+    "laughing" |
+    "begging" |
+    "cheering";
 
     export type Pose = `Images/Characters/${CharacterName}/${EmotionName}.png`;
     type PoseDefinition = Partial<Record<EmotionName, Pose>>;
@@ -51,7 +66,14 @@ namespace BeansCuest {
                 questioning: "Images/Characters/Bean/questioning.png",
                 guilty: "Images/Characters/Bean/guilty.png",
                 unsure: "Images/Characters/Bean/unsure.png",
-                resigned: "Images/Characters/Bean/resigned.png"
+                resigned: "Images/Characters/Bean/resigned.png",
+                smiling: "Images/Characters/Bean/smiling.png",
+                determined: "Images/Characters/Bean/determined.png",
+                surprised: "Images/Characters/Bean/surprised.png",
+                thinking: "Images/Characters/Bean/thinking.png",
+                serious: "Images/Characters/Bean/serious.png",
+                laughing: "Images/Characters/Bean/laughing.png",
+                begging: "Images/Characters/Bean/begging.png"
             }
         },
         Stool: {
@@ -64,7 +86,13 @@ namespace BeansCuest {
                 sad: "Images/Characters/Stool/sad.png",
                 confused: "Images/Characters/Stool/confused.png",
                 happy: "Images/Characters/Stool/happy.png",
-                crying: "Images/Characters/Stool/crying.png"
+                crying: "Images/Characters/Stool/crying.png",
+                anxious: "Images/Characters/Stool/anxious.png",
+                disappointed: "Images/Characters/Stool/disappointed.png",
+                serious: "Images/Characters/Stool/serious.png",
+                mocking: "Images/Characters/Stool/mocking.png",
+                disgusted: "Images/Characters/Stool/disgusted.png",
+                cheering: "Images/Characters/Stool/cheering.png"
             }
         },
         Narrator: {
@@ -76,6 +104,18 @@ namespace BeansCuest {
             name: "Unknown",
             origin: fS.ORIGIN.BOTTOMCENTER,
             pose: null
+        },
+        Lillypad: {
+            name: "Lillypad",
+            origin: fS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                hiding: "Images/Characters/Lillypad/hiding.png",
+                shy: "Images/Characters/Lillypad/shy.png",
+                blushing: "Images/Characters/Lillypad/blushing.png",
+                sad: "Images/Characters/Lillypad/sad.png",
+                smiling: "Images/Characters/Lillypad/smiling.png",
+                scared: "Images/Characters/Lillypad/scared.png"
+            }
         }
     }
 }

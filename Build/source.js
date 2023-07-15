@@ -47,7 +47,14 @@ var BeansCuest;
                 questioning: "Images/Characters/Bean/questioning.png",
                 guilty: "Images/Characters/Bean/guilty.png",
                 unsure: "Images/Characters/Bean/unsure.png",
-                resigned: "Images/Characters/Bean/resigned.png"
+                resigned: "Images/Characters/Bean/resigned.png",
+                smiling: "Images/Characters/Bean/smiling.png",
+                determined: "Images/Characters/Bean/determined.png",
+                surprised: "Images/Characters/Bean/surprised.png",
+                thinking: "Images/Characters/Bean/thinking.png",
+                serious: "Images/Characters/Bean/serious.png",
+                laughing: "Images/Characters/Bean/laughing.png",
+                begging: "Images/Characters/Bean/begging.png"
             }
         },
         Stool: {
@@ -60,7 +67,13 @@ var BeansCuest;
                 sad: "Images/Characters/Stool/sad.png",
                 confused: "Images/Characters/Stool/confused.png",
                 happy: "Images/Characters/Stool/happy.png",
-                crying: "Images/Characters/Stool/crying.png"
+                crying: "Images/Characters/Stool/crying.png",
+                anxious: "Images/Characters/Stool/anxious.png",
+                disappointed: "Images/Characters/Stool/disappointed.png",
+                serious: "Images/Characters/Stool/serious.png",
+                mocking: "Images/Characters/Stool/mocking.png",
+                disgusted: "Images/Characters/Stool/disgusted.png",
+                cheering: "Images/Characters/Stool/cheering.png"
             }
         },
         Narrator: {
@@ -72,6 +85,18 @@ var BeansCuest;
             name: "Unknown",
             origin: BeansCuest.fS.ORIGIN.BOTTOMCENTER,
             pose: null
+        },
+        Lillypad: {
+            name: "Lillypad",
+            origin: BeansCuest.fS.ORIGIN.BOTTOMCENTER,
+            pose: {
+                hiding: "Images/Characters/Lillypad/hiding.png",
+                shy: "Images/Characters/Lillypad/shy.png",
+                blushing: "Images/Characters/Lillypad/blushing.png",
+                sad: "Images/Characters/Lillypad/sad.png",
+                smiling: "Images/Characters/Lillypad/smiling.png",
+                scared: "Images/Characters/Lillypad/scared.png"
+            }
         }
     };
 })(BeansCuest || (BeansCuest = {}));
@@ -513,7 +538,7 @@ var BeansCuest;
             T0022: "Maybe we can search for something to help us.",
             T0023: "Have you been sitting in the pond for a long time? - If yes, surely you could help us.",
             T0024: "It's about a lost stone that I need to get back home. I came from another world and just ended up here by accident...",
-            T0025: "Because at home I played hide and seek with my best friend Oliver! But now I'm traveling with Sto-",
+            T0025: "... Because at home I played hide and seek with my best friend Oliver! But now I'm traveling with Sto-",
             T0026: "Oh? What happened?",
             T0027: "Oh no! My bad.",
             T0028: "Let's search the area for the stones.",
@@ -580,35 +605,388 @@ var BeansCuest;
     async function scene3_1() {
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.lilypond);
         await BeansCuest.makeTransition("pix4");
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "questioning", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0000);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0000);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "curious", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0001);
+        let dialogue = {
+            A: "Draw attention",
+            B: "Sneak up"
+        };
+        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
+        switch (dialogueElement) {
+            case dialogue.A:
+                await optionA();
+                break;
+            case dialogue.B:
+                await optionB();
+                break;
+        }
     }
     BeansCuest.scene3_1 = scene3_1;
     async function optionA() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0002);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0001);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0003);
+        await optionC();
     }
     async function optionB() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0002);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "curious", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0004);
+        await optionC();
     }
     async function optionC() {
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "hiding", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        let dialogue = {
+            C1: "Introduce yourself",
+            C2: "Don't waste time"
+        };
+        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
+        switch (dialogueElement) {
+            case dialogue.C1:
+                await optionC1();
+                break;
+            case dialogue.C2:
+                await optionC2();
+                break;
+        }
     }
     async function optionC1() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0005);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "hiding", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0000);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0006);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "shy", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0001);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0007);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "resigned", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0008);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "shy", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0002);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Lillypad);
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "disappointed", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0003);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "determined", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0009);
+        let dialogue = {
+            C1_1: "Ask Lillypad",
+            C1_2: "Ignore Lillypad"
+        };
+        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
+        switch (dialogueElement) {
+            case dialogue.C1_1:
+                await optionC1_1();
+                break;
+            case dialogue.C1_2:
+                await optionC1_2();
+                break;
+        }
     }
     async function optionC2() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createMultiLineSpeech(BeansCuest.CHARACTERS.Bean, ["T0023", "T0024"], text);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Lillypad);
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "worried", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0005);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "scared", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "focused", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0025);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Lillypad);
+        await BeansCuest.makeTransition("fade_in", 0.25);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "confused", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0026);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "worried", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0006);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "resigned", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0027);
+        await optionD();
     }
     async function optionC1_1() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "questioning", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0010);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "shy", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0003);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0011);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "blushing", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0004);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "surprised", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0012);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "blushing", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0005);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "curious", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0013);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "sad", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0006);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0014);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "blushing", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0007);
+        let dialogue = {
+            C1_1_1: "Accept help",
+            C1_1_2: "Reject help"
+        };
+        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
+        switch (dialogueElement) {
+            case dialogue.C1_1_1:
+                await optionC1_1_1();
+                break;
+            case dialogue.C1_1_2:
+                await optionC1_1_2();
+                break;
+        }
     }
     async function optionC1_2() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "sad", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0012);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0019);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "focused", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0020);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Lillypad);
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "worried", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0004);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "focused", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0021);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0022);
+        await optionD();
     }
     async function optionC1_1_1() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0015);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "smiling", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0008);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0016);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "smiling", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0009);
+        await optionE();
     }
     async function optionC1_1_2() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0017);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "sad", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0010);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Lillypad, "shy", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Lillypad, text.Lillypad.T0011);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0018);
+        await optionD();
     }
     async function optionD() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "thinking", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0028);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Lillypad);
+        await BeansCuest.makeTransition("fade_in", 0.25);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.25);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0007);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "questioning", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0008);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0029);
+        let dialogue = {
+            D1: "Check waterlilies",
+            D2: "Check mossy stones",
+            D3: "Check reeds"
+        };
+        let dialogueElement = await BeansCuest.fS.Menu.getInput(dialogue, "choice");
+        switch (dialogueElement) {
+            case dialogue.D1:
+                await optionD1();
+                break;
+            case dialogue.D2:
+                await optionD2();
+                break;
+            case dialogue.D3:
+                await optionD3();
+                break;
+        }
     }
     async function optionD1() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "serious", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0030);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0009);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "serious", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0031);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "serious", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0010);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Bean);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
+        await BeansCuest.makeTransition("fade_in");
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0011);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in");
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0012);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Bean);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.lilypond);
+        await BeansCuest.makeTransition("pix4");
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0032);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "mocking", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0013);
+        await optionD();
     }
     async function optionD2() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "thinking", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0033);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "disgusted", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0014);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "laughing", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0034);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0035);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "crying", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0015);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0036);
+        await optionD();
     }
     async function optionD3() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "focused", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0037);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "thinking", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0038);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0016);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "begging", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0039);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "crying", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0017);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
+        await BeansCuest.makeTransition("fade_in");
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "curious", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0040);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0018);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "happy", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in");
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0041);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "cheering", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0019);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "focused", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0042);
+        await optionE();
     }
     async function optionE() {
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "happy", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0020);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0043);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "hysterical", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0021);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "smiling", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0044);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0022);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "explanatory", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Stool, text.Stool.T0023);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Bean, "happy", BeansCuest.fS.positionPercent(15, 100));
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Bean, text.Bean.T0045);
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
     }
 })(BeansCuest || (BeansCuest = {}));
 //# sourceMappingURL=source.js.map

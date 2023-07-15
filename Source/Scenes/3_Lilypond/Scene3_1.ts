@@ -26,7 +26,7 @@ namespace BeansCuest {
             T0022: "Maybe we can search for something to help us.",
             T0023: "Have you been sitting in the pond for a long time? - If yes, surely you could help us.",
             T0024: "It's about a lost stone that I need to get back home. I came from another world and just ended up here by accident...",
-            T0025: "Because at home I played hide and seek with my best friend Oliver! But now I'm traveling with Sto-",
+            T0025: "... Because at home I played hide and seek with my best friend Oliver! But now I'm traveling with Sto-",
             T0026: "Oh? What happened?",
             T0027: "Oh no! My bad.",
             T0028: "Let's search the area for the stones.",
@@ -93,62 +93,506 @@ namespace BeansCuest {
     export async function scene3_1(): fS.SceneReturn {
         await fS.Location.show(LOCATIONS.lilypond);
         await makeTransition("pix4");
+
+        await showCharacter(CHARACTERS.Bean, "questioning", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0000);
+
+        await showCharacter(CHARACTERS.Stool, "anxious", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0000);
+
+        await showCharacter(CHARACTERS.Bean, "curious", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0001);
+
+        let dialogue: Dialog = {
+            A: "Draw attention",
+            B: "Sneak up"
+        };
+
+        let dialogueElement = await fS.Menu.getInput(dialogue, "choice");
+
+        switch (dialogueElement) {
+            case dialogue.A:
+                await optionA();
+                break;
+            case dialogue.B:
+                await optionB();
+                break;
+        }
     }
 
     async function optionA() {
+        await showCharacter(CHARACTERS.Bean, "happy", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0002);
 
+        await showCharacter(CHARACTERS.Stool, "anxious", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0001);
+
+        await showCharacter(CHARACTERS.Bean, "happy", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0003);
+
+        await optionC();
     }
 
     async function optionB() {
+        await showCharacter(CHARACTERS.Stool, "anxious", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0002);
 
+        await showCharacter(CHARACTERS.Bean, "curious", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0004);
+
+        await optionC();
     }
 
     async function optionC() {
+        await hideCharacter(CHARACTERS.Stool);
+        await makeTransition("fade_in", 0.5);
 
+        await showCharacter(CHARACTERS.Lillypad, "hiding", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.5);
+
+        let dialogue: Dialog = {
+            C1: "Introduce yourself",
+            C2: "Don't waste time"
+        };
+
+        let dialogueElement = await fS.Menu.getInput(dialogue, "choice");
+
+        switch (dialogueElement) {
+            case dialogue.C1:
+                await optionC1();
+                break;
+            case dialogue.C2:
+                await optionC2();
+                break;
+        }
     }
 
     async function optionC1() {
+        await showCharacter(CHARACTERS.Bean, "smiling", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0005);
 
+        await showCharacter(CHARACTERS.Lillypad, "hiding", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Lillypad, text.Lillypad.T0000);
+
+        await showCharacter(CHARACTERS.Bean, "happy", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0006);
+
+        await showCharacter(CHARACTERS.Lillypad, "shy", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Lillypad, text.Lillypad.T0001);
+
+        await showCharacter(CHARACTERS.Bean, "happy", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0007);
+
+        await showCharacter(CHARACTERS.Bean, "resigned", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0008);
+
+        await showCharacter(CHARACTERS.Lillypad, "shy", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Lillypad, text.Lillypad.T0002);
+
+        await hideCharacter(CHARACTERS.Lillypad);
+        await makeTransition("fade_in", 0.5)
+
+        await showCharacter(CHARACTERS.Stool, "disappointed", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.5);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0003);
+
+        await showCharacter(CHARACTERS.Bean, "determined", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0009);
+
+        let dialogue: Dialog = {
+            C1_1: "Ask Lillypad",
+            C1_2: "Ignore Lillypad"
+        };
+
+        let dialogueElement = await fS.Menu.getInput(dialogue, "choice");
+
+        switch (dialogueElement) {
+            case dialogue.C1_1:
+                await optionC1_1();
+                break;
+            case dialogue.C1_2:
+                await optionC1_2();
+                break;
+        }
     }
 
     async function optionC2() {
+        await showCharacter(CHARACTERS.Bean, "smiling", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createMultiLineSpeech(CHARACTERS.Bean, ["T0023", "T0024"], text);
 
+        await hideCharacter(CHARACTERS.Lillypad);
+        await makeTransition("fade_in", 0.5);
+
+        await showCharacter(CHARACTERS.Stool, "worried", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.5);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0005);
+
+        await hideCharacter(CHARACTERS.Stool);
+        await makeTransition("fade_in", 0.5);
+        await showCharacter(CHARACTERS.Lillypad, "scared", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.5);
+
+        await showCharacter(CHARACTERS.Bean, "focused", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0025);
+
+        await hideCharacter(CHARACTERS.Lillypad);
+        await makeTransition("fade_in", 0.25);
+
+        await showCharacter(CHARACTERS.Bean, "confused", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0026);
+
+        await showCharacter(CHARACTERS.Stool, "worried", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0006);
+
+        await showCharacter(CHARACTERS.Bean, "resigned", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0027);
+
+        await optionD();
     }
 
     async function optionC1_1() {
+        await showCharacter(CHARACTERS.Bean, "questioning", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0010);
 
+        await showCharacter(CHARACTERS.Lillypad, "shy", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Lillypad, text.Lillypad.T0003);
+
+        await showCharacter(CHARACTERS.Bean, "smiling", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0011);
+
+        await showCharacter(CHARACTERS.Lillypad, "blushing", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Lillypad, text.Lillypad.T0004);
+
+        await showCharacter(CHARACTERS.Bean, "surprised", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0012);
+
+        await showCharacter(CHARACTERS.Lillypad, "blushing", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Lillypad, text.Lillypad.T0005);
+
+        await showCharacter(CHARACTERS.Bean, "curious", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0013);
+
+        await showCharacter(CHARACTERS.Lillypad, "sad", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Lillypad, text.Lillypad.T0006);
+
+        await showCharacter(CHARACTERS.Bean, "smiling", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0014);
+
+        await showCharacter(CHARACTERS.Lillypad, "blushing", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Lillypad, text.Lillypad.T0007);
+
+        let dialogue: Dialog = {
+            C1_1_1: "Accept help",
+            C1_1_2: "Reject help"
+        };
+
+        let dialogueElement = await fS.Menu.getInput(dialogue, "choice");
+
+        switch (dialogueElement) {
+            case dialogue.C1_1_1:
+                await optionC1_1_1();
+                break;
+            case dialogue.C1_1_2:
+                await optionC1_1_2();
+                break;
+        }
     }
 
     async function optionC1_2() {
-        
+        await showCharacter(CHARACTERS.Lillypad, "sad", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Lillypad, text.Lillypad.T0012);
+
+        await showCharacter(CHARACTERS.Bean, "smiling", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0019);
+
+        await showCharacter(CHARACTERS.Bean, "focused", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0020);
+
+        await hideCharacter(CHARACTERS.Lillypad);
+        await makeTransition("fade_in", 0.5)
+
+        await showCharacter(CHARACTERS.Stool, "worried", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.5);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0004);
+
+        await showCharacter(CHARACTERS.Bean, "focused", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0021);
+
+        await showCharacter(CHARACTERS.Bean, "smiling", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0022);
+
+        await optionD();
     }
 
     async function optionC1_1_1() {
+        await showCharacter(CHARACTERS.Bean, "happy", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0015);
 
+        await showCharacter(CHARACTERS.Lillypad, "smiling", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Lillypad, text.Lillypad.T0008);
+
+        await showCharacter(CHARACTERS.Bean, "happy", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0016);
+
+        await showCharacter(CHARACTERS.Lillypad, "smiling", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Lillypad, text.Lillypad.T0009);
+
+        await optionE();
     }
 
     async function optionC1_1_2() {
+        await showCharacter(CHARACTERS.Bean, "smiling", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0017);
 
+        await showCharacter(CHARACTERS.Lillypad, "sad", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Lillypad, text.Lillypad.T0010);
+
+        await showCharacter(CHARACTERS.Lillypad, "shy", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Lillypad, text.Lillypad.T0011);
+
+        await showCharacter(CHARACTERS.Bean, "smiling", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0018);
+
+        await optionD();
     }
 
     async function optionD() {
+        await showCharacter(CHARACTERS.Bean, "thinking", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0028);
 
+        await hideCharacter(CHARACTERS.Lillypad);
+        await makeTransition("fade_in", 0.25);
+
+        await showCharacter(CHARACTERS.Stool, "anxious", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.25);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0007);
+
+        await showCharacter(CHARACTERS.Stool, "questioning", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0008);
+
+        await showCharacter(CHARACTERS.Bean, "happy", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0029);
+
+        let dialogue: Dialog = {
+            D1: "Check waterlilies",
+            D2: "Check mossy stones",
+            D3: "Check reeds"
+        };
+
+        let dialogueElement = await fS.Menu.getInput(dialogue, "choice");
+
+        switch (dialogueElement) {
+            case dialogue.D1:
+                await optionD1();
+                break;
+            case dialogue.D2:
+                await optionD2();
+                break;
+            case dialogue.D3:
+                await optionD3();
+                break;
+        }
     }
 
     async function optionD1() {
+        await showCharacter(CHARACTERS.Bean, "serious", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0030);
 
+        await showCharacter(CHARACTERS.Stool, "anxious", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0009);
+
+        await showCharacter(CHARACTERS.Bean, "serious", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0031);
+
+        await showCharacter(CHARACTERS.Stool, "serious", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0010);
+
+        await hideCharacter(CHARACTERS.Bean);
+        await hideCharacter(CHARACTERS.Stool);
+        await fS.Location.show(LOCATIONS.black);
+        await makeTransition("fade_in");
+
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0011);
+
+        await showCharacter(CHARACTERS.Stool, "anxious", fS.positionPercent(85, 100));
+        await makeTransition("fade_in");
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0012);
+
+        await hideCharacter(CHARACTERS.Bean);
+        await hideCharacter(CHARACTERS.Stool);
+        await fS.Location.show(LOCATIONS.lilypond);
+        await makeTransition("pix4");
+
+        await showCharacter(CHARACTERS.Stool, "anxious", fS.positionPercent(85, 100));
+        await showCharacter(CHARACTERS.Bean, "smiling", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.5);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0032);
+
+        await showCharacter(CHARACTERS.Stool, "mocking", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0013);
+
+        await optionD();
     }
 
     async function optionD2() {
-        
+        await showCharacter(CHARACTERS.Bean, "thinking", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0033);
+
+        await showCharacter(CHARACTERS.Stool, "disgusted", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0014);
+
+        await showCharacter(CHARACTERS.Bean, "laughing", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0034);
+
+        await showCharacter(CHARACTERS.Bean, "smiling", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0035);
+
+        await showCharacter(CHARACTERS.Stool, "crying", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0015);
+
+        await showCharacter(CHARACTERS.Bean, "happy", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0036);
+
+        await optionD();
     }
 
     async function optionD3() {
-        
+        await showCharacter(CHARACTERS.Bean, "focused", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0037);
+
+        await showCharacter(CHARACTERS.Bean, "thinking", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0038);
+
+        await showCharacter(CHARACTERS.Stool, "anxious", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0016);
+
+        await showCharacter(CHARACTERS.Bean, "begging", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0039);
+
+        await showCharacter(CHARACTERS.Stool, "crying", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0017);
+
+        await hideCharacter(CHARACTERS.Stool);
+        await makeTransition("fade_in");
+
+        await showCharacter(CHARACTERS.Bean, "curious", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0040);
+
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0018);
+
+        await showCharacter(CHARACTERS.Stool, "happy", fS.positionPercent(85, 100));
+        await makeTransition("fade_in");
+
+        await showCharacter(CHARACTERS.Bean, "happy", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0041);
+
+        await showCharacter(CHARACTERS.Stool, "cheering", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0019);
+
+        await showCharacter(CHARACTERS.Bean, "focused", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0042);
+
+        await optionE();
     }
 
     async function optionE() {
+        await showCharacter(CHARACTERS.Stool, "happy", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0020);
 
+        await showCharacter(CHARACTERS.Bean, "smiling", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0043);
+
+        await showCharacter(CHARACTERS.Stool, "hysterical", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0021);
+
+        await showCharacter(CHARACTERS.Bean, "smiling", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0044);
+
+        await showCharacter(CHARACTERS.Stool, "anxious", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0022);
+
+        await showCharacter(CHARACTERS.Stool, "explanatory", fS.positionPercent(85, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Stool, text.Stool.T0023);
+
+        await showCharacter(CHARACTERS.Bean, "happy", fS.positionPercent(15, 100));
+        await makeTransition("fade_in", 0.1);
+        await createSingleLineSpeech(CHARACTERS.Bean, text.Bean.T0045);
+
+        fS.Speech.hide();
+        fS.Character.hideAll();
     }
 
 }
