@@ -16,7 +16,7 @@ body {
   overflow: hidden;
   font-family: "Bean", sans-serif;
   font-weight: normal;
-  font-size: 3vw;
+  font-size: 4vmin;
   color: rgb(240, 18, 103);
   user-select: none;
 }
@@ -71,4 +71,38 @@ dialog[type=splash] {
 }
 dialog[type=splash] > img#FudgeStoryLogo {
   width: 100%;
+}
+
+:is(.in-game-menu, .choice) {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid black;
+  border-top-left-radius: 210px 10px;
+  border-top-right-radius: 10px 210px;
+  border-bottom-right-radius: 210px 10px;
+  border-bottom-left-radius:10px 210px;
+  background-color: #ffffffc0;
+}
+
+:is(.in-game-menu, .choice) > button {
+  padding: 10px;
+  margin-bottom: 5px;
+  border-top-left-radius: 150px 25px;
+  border-top-right-radius: 25px 190px;
+  border-bottom-right-radius: 190px 25px;
+  border-bottom-left-radius:25px 150px;
+  border: 1px solid #333;
+  background-color: #ddd;
+  transition: all 100ms ease-out;
+}
+
+:is(.in-game-menu, .choice) > button:hover {
+  background-color: #fff;
+  border-color: #000;
+  cursor: pointer;
 }
