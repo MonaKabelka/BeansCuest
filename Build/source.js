@@ -10,6 +10,12 @@ var BeansCuest;
         ladder: false,
         sunstone: false,
         startstone: false,
+        novelpage1: false,
+        novelpage2: false,
+        novelpage3: false,
+        novelpage4: false,
+        novelpage5: false,
+        novelpage6: false,
     };
     BeansCuest.mainPosition = [15, 100];
     BeansCuest.secondaryPosition = [85, 100];
@@ -335,6 +341,36 @@ var BeansCuest;
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
+    BeansCuest.ALL_NOVELPAGE_NAMES = ["novelpage1", "novelpage2", "novelpage3", "novelpage4", "novelpage5", "novelpage6"];
+    BeansCuest.NOVELPAGES = {
+        novelpage1: {
+            name: "novelpage1",
+            background: "Images/Novelpages/novelpage1.png"
+        },
+        novelpage2: {
+            name: "novelpage2",
+            background: "Images/Novelpages/novelpage2.png"
+        },
+        novelpage3: {
+            name: "novelpage3",
+            background: "Images/Novelpages/novelpage3.png"
+        },
+        novelpage4: {
+            name: "novelpage4",
+            background: "Images/Novelpages/novelpage4.png"
+        },
+        novelpage5: {
+            name: "novelpage5",
+            background: "Images/Novelpages/novelpage5.png"
+        },
+        novelpage6: {
+            name: "novelpage6",
+            background: "Images/Novelpages/novelpage6.png"
+        },
+    };
+})(BeansCuest || (BeansCuest = {}));
+var BeansCuest;
+(function (BeansCuest) {
     async function letCharacterSayText(character, scriptText, position) {
         const [x, y] = position;
         const positionVector = BeansCuest.fS.positionPercent(x, y);
@@ -368,6 +404,11 @@ var BeansCuest;
             duration: 1,
             edge: 1
         },
+        novelpage: {
+            alpha: "Images/Transitions/novelpage.jpg",
+            duration: 1,
+            edge: 1
+        }
     };
     function makeTransition(name, duration) {
         if (BeansCuest.TRANSITIONS[name]) {
@@ -459,6 +500,7 @@ var BeansCuest;
         BeansCuest.isMenuOpen = !BeansCuest.isMenuOpen;
     }
     async function showCredits() {
+        BeansCuest.fS.Text.setClass('');
         await BeansCuest.fS.Text.print(`<table class="credits-table">
         <thead>
           <tr>
@@ -525,7 +567,28 @@ var BeansCuest;
         await BeansCuest.fS.Progress.load();
     }
     async function showNovelPages() {
-        return;
+        const allValidPages = BeansCuest.ALL_NOVELPAGE_NAMES.filter((page) => BeansCuest.dataForSave[page]).map((page) => BeansCuest.NOVELPAGES[page].background);
+        if (allValidPages.length <= 0) {
+            return;
+        }
+        let currentPage = 0;
+        const close = { done: 'X', previous: "⬅️", next: "➡️" };
+        let choice;
+        do {
+            BeansCuest.fS.Text.setClass('novelpage');
+            await BeansCuest.fS.Text.print(`<img src="${allValidPages[currentPage]}" />`);
+            choice = await BeansCuest.fS.Menu.getInput(close, "choice");
+            switch (choice) {
+                case "➡️":
+                    currentPage = Math.min(currentPage + 1, allValidPages.length - 1);
+                    break;
+                case "⬅️":
+                    currentPage = Math.max(currentPage - 1, 0);
+                    break;
+            }
+            console.log(choice);
+        } while (choice != "X");
+        BeansCuest.fS.Text.close();
     }
     async function volumeDown() {
         BeansCuest.volume = Math.max(BeansCuest.volume - 0.1, 0);
@@ -541,6 +604,20 @@ var BeansCuest;
             return;
         await useCallbacks(Object.values(BeansCuest.menuDefinition).find(({ code }) => code === event.code).label);
     }
+})(BeansCuest || (BeansCuest = {}));
+var BeansCuest;
+(function (BeansCuest) {
+    async function showNovelPages(novelpage, previousLocation) {
+        BeansCuest.dataForSave[novelpage] = true;
+        await BeansCuest.fS.Location.show(BeansCuest.NOVELPAGES[novelpage]);
+        BeansCuest.fS.Character.hideAll();
+        BeansCuest.fS.Speech.hide();
+        await BeansCuest.makeTransition("novelpage");
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.System, "You've unlocked a new novel page!");
+        await BeansCuest.fS.Location.show(previousLocation);
+        await BeansCuest.makeTransition("novelpage");
+    }
+    BeansCuest.showNovelPages = showNovelPages;
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
@@ -615,6 +692,7 @@ var BeansCuest;
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods);
         await BeansCuest.makeTransition("fade_in");
         await BeansCuest.letCharactersHaveDialogue([[BeansCuest.CHARACTERS.Oliver, text.Oliver.texts.T0000]], text);
+        await BeansCuest.showNovelPages("novelpage1", BeansCuest.LOCATIONS.woods);
         await BeansCuest.letCharactersHaveDialogue([[BeansCuest.CHARACTERS.Oliver, text.Oliver.texts.T0001]], text);
         let dialog = {
             A: {

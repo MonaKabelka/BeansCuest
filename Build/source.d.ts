@@ -8,6 +8,12 @@ declare namespace BeansCuest {
         ladder: boolean;
         sunstone: boolean;
         startstone: boolean;
+        novelpage1: boolean;
+        novelpage2: boolean;
+        novelpage3: boolean;
+        novelpage4: boolean;
+        novelpage5: boolean;
+        novelpage6: boolean;
     };
     let mainPosition: [number, number];
     let secondaryPosition: [number, number];
@@ -111,6 +117,17 @@ declare namespace BeansCuest {
     }>;
 }
 declare namespace BeansCuest {
+    export const ALL_NOVELPAGE_NAMES: readonly ["novelpage1", "novelpage2", "novelpage3", "novelpage4", "novelpage5", "novelpage6"];
+    export type NovelpageName = (typeof ALL_NOVELPAGE_NAMES)[number];
+    type Novelpage = {
+        name: NovelpageName;
+        background: `Images/Novelpages/${NovelpageName}.png`;
+    };
+    type NovelpageDefinition = Record<NovelpageName, Novelpage>;
+    export const NOVELPAGES: NovelpageDefinition;
+    export {};
+}
+declare namespace BeansCuest {
     type SingleNumber = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
     export type TextName = `T${SingleNumber}${SingleNumber}${SingleNumber}${SingleNumber}`;
     export type SingleText = string;
@@ -129,7 +146,7 @@ declare namespace BeansCuest {
     export {};
 }
 declare namespace BeansCuest {
-    type TransitionName = "fade_in" | "inScene" | "portal" | "sceneChange";
+    type TransitionName = "fade_in" | "inScene" | "portal" | "sceneChange" | "novelpage";
     type Transition<T extends TransitionName> = {
         alpha: `Images/Transitions/${T}.jpg`;
         edge: number;
@@ -153,6 +170,9 @@ declare namespace BeansCuest {
     let menuDefinition: MenuDefinition;
     function transformMenu(definition: MenuDefinition): Object;
     function useCallbacks(option: string): Promise<void>;
+}
+declare namespace BeansCuest {
+    function showNovelPages(novelpage: NovelpageName, previousLocation: fS.LocationDefinition): Promise<void>;
 }
 declare namespace BeansCuest {
     function createMultiLineSpeech(character: CharacterDefinition, textNames: TextName[], text: SceneText): Promise<void>;

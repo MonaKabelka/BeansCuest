@@ -59,6 +59,8 @@ namespace BeansCuest {
         await makeTransition("fade_in");
         
         await letCharactersHaveDialogue([[CHARACTERS.Oliver, text.Oliver.texts.T0000]], text);
+
+        await showNovelPages("novelpage1", LOCATIONS.woods);
         
         await letCharactersHaveDialogue([[CHARACTERS.Oliver, text.Oliver.texts.T0001]], text);
 

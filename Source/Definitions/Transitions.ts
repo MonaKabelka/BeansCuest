@@ -1,5 +1,5 @@
 namespace BeansCuest {
-    type TransitionName = "fade_in" | "inScene" | "portal" | "sceneChange";
+    type TransitionName = "fade_in" | "inScene" | "portal" | "sceneChange" | "novelpage";
     type Transition<T extends TransitionName> = {
         alpha: `Images/Transitions/${T}.jpg`,
         edge: number,
@@ -21,6 +21,11 @@ namespace BeansCuest {
             duration: 1,
             edge: 1
         },
+        novelpage: {
+            alpha: "Images/Transitions/novelpage.jpg",
+            duration: 1,
+            edge: 1
+        }
     }
     export function makeTransition(name: TransitionName, duration?: number) {
         if (TRANSITIONS[name as keyof typeof TRANSITIONS]) {

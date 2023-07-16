@@ -138,3 +138,11 @@ dialog[type=splash] > img#FudgeStoryLogo {
 .credits-table {
   border-spacing: 3vmin;
 }
+
+.novelpage {
+  width: 50%;
+}
+
+.novelpage img {
+  width: 100%;
+}

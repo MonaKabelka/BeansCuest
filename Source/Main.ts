@@ -9,6 +9,13 @@ namespace BeansCuest {
     ladder: false,
     sunstone: false,
     startstone: false,
+
+    novelpage1: false,
+    novelpage2: false,
+    novelpage3: false,
+    novelpage4: false,
+    novelpage5: false,
+    novelpage6: false,
   };
 
   export let mainPosition: [number, number] = [15, 100];

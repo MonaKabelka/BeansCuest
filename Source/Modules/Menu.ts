@@ -61,6 +61,7 @@ namespace BeansCuest {
     }
 
     async function showCredits() {
+        fS.Text.setClass('');
         await fS.Text.print(`<table class="credits-table">
         <thead>
           <tr>
@@ -131,7 +132,29 @@ namespace BeansCuest {
     }
 
     async function showNovelPages() {
-        return;
+        const allValidPages = ALL_NOVELPAGE_NAMES.filter((page) => dataForSave[page]).map((page) => NOVELPAGES[page].background);
+        if (allValidPages.length <= 0) {
+            return;
+        }
+        let currentPage = 0;
+        const close = { done: 'X', previous: "⬅️", next: "➡️" } as const;
+        let choice: typeof close[keyof typeof close];
+        do {
+            fS.Text.setClass('novelpage');
+            await fS.Text.print(`<img src="${allValidPages[currentPage]}" />`);
+            choice = await  fS.Menu.getInput(close, "choice") as typeof close[keyof typeof close];
+
+            switch (choice) {
+                case "➡️":
+                    currentPage = Math.min(currentPage + 1, allValidPages.length - 1);
+                    break;
+                case "⬅️":
+                    currentPage = Math.max(currentPage - 1, 0);
+                    break;
+            }
+            console.log(choice);
+        } while (choice != "X");
+        fS.Text.close();
     }
 
     async function volumeDown() {
