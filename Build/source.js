@@ -450,8 +450,8 @@ var BeansCuest;
         return Object.entries(definition).reduce((acc, [key, { label }]) => ({ ...acc, [key]: label }), {});
     }
     BeansCuest.transformMenu = transformMenu;
-    async function useCallbacks(_option) {
-        await Object.values(BeansCuest.menuDefinition).find(({ label }) => label === _option).callback();
+    async function useCallbacks(option) {
+        await Object.values(BeansCuest.menuDefinition).find(({ label }) => label === option).callback();
     }
     BeansCuest.useCallbacks = useCallbacks;
     async function toggleMenu() {

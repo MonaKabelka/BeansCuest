@@ -152,7 +152,7 @@ declare namespace BeansCuest {
     let volume: number;
     let menuDefinition: MenuDefinition;
     function transformMenu(definition: MenuDefinition): Object;
-    function useCallbacks(_option: string): Promise<void>;
+    function useCallbacks(option: string): Promise<void>;
 }
 declare namespace BeansCuest {
     function createMultiLineSpeech(character: CharacterDefinition, textNames: TextName[], text: SceneText): Promise<void>;

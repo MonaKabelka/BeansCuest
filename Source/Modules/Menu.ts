@@ -51,8 +51,8 @@ namespace BeansCuest {
         return Object.entries(definition).reduce((acc, [key, { label }]) => ({...acc, [key]: label}), {});
     }
 
-    export async function useCallbacks(_option: string) {
-        await Object.values(menuDefinition).find(({ label}) => label === _option).callback();
+    export async function useCallbacks(option: string) {
+        await Object.values(menuDefinition).find(({ label}) => label === option).callback();
     }
 
     async function toggleMenu() {
