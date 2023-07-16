@@ -2,14 +2,28 @@ declare namespace BeansCuest {
     export import f = FudgeCore;
     export import fS = FudgeStory;
     let dataForSave: {
-        nameProtagonist: string;
+        fishingRod: boolean;
+        moonstone: boolean;
+        pixieDust: boolean;
+        ladder: boolean;
+        sunstone: boolean;
+        startstone: boolean;
     };
     let mainPosition: [number, number];
     let secondaryPosition: [number, number];
 }
 declare namespace BeansCuest {
-    export type CharacterName = "Bean" | "Stool" | "Lillypad" | "Charm" | "Chant" | "Spook" | "Bandit" | "Oliver" | "Narrator" | "Unknown";
-    export type EmotionName = "happy" | "worried" | "sad" | "focused" | "proud" | "curious" | "charmed" | "scared" | "confused" | "explanatory" | "questioning" | "hysterical" | "guilty" | "unsure" | "crying" | "resigned" | "anxious" | "hiding" | "smiling" | "shy" | "disappointed" | "determined" | "blushing" | "surprised" | "thinking" | "serious" | "mocking" | "disgusted" | "laughing" | "begging" | "cheering" | "impressed" | "shivers" | "concerned" | "annoyed" | "angry" | "snapped" | "whispering" | "muttering" | "grumpy" | "sleepy";
+    function getBigger(duration: number): fS.AnimationDefinition;
+    function getSmaller(duration: number): fS.AnimationDefinition;
+    export const ANIMATIONS: {
+        getBigger: typeof getBigger;
+        getSmaller: typeof getSmaller;
+    };
+    export {};
+}
+declare namespace BeansCuest {
+    export type CharacterName = "Bean" | "Stool" | "Lillypad" | "Charm" | "Chant" | "Spook" | "Bandit" | "Oliver" | "System" | "Unknown";
+    export type EmotionName = "happy" | "worried" | "sad" | "focused" | "proud" | "curious" | "charmed" | "scared" | "confused" | "explanatory" | "questioning" | "hysterical" | "guilty" | "unsure" | "crying" | "resigned" | "anxious" | "hiding" | "smiling" | "shy" | "disappointed" | "determined" | "blushing" | "surprised" | "thinking" | "serious" | "mocking" | "disgusted" | "laughing" | "begging" | "cheering" | "impressed" | "shivers" | "concerned" | "annoyed" | "angry" | "snapped" | "whispering" | "muttering" | "grumpy" | "sleepy" | "center";
     export type Pose = `Images/Characters/${CharacterName}/${EmotionName}.png`;
     type PoseDefinition = Partial<Record<EmotionName, Pose>>;
     export type CharacterDefinition = {
@@ -30,45 +44,53 @@ declare namespace BeansCuest {
     function createDialog(config: DialogConfig): Promise<void>;
 }
 declare namespace BeansCuest {
-    type ItemDefinition = {
-        name: string;
-        origin: fS.ORIGIN;
-        pose: {
-            center: `Images/Items/${string}.png`;
+    export const ITEMS: {
+        fishingRod: {
+            name: string;
+            description: string;
+            image: string;
+            handler: typeof handleItemUsage;
         };
-    };
-    const ITEMS: {
         moonstone: {
             name: string;
             description: string;
             image: string;
-            static: boolean;
+            handler: typeof handleItemUsage;
         };
-        sunstone: {
+        pixieDust: {
             name: string;
             description: string;
             image: string;
-            static: boolean;
-        };
-        startstone: {
-            name: string;
-            description: string;
-            image: string;
-            static: boolean;
+            handler: typeof handleItemUsage;
         };
         ladder: {
             name: string;
             description: string;
             image: string;
-            static: boolean;
+            handler: typeof handleItemUsage;
         };
-        fishingRod: {
+        note: {
             name: string;
             description: string;
             image: string;
-            static: boolean;
+            static: true;
+        };
+        sunstone: {
+            name: string;
+            description: string;
+            image: string;
+            handler: typeof handleItemUsage;
+        };
+        startstone: {
+            name: string;
+            description: string;
+            image: string;
+            handler: typeof handleItemUsage;
         };
     };
+    export const ITEM_CHARACTERS: Record<keyof typeof ITEMS, fS.CharacterDefinition>;
+    function handleItemUsage(event: CustomEvent): void;
+    export {};
 }
 declare namespace BeansCuest {
     type LocationName = "cloud" | "lilypond" | "mansion" | "mansion2" | "meadow" | "meadow2" | "wistfulwoods" | "woods" | "woods2" | "woods3" | "black";
@@ -122,12 +144,15 @@ declare namespace BeansCuest {
     function hideCharacter(character: CharacterDefinition): Promise<void>;
 }
 declare namespace BeansCuest {
+    function getItem(item: fS.ItemDefinition, itemKey: keyof typeof ITEMS): Promise<void>;
+}
+declare namespace BeansCuest {
     let gameMenu: fS.Menu;
+    let isMenuOpen: boolean;
+    let volume: number;
     let menuDefinition: MenuDefinition;
     function transformMenu(definition: MenuDefinition): Object;
     function useCallbacks(_option: string): Promise<void>;
-    let isMenuOpen: boolean;
-    let isInventoryOpen: boolean;
 }
 declare namespace BeansCuest {
     function createMultiLineSpeech(character: CharacterDefinition, textNames: TextName[], text: SceneText): Promise<void>;

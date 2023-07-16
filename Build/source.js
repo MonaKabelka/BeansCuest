@@ -4,7 +4,12 @@ var BeansCuest;
     BeansCuest.f = FudgeCore;
     BeansCuest.fS = FudgeStory;
     BeansCuest.dataForSave = {
-        nameProtagonist: ""
+        fishingRod: false,
+        moonstone: false,
+        pixieDust: false,
+        ladder: false,
+        sunstone: false,
+        startstone: false,
     };
     BeansCuest.mainPosition = [15, 100];
     BeansCuest.secondaryPosition = [85, 100];
@@ -22,6 +27,29 @@ var BeansCuest;
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Progress.go(scenes);
     }
+})(BeansCuest || (BeansCuest = {}));
+var BeansCuest;
+(function (BeansCuest) {
+    function getBigger(duration) {
+        return {
+            start: { scaling: new BeansCuest.f.Vector2(0, 0), translation: BeansCuest.fS.positionPercent(50, 50) },
+            end: { scaling: new BeansCuest.f.Vector2(1, 1), translation: BeansCuest.fS.positionPercent(50, 50) },
+            duration,
+            playmode: BeansCuest.fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+    }
+    function getSmaller(duration) {
+        return {
+            end: { scaling: new BeansCuest.f.Vector2(0, 0), translation: BeansCuest.fS.positionPercent(50, 50) },
+            start: { scaling: new BeansCuest.f.Vector2(1, 1), translation: BeansCuest.fS.positionPercent(50, 50) },
+            duration,
+            playmode: BeansCuest.fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+    }
+    BeansCuest.ANIMATIONS = {
+        getBigger,
+        getSmaller
+    };
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
@@ -87,8 +115,8 @@ var BeansCuest;
                 questioning: "Images/Characters/Stool/questioning.png"
             }
         },
-        Narrator: {
-            name: "Narrator",
+        System: {
+            name: "System",
             origin: BeansCuest.fS.ORIGIN.BOTTOMCENTER,
             pose: null
         },
@@ -153,37 +181,108 @@ var BeansCuest;
 var BeansCuest;
 (function (BeansCuest) {
     BeansCuest.ITEMS = {
+        fishingRod: {
+            name: "Fising Rod",
+            description: "",
+            image: "Images/Items/fising_rod.png",
+            handler: handleItemUsage
+        },
         moonstone: {
             name: "Moonstone",
             description: "TEST",
             image: "Images/Items/moonstone.png",
+            handler: handleItemUsage
+        },
+        pixieDust: {
+            name: "Pixie Dust",
+            description: "",
+            image: "Images/Items/moonstone.png",
+            handler: handleItemUsage
+        },
+        ladder: {
+            name: "Ladder",
+            description: "",
+            image: "Images/Items/ladder.png",
+            handler: handleItemUsage
+        },
+        note: {
+            name: "Note",
+            description: "",
+            image: "Images/Items/note.png",
             static: true
         },
         sunstone: {
             name: "Sunstone",
             description: "",
             image: "Images/Items/sunstone.png",
-            static: true
+            handler: handleItemUsage
         },
         startstone: {
             name: "Starstone",
             description: "",
             image: "Images/Items/starstone.png",
-            static: true
-        },
-        ladder: {
-            name: "Ladder",
-            description: "",
-            image: "Images/Items/ladder.png",
-            static: true
-        },
-        fishingRod: {
-            name: "Fising Rod",
-            description: "",
-            image: "Images/Items/fising_rod.png",
-            static: true
+            handler: handleItemUsage
         },
     };
+    BeansCuest.ITEM_CHARACTERS = {
+        fishingRod: {
+            name: "fishingRod",
+            origin: BeansCuest.fS.ORIGIN.CENTER,
+            pose: {
+                center: "Images/Items/fishing_rod.png"
+            }
+        },
+        ladder: {
+            name: "ladder",
+            origin: BeansCuest.fS.ORIGIN.CENTER,
+            pose: {
+                center: "Images/Items/ladder.png"
+            }
+        },
+        moonstone: {
+            name: "moonstone",
+            origin: BeansCuest.fS.ORIGIN.CENTER,
+            pose: {
+                center: "Images/Items/moonstone.png"
+            }
+        },
+        note: {
+            name: "note",
+            origin: BeansCuest.fS.ORIGIN.CENTER,
+            pose: {
+                center: "Images/Items/note.png"
+            }
+        },
+        pixieDust: {
+            name: "pixieDust",
+            origin: BeansCuest.fS.ORIGIN.CENTER,
+            pose: {
+                center: "Images/Items/pixieDust.png"
+            }
+        },
+        startstone: {
+            name: "startstone",
+            origin: BeansCuest.fS.ORIGIN.CENTER,
+            pose: {
+                center: "Images/Items/startstone.png"
+            }
+        },
+        sunstone: {
+            name: "sunstone",
+            origin: BeansCuest.fS.ORIGIN.CENTER,
+            pose: {
+                center: "Images/Items/sunstone.png"
+            }
+        },
+    };
+    function handleItemUsage(event) {
+        if (event.type === 'pointerdown') {
+            const [itemKey, item] = Object.entries(BeansCuest.ITEMS).find(([, item]) => item.name === event.detail);
+            if (!BeansCuest.dataForSave[itemKey]) {
+                BeansCuest.fS.Inventory.add(item);
+            }
+        }
+    }
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
@@ -292,6 +391,19 @@ var BeansCuest;
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
+    async function getItem(item, itemKey) {
+        BeansCuest.fS.Inventory.add(item);
+        const itemChar = Object.entries(BeansCuest.ITEM_CHARACTERS).find(([key]) => key === itemKey)[1];
+        await BeansCuest.fS.Character.animate(itemChar, itemChar.pose.center, BeansCuest.ANIMATIONS.getBigger(1));
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.System, `You aquired ${item.name}`);
+        await BeansCuest.fS.Character.animate(itemChar, itemChar.pose.center, BeansCuest.ANIMATIONS.getSmaller(1));
+    }
+    BeansCuest.getItem = getItem;
+})(BeansCuest || (BeansCuest = {}));
+var BeansCuest;
+(function (BeansCuest) {
+    BeansCuest.isMenuOpen = false;
+    BeansCuest.volume = 1;
     BeansCuest.menuDefinition = {
         credits: {
             label: "(C)redits",
@@ -342,13 +454,65 @@ var BeansCuest;
         await Object.values(BeansCuest.menuDefinition).find(({ label }) => label === _option).callback();
     }
     BeansCuest.useCallbacks = useCallbacks;
-    BeansCuest.isMenuOpen = false;
-    BeansCuest.isInventoryOpen = false;
     async function toggleMenu() {
         BeansCuest.isMenuOpen ? BeansCuest.gameMenu.close() : BeansCuest.gameMenu.open();
         BeansCuest.isMenuOpen = !BeansCuest.isMenuOpen;
     }
     async function showCredits() {
+        await BeansCuest.fS.Text.print(`<table>
+        <thead>
+          <tr>
+            <th>   <br>Resources   </th>
+            <th>   <br>Credits   </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>   <br>Concept   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Script   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Background Artworks   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Character Design   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Character Artworks   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>GUI Design   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Item Artworks   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Programming   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Logo Design   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Fudge Core   </td>
+            <td>   <br>Jirka Dell'Oro-Friedl   </td>
+          </tr>
+          <tr>
+            <td>   <br>Lecturer   </td>
+            <td>   <br>Riem Yasin   </td>
+          </tr>
+        </tbody>
+        </table>`);
         return;
     }
     async function openInventory() {
@@ -364,10 +528,12 @@ var BeansCuest;
         return;
     }
     async function volumeDown() {
-        return;
+        BeansCuest.volume = Math.max(BeansCuest.volume - 0.1, 0);
+        BeansCuest.fS.Sound.setMasterVolume(BeansCuest.volume);
     }
     async function volumeUp() {
-        return;
+        BeansCuest.volume = Math.min(BeansCuest.volume + 0.1, 1);
+        BeansCuest.fS.Sound.setMasterVolume(BeansCuest.volume);
     }
     document.addEventListener("keydown", handleKeyPress);
     async function handleKeyPress(event) {
@@ -448,7 +614,6 @@ var BeansCuest;
         BeansCuest.fS.Speech.hide();
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods);
         await BeansCuest.makeTransition("fade_in");
-        BeansCuest.fS.Inventory.add(BeansCuest.ITEMS.moonstone);
         await BeansCuest.letCharactersHaveDialogue([[BeansCuest.CHARACTERS.Oliver, text.Oliver.texts.T0000]], text);
         await BeansCuest.letCharactersHaveDialogue([[BeansCuest.CHARACTERS.Oliver, text.Oliver.texts.T0001]], text);
         let dialog = {

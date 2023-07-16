@@ -3,7 +3,12 @@ namespace BeansCuest {
   export import fS = FudgeStory;
 
   export let dataForSave = {
-    nameProtagonist: ""
+    fishingRod: false,
+    moonstone: false,
+    pixieDust: false,
+    ladder: false,
+    sunstone: false,
+    startstone: false,
   };
 
   export let mainPosition: [number, number] = [15, 100];

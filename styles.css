@@ -126,10 +126,11 @@ dialog[type=splash] > img#FudgeStoryLogo {
   padding: 5px;
 }
 
-.inventory ul li amount {
+.inventory ul li amount, .inventory ul li description {
   display: none;
 }
 
-.inventory ul li description {
-  font-size: 2vmin;
+.inventory ul li img {
+  width: 6vmin;
+  height: 6vmin;
 }

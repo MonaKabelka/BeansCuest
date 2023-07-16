@@ -1,5 +1,5 @@
 namespace BeansCuest {
-    export type CharacterName = "Bean" | "Stool" | "Lillypad" | "Charm" | "Chant" | "Spook" | "Bandit" | "Oliver" | "Narrator" | "Unknown";
+    export type CharacterName = "Bean" | "Stool" | "Lillypad" | "Charm" | "Chant" | "Spook" | "Bandit" | "Oliver" | "System" | "Unknown";
 
     export type EmotionName = "happy" | 
     "worried" | 
@@ -41,7 +41,8 @@ namespace BeansCuest {
     "whispering" |
     "muttering" |
     "grumpy" |
-    "sleepy";
+    "sleepy" |
+    "center";
 
     export type Pose = `Images/Characters/${CharacterName}/${EmotionName}.png`;
     type PoseDefinition = Partial<Record<EmotionName, Pose>>;
@@ -113,8 +114,8 @@ namespace BeansCuest {
                 questioning: "Images/Characters/Stool/questioning.png"
             }
         },
-        Narrator: {
-            name: "Narrator",
+        System: {
+            name: "System",
             origin: fS.ORIGIN.BOTTOMCENTER,
             pose: null
         },
