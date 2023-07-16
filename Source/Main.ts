@@ -12,6 +12,7 @@ namespace BeansCuest {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     gameMenu = fS.Menu.create(transformMenu(menuDefinition), useCallbacks, "in-game-menu");
+    gameMenu.close();
     let scenes: fS.Scenes = [
       { scene: scene1_1, name: "Scene 1.1" },
       { scene: scene1_2, name: "Scene 1.2" },
@@ -20,10 +21,7 @@ namespace BeansCuest {
       { scene: scene4_1, name: "Scene 4.1" },
     ];
 
-    // let uiElement: HTMLElement = document.querySelector("[type=interface]");
-    // dataForSave = fS.Progress.setData(dataForSave, uiElement);
-
-    // start the sequence
+    fS.Speech.hide();
     fS.Progress.go(scenes);
   }
 }

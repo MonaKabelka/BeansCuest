@@ -11,6 +11,7 @@ var BeansCuest;
     window.addEventListener("load", start);
     function start(_event) {
         BeansCuest.gameMenu = BeansCuest.fS.Menu.create(BeansCuest.transformMenu(BeansCuest.menuDefinition), BeansCuest.useCallbacks, "in-game-menu");
+        BeansCuest.gameMenu.close();
         let scenes = [
             { scene: BeansCuest.scene1_1, name: "Scene 1.1" },
             { scene: BeansCuest.scene1_2, name: "Scene 1.2" },
@@ -18,9 +19,7 @@ var BeansCuest;
             { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
             { scene: BeansCuest.scene4_1, name: "Scene 4.1" },
         ];
-        // let uiElement: HTMLElement = document.querySelector("[type=interface]");
-        // dataForSave = fS.Progress.setData(dataForSave, uiElement);
-        // start the sequence
+        BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Progress.go(scenes);
     }
 })(BeansCuest || (BeansCuest = {}));

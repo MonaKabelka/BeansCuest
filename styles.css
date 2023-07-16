@@ -73,7 +73,16 @@ dialog[type=splash] > img#FudgeStoryLogo {
   width: 100%;
 }
 
-:is(.in-game-menu, .choice) {
+.in-game-menu, .choice {
+  border: 5px solid black;
+  border-top-left-radius: 210px 10px;
+  border-top-right-radius: 10px 210px;
+  border-bottom-right-radius: 210px 10px;
+  border-bottom-left-radius:10px 210px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.in-game-menu {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -81,12 +90,6 @@ dialog[type=splash] > img#FudgeStoryLogo {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 5px solid black;
-  border-top-left-radius: 210px 10px;
-  border-top-right-radius: 10px 210px;
-  border-bottom-right-radius: 210px 10px;
-  border-bottom-left-radius:10px 210px;
-  background-color: #ffffffc0;
 }
 
 :is(.in-game-menu, .choice) > button {
