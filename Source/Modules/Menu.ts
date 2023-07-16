@@ -1,6 +1,9 @@
 namespace BeansCuest {
     export let gameMenu: fS.Menu;
 
+    export let isMenuOpen = false;
+    export let volume = 1;
+
     export let menuDefinition: MenuDefinition = {
         credits: {
             label: "(C)redits",
@@ -52,15 +55,66 @@ namespace BeansCuest {
         await Object.values(menuDefinition).find(({ label}) => label === _option).callback();
     }
 
-    export let isMenuOpen = false;
-    export let isInventoryOpen = false;
-
     async function toggleMenu() {
         isMenuOpen ? gameMenu.close() : gameMenu.open();
         isMenuOpen = !isMenuOpen;
     }
 
     async function showCredits() {
+        await fS.Text.print(`<table>
+        <thead>
+          <tr>
+            <th>   <br>Resources   </th>
+            <th>   <br>Credits   </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>   <br>Concept   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Script   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Background Artworks   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Character Design   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Character Artworks   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>GUI Design   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Item Artworks   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Programming   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Logo Design   </td>
+            <td>   <br>Mona Kabelka   </td>
+          </tr>
+          <tr>
+            <td>   <br>Fudge Core   </td>
+            <td>   <br>Jirka Dell'Oro-Friedl   </td>
+          </tr>
+          <tr>
+            <td>   <br>Lecturer   </td>
+            <td>   <br>Riem Yasin   </td>
+          </tr>
+        </tbody>
+        </table>`)
         return;
     }
 
@@ -81,11 +135,13 @@ namespace BeansCuest {
     }
 
     async function volumeDown() {
-        return;
+        volume = Math.max(volume - 0.1, 0);
+        fS.Sound.setMasterVolume(volume);
     }
 
     async function volumeUp() {
-        return;
+        volume = Math.min(volume + 0.1, 1);
+        fS.Sound.setMasterVolume(volume);
     }
 
     document.addEventListener("keydown", handleKeyPress);
