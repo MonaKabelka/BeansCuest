@@ -94,7 +94,7 @@ dialog[type=splash] > img#FudgeStoryLogo {
 
 :is(.in-game-menu, .choice) > button {
   padding: 10px;
-  margin-bottom: 5px;
+  margin: 2px;
   border-top-left-radius: 150px 25px;
   border-top-right-radius: 25px 190px;
   border-bottom-right-radius: 190px 25px;
