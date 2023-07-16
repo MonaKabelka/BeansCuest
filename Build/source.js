@@ -152,6 +152,41 @@ var BeansCuest;
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
+    BeansCuest.ITEMS = {
+        moonstone: {
+            name: "Moonstone",
+            description: "TEST",
+            image: "Images/Items/moonstone.png",
+            static: true
+        },
+        sunstone: {
+            name: "Sunstone",
+            description: "",
+            image: "Images/Items/sunstone.png",
+            static: true
+        },
+        startstone: {
+            name: "Starstone",
+            description: "",
+            image: "Images/Items/starstone.png",
+            static: true
+        },
+        ladder: {
+            name: "Ladder",
+            description: "",
+            image: "Images/Items/ladder.png",
+            static: true
+        },
+        fishingRod: {
+            name: "Fising Rod",
+            description: "",
+            image: "Images/Items/fising_rod.png",
+            static: true
+        },
+    };
+})(BeansCuest || (BeansCuest = {}));
+var BeansCuest;
+(function (BeansCuest) {
     BeansCuest.LOCATIONS = {
         cloud: {
             name: "cloud",
@@ -308,6 +343,7 @@ var BeansCuest;
     }
     BeansCuest.useCallbacks = useCallbacks;
     BeansCuest.isMenuOpen = false;
+    BeansCuest.isInventoryOpen = false;
     async function toggleMenu() {
         BeansCuest.isMenuOpen ? BeansCuest.gameMenu.close() : BeansCuest.gameMenu.open();
         BeansCuest.isMenuOpen = !BeansCuest.isMenuOpen;
@@ -316,7 +352,7 @@ var BeansCuest;
         return;
     }
     async function openInventory() {
-        return;
+        await BeansCuest.fS.Inventory.open();
     }
     async function saveGame() {
         await BeansCuest.fS.Progress.save();
@@ -412,6 +448,7 @@ var BeansCuest;
         BeansCuest.fS.Speech.hide();
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods);
         await BeansCuest.makeTransition("fade_in");
+        BeansCuest.fS.Inventory.add(BeansCuest.ITEMS.moonstone);
         await BeansCuest.letCharactersHaveDialogue([[BeansCuest.CHARACTERS.Oliver, text.Oliver.texts.T0000]], text);
         await BeansCuest.letCharactersHaveDialogue([[BeansCuest.CHARACTERS.Oliver, text.Oliver.texts.T0001]], text);
         let dialog = {

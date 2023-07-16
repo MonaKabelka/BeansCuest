@@ -53,6 +53,7 @@ namespace BeansCuest {
     }
 
     export let isMenuOpen = false;
+    export let isInventoryOpen = false;
 
     async function toggleMenu() {
         isMenuOpen ? gameMenu.close() : gameMenu.open();
@@ -64,7 +65,7 @@ namespace BeansCuest {
     }
 
     async function openInventory() {
-        return;
+        await fS.Inventory.open();
     }
 
     async function saveGame() {

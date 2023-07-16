@@ -30,6 +30,47 @@ declare namespace BeansCuest {
     function createDialog(config: DialogConfig): Promise<void>;
 }
 declare namespace BeansCuest {
+    type ItemDefinition = {
+        name: string;
+        origin: fS.ORIGIN;
+        pose: {
+            center: `Images/Items/${string}.png`;
+        };
+    };
+    const ITEMS: {
+        moonstone: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+        sunstone: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+        startstone: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+        ladder: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+        fishingRod: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+    };
+}
+declare namespace BeansCuest {
     type LocationName = "cloud" | "lilypond" | "mansion" | "mansion2" | "meadow" | "meadow2" | "wistfulwoods" | "woods" | "woods2" | "woods3" | "black";
     type Location<T extends LocationName> = {
         name: T;
@@ -86,6 +127,7 @@ declare namespace BeansCuest {
     function transformMenu(definition: MenuDefinition): Object;
     function useCallbacks(_option: string): Promise<void>;
     let isMenuOpen: boolean;
+    let isInventoryOpen: boolean;
 }
 declare namespace BeansCuest {
     function createMultiLineSpeech(character: CharacterDefinition, textNames: TextName[], text: SceneText): Promise<void>;

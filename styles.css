@@ -73,7 +73,7 @@ dialog[type=splash] > img#FudgeStoryLogo {
   width: 100%;
 }
 
-.in-game-menu, .choice {
+.in-game-menu, .choice, .inventory {
   border: 5px solid black;
   border-top-left-radius: 210px 10px;
   border-top-right-radius: 10px 210px;
@@ -92,7 +92,7 @@ dialog[type=splash] > img#FudgeStoryLogo {
   transform: translate(-50%, -50%);
 }
 
-:is(.in-game-menu, .choice) > button {
+:is(.in-game-menu, .choice, .inventory) > button {
   padding: 10px;
   margin: 2px;
   border-top-left-radius: 150px 25px;
@@ -102,10 +102,34 @@ dialog[type=splash] > img#FudgeStoryLogo {
   border: 1px solid #333;
   background-color: #ddd;
   transition: all 100ms ease-out;
+  font-family: "Bean", sans-serif;
+  font-size: 3vmin;
 }
 
-:is(.in-game-menu, .choice) > button:hover {
+:is(.in-game-menu, .choice .inventory) > button:hover {
   background-color: #fff;
   border-color: #000;
   cursor: pointer;
+}
+
+.inventory ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 3vmin;
+}
+
+.inventory ul li {
+  display: flex;
+  flex-direction: column;
+  border: 1px dashed black;
+  padding: 5px;
+}
+
+.inventory ul li amount {
+  display: none;
+}
+
+.inventory ul li description {
+  font-size: 2vmin;
 }

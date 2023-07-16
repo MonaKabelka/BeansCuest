@@ -57,6 +57,8 @@ namespace BeansCuest {
         fS.Speech.hide();
         await fS.Location.show(LOCATIONS.woods);
         await makeTransition("fade_in");
+
+        fS.Inventory.add(ITEMS.moonstone);
         
         await letCharactersHaveDialogue([[CHARACTERS.Oliver, text.Oliver.texts.T0000]], text);
         
