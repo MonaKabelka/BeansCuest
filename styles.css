@@ -134,3 +134,7 @@ dialog[type=splash] > img#FudgeStoryLogo {
   width: 6vmin;
   height: 6vmin;
 }
+
+.credits-table {
+  border-spacing: 3vmin;
+}

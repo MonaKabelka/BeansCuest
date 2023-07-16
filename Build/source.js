@@ -459,57 +459,57 @@ var BeansCuest;
         BeansCuest.isMenuOpen = !BeansCuest.isMenuOpen;
     }
     async function showCredits() {
-        await BeansCuest.fS.Text.print(`<table>
+        await BeansCuest.fS.Text.print(`<table class="credits-table">
         <thead>
           <tr>
-            <th>   <br>Resources   </th>
-            <th>   <br>Credits   </th>
+            <th>   Resources   </th>
+            <th>   Credits   </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>   <br>Concept   </td>
-            <td>   <br>Mona Kabelka   </td>
+            <td>   Concept   </td>
+            <td>   Mona Kabelka   </td>
           </tr>
           <tr>
-            <td>   <br>Script   </td>
-            <td>   <br>Mona Kabelka   </td>
+            <td>   Script   </td>
+            <td>   Mona Kabelka   </td>
           </tr>
           <tr>
-            <td>   <br>Background Artworks   </td>
-            <td>   <br>Mona Kabelka   </td>
+            <td>   Background Artworks   </td>
+            <td>   Mona Kabelka   </td>
           </tr>
           <tr>
-            <td>   <br>Character Design   </td>
-            <td>   <br>Mona Kabelka   </td>
+            <td>   Character Design   </td>
+            <td>   Mona Kabelka   </td>
           </tr>
           <tr>
-            <td>   <br>Character Artworks   </td>
-            <td>   <br>Mona Kabelka   </td>
+            <td>   Character Artworks   </td>
+            <td>   Mona Kabelka   </td>
           </tr>
           <tr>
-            <td>   <br>GUI Design   </td>
-            <td>   <br>Mona Kabelka   </td>
+            <td>   GUI Design   </td>
+            <td>   Mona Kabelka   </td>
           </tr>
           <tr>
-            <td>   <br>Item Artworks   </td>
-            <td>   <br>Mona Kabelka   </td>
+            <td>   Item Artworks   </td>
+            <td>   Mona Kabelka   </td>
           </tr>
           <tr>
-            <td>   <br>Programming   </td>
-            <td>   <br>Mona Kabelka   </td>
+            <td>   Programming   </td>
+            <td>   Mona Kabelka   </td>
           </tr>
           <tr>
-            <td>   <br>Logo Design   </td>
-            <td>   <br>Mona Kabelka   </td>
+            <td>   Logo Design   </td>
+            <td>   Mona Kabelka   </td>
           </tr>
           <tr>
-            <td>   <br>Fudge Core   </td>
-            <td>   <br>Jirka Dell'Oro-Friedl   </td>
+            <td>   Fudge Core   </td>
+            <td>   Jirka Dell'Oro-Friedl   </td>
           </tr>
           <tr>
-            <td>   <br>Lecturer   </td>
-            <td>   <br>Riem Yasin   </td>
+            <td>   Lecturer   </td>
+            <td>   Riem Yasin   </td>
           </tr>
         </tbody>
         </table>`);
