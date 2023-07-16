@@ -40,10 +40,11 @@ declare namespace BeansCuest {
     export {};
 }
 declare namespace BeansCuest {
-    type MenuAction = "inventory" | "save" | "load" | "credits" | "volumeUp" | "volumeDown" | "novelPages";
+    type MenuAction = "inventory" | "save" | "load" | "credits" | "volumeUp" | "volumeDown" | "novelPages" | "toggleMenu";
     type MenuDefinition = Record<MenuAction, {
         label: string;
         callback: () => Promise<void>;
+        code: f.KEYBOARD_CODE;
     }>;
 }
 declare namespace BeansCuest {
@@ -84,6 +85,7 @@ declare namespace BeansCuest {
     let menuDefinition: MenuDefinition;
     function transformMenu(definition: MenuDefinition): Object;
     function useCallbacks(_option: string): Promise<void>;
+    let isMenuOpen: boolean;
 }
 declare namespace BeansCuest {
     function createMultiLineSpeech(character: CharacterDefinition, textNames: TextName[], text: SceneText): Promise<void>;

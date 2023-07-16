@@ -260,31 +260,43 @@ var BeansCuest;
     BeansCuest.menuDefinition = {
         credits: {
             label: "(C)redits",
-            callback: showCredits
+            callback: showCredits,
+            code: BeansCuest.f.KEYBOARD_CODE.C
         },
         inventory: {
             label: "(I)nventory",
-            callback: openInventory
+            callback: openInventory,
+            code: BeansCuest.f.KEYBOARD_CODE.I
         },
         load: {
             label: "(L)oad",
-            callback: loadGame
+            callback: loadGame,
+            code: BeansCuest.f.KEYBOARD_CODE.L
         },
         save: {
             label: "(S)ave",
-            callback: saveGame
+            callback: saveGame,
+            code: BeansCuest.f.KEYBOARD_CODE.S
         },
         novelPages: {
             label: "(N)ovel Pages",
-            callback: showNovelPages
+            callback: showNovelPages,
+            code: BeansCuest.f.KEYBOARD_CODE.N
         },
         volumeDown: {
-            label: "Vol (-)",
-            callback: volumeDown
+            label: "Vol (D)own",
+            callback: volumeDown,
+            code: BeansCuest.f.KEYBOARD_CODE.D
         },
         volumeUp: {
-            label: "Vol (+)",
-            callback: volumeUp
+            label: "Vol (U)p",
+            callback: volumeUp,
+            code: BeansCuest.f.KEYBOARD_CODE.U
+        },
+        toggleMenu: {
+            label: "Toggle (M)enu",
+            callback: toggleMenu,
+            code: BeansCuest.f.KEYBOARD_CODE.M
         }
     };
     function transformMenu(definition) {
@@ -295,6 +307,11 @@ var BeansCuest;
         await Object.values(BeansCuest.menuDefinition).find(({ label }) => label === _option).callback();
     }
     BeansCuest.useCallbacks = useCallbacks;
+    BeansCuest.isMenuOpen = false;
+    async function toggleMenu() {
+        BeansCuest.isMenuOpen ? BeansCuest.gameMenu.close() : BeansCuest.gameMenu.open();
+        BeansCuest.isMenuOpen = !BeansCuest.isMenuOpen;
+    }
     async function showCredits() {
         return;
     }
@@ -302,10 +319,10 @@ var BeansCuest;
         return;
     }
     async function saveGame() {
-        return;
+        await BeansCuest.fS.Progress.save();
     }
     async function loadGame() {
-        return;
+        await BeansCuest.fS.Progress.load();
     }
     async function showNovelPages() {
         return;
@@ -315,6 +332,12 @@ var BeansCuest;
     }
     async function volumeUp() {
         return;
+    }
+    document.addEventListener("keydown", handleKeyPress);
+    async function handleKeyPress(event) {
+        if (!Object.values(BeansCuest.menuDefinition).some(({ code }) => code === event.code))
+            return;
+        await useCallbacks(Object.values(BeansCuest.menuDefinition).find(({ code }) => code === event.code).label);
     }
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
