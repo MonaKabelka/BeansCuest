@@ -10,15 +10,16 @@ var BeansCuest;
     BeansCuest.secondaryPosition = [85, 100];
     window.addEventListener("load", start);
     function start(_event) {
+        BeansCuest.gameMenu = BeansCuest.fS.Menu.create(BeansCuest.transformMenu(BeansCuest.menuDefinition), BeansCuest.useCallbacks, "in-game-menu");
         let scenes = [
-            // { scene: scene1_1, name: "Scene 1.1" },
-            // { scene: scene1_2, name: "Scene 1.2" },
-            // { scene: scene2_1, name: "Scene 2.1" },
-            // { scene: scene3_1, name: "Scene 3.1" },
+            { scene: BeansCuest.scene1_1, name: "Scene 1.1" },
+            { scene: BeansCuest.scene1_2, name: "Scene 1.2" },
+            { scene: BeansCuest.scene2_1, name: "Scene 2.1" },
+            { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
             { scene: BeansCuest.scene4_1, name: "Scene 4.1" },
         ];
-        let uiElement = document.querySelector("[type=interface]");
-        BeansCuest.dataForSave = BeansCuest.fS.Progress.setData(BeansCuest.dataForSave, uiElement);
+        // let uiElement: HTMLElement = document.querySelector("[type=interface]");
+        // dataForSave = fS.Progress.setData(dataForSave, uiElement);
         // start the sequence
         BeansCuest.fS.Progress.go(scenes);
     }
@@ -83,7 +84,8 @@ var BeansCuest;
                 concerned: "Images/Characters/Stool/concerned.png",
                 annoyed: "Images/Characters/Stool/annoyed.png",
                 impressed: "Images/Characters/Stool/impressed.png",
-                whispering: "Images/Characters/Stool/whispering.png"
+                whispering: "Images/Characters/Stool/whispering.png",
+                questioning: "Images/Characters/Stool/questioning.png"
             }
         },
         Narrator: {
@@ -218,16 +220,21 @@ var BeansCuest;
 var BeansCuest;
 (function (BeansCuest) {
     BeansCuest.TRANSITIONS = {
-        pix4: {
-            alpha: "Images/Transitions/pix4.jpg",
+        inScene: {
+            alpha: "Images/Transitions/inScene.jpg",
             duration: 1,
             edge: 1
         },
-        pix1: {
-            alpha: "Images/Transitions/pix1.jpg",
+        portal: {
+            alpha: "Images/Transitions/portal.jpg",
             duration: 1,
             edge: 1
-        }
+        },
+        sceneChange: {
+            alpha: "Images/Transitions/sceneChange.jpg",
+            duration: 1,
+            edge: 1
+        },
     };
     function makeTransition(name, duration) {
         if (BeansCuest.TRANSITIONS[name]) {
@@ -248,6 +255,68 @@ var BeansCuest;
         await BeansCuest.fS.Character.hide(character);
     }
     BeansCuest.hideCharacter = hideCharacter;
+})(BeansCuest || (BeansCuest = {}));
+var BeansCuest;
+(function (BeansCuest) {
+    BeansCuest.menuDefinition = {
+        credits: {
+            label: "(C)redits",
+            callback: showCredits
+        },
+        inventory: {
+            label: "(I)nventory",
+            callback: openInventory
+        },
+        load: {
+            label: "(L)oad",
+            callback: loadGame
+        },
+        save: {
+            label: "(S)ave",
+            callback: saveGame
+        },
+        novelPages: {
+            label: "(N)ovel Pages",
+            callback: showNovelPages
+        },
+        volumeDown: {
+            label: "Vol (-)",
+            callback: volumeDown
+        },
+        volumeUp: {
+            label: "Vol (+)",
+            callback: volumeUp
+        }
+    };
+    function transformMenu(definition) {
+        return Object.entries(definition).reduce((acc, [key, { label }]) => ({ ...acc, [key]: label }), {});
+    }
+    BeansCuest.transformMenu = transformMenu;
+    async function useCallbacks(_option) {
+        await Object.values(BeansCuest.menuDefinition).find(({ label }) => label === _option).callback();
+    }
+    BeansCuest.useCallbacks = useCallbacks;
+    async function showCredits() {
+        return;
+    }
+    async function openInventory() {
+        return;
+    }
+    async function saveGame() {
+        return;
+    }
+    async function loadGame() {
+        return;
+    }
+    async function showNovelPages() {
+        return;
+    }
+    async function volumeDown() {
+        return;
+    }
+    async function volumeUp() {
+        return;
+    }
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
@@ -406,7 +475,7 @@ var BeansCuest;
     };
     async function scene1_2() {
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods2);
-        await BeansCuest.makeTransition("pix4");
+        await BeansCuest.makeTransition("inScene");
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, script.Oliver.texts.T0000.text);
         await BeansCuest.letCharactersHaveDialogue([[BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0000]], script);
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, script.Oliver.texts.T0001.text);
@@ -582,7 +651,7 @@ var BeansCuest;
         ], script);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods);
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "worried", BeansCuest.fS.positionPercent(85, 100));
-        await BeansCuest.makeTransition("pix1");
+        await BeansCuest.makeTransition("portal");
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Unknown, script.Unknown.texts.T0001.text);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0001],
@@ -1028,7 +1097,7 @@ var BeansCuest;
     };
     async function scene3_1() {
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.lilypond);
-        await BeansCuest.makeTransition("pix4");
+        await BeansCuest.makeTransition("inScene");
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0000],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0000],
@@ -1236,7 +1305,7 @@ var BeansCuest;
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Bean);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.lilypond);
-        await BeansCuest.makeTransition("pix4");
+        await BeansCuest.makeTransition("inScene");
         const [x, y] = BeansCuest.secondaryPosition;
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "anxious", BeansCuest.fS.positionPercent(x, y));
         await BeansCuest.letCharactersHaveDialogue([

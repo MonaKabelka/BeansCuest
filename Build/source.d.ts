@@ -40,6 +40,13 @@ declare namespace BeansCuest {
     export {};
 }
 declare namespace BeansCuest {
+    type MenuAction = "inventory" | "save" | "load" | "credits" | "volumeUp" | "volumeDown" | "novelPages";
+    type MenuDefinition = Record<MenuAction, {
+        label: string;
+        callback: () => Promise<void>;
+    }>;
+}
+declare namespace BeansCuest {
     type SingleNumber = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
     export type TextName = `T${SingleNumber}${SingleNumber}${SingleNumber}${SingleNumber}`;
     export type SingleText = string;
@@ -58,7 +65,7 @@ declare namespace BeansCuest {
     export {};
 }
 declare namespace BeansCuest {
-    type TransitionName = "fade_in" | "pix4" | "pix1";
+    type TransitionName = "fade_in" | "inScene" | "portal" | "sceneChange";
     type Transition<T extends TransitionName> = {
         alpha: `Images/Transitions/${T}.jpg`;
         edge: number;
@@ -71,6 +78,12 @@ declare namespace BeansCuest {
 declare namespace BeansCuest {
     function showCharacter(character: CharacterDefinition, pose: EmotionName, position: f.Vector2): Promise<void>;
     function hideCharacter(character: CharacterDefinition): Promise<void>;
+}
+declare namespace BeansCuest {
+    let gameMenu: fS.Menu;
+    let menuDefinition: MenuDefinition;
+    function transformMenu(definition: MenuDefinition): Object;
+    function useCallbacks(_option: string): Promise<void>;
 }
 declare namespace BeansCuest {
     function createMultiLineSpeech(character: CharacterDefinition, textNames: TextName[], text: SceneText): Promise<void>;

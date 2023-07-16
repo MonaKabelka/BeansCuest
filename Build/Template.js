@@ -78,8 +78,8 @@ var BeansCuest;
 var BeansCuest;
 (function (BeansCuest) {
     BeansCuest.TRANSITIONS = {
-        pix4: {
-            alpha: "Images/Transitions/pix4.jpg",
+        inScene: {
+            alpha: "Images/Transitions/inScene.jpg",
             duration: 1,
             edge: 1
         }
@@ -131,7 +131,7 @@ var BeansCuest;
         };
         BeansCuest.fS.Speech.hide();
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods);
-        await BeansCuest.makeTransition("pix4");
+        await BeansCuest.makeTransition("inScene");
         await BeansCuest.createMultiLineSpeech(BeansCuest.CHARACTERS.Oliver, ["T0000", "T0001"], text);
     }
     BeansCuest.scene1_1 = scene1_1;

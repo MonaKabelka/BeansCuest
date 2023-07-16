@@ -147,7 +147,7 @@ namespace BeansCuest {
         await fS.Location.show(LOCATIONS.wistfulwoods);
 
         await showCharacter(CHARACTERS.Stool, "worried", fS.positionPercent(85, 100));
-        await makeTransition("pix1");
+        await makeTransition("portal");
         await createSingleLineSpeech(CHARACTERS.Unknown, script.Unknown.texts.T0001.text);
 
         await letCharactersHaveDialogue([

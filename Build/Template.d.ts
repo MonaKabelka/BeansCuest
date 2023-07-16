@@ -36,7 +36,7 @@ declare namespace BeansCuest {
     export {};
 }
 declare namespace BeansCuest {
-    type TransitionName = "fade_in" | "pix4";
+    type TransitionName = "fade_in" | "inScene";
     type Transition<T extends TransitionName> = {
         alpha: `Images/Transitions/${T}.jpg`;
         edge: number;

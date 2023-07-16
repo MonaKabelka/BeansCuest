@@ -109,7 +109,8 @@ namespace BeansCuest {
                 concerned: "Images/Characters/Stool/concerned.png",
                 annoyed: "Images/Characters/Stool/annoyed.png",
                 impressed: "Images/Characters/Stool/impressed.png",
-                whispering: "Images/Characters/Stool/whispering.png"
+                whispering: "Images/Characters/Stool/whispering.png",
+                questioning: "Images/Characters/Stool/questioning.png"
             }
         },
         Narrator: {

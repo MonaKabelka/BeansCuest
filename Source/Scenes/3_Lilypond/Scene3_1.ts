@@ -349,7 +349,7 @@ namespace BeansCuest {
 
     export async function scene3_1(): fS.SceneReturn {
         await fS.Location.show(LOCATIONS.lilypond);
-        await makeTransition("pix4");
+        await makeTransition("inScene");
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0000],
@@ -601,7 +601,7 @@ namespace BeansCuest {
         await hideCharacter(CHARACTERS.Bean);
         await hideCharacter(CHARACTERS.Stool);
         await fS.Location.show(LOCATIONS.lilypond);
-        await makeTransition("pix4");
+        await makeTransition("inScene");
 
         const [x, y] = secondaryPosition;
 

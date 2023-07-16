@@ -43,7 +43,7 @@ namespace BeansCuest {
     }
     export async function scene1_2(): fS.SceneReturn {
         await fS.Location.show(LOCATIONS.woods2);
-        await makeTransition("pix4");
+        await makeTransition("inScene");
         await createSingleLineSpeech(CHARACTERS.Oliver, script.Oliver.texts.T0000.text);
 
         await letCharactersHaveDialogue([[CHARACTERS.Bean, script.Bean.texts.T0000]], script);

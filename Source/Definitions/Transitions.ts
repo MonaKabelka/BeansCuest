@@ -1,21 +1,26 @@
 namespace BeansCuest {
-    type TransitionName = "fade_in" | "pix4" | "pix1";
+    type TransitionName = "fade_in" | "inScene" | "portal" | "sceneChange";
     type Transition<T extends TransitionName> = {
         alpha: `Images/Transitions/${T}.jpg`,
         edge: number,
         duration: number,
     }
     export let TRANSITIONS: Partial<Record<TransitionName, Transition<TransitionName>>> = {
-        pix4: {
-            alpha: "Images/Transitions/pix4.jpg",
+        inScene: {
+            alpha: "Images/Transitions/inScene.jpg",
             duration: 1,
             edge: 1
         },
-        pix1: {
-            alpha: "Images/Transitions/pix1.jpg",
+        portal: {
+            alpha: "Images/Transitions/portal.jpg",
             duration: 1,
             edge: 1
-        }
+        },
+        sceneChange: {
+            alpha: "Images/Transitions/sceneChange.jpg",
+            duration: 1,
+            edge: 1
+        },
     }
     export function makeTransition(name: TransitionName, duration?: number) {
         if (TRANSITIONS[name as keyof typeof TRANSITIONS]) {
