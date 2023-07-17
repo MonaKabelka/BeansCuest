@@ -24,8 +24,8 @@ var BeansCuest;
         BeansCuest.gameMenu = BeansCuest.fS.Menu.create(BeansCuest.transformMenu(BeansCuest.menuDefinition), BeansCuest.useCallbacks, "in-game-menu");
         BeansCuest.gameMenu.close();
         let scenes = [
-            { scene: BeansCuest.scene1_1, name: "Scene 1.1" },
-            { scene: BeansCuest.scene1_2, name: "Scene 1.2" },
+            // { scene: scene1_1, name: "Scene 1.1" },
+            // { scene: scene1_2, name: "Scene 1.2" },
             { scene: BeansCuest.scene2_1, name: "Scene 2.1" },
             { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
             { scene: BeansCuest.scene4_1, name: "Scene 4.1" },
@@ -98,7 +98,7 @@ var BeansCuest;
         },
         Stool: {
             name: "Stool",
-            origin: BeansCuest.fS.ORIGIN.BOTTOMCENTER,
+            origin: BeansCuest.fS.ORIGIN.CENTER,
             pose: {
                 worried: "Images/Characters/Stool/worried.png",
                 explanatory: "Images/Characters/Stool/explanatory.png",
@@ -879,7 +879,7 @@ var BeansCuest;
             }
         },
         Stool: {
-            defaultPosition: BeansCuest.secondaryPosition,
+            defaultPosition: [50, 50],
             texts: {
                 T0000: {
                     text: "I don't know what happened either. I usually just sit here and watch the portal...",
@@ -952,7 +952,7 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0000]
         ], script);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods);
-        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "worried", BeansCuest.fS.positionPercent(85, 100));
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Stool, "worried", BeansCuest.fS.positionPercent(50, 50));
         await BeansCuest.makeTransition("portal");
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Unknown, script.Unknown.texts.T0001.text);
         await BeansCuest.letCharactersHaveDialogue([

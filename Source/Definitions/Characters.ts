@@ -91,7 +91,7 @@ namespace BeansCuest {
         },
         Stool: {
             name: "Stool",
-            origin: fS.ORIGIN.BOTTOMCENTER,
+            origin: fS.ORIGIN.CENTER,
             pose: {
                 worried: "Images/Characters/Stool/worried.png",
                 explanatory: "Images/Characters/Stool/explanatory.png",

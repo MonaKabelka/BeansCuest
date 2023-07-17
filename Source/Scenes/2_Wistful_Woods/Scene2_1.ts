@@ -67,7 +67,7 @@ namespace BeansCuest {
             }
         },
         Stool: {
-            defaultPosition: secondaryPosition,
+            defaultPosition: [50, 50],
             texts: {
                 T0000: {
                     text: "I don't know what happened either. I usually just sit here and watch the portal...",
@@ -146,7 +146,7 @@ namespace BeansCuest {
 
         await fS.Location.show(LOCATIONS.wistfulwoods);
 
-        await showCharacter(CHARACTERS.Stool, "worried", fS.positionPercent(85, 100));
+        await showCharacter(CHARACTERS.Stool, "worried", fS.positionPercent(50, 50));
         await makeTransition("portal");
         await createSingleLineSpeech(CHARACTERS.Unknown, script.Unknown.texts.T0001.text);
 
