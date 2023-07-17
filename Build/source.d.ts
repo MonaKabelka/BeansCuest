@@ -146,6 +146,23 @@ declare namespace BeansCuest {
     export {};
 }
 declare namespace BeansCuest {
+    const SOUND_NAMES: readonly ["a", "b", "c"];
+    type SoundName = typeof SOUND_NAMES[number];
+    type SoundDefinition = {
+        url: string;
+        defaultVolume: number;
+    };
+    const SOUNDS: Record<SoundName, SoundDefinition>;
+    const MUSIC_NAMES: readonly ["garden", "woods", "lilypond", "meadows", "mansion", "portal"];
+    type MusicName = typeof MUSIC_NAMES[number];
+    type MusicDefinition = {
+        url: string;
+        defaultVolume: number;
+        looping?: boolean;
+    };
+    const MUSICS: Record<MusicName, MusicDefinition>;
+}
+declare namespace BeansCuest {
     type TransitionName = "fade_in" | "inScene" | "portal" | "sceneChange" | "novelpage";
     type Transition<T extends TransitionName> = {
         alpha: `Images/Transitions/${T}.jpg`;
@@ -173,6 +190,11 @@ declare namespace BeansCuest {
 }
 declare namespace BeansCuest {
     function showNovelPages(novelpage: NovelpageName, previousLocation: fS.LocationDefinition): Promise<void>;
+}
+declare namespace BeansCuest {
+    function playSound(sound: SoundDefinition): Promise<void>;
+    function playBGM(music: MusicDefinition, duration: number): Promise<void>;
+    function muteBGM(music: MusicDefinition, duration: number): Promise<void>;
 }
 declare namespace BeansCuest {
     function createMultiLineSpeech(character: CharacterDefinition, textNames: TextName[], text: SceneText): Promise<void>;

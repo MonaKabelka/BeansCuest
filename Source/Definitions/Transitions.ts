@@ -30,11 +30,11 @@ namespace BeansCuest {
     export function makeTransition(name: TransitionName, duration?: number) {
         if (TRANSITIONS[name as keyof typeof TRANSITIONS]) {
             return fS.update(
-                duration ? duration : TRANSITIONS[name as keyof typeof TRANSITIONS].duration,
+                duration || TRANSITIONS[name as keyof typeof TRANSITIONS].duration,
                 TRANSITIONS[name as keyof typeof TRANSITIONS].alpha,
                 TRANSITIONS[name as keyof typeof TRANSITIONS].edge
             );
         }
-        return fS.update(duration ? duration : 1);
+        return fS.update(duration || 1);
     }
 }

@@ -388,6 +388,57 @@ var BeansCuest;
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
+    BeansCuest.SOUND_NAMES = ["a", "b", "c"];
+    BeansCuest.SOUNDS = {
+        a: {
+            url: "Audio/Sounds/a.mp3",
+            defaultVolume: 1
+        },
+        b: {
+            url: "Audio/Sounds/b.mp3",
+            defaultVolume: 1
+        },
+        c: {
+            url: "Audio/Sounds/c.mp3",
+            defaultVolume: 1
+        },
+    };
+    BeansCuest.MUSIC_NAMES = ["garden", "woods", "lilypond", "meadows", "mansion", "portal"];
+    BeansCuest.MUSICS = {
+        garden: {
+            defaultVolume: 1,
+            url: "Audio/BGM/garden.mp3",
+            looping: true
+        },
+        woods: {
+            defaultVolume: 1,
+            url: "Audio/BGM/woods.mp3",
+            looping: true
+        },
+        lilypond: {
+            defaultVolume: 1,
+            url: "Audio/BGM/lilypond.mp3",
+            looping: true
+        },
+        meadows: {
+            defaultVolume: 1,
+            url: "Audio/BGM/meadows.mp3",
+            looping: true
+        },
+        mansion: {
+            defaultVolume: 1,
+            url: "Audio/BGM/mansion.mp3",
+            looping: true
+        },
+        portal: {
+            defaultVolume: 1,
+            url: "Audio/BGM/portal.mp3",
+            looping: true
+        }
+    };
+})(BeansCuest || (BeansCuest = {}));
+var BeansCuest;
+(function (BeansCuest) {
     BeansCuest.TRANSITIONS = {
         inScene: {
             alpha: "Images/Transitions/inScene.jpg",
@@ -412,9 +463,9 @@ var BeansCuest;
     };
     function makeTransition(name, duration) {
         if (BeansCuest.TRANSITIONS[name]) {
-            return BeansCuest.fS.update(duration ? duration : BeansCuest.TRANSITIONS[name].duration, BeansCuest.TRANSITIONS[name].alpha, BeansCuest.TRANSITIONS[name].edge);
+            return BeansCuest.fS.update(duration || BeansCuest.TRANSITIONS[name].duration, BeansCuest.TRANSITIONS[name].alpha, BeansCuest.TRANSITIONS[name].edge);
         }
-        return BeansCuest.fS.update(duration ? duration : 1);
+        return BeansCuest.fS.update(duration || 1);
     }
     BeansCuest.makeTransition = makeTransition;
 })(BeansCuest || (BeansCuest = {}));
@@ -618,6 +669,21 @@ var BeansCuest;
         await BeansCuest.makeTransition("novelpage");
     }
     BeansCuest.showNovelPages = showNovelPages;
+})(BeansCuest || (BeansCuest = {}));
+var BeansCuest;
+(function (BeansCuest) {
+    async function playSound(sound) {
+        BeansCuest.fS.Sound.play(sound.url, sound.defaultVolume);
+    }
+    BeansCuest.playSound = playSound;
+    async function playBGM(music, duration) {
+        await BeansCuest.fS.Sound.fade(music.url, music.defaultVolume, duration || 1, music.looping);
+    }
+    BeansCuest.playBGM = playBGM;
+    async function muteBGM(music, duration) {
+        await BeansCuest.fS.Sound.fade(music.url, 0, duration || 1);
+    }
+    BeansCuest.muteBGM = muteBGM;
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
