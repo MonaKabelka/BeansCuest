@@ -39,7 +39,7 @@ declare namespace BeansCuest {
 }
 declare namespace BeansCuest {
     export type CharacterName = "Bean" | "Stool" | "Lillypad" | "Charm" | "Chant" | "Spook" | "Bandit" | "Oliver" | "System" | "Unknown";
-    export type EmotionName = "sad" | "scared" | "happy" | "charmed" | "confused" | "explanatory" | "serious" | "worried" | "hysterical" | "crying" | "anxious" | "shivering" | "fainting" | "offended" | "confused" | "shy" | "blushing" | "angry" | "snapped" | "thinking" | "smiling" | "grief" | "grumpy" | "sleeping" | "proud";
+    export type EmotionName = "sad" | "scared" | "happy" | "charmed" | "confused" | "explanatory" | "serious" | "worried" | "hysterical" | "crying" | "anxious" | "shivering" | "fainting" | "offended" | "confused" | "shy" | "blushing" | "angry" | "snapped" | "thinking" | "smiling" | "grief" | "grumpy" | "sleeping" | "proud" | "curious";
     export type Pose = `Images/Characters/${CharacterName}/${EmotionName}.png`;
     type PoseDefinition = Partial<Record<EmotionName, Pose>>;
     export type CharacterDefinition = {
@@ -212,4 +212,7 @@ declare namespace BeansCuest {
 }
 declare namespace BeansCuest {
     function scene1_1(): fS.SceneReturn;
+}
+declare namespace BeansCuest {
+    function scene1_2(): fS.SceneReturn;
 }

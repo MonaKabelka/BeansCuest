@@ -25,7 +25,8 @@ namespace BeansCuest {
     | "grief"
     | "grumpy"
     | "sleeping"
-    | "proud";
+    | "proud"
+    | "curious";
 
     export type Pose = `Images/Characters/${CharacterName}/${EmotionName}.png`;
     type PoseDefinition = Partial<Record<EmotionName, Pose>>;
@@ -54,6 +55,7 @@ namespace BeansCuest {
                 happy: "Images/Characters/Bean/happy.png",
                 charmed: "Images/Characters/Bean/charmed.png",
                 confused: "Images/Characters/Bean/confused.png",
+                curious: "Images/Characters/Bean/curious.png"
             }
         },
         Stool: {
