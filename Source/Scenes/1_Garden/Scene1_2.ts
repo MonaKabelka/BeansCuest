@@ -64,16 +64,15 @@ namespace BeansCuest {
         };
 
         await createDialog(dialog);
-
-        fS.Speech.hide();
-        fS.Character.hideAll();
-        await fS.Location.show(LOCATIONS.black);
-        await makeTransition("fade_in");
     }
 
     async function optionC1() {
         await letCharactersHaveDialogue([[CHARACTERS.Bean, script.Bean.texts.T0002, null]], script);
-        
+
+        fS.Speech.hide();
+        fS.Character.hideAll();
+        await fS.Location.show(LOCATIONS.black);
+        await makeTransition("portal");
     }
 
     async function optionC2() {
@@ -82,5 +81,10 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0004, null],
             [CHARACTERS.Bean, script.Bean.texts.T0005, null]
         ], script);
+        
+        fS.Speech.hide();
+        fS.Character.hideAll();
+        await fS.Location.show(LOCATIONS.black);
+        await makeTransition("portal");
     }
 }

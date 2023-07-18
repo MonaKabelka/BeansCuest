@@ -769,7 +769,6 @@ var BeansCuest;
         await BeansCuest.createDialog(dialog);
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
-        await BeansCuest.makeTransition("fade_in");
     }
     BeansCuest.scene1_1 = scene1_1;
     async function optionA() {
@@ -855,14 +854,14 @@ var BeansCuest;
             }
         };
         await BeansCuest.createDialog(dialog);
-        BeansCuest.fS.Speech.hide();
-        BeansCuest.fS.Character.hideAll();
-        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
-        await BeansCuest.makeTransition("fade_in");
     }
     BeansCuest.scene1_2 = scene1_2;
     async function optionC1() {
         await BeansCuest.letCharactersHaveDialogue([[BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0002, null]], script);
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
+        await BeansCuest.makeTransition("portal");
     }
     async function optionC2() {
         await BeansCuest.letCharactersHaveDialogue([
@@ -870,6 +869,10 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0004, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0005, null]
         ], script);
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
+        await BeansCuest.makeTransition("portal");
     }
 })(BeansCuest || (BeansCuest = {}));
 //# sourceMappingURL=source.js.map

@@ -73,7 +73,6 @@ namespace BeansCuest {
 
         fS.Speech.hide();
         fS.Character.hideAll();
-        await makeTransition("fade_in");
     }
 
     async function optionA() {
