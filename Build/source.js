@@ -334,6 +334,18 @@ var BeansCuest;
         black: {
             background: "Images/Backgrounds/black.png",
             name: "black",
+        },
+        otherworld: {
+            background: "Images/Backgrounds/otherworld.png",
+            name: "otherworld"
+        },
+        wistfulwoods2: {
+            background: "Images/Backgrounds/wistfulwoods2.png",
+            name: "wistfulwoods2",
+        },
+        wistfulwoods3: {
+            background: "Images/Backgrounds/wistfulwoods3.png",
+            name: "wistfulwoods3"
         }
     };
 })(BeansCuest || (BeansCuest = {}));
