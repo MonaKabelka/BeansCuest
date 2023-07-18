@@ -15,8 +15,18 @@ declare namespace BeansCuest {
         novelpage5: boolean;
         novelpage6: boolean;
     };
-    let mainPosition: [number, number];
-    let secondaryPosition: [number, number];
+    const POSITIONS: {
+        1: [number, number];
+        2: {
+            1: [number, number];
+            2: [number, number];
+        };
+        3: {
+            1: [number, number];
+            2: [number, number];
+            3: [number, number];
+        };
+    };
 }
 declare namespace BeansCuest {
     function getBigger(duration: number): fS.AnimationDefinition;
@@ -29,7 +39,7 @@ declare namespace BeansCuest {
 }
 declare namespace BeansCuest {
     export type CharacterName = "Bean" | "Stool" | "Lillypad" | "Charm" | "Chant" | "Spook" | "Bandit" | "Oliver" | "System" | "Unknown";
-    export type EmotionName = "happy" | "worried" | "sad" | "focused" | "proud" | "curious" | "charmed" | "scared" | "confused" | "explanatory" | "questioning" | "hysterical" | "guilty" | "unsure" | "crying" | "resigned" | "anxious" | "hiding" | "smiling" | "shy" | "disappointed" | "determined" | "blushing" | "surprised" | "thinking" | "serious" | "mocking" | "disgusted" | "laughing" | "begging" | "cheering" | "impressed" | "shivers" | "concerned" | "annoyed" | "angry" | "snapped" | "whispering" | "muttering" | "grumpy" | "sleepy" | "center";
+    export type EmotionName = "sad" | "scared" | "happy" | "charmed" | "confused" | "explanatory" | "serious" | "worried" | "hysterical" | "crying" | "anxious" | "shivering" | "fainting" | "offended" | "confused" | "shy" | "blushing" | "angry" | "snapped" | "thinking" | "smiling" | "grief" | "grumpy" | "sleeping" | "proud";
     export type Pose = `Images/Characters/${CharacterName}/${EmotionName}.png`;
     type PoseDefinition = Partial<Record<EmotionName, Pose>>;
     export type CharacterDefinition = {
@@ -142,7 +152,7 @@ declare namespace BeansCuest {
     };
     export type ScriptDefinition = Partial<Record<CharacterName, SingleCharacterScript>>;
     export function letCharacterSayText(character: CharacterDefinition, scriptText: ScriptText, position: [number, number]): Promise<void>;
-    export function letCharactersHaveDialogue(texts: [CharacterDefinition, ScriptText][], script: ScriptDefinition): Promise<void>;
+    export function letCharactersHaveDialogue(texts: [CharacterDefinition, ScriptText, [number, number]][], script: ScriptDefinition): Promise<void>;
     export {};
 }
 declare namespace BeansCuest {
@@ -202,16 +212,4 @@ declare namespace BeansCuest {
 }
 declare namespace BeansCuest {
     function scene1_1(): fS.SceneReturn;
-}
-declare namespace BeansCuest {
-    function scene1_2(): fS.SceneReturn;
-}
-declare namespace BeansCuest {
-    function scene2_1(): fS.SceneReturn;
-}
-declare namespace BeansCuest {
-    function scene3_1(): fS.SceneReturn;
-}
-declare namespace BeansCuest {
-    function scene4_1(): fS.SceneReturn;
 }
