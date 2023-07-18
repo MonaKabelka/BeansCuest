@@ -34,7 +34,7 @@ var BeansCuest;
         BeansCuest.gameMenu = BeansCuest.fS.Menu.create(BeansCuest.transformMenu(BeansCuest.menuDefinition), BeansCuest.useCallbacks, "in-game-menu");
         BeansCuest.gameMenu.close();
         let scenes = [
-            { scene: BeansCuest.scene1_1, name: "Scene 1.1" },
+            // { scene: scene1_1, name: "Scene 1.1" },
             { scene: BeansCuest.scene1_2, name: "Scene 1.2" },
             { scene: BeansCuest.scene2_1, name: "Scene 2.1" },
             // { scene: scene3_1, name: "Scene 3.1" },
@@ -62,9 +62,18 @@ var BeansCuest;
             playmode: BeansCuest.fS.ANIMATION_PLAYMODE.PLAYONCE
         };
     }
+    function portalTripping(duration) {
+        return {
+            start: { scaling: new BeansCuest.f.Vector2(1, 1), rotation: 0 },
+            end: { scaling: new BeansCuest.f.Vector2(0, 0), rotation: 1200 },
+            duration,
+            playmode: BeansCuest.fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+    }
     BeansCuest.ANIMATIONS = {
         getBigger,
-        getSmaller
+        getSmaller,
+        portalTripping
     };
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
@@ -871,6 +880,7 @@ var BeansCuest;
     async function optionC1() {
         await BeansCuest.letCharactersHaveDialogue([[BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0002, null]], script);
         BeansCuest.fS.Speech.hide();
+        await BeansCuest.fS.Character.animate(BeansCuest.CHARACTERS.Bean, BeansCuest.CHARACTERS.Bean.pose[script.Bean.texts.T0002.emotion], BeansCuest.ANIMATIONS.portalTripping(2));
         BeansCuest.fS.Character.hideAll();
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
         await BeansCuest.makeTransition("portal");
@@ -882,6 +892,7 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0005, null]
         ], script);
         BeansCuest.fS.Speech.hide();
+        await BeansCuest.fS.Character.animate(BeansCuest.CHARACTERS.Bean, BeansCuest.CHARACTERS.Bean.pose[script.Bean.texts.T0005.emotion], BeansCuest.ANIMATIONS.portalTripping(2));
         BeansCuest.fS.Character.hideAll();
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
         await BeansCuest.makeTransition("portal");

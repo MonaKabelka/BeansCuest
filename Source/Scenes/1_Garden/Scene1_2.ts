@@ -70,6 +70,8 @@ namespace BeansCuest {
         await letCharactersHaveDialogue([[CHARACTERS.Bean, script.Bean.texts.T0002, null]], script);
 
         fS.Speech.hide();
+        await fS.Character.animate(CHARACTERS.Bean, CHARACTERS.Bean.pose[script.Bean.texts.T0002.emotion], ANIMATIONS.portalTripping(2));
+        
         fS.Character.hideAll();
         await fS.Location.show(LOCATIONS.black);
         await makeTransition("portal");
@@ -83,6 +85,8 @@ namespace BeansCuest {
         ], script);
         
         fS.Speech.hide();
+        await fS.Character.animate(CHARACTERS.Bean, CHARACTERS.Bean.pose[script.Bean.texts.T0005.emotion], ANIMATIONS.portalTripping(2));
+
         fS.Character.hideAll();
         await fS.Location.show(LOCATIONS.black);
         await makeTransition("portal");

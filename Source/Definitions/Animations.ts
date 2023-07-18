@@ -17,8 +17,18 @@ namespace BeansCuest {
         }
     }
 
+    function portalTripping(duration: number): fS.AnimationDefinition {
+        return {
+            start: { scaling: new f.Vector2(1, 1), rotation: 0 },
+            end: { scaling: new f.Vector2(0, 0), rotation: 1200 },
+            duration,
+            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
+        }
+    }
+
     export const ANIMATIONS = {
         getBigger,
-        getSmaller
+        getSmaller,
+        portalTripping
     }
 }

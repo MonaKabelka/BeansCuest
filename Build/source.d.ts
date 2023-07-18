@@ -31,9 +31,11 @@ declare namespace BeansCuest {
 declare namespace BeansCuest {
     function getBigger(duration: number): fS.AnimationDefinition;
     function getSmaller(duration: number): fS.AnimationDefinition;
+    function portalTripping(duration: number): fS.AnimationDefinition;
     export const ANIMATIONS: {
         getBigger: typeof getBigger;
         getSmaller: typeof getSmaller;
+        portalTripping: typeof portalTripping;
     };
     export {};
 }

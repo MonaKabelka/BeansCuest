@@ -36,7 +36,7 @@ namespace BeansCuest {
     gameMenu = fS.Menu.create(transformMenu(menuDefinition), useCallbacks, "in-game-menu");
     gameMenu.close();
     let scenes: fS.Scenes = [
-      { scene: scene1_1, name: "Scene 1.1" },
+      // { scene: scene1_1, name: "Scene 1.1" },
       { scene: scene1_2, name: "Scene 1.2" },
       { scene: scene2_1, name: "Scene 2.1" },
       // { scene: scene3_1, name: "Scene 3.1" },
