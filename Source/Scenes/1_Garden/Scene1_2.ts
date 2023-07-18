@@ -20,11 +20,11 @@ namespace BeansCuest {
                 },
                 T0001: {
                     emotion: "charmed",
-                    text: "wow it looks so beautiful and sparkly! i wonder what it could be… oh looks like a portal!",
+                    text: "wow it looks so beautiful and sparkly! i wonder what it could be... oh looks like a portal!",
                 },
                 T0002: {
                     emotion: "curious",
-                    text: "must be magic or something. i wonder how… OAAAHH",
+                    text: "must be magic or something. i wonder how... OAAAHH",
                 },
                 T0003: {
                     emotion: "charmed",
