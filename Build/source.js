@@ -36,9 +36,9 @@ var BeansCuest;
         let scenes = [
             // { scene: scene1_1, name: "Scene 1.1" },
             // { scene: scene1_2, name: "Scene 1.2" },
-            { scene: BeansCuest.scene2_1, name: "Scene 2.1" },
-            { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
-            // { scene: scene4_1, name: "Scene 4.1" },
+            // { scene: scene2_1, name: "Scene 2.1" },
+            // { scene: scene3_1, name: "Scene 3.1" },
+            { scene: BeansCuest.scene4_1, name: "Scene 4.1" },
         ];
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Progress.go(scenes);
@@ -1442,7 +1442,7 @@ var BeansCuest;
     };
     async function scene3_1() {
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.lilypond);
-        await BeansCuest.makeTransition("inScene");
+        await BeansCuest.makeTransition("sceneChange");
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0000, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0000, null],
@@ -1719,6 +1719,230 @@ var BeansCuest;
             await BeansCuest.showNovelPages("novelpage2", BeansCuest.LOCATIONS.lilypond);
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
+    }
+})(BeansCuest || (BeansCuest = {}));
+var BeansCuest;
+(function (BeansCuest) {
+    let unlockNovelPages = {
+        3: false,
+        4: false,
+    };
+    let script = {
+        Bean: {
+            defaultPosition: null,
+            texts: {
+                T0000: {
+                    text: "Wow, this place is paw-mazing!"
+                },
+                T0001: {
+                    text: "Did you hear that?"
+                },
+                T0002: {
+                    text: "Let’s check it out!"
+                },
+                T0003: {
+                    text: "Hello? Paw-don me. I’m searching for a small glowing stone! It’s very important…"
+                },
+                T0004: {
+                    text: "Is everything alright?"
+                },
+                T0005: {
+                    text: "sometimes, unexpected alliances can turn the tides in our favor."
+                }
+            }
+        },
+        Stool: {
+            defaultPosition: BeansCuest.POSITIONS[3][1],
+            texts: {
+                T0000: {
+                    text: "Yeah, it’s really beautiful.",
+                    emotion: "charmed"
+                },
+                T0001: {
+                    text: "Anyway - we should explore the meadow and see if we can find any clues.",
+                    emotion: "serious"
+                },
+                T0002: {
+                    text: "But we have to keep an eye out. This place is full of surprises.",
+                    emotion: "shivering"
+                },
+                T0003: {
+                    text: "Indeed. Let's give it a wiiiide berth.",
+                    emotion: "worried"
+                },
+                T0004: {
+                    text: "Uh, are you even listening?",
+                    emotion: "offended"
+                },
+                T0005: {
+                    text: "psst, bean, i don't think we should waste our time with those two bickering fairies. they'll just keep going in circles.",
+                    emotion: "worried"
+                }
+            }
+        },
+        Chant: {
+            defaultPosition: BeansCuest.POSITIONS[3][2],
+            texts: {
+                T0000: {
+                    text: "It's not my fault! You were the one who had it last.",
+                },
+                T0001: {
+                    text: "Are you kitten me? I will never speak to YOU again!"
+                },
+                T0002: {
+                    text: "Not exactly – Charm lost our pixie dust and without the dust we can’t fly."
+                },
+                T0003: {
+                    text: "I won't admit it because it wasn’t my fault!",
+                    emotion: "angry"
+                }
+            }
+        },
+        Charm: {
+            defaultPosition: BeansCuest.POSITIONS[3][3],
+            texts: {
+                T0000: {
+                    text: "ME? I was the one who had it last??? You’re crazy!"
+                },
+                T0001: {
+                    text: "I will never speak to you again!"
+                },
+                T0002: {
+                    text: "In fact, Chant lost our pixie dust and doesn't want to admit it.",
+                    emotion: "snapped"
+                }
+            }
+        },
+        Unknown: {
+            defaultPosition: BeansCuest.POSITIONS[1],
+            texts: null
+        }
+    };
+    async function scene4_1() {
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.meadow);
+        await BeansCuest.makeTransition("sceneChange");
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0000, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0000, BeansCuest.POSITIONS[1]],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0001, BeansCuest.POSITIONS[1]],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0002, BeansCuest.POSITIONS[1]],
+            [BeansCuest.CHARACTERS.Unknown, script.Chant.texts.T0000, null],
+            [BeansCuest.CHARACTERS.Unknown, script.Charm.texts.T0000, null],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0001, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0003, BeansCuest.POSITIONS[1]],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0002, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0004, null],
+        ], script);
+        let [x, y] = script.Charm.defaultPosition;
+        let positionVector = BeansCuest.fS.positionPercent(x, y);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Charm, "angry", positionVector);
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Unknown, script.Charm.texts.T0001, null],
+        ], script);
+        [x, y] = script.Chant.defaultPosition;
+        positionVector = BeansCuest.fS.positionPercent(x, y);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Chant, "angry", positionVector);
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Unknown, script.Chant.texts.T0001, null],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0003, null],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0004, null],
+        ], script);
+        [x, y] = script.Chant.defaultPosition;
+        positionVector = BeansCuest.fS.positionPercent(x, y);
+        await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Chant, "snapped", positionVector);
+        await BeansCuest.makeTransition("fade_in", 0.1);
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Unknown, script.Chant.texts.T0002, null],
+            [BeansCuest.CHARACTERS.Charm, script.Charm.texts.T0002, null],
+            [BeansCuest.CHARACTERS.Chant, script.Chant.texts.T0003, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0005, null],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0005, null],
+        ], script);
+        const dialog = {
+            A: {
+                label: "Help searching the pixie dust",
+                callback: optionA,
+            },
+            B: {
+                label: "Don't waste time",
+                callback: optionB,
+            }
+        };
+        await BeansCuest.createDialog(dialog);
+    }
+    BeansCuest.scene4_1 = scene4_1;
+    async function optionA() {
+        const dialog = {
+            A1: {
+                label: "Search on the right (Charm)",
+                callback: optionA1,
+            },
+            A2: {
+                label: "Search on the left (Chant)",
+                callback: optionA2,
+            }
+        };
+        await BeansCuest.createDialog(dialog);
+    }
+    async function optionA1() {
+        await optionC();
+    }
+    async function optionA2() {
+        await optionC();
+    }
+    async function optionC() {
+        const dialog = {
+            C1: {
+                label: "Offer a solution",
+                callback: optionC1,
+            },
+            C2: {
+                label: "Try to settle disputes",
+                callback: optionC2,
+            }
+        };
+        await BeansCuest.createDialog(dialog);
+    }
+    async function optionB() {
+        await optionD();
+    }
+    async function optionC1() {
+        unlockNovelPages[3] = true;
+        unlockNovelPages[4] = true;
+        const dialog = {
+            C1_1: {
+                label: "Offer a solution",
+                callback: optionC1_1,
+            },
+            C1_2: {
+                label: "Try to settle disputes",
+                callback: optionC1_2,
+            }
+        };
+        await BeansCuest.createDialog(dialog);
+    }
+    async function optionC2() {
+        await optionD();
+    }
+    async function optionD() {
+        await optionE();
+    }
+    async function optionC1_1() {
+        await optionF();
+    }
+    async function optionC1_2() {
+        await optionE();
+    }
+    async function optionE() {
+        await optionF();
+    }
+    async function optionF() {
+        if (unlockNovelPages[3])
+            BeansCuest.showNovelPages("novelpage3", BeansCuest.LOCATIONS.cloud);
+        if (unlockNovelPages[4])
+            BeansCuest.showNovelPages("novelpage4", BeansCuest.LOCATIONS.cloud);
     }
 })(BeansCuest || (BeansCuest = {}));
 //# sourceMappingURL=source.js.map

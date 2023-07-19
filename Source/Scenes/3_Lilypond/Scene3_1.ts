@@ -313,7 +313,7 @@ namespace BeansCuest {
 
     export async function scene3_1(): fS.SceneReturn {
         await fS.Location.show(LOCATIONS.lilypond);
-        await makeTransition("inScene");
+        await makeTransition("sceneChange");
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0000, null],
