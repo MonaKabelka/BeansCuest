@@ -912,5 +912,9 @@ namespace BeansCuest {
         if (unlockNovelPages[3]) await showNovelPages("novelpage3", LOCATIONS.cloud);
         
         if (unlockNovelPages[4]) await showNovelPages("novelpage4", LOCATIONS.cloud);
+
+        fS.Character.hideAll();
+        fS.Speech.hide();
+        await makeTransition("fade_in");
     }
 }

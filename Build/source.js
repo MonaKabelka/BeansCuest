@@ -2577,6 +2577,40 @@ var BeansCuest;
             await BeansCuest.showNovelPages("novelpage3", BeansCuest.LOCATIONS.cloud);
         if (unlockNovelPages[4])
             await BeansCuest.showNovelPages("novelpage4", BeansCuest.LOCATIONS.cloud);
+        BeansCuest.fS.Character.hideAll();
+        BeansCuest.fS.Speech.hide();
+        await BeansCuest.makeTransition("fade_in");
+    }
+})(BeansCuest || (BeansCuest = {}));
+var BeansCuest;
+(function (BeansCuest) {
+    const script = {
+        Bean: {
+            defaultPosition: BeansCuest.POSITIONS[1],
+            texts: {
+                T0000: {
+                    text: "Stool, do you hear those spooky ghostlike noises? It's definitely coming from the mansion."
+                }
+            }
+        }
+    };
+    const possibleAnswers = ["Kitten", "Kittens", "Baby cat", "Baby cats", "Kitty", "Kittycat", "Babycat", "Babycats"];
+    async function scene5() {
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.mansion);
+        await BeansCuest.makeTransition("sceneChange");
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0000, null]
+        ], null);
+        const answer = await BeansCuest.fS.Speech.getInput();
+        if (possibleAnswers.includes(answer))
+            await optionA();
+        else
+            await optionB();
+    }
+    BeansCuest.scene5 = scene5;
+    async function optionA() {
+    }
+    async function optionB() {
     }
 })(BeansCuest || (BeansCuest = {}));
 //# sourceMappingURL=source.js.map
