@@ -26,9 +26,30 @@ namespace BeansCuest {
         }
     }
 
+    function flyUp(duration: number, [x, y]: [number, number]): fS.AnimationDefinition {
+        console.log(x, y);
+        return {
+            start: { translation: fS.positionPercent(x, y), scaling: new f.Vector2(1, 1) },
+            end: { translation: fS.positionPercent(x, -100), scaling: new f.Vector2(0, 0) },
+            duration,
+            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
+        }
+    }
+
+    function flyDown(duration: number, [x, y]: [number, number]): fS.AnimationDefinition {
+        return {
+            end: { translation: fS.positionPercent(x, y), scaling: new f.Vector2(1, 1) },
+            start: { translation: fS.positionPercent(x, -100), scaling: new f.Vector2(0, 0) },
+            duration,
+            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
+        }
+    }
+
     export const ANIMATIONS = {
         getBigger,
         getSmaller,
-        portalTripping
+        portalTripping,
+        flyUp,
+        flyDown
     }
 }

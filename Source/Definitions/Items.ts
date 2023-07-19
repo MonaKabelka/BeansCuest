@@ -15,7 +15,7 @@ namespace BeansCuest {
         pixieDust: {
             name: "Pixie Dust",
             description: "",
-            image:  "Images/Items/moonstone.png",
+            image:  "Images/Items/pixiedust.png",
             handler: handleItemUsage
         } satisfies fS.ItemDefinition,
         ladder: {
@@ -77,7 +77,7 @@ namespace BeansCuest {
             name: "pixieDust",
             origin: fS.ORIGIN.CENTER,
             pose: {
-                center: "Images/Items/pixieDust.png"
+                center: "Images/Items/pixiedust.png"
             }
         },
         starstone: {
