@@ -34,9 +34,9 @@ var BeansCuest;
         BeansCuest.gameMenu = BeansCuest.fS.Menu.create(BeansCuest.transformMenu(BeansCuest.menuDefinition), BeansCuest.useCallbacks, "in-game-menu");
         BeansCuest.gameMenu.close();
         let scenes = [
-            // { scene: scene1_1, name: "Scene 1.1" },
-            // { scene: scene1_2, name: "Scene 1.2" },
-            // { scene: scene2_1, name: "Scene 2.1" },
+            { scene: BeansCuest.scene1_1, name: "Scene 1.1" },
+            { scene: BeansCuest.scene1_2, name: "Scene 1.2" },
+            { scene: BeansCuest.scene2_1, name: "Scene 2.1" },
             { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
             // { scene: scene4_1, name: "Scene 4.1" },
         ];
@@ -195,7 +195,7 @@ var BeansCuest;
 (function (BeansCuest) {
     BeansCuest.ITEMS = {
         fishingRod: {
-            name: "Fising Rod",
+            name: "Fishing Rod",
             description: "",
             image: "Images/Items/rod.png",
             handler: handleItemUsage
@@ -1121,6 +1121,7 @@ var BeansCuest;
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0014, null],
         ], script);
+        await BeansCuest.showNovelPages("novelpage1", BeansCuest.LOCATIONS.wistfulwoods);
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
     }
@@ -1373,7 +1374,7 @@ var BeansCuest;
                     emotion: "explanatory"
                 },
                 T0025: {
-                    text: "You should use the rod to get the stone!",
+                    text: "You should use the rod to get the stone! <i>Use (i) to open your inventory and select the rod</i>",
                     emotion: "explanatory"
                 }
             }
@@ -1491,6 +1492,8 @@ var BeansCuest;
         await BeansCuest.createDialog(dialog);
     }
     async function optionC1() {
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
+        await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0005, null],
             [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0000, null],
@@ -1537,6 +1540,9 @@ var BeansCuest;
         await optionD();
     }
     async function optionC1_1() {
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.showNovelPages("novelpage2", BeansCuest.LOCATIONS.lilypond);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0010, null],
             [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0003, null],
@@ -1577,6 +1583,8 @@ var BeansCuest;
         await optionD();
     }
     async function optionC1_1_1() {
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
+        await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0015, null],
             [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0008, null],

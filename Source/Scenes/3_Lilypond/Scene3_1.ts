@@ -245,7 +245,7 @@ namespace BeansCuest {
                     emotion: "explanatory"
                 },
                 T0025: {
-                    text: "You should use the rod to get the stone!",
+                    text: "You should use the rod to get the stone! <i>Use (i) to open your inventory and select the rod</i>",
                     emotion: "explanatory"
                 }
             }
@@ -374,6 +374,9 @@ namespace BeansCuest {
     }
 
     async function optionC1() {
+        await hideCharacter(CHARACTERS.Stool);
+        await makeTransition("fade_in", 0.5);
+
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0005, null],
             [CHARACTERS.Lillypad, script.Lillypad.texts.T0000, null],
@@ -429,6 +432,11 @@ namespace BeansCuest {
     }
 
     async function optionC1_1() {
+        await hideCharacter(CHARACTERS.Stool);
+        await makeTransition("fade_in", 0.5);
+
+        await showNovelPages("novelpage2", LOCATIONS.lilypond);
+
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0010, null],
             [CHARACTERS.Lillypad, script.Lillypad.texts.T0003, null],
@@ -476,6 +484,9 @@ namespace BeansCuest {
     }
 
     async function  optionC1_1_1() {
+        await hideCharacter(CHARACTERS.Stool);
+        await makeTransition("fade_in", 0.5);
+
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0015, null],
             [CHARACTERS.Lillypad, script.Lillypad.texts.T0008, null],],script);

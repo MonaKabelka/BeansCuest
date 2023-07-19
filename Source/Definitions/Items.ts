@@ -1,7 +1,7 @@
 namespace BeansCuest {
     export const ITEMS = {
         fishingRod: {
-            name: "Fising Rod",
+            name: "Fishing Rod",
             description: "",
             image:  "Images/Items/rod.png",
             handler: handleItemUsage

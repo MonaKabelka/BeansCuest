@@ -243,6 +243,8 @@ namespace BeansCuest {
             [CHARACTERS.Stool, script.Stool.texts.T0014, null],
         ], script);
 
+        await showNovelPages("novelpage1", LOCATIONS.wistfulwoods);
+
         fS.Speech.hide();
         fS.Character.hideAll();
     }
