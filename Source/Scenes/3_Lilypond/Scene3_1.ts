@@ -1,4 +1,6 @@
 namespace BeansCuest {
+    let novelPageUnlocked = false;
+
     let script: ScriptDefinition = {
         Bean: {
             defaultPosition: POSITIONS[1],
@@ -432,10 +434,11 @@ namespace BeansCuest {
     }
 
     async function optionC1_1() {
+        novelPageUnlocked = true;
+
         await hideCharacter(CHARACTERS.Stool);
         await makeTransition("fade_in", 0.5);
 
-        await showNovelPages("novelpage2", LOCATIONS.lilypond);
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0010, null],
@@ -644,6 +647,8 @@ namespace BeansCuest {
             [CHARACTERS.Stool, script.Stool.texts.T0024, POSITIONS[1]],
             [CHARACTERS.Bean, script.Bean.texts.T0045, null],
         ], script);
+
+        if (novelPageUnlocked) await showNovelPages("novelpage2", LOCATIONS.lilypond);
 
         fS.Speech.hide();
         fS.Character.hideAll();

@@ -1,6 +1,8 @@
 namespace BeansCuest {
     let askedBothOptions = [false, false];
 
+    let novelPageUnlocked = true;
+
     let script: ScriptDefinition = {
         Unknown: {
             defaultPosition: POSITIONS[1],
@@ -243,7 +245,7 @@ namespace BeansCuest {
             [CHARACTERS.Stool, script.Stool.texts.T0014, null],
         ], script);
 
-        await showNovelPages("novelpage1", LOCATIONS.wistfulwoods);
+        if (novelPageUnlocked) await showNovelPages("novelpage1", LOCATIONS.wistfulwoods);
 
         fS.Speech.hide();
         fS.Character.hideAll();

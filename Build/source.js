@@ -34,8 +34,8 @@ var BeansCuest;
         BeansCuest.gameMenu = BeansCuest.fS.Menu.create(BeansCuest.transformMenu(BeansCuest.menuDefinition), BeansCuest.useCallbacks, "in-game-menu");
         BeansCuest.gameMenu.close();
         let scenes = [
-            { scene: BeansCuest.scene1_1, name: "Scene 1.1" },
-            { scene: BeansCuest.scene1_2, name: "Scene 1.2" },
+            // { scene: scene1_1, name: "Scene 1.1" },
+            // { scene: scene1_2, name: "Scene 1.2" },
             { scene: BeansCuest.scene2_1, name: "Scene 2.1" },
             { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
             // { scene: scene4_1, name: "Scene 4.1" },
@@ -903,6 +903,7 @@ var BeansCuest;
 var BeansCuest;
 (function (BeansCuest) {
     let askedBothOptions = [false, false];
+    let novelPageUnlocked = true;
     let script = {
         Unknown: {
             defaultPosition: BeansCuest.POSITIONS[1],
@@ -1121,13 +1122,15 @@ var BeansCuest;
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0014, null],
         ], script);
-        await BeansCuest.showNovelPages("novelpage1", BeansCuest.LOCATIONS.wistfulwoods);
+        if (novelPageUnlocked)
+            await BeansCuest.showNovelPages("novelpage1", BeansCuest.LOCATIONS.wistfulwoods);
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
     }
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
+    let novelPageUnlocked = false;
     let script = {
         Bean: {
             defaultPosition: BeansCuest.POSITIONS[1],
@@ -1540,9 +1543,9 @@ var BeansCuest;
         await optionD();
     }
     async function optionC1_1() {
+        novelPageUnlocked = true;
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
         await BeansCuest.makeTransition("fade_in", 0.5);
-        await BeansCuest.showNovelPages("novelpage2", BeansCuest.LOCATIONS.lilypond);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0010, null],
             [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0003, null],
@@ -1712,6 +1715,8 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0024, BeansCuest.POSITIONS[1]],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0045, null],
         ], script);
+        if (novelPageUnlocked)
+            await BeansCuest.showNovelPages("novelpage2", BeansCuest.LOCATIONS.lilypond);
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
     }
