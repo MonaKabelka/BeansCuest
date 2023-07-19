@@ -99,7 +99,7 @@ declare namespace BeansCuest {
             image: string;
             handler: typeof handleItemUsage;
         };
-        startstone: {
+        starstone: {
             name: string;
             description: string;
             image: string;
@@ -220,4 +220,7 @@ declare namespace BeansCuest {
 }
 declare namespace BeansCuest {
     function scene2_1(): fS.SceneReturn;
+}
+declare namespace BeansCuest {
+    function scene3_1(): fS.SceneReturn;
 }

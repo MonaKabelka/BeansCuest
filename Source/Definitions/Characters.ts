@@ -63,7 +63,7 @@ namespace BeansCuest {
             origin: fS.ORIGIN.CENTER,
             pose: {
                 explanatory: "Images/Characters/Stool/explanatory.png",
-                serious: "Images/Characters/Bean/serious.png",
+                serious: "Images/Characters/Stool/serious.png",
                 charmed: "Images/Characters/Stool/charmed.png",
                 happy: "Images/Characters/Stool/happy.png",
                 worried: "Images/Characters/Stool/worried.png",

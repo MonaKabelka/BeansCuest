@@ -3,7 +3,7 @@ namespace BeansCuest {
         fishingRod: {
             name: "Fising Rod",
             description: "",
-            image:  "Images/Items/fising_rod.png",
+            image:  "Images/Items/rod.png",
             handler: handleItemUsage
         } satisfies fS.ItemDefinition,
         moonstone: {
@@ -36,7 +36,7 @@ namespace BeansCuest {
             image:  "Images/Items/sunstone.png",
             handler: handleItemUsage
         } satisfies fS.ItemDefinition,
-        startstone: {
+        starstone: {
             name: "Starstone",
             description: "",
             image:  "Images/Items/starstone.png",
@@ -49,7 +49,7 @@ namespace BeansCuest {
             name: "fishingRod",
             origin: fS.ORIGIN.CENTER,
             pose: {
-                center: "Images/Items/fishing_rod.png"
+                center: "Images/Items/rod.png"
             }
         },
         ladder: {
@@ -80,11 +80,11 @@ namespace BeansCuest {
                 center: "Images/Items/pixieDust.png"
             }
         },
-        startstone: {
+        starstone: {
             name: "startstone",
             origin: fS.ORIGIN.CENTER,
             pose: {
-                center: "Images/Items/startstone.png"
+                center: "Images/Items/starstone.png"
             }
         },
         sunstone: {
