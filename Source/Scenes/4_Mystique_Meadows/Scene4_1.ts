@@ -121,6 +121,45 @@ namespace BeansCuest {
                 },
                 T0037: {
                     text: "A glowing something on a cloud? That could be it! Stool, what do you think?"
+                },
+                T0038: {
+                    text: "Charm, Chant, I understand that you both have your own opinions and preferences. But constantly arguing won't get us anywhere."
+                },
+                T0039: {
+                    text: "It’s not about winning or being right, it's about finding a solution that works for both of you."
+                },
+                T0040: {
+                    text: "True, these two brawlers don’t seem like they want to get interrupted. Let’s continue searching.",
+                },
+                T0041: {
+                    text: "What is it?",
+                },
+                T0042: {
+                    text: "Okay, we just need to figure out how to reach it. I think we should search the meadow for something that could help us climb up to the cloud."
+                },
+                T0043: {
+                    text: "Well, Stool, you never know what we might find if we look hard enough. It's worth a try, don't you think?"
+                },
+                T0044: {
+                    text: "Stool, I found something!"
+                },
+                T0045: {
+                    text: "Actually, it's just a regular ladder, but it looks sturdy enough to help us climb up. See? Sometimes luck is on our side."
+                },
+                T0046: {
+                    text: "It seems that way. Now, let's get this ladder set up and make our way to the cloud. We're one step closer to retrieving the stone!",
+                },
+                T0047: {
+                    text: "Wow, Stool! Can you believe it? We're standing on a cloud! It feels so soft and the light up here is absolutely cat-astic."
+                },
+                T0048: {
+                    text: "Don't worry, Stool. Look, the cloud seems stable, and we're safe up here. Let's take a moment to enjoy the view. And look, there’s the stone!"
+                },
+                T0049: {
+                    text: "Stool, can you believe it? We've found two of the stones already! We're making progress."
+                },
+                T0050: {
+                    text: "That’s purr-fect! Let's make our way to the mansion and see what lies ahead.",
                 }
             }
         },
@@ -186,6 +225,54 @@ namespace BeansCuest {
                 T0014: {
                     text: "There is indeed a peculiar magic emanating from up there. It's highly likely that the glowing object is the relict we seek.",
                     emotion: "explanatory"
+                },
+                T0015: {
+                    text: "The portal could implode soon Bean. Let’s hurry. We don’t know how much time’s left.",
+                    emotion: "worried"
+                },
+                T0016: {
+                    text: "Hm. Weird.",
+                    emotion: "confused"
+                },
+                T0017: {
+                    text: "I swear the sunstone is somewhere around here. But… Well… Further up. There is a peculiar magic emanating from up there. It's likely that the relict we seek is on that cloud.",
+                    emotion: "confused"
+                },
+                T0018: {
+                    text: "Oh sure, Bean. Let's just search this vast meadow for a uni-cat while we're at it. Because finding something like that would be totally realistic!",
+                    emotion: "offended"
+                },
+                T0019: {
+                    text: "oh yes, i'm sure we'll stumble upon a rope in a meadow full of flowers.",
+                    emotion: "offended"
+                },
+                T0020: {
+                    text: "Let me guess, it's a golden ladder with sparkles and a sign saying 'Use Me to Reach the Cloud'?",
+                    emotion: "serious"
+                },
+                T0021: {
+                    text: "You actually found a ladder in the meadow?? I suppose luck does favor the bold.",
+                    emotion: "happy"
+                },
+                T0022: {
+                    text: "Let's go! <i>Use (i) to open your inventory and select the Ladder</i>",
+                    emotion: "happy"
+                },
+                T0023: {
+                    text: "Bean, I'm not sure about this. It's really high up here. What if the cloud disappears?",
+                    emotion: "worried"
+                },
+                T0024: {
+                    text: "But we still have one more stone to find. And time is not on our side. The portal could implode any minute. And we have no clue where the next stone is!",
+                    emotion: "anxious"
+                },
+                T0025: {
+                    text: "Well – in fact I have this strong feeling that the next stone is in this mysterious mansion below us in the swamp. See? It's like a faint whisper in my mind.",
+                    emotion: "explanatory"
+                },
+                T0026: {
+                    text: "But we don’t know for sure, right?",
+                    emotion: "crying"
                 }
             }
         },
@@ -272,7 +359,15 @@ namespace BeansCuest {
                 },
                 T0021: {
                     text: "I hope we meet again soon! Good luck!",
-                    emotion: "smiling"
+                    emotion: "happy"
+                },
+                T0022: {
+                    text: "But what if I have something important to do on your day? It's not fair that I have to wait.",
+                    emotion: "snapped"
+                },
+                T0023: {
+                    text: "You're just jealous because I can perform more dazzling tricks with the pixie dust!",
+                    emotion: "snapped"
                 }
             }
         },
@@ -344,7 +439,19 @@ namespace BeansCuest {
                 },
                 T0017: {
                     text: "You’ve taught us an important lesson. We thank you for that. If there's ever anything else we can do for you on your journey, please don't hesitate to ask. ",
-                    emotion: "charmed"
+                    emotion: "happy"
+                },
+                T0018: {
+                    text: "How about we take turns using the pixie dust? One day it's my turn, and the next day it's your turn. That way, we both get to enjoy flying.",
+                    emotion: "thinking"
+                },
+                T0019: {
+                    text: "And what if I need to practice my flying skills on your day? I shouldn't have to miss out just because it's YOUR turn.",
+                    emotion: "angry"
+                },
+                T0020: {
+                    text: "Jealous? Please! I'm just tired of you showing off all the time!",
+                    emotion: "snapped"
                 }
             }
         },
@@ -556,6 +663,11 @@ namespace BeansCuest {
     }
 
     async function optionB() {
+        await letCharactersHaveDialogue([
+            [CHARACTERS.Stool, script.Stool.texts.T0015, null],
+            [CHARACTERS.Bean, script.Bean.texts.T0040, null],
+        ], script);
+
         await optionD();
     }
 
@@ -628,10 +740,30 @@ namespace BeansCuest {
     }
 
     async function optionC2() {
+        await letCharactersHaveDialogue([
+            [CHARACTERS.Bean, script.Bean.texts.T0038, null],
+            [CHARACTERS.Bean, script.Bean.texts.T0039, null],
+            [CHARACTERS.Charm, script.Charm.texts.T0018, null],
+            [CHARACTERS.Chant, script.Chant.texts.T0022, null],
+            [CHARACTERS.Charm, script.Charm.texts.T0019, null],
+            [CHARACTERS.Chant, script.Chant.texts.T0023, null],
+            [CHARACTERS.Charm, script.Charm.texts.T0020, null],
+        ], script);
+
         await optionD();
     }
 
     async function optionD() {
+        await fS.Character.hide(CHARACTERS.Charm);
+        await fS.Character.hide(CHARACTERS.Chant);
+        await makeTransition("fade_in", 0.5);
+
+        await letCharactersHaveDialogue([
+            [CHARACTERS.Stool, script.Stool.texts.T0016, POSITIONS[1]],
+            [CHARACTERS.Bean, script.Bean.texts.T0041, null],
+            [CHARACTERS.Stool, script.Stool.texts.T0017, POSITIONS[1]],
+        ], script);
+
         await optionE();
     }
 
@@ -723,13 +855,59 @@ namespace BeansCuest {
     }
 
     async function optionE() {
+        await letCharactersHaveDialogue([
+            [CHARACTERS.Bean, script.Bean.texts.T0042, null],
+            [CHARACTERS.Stool, script.Stool.texts.T0018, POSITIONS[1]],
+            [CHARACTERS.Bean, script.Bean.texts.T0043, null],
+            [CHARACTERS.Stool, script.Stool.texts.T0019, POSITIONS[1]],
+        ], script);
+
+        await hideCharacter(CHARACTERS.Stool);
+
+        await getItem(ITEMS.ladder, "ladder");
+
+        await letCharactersHaveDialogue([
+            [CHARACTERS.Bean, script.Bean.texts.T0044, null],
+            [CHARACTERS.Stool, script.Stool.texts.T0020, POSITIONS[1]],
+            [CHARACTERS.Bean, script.Bean.texts.T0045, null],
+            [CHARACTERS.Stool, script.Stool.texts.T0021, POSITIONS[1]],
+            [CHARACTERS.Bean, script.Bean.texts.T0046, null],
+        ], script);
+
+        dataForSave.ladder = true;
+
+        do {
+            await letCharactersHaveDialogue([
+                [CHARACTERS.Stool, script.Stool.texts.T0022, POSITIONS[1]],
+            ], script);
+          } while (fS.Inventory.getAmount(ITEMS.ladder) != 0);
+
+        
+        fS.Speech.hide();
+        fS.Character.hideAll();
+        await fS.Location.show(LOCATIONS.cloud);
+        await makeTransition("inScene");
+
         await optionF();
     }
 
     async function optionF() {
 
+        await letCharactersHaveDialogue([
+            [CHARACTERS.Bean, script.Bean.texts.T0047, null],
+            [CHARACTERS.Stool, script.Stool.texts.T0023, POSITIONS[1]],
+            [CHARACTERS.Bean, script.Bean.texts.T0048, null],
+        ], script);
 
+        await getItem(ITEMS.sunstone, "sunstone");
 
+        await letCharactersHaveDialogue([
+            [CHARACTERS.Bean, script.Bean.texts.T0049, null],
+            [CHARACTERS.Stool, script.Stool.texts.T0024, POSITIONS[1]],
+            [CHARACTERS.Stool, script.Stool.texts.T0025, POSITIONS[1]],
+            [CHARACTERS.Stool, script.Stool.texts.T0026, POSITIONS[1]],
+            [CHARACTERS.Bean, script.Bean.texts.T0050, null],
+        ], script);
 
         if (unlockNovelPages[3]) await showNovelPages("novelpage3", LOCATIONS.cloud);
         
