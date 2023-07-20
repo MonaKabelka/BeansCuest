@@ -81,7 +81,7 @@ namespace BeansCuest {
             }
         },
         starstone: {
-            name: "startstone",
+            name: "starstone",
             origin: fS.ORIGIN.CENTER,
             pose: {
                 center: "Images/Items/starstone.png"

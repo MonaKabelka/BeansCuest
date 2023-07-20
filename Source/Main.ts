@@ -8,7 +8,7 @@ namespace BeansCuest {
     pixieDust: false,
     ladder: false,
     sunstone: false,
-    startstone: false,
+    starstone: false,
 
     novelpage1: false,
     novelpage2: false,
@@ -40,7 +40,8 @@ namespace BeansCuest {
       // { scene: scene1_2, name: "Scene 1.2" },
       // { scene: scene2_1, name: "Scene 2.1" },
       // { scene: scene3_1, name: "Scene 3.1" },
-      { scene: scene4_1, name: "Scene 4.1" },
+      // { scene: scene4_1, name: "Scene 4.1" },
+      { scene: scene6, name: "Scene 6"}
     ];
 
     fS.Speech.hide();

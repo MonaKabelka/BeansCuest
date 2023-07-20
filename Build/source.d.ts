@@ -7,7 +7,7 @@ declare namespace BeansCuest {
         pixieDust: boolean;
         ladder: boolean;
         sunstone: boolean;
-        startstone: boolean;
+        starstone: boolean;
         novelpage1: boolean;
         novelpage2: boolean;
         novelpage3: boolean;
@@ -194,6 +194,13 @@ declare namespace BeansCuest {
     function hideCharacter(character: CharacterDefinition): Promise<void>;
 }
 declare namespace BeansCuest {
+    function getItemsInInventory(): HTMLCollectionOf<HTMLLIElement>;
+    function getStatusOfStones(): {
+        el: HTMLLIElement;
+        item: fS.ItemDefinition;
+    }[];
+}
+declare namespace BeansCuest {
     function getItem(item: fS.ItemDefinition, itemKey: keyof typeof ITEMS): Promise<void>;
 }
 declare namespace BeansCuest {
@@ -233,4 +240,7 @@ declare namespace BeansCuest {
 }
 declare namespace BeansCuest {
     function scene5(): fS.SceneReturn;
+}
+declare namespace BeansCuest {
+    function scene6(): fS.SceneReturn;
 }
