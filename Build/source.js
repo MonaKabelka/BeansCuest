@@ -2782,6 +2782,27 @@ var BeansCuest;
                 T0039: {
                     text: "I followed all the steps, placed the stones in the right order… WHY AM I NOT BACK HOME? And what do I do now?",
                     emotion: "sad"
+                },
+                T0040: {
+                    text: "Stool, I've made my decision. I want to stay in Enchantica with you.",
+                },
+                T0041: {
+                    text: "I understand it's a significant choice, Stool, but Enchantica has become my home."
+                },
+                T0042: {
+                    text: "The enchantment, the friendships I've forged, and the extraordinary adventures we've shared—it's all too precious to leave behind."
+                },
+                T0043: {
+                    text: "OH NO! What’s wrong with the portal??"
+                },
+                T0044: {
+                    text: "Maybe this is a sign. Maybe I was meant to stay in Enchantica all along."
+                },
+                T0045: {
+                    text: "Sometimes, fate has its own plans. Maybe this is where I'm meant to be, with you and in this magical world."
+                },
+                T0046: {
+                    text: "Looks like we're in for a repeat performance, Stool."
                 }
             }
         },
@@ -2952,6 +2973,22 @@ var BeansCuest;
                 },
                 T0040: {
                     text: "BEAN! SOMETHING'S WRONG! THE PORTAL… IT'S BREAKING DOWN! WE NEED TO…"
+                },
+                T0041: {
+                    text: "Bean, are you absolutely certain? Your world, your life... they're back there.",
+                    emotion: "confused"
+                },
+                T0042: {
+                    text: "I don't know, Bean! It's falling apart! We must have done something wrong! Luckily you decided to stay…",
+                    emotion: "anxious"
+                },
+                T0043: {
+                    text: "What? But Bean, we didn't plan for this! We were supposed to repair the portal!",
+                    emotion: "worried"
+                },
+                T0044: {
+                    text: "Maybe this is a chance for us to embark on new adventures, find the stones, and restore the portal once again.",
+                    emotion: "serious"
                 }
             }
         },
@@ -2976,7 +3013,7 @@ var BeansCuest;
                 T0004: {
                     text: "BEEEAN? Where are you? You won! I give up! Please show yourself!",
                     emotion: "worried"
-                }
+                },
             }
         },
         Unknown: {
@@ -3234,6 +3271,36 @@ var BeansCuest;
         await BeansCuest.fS.Text.print("THE END");
     }
     async function optionA2_2_2() {
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0040, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0041, null],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0041, null],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0042, null],
+        ], script);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods3);
+        await BeansCuest.makeTransition("inScene");
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0043, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0042, null],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0044, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0043, null],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0045, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0044, null],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0046, null],
+        ], script);
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
+        await BeansCuest.makeTransition("fade_in");
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods);
+        await BeansCuest.makeTransition("inScene");
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Oliver, script.Oliver.texts.T0004, null],
+        ], script);
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
+        await BeansCuest.makeTransition("fade_in");
+        BeansCuest.fS.Text.setClass("end-screen");
+        await BeansCuest.fS.Text.print("THE END");
     }
     async function optionB() {
         await BeansCuest.letCharactersHaveDialogue([
