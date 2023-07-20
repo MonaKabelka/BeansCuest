@@ -37,7 +37,7 @@ var BeansCuest;
             // { scene: scene1_1, name: "Scene 1.1" },
             // { scene: scene1_2, name: "Scene 1.2" },
             // { scene: scene2_1, name: "Scene 2.1" },
-            { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
+            // { scene: scene3_1, name: "Scene 3.1" },
             { scene: BeansCuest.scene4_1, name: "Scene 4.1" },
             { scene: BeansCuest.scene5, name: "Scene 5" },
             { scene: BeansCuest.scene6, name: "Scene 6" }
@@ -2348,6 +2348,7 @@ var BeansCuest;
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
         await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.playBGM(BeansCuest.MUSICS.meadow);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.meadow);
         await BeansCuest.makeTransition("sceneChange");
         await BeansCuest.letCharactersHaveDialogue([
@@ -2516,6 +2517,7 @@ var BeansCuest;
         await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.meadow2);
         await BeansCuest.makeTransition("inScene");
+        await BeansCuest.playSound(BeansCuest.SOUNDS.snoring);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bandit, script.Bandit.texts.T0006, BeansCuest.POSITIONS[1]],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0023, null],
@@ -2587,12 +2589,15 @@ var BeansCuest;
                 [BeansCuest.CHARACTERS.Chant, script.Chant.texts.T0011, BeansCuest.POSITIONS[1]],
             ], script);
         } while (BeansCuest.fS.Inventory.getAmount(BeansCuest.ITEMS.pixieDust) != 0);
+        await BeansCuest.playSound(BeansCuest.SOUNDS.pixiedust);
         BeansCuest.fS.Character.hideAll();
         BeansCuest.fS.Speech.hide();
         await BeansCuest.makeTransition("fade_in", 0.5);
         BeansCuest.dataForSave.pixieDust = false;
+        await BeansCuest.muteBGM(BeansCuest.MUSICS.meadow);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.cloud);
         await BeansCuest.makeTransition("inScene");
+        await BeansCuest.playBGM(BeansCuest.MUSICS.cloud);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0029, null],
             [BeansCuest.CHARACTERS.Charm, script.Charm.texts.T0010, null],
@@ -2667,10 +2672,12 @@ var BeansCuest;
                 [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0022, BeansCuest.POSITIONS[1]],
             ], script);
         } while (BeansCuest.fS.Inventory.getAmount(BeansCuest.ITEMS.ladder) != 0);
+        await BeansCuest.muteBGM(BeansCuest.MUSICS.meadow);
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.cloud);
         await BeansCuest.makeTransition("inScene");
+        await BeansCuest.playBGM(BeansCuest.MUSICS.cloud);
         await optionF();
     }
     async function optionF() {
@@ -2694,6 +2701,7 @@ var BeansCuest;
         BeansCuest.fS.Character.hideAll();
         BeansCuest.fS.Speech.hide();
         await BeansCuest.makeTransition("fade_in");
+        await BeansCuest.muteBGM(BeansCuest.MUSICS.cloud);
     }
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;

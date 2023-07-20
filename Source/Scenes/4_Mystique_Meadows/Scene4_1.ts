@@ -498,6 +498,8 @@ namespace BeansCuest {
         fS.Character.hideAll();
         await makeTransition("fade_in", 0.5);
 
+        await playBGM(MUSICS.meadow);
+
         await fS.Location.show(LOCATIONS.meadow);
         await makeTransition("sceneChange");
 
@@ -696,6 +698,8 @@ namespace BeansCuest {
         await fS.Location.show(LOCATIONS.meadow2);
         await makeTransition("inScene");
 
+        await playSound(SOUNDS.snoring);
+
         await letCharactersHaveDialogue([
             [CHARACTERS.Bandit, script.Bandit.texts.T0006, POSITIONS[1]],
             [CHARACTERS.Bean, script.Bean.texts.T0023, null],
@@ -787,14 +791,20 @@ namespace BeansCuest {
             ], script);
           } while (fS.Inventory.getAmount(ITEMS.pixieDust) != 0);
 
+        await playSound(SOUNDS.pixiedust);
+
         fS.Character.hideAll();
         fS.Speech.hide();
         await makeTransition("fade_in", 0.5);
 
         dataForSave.pixieDust = false;
 
+        await muteBGM(MUSICS.meadow);
+
         await fS.Location.show(LOCATIONS.cloud);
         await makeTransition("inScene");
+
+        await playBGM(MUSICS.cloud);
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0029, null],
@@ -887,11 +897,14 @@ namespace BeansCuest {
             ], script);
           } while (fS.Inventory.getAmount(ITEMS.ladder) != 0);
 
+        await muteBGM(MUSICS.meadow);
         
         fS.Speech.hide();
         fS.Character.hideAll();
         await fS.Location.show(LOCATIONS.cloud);
         await makeTransition("inScene");
+
+        await playBGM(MUSICS.cloud);
 
         await optionF();
     }
@@ -921,5 +934,7 @@ namespace BeansCuest {
         fS.Character.hideAll();
         fS.Speech.hide();
         await makeTransition("fade_in");
+
+        await muteBGM(MUSICS.cloud);
     }
 }
