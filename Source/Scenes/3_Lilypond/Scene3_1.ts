@@ -9,7 +9,7 @@ namespace BeansCuest {
                     text: "So this is the best place to start looking for the first stone.",
                 },
                 T0001: {
-                    text: "I can barely make out features, but it looks something like a… frog?",
+                    text: "I can barely make out features, but it looks something like a... frog?",
                 },
                 T0002: {
                     text: "HELLOOO??",
@@ -18,13 +18,13 @@ namespace BeansCuest {
                     text: "HELLO!? CAN YOU HELP US? WE'RE SEARCHING FOR SOMETHING AND IT'S URGENT!",
                 },
                 T0004: {
-                    text: "Shhh…"
+                    text: "Shhh..."
                 },
                 T0005: {
-                    text: "Hello there. It’s okay, we won't hurt you. We just need some information about something lost. And by the way - I’m Bean."
+                    text: "Hello there. It's okay, we won't hurt you. We just need some information about something lost. And by the way - I'm Bean."
                 },
                 T0006: {
-                    text: "Nice to meet you, Lillypad! I’m searching for a lost relict, and I think you might be able to help. By any chance - Have you noticed anything strange lately?"
+                    text: "Nice to meet you, Lillypad! I'm searching for a lost relict, and I think you might be able to help. By any chance - Have you noticed anything strange lately?"
                 },
                 T0007: {
                     text: "That's cat-astic!"
@@ -39,16 +39,16 @@ namespace BeansCuest {
                     text: "What was it you wanted to say?"
                 },
                 T0011: {
-                    text: "Don’t be shy! I’m listening!"
+                    text: "Don't be shy! I'm listening!"
                 },
                 T0012: {
-                    text: "Fur-real?? That’s great!"
+                    text: "Fur-real?? That's great!"
                 },
                 T0013: {
                     text: "No, of course not! Why would you think so?"
                 },
                 T0014: {
-                    text: "That’s mean. I wish I could swim too. I've been afraid of water all my life. It’s really distressing. You have a su-paw-power!"
+                    text: "That's mean. I wish I could swim too. I've been afraid of water all my life. It's really distressing. You have a su-paw-power!"
                 },
                 T0015: {
                     text: "That would be fur-midable!"
@@ -78,22 +78,22 @@ namespace BeansCuest {
                     text: "Have you been sitting in the pond for a long time? - If yes, surely you could help us."
                 },
                 T0024: {
-                    text: "It's about a lost stone that I need to get back home. I came from another world and just ended up here by accident…"
+                    text: "It's about a lost stone that I need to get back home. I came from another world and just ended up here by accident..."
                 },
                 T0025: {
-                    text: "… Because at home I played hide and seek with my best friend Oliver! But now I'm traveling with Sto-"
+                    text: "... Because at home I played hide and seek with my best friend Oliver! But now I'm traveling with Sto-"
                 },
                 T0026: {
                     text: "Oh? What happened?"
                 },
                 T0027: {
-                    text: "Oh no! That’s un-fur-tunate."
+                    text: "Oh no! That's un-fur-tunate."
                 },
                 T0028: {
                     text: "Let's search the area for the stones."
                 },
                 T0029: {
-                    text: "Stool you are cat-astic! That could be the stone! We just have to find something to reach it…"
+                    text: "Stool you are cat-astic! That could be the stone! We just have to find something to reach it..."
                 },
                 T0030: {
                     text: "Stool. Hear me out. I hold you by your feet. "
@@ -105,7 +105,7 @@ namespace BeansCuest {
                     text: "Well, but it was worth a try. Let's look elsewhere."
                 },
                 T0033: {
-                    text: "Let’s check in between these mossy stones."
+                    text: "Let's check in between these mossy stones."
                 },
                 T0034: {
                     text: "HAHAHA Stool! You have to be more careful!"
@@ -114,19 +114,19 @@ namespace BeansCuest {
                     text: "Did you hurt yourself?"
                 },
                 T0036: {
-                    text: "Hihi - paw promise! Now let’s check somewhere else."
+                    text: "Hihi - paw promise! Now let's check somewhere else."
                 },
                 T0037: {
-                    text: "Stool, see the reeds? I think I can see something peeking through…"
+                    text: "Stool, see the reeds? I think I can see something peeking through..."
                 },
                 T0038: {
-                    text: "Uhaaah – but – arh - I’m too big -uhh - to fit between the – arhhhg –… Stool? Can you just take a look?"
+                    text: "Uhaaah - but - arh - I'm too big -uhh - to fit between the - arhhhg -... Stool? Can you just take a look?"
                 },
                 T0039: {
                     text: "Pleaaaase?"
                 },
                 T0040: {
-                    text: "Everything’s alright?"
+                    text: "Everything's alright?"
                 },
                 T0041: {
                     text: "A Rod! I think this will work! Let's use this rod to try and hook the stone."
@@ -141,7 +141,7 @@ namespace BeansCuest {
                     text: "We'll find the stones. It wasn't THAT difficult. Let's keep looking. Soo - where are we heading next? What do you suggest?"
                 },
                 T0045: {
-                    text: "Let’s go!"
+                    text: "Let's go!"
                 }
             }
         },
@@ -149,19 +149,19 @@ namespace BeansCuest {
             defaultPosition: POSITIONS[2][1],
             texts: {
                 T0000: {
-                    text: "Well, I don’t know why but something draws me here.",
+                    text: "Well, I don't know why but something draws me here.",
                     emotion: "explanatory"
                 },
                 T0001: {
-                    text: "Oh Bean – can you see that? Right there, in the pond.",
+                    text: "Oh Bean - can you see that? Right there, in the pond.",
                     emotion: "anxious"
                 },
                 T0002: {
-                    text: "SHH - Be careful! You don’t know wha-",
+                    text: "SHH - Be careful! You don't know wha-",
                     emotion: "anxious"
                 },
                 T0003: {
-                    text: "Be careful! You don’t know wha-",
+                    text: "Be careful! You don't know wha-",
                     emotion: "anxious"
                 },
                 T0004: {
@@ -177,19 +177,19 @@ namespace BeansCuest {
                     emotion: "worried"
                 },
                 T0007: {
-                    text: "I think… you might have overwhelmed it…",
+                    text: "I think... you might have overwhelmed it...",
                     emotion: "worried"
                 },
                 T0008: {
-                    text: "Alright - but let’s search together. This pond is a bit fishy…",
+                    text: "Alright - but let's search together. This pond is a bit fishy...",
                     emotion: "anxious"
                 },
                 T0009: {
-                    text: "By the way – do you see this glowy thing at the bottom of the pond?",
+                    text: "By the way - do you see this glowy thing at the bottom of the pond?",
                     emotion: "explanatory"
                 },
                 T0010: {
-                    text: "I don’t like where this is going.",
+                    text: "I don't like where this is going.",
                     emotion: "anxious"
                 },
                 T0011: {
@@ -197,7 +197,7 @@ namespace BeansCuest {
                     emotion: "serious"
                 },
                 T0012: {
-                    text: "<i>*Gurgling*</i> I CRN’T REE A THRING! <i>*Splash*</i>"
+                    text: "<i>*Gurgling*</i> I CRN'T REE A THRING! <i>*Splash*</i>"
                 },
                 T0013: {
                     text: "It's pitch black - I literally can't see anything.",
@@ -212,15 +212,15 @@ namespace BeansCuest {
                     emotion: "anxious"
                 },
                 T0016: {
-                    text: "I don’t think so. But don't ever make me do that again!",
+                    text: "I don't think so. But don't ever make me do that again!",
                     emotion: "crying"
                 },
                 T0017: {
-                    text: "… You know I’m scared, right?",
+                    text: "... You know I'm scared, right?",
                     emotion: "anxious"
                 },
                 T0018: {
-                    text: "Okay I’ll do it.",
+                    text: "Okay I'll do it.",
                     emotion: "crying"
                 },
                 T0019: {
@@ -231,19 +231,19 @@ namespace BeansCuest {
                     emotion: "happy"
                 },
                 T0021: {
-                    text: "Only two more to go…",
+                    text: "Only two more to go...",
                     emotion: "worried"
                 },
                 T0022: {
-                    text: "We have one stone to repair the portal. But we’ll NEVER find the other two! They could be anywhere!",
+                    text: "We have one stone to repair the portal. But we'll NEVER find the other two! They could be anywhere!",
                     emotion: "hysterical"
                 },
                 T0023: {
-                    text: "Why are you asking ME??? I don’t know! – But…",
+                    text: "Why are you asking ME??? I don't know! - But...",
                     emotion: "anxious"
                 },
                 T0024: {
-                    text: "… Something tells me we should search by the Mystique Meadows down the hill. I just can’t tell why…",
+                    text: "... Something tells me we should search by the Mystique Meadows down the hill. I just can't tell why...",
                     emotion: "explanatory"
                 },
                 T0025: {
@@ -264,23 +264,23 @@ namespace BeansCuest {
                     emotion: "shy"
                 },
                 T0002: {
-                    text: "A-Actually…",
+                    text: "A-Actually...",
                     emotion: "shy"
                 },
                 T0003: {
-                    text: "N…Nothing. Nothing important.",
+                    text: "N...Nothing. Nothing important.",
                     emotion: "shy"
                 },
                 T0004: {
-                    text: "I-… I can swim. And dive…",
+                    text: "I-... I can swim. And dive...",
                     emotion: "shy"
                 },
                 T0005: {
-                    text: "S-So you’re not going to laugh at me?",
+                    text: "S-So you're not going to laugh at me?",
                     emotion: "blushing"
                 },
                 T0006: {
-                    text: "Oh… I-I was laughed at by everyone the whole time. That's why I ran away and now I live alone in this pond.",
+                    text: "Oh... I-I was laughed at by everyone the whole time. That's why I ran away and now I live alone in this pond.",
                     emotion: "sad"
                 },
                 T0007: {
@@ -300,11 +300,11 @@ namespace BeansCuest {
                     emotion: "sad"
                 },
                 T0011: {
-                    text: "I saw something in the reeds recently… M- Maybe this can help you.",
+                    text: "I saw something in the reeds recently... M- Maybe this can help you.",
                     emotion: "shy"
                 },
                 T0012: {
-                    text: "I-…",
+                    text: "I-...",
                     emotion: "sad"
                 }
             }

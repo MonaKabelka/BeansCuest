@@ -17,7 +17,7 @@ namespace BeansCuest {
                     text: "Don't be hiss-terical, Stool. Let's head inside. You can hide behind me."
                 },
                 T0003: {
-                    text: "What is th-…"
+                    text: "What is th-..."
                 },
                 T0004: {
                     text: "Stool, are you okay?"
@@ -50,13 +50,13 @@ namespace BeansCuest {
                     text: "Spook - can I hear the riddle again?"
                 },
                 T0014: {
-                    text: "Maybe I can find something to help me… The rug looks very suspicious…"
+                    text: "Maybe I can find something to help me... The rug looks very suspicious..."
                 },
                 T0015: {
-                    text: `Huff, huff - it's a dusty note! It says: "I rhyme on mittens, yet I am nothing to wear."… Maybe this could be a clue?`
+                    text: `Huff, huff - it's a dusty note! It says: "I rhyme on mittens, yet I am nothing to wear."... Maybe this could be a clue?`
                 },
                 T0016: {
-                    text: `The note says: "I rhyme on mittens, yet I am nothing to wear."… Maybe this could be a clue?`
+                    text: `The note says: "I rhyme on mittens, yet I am nothing to wear."... Maybe this could be a clue?`
                 },
                 T0017: {
                     text: "Spook, do you have any clues or hints that could help us solve this riddle?"
@@ -110,7 +110,7 @@ namespace BeansCuest {
                     emotion: "shivering"
                 },
                 T0001: {
-                    text: "But what if there are monsters or worse… - D O G S!?",
+                    text: "But what if there are monsters or worse... - D O G S!?",
                     emotion: "anxious",
                 },
                 T0002: { 
@@ -134,7 +134,7 @@ namespace BeansCuest {
                     emotion: "confused"
                 },
                 T0007: {
-                    text: "What…? Where am I?",
+                    text: "What...? Where am I?",
                     emotion: "confused"
                 },
                 T0008: {

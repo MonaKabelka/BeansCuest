@@ -42,6 +42,7 @@ speech > content {
   position: absolute;
   top: 25%;
   left: 5%;
+  font-size: 3vmin;
 }
 
 scene {
@@ -100,14 +101,14 @@ dialog[type=splash] > img#FudgeStoryLogo {
   border-bottom-right-radius: 190px 25px;
   border-bottom-left-radius:25px 150px;
   border: 1px solid #333;
-  background-color: #ddd;
+  background-color: #fff;
   transition: all 100ms ease-out;
   font-family: "Bean", sans-serif;
   font-size: 3vmin;
 }
 
 :is(.in-game-menu, .choice .inventory) > button:hover {
-  background-color: #fff;
+  background-color: #ffefff;
   border-color: #000;
   cursor: pointer;
 }
@@ -126,8 +127,12 @@ dialog[type=splash] > img#FudgeStoryLogo {
   padding: 5px;
 }
 
-.inventory ul li amount, .inventory ul li description {
+.inventory ul li amount {
   display: none;
+}
+
+.inventory ul li description {
+  font-size: 2vmin;
 }
 
 .inventory ul li img {

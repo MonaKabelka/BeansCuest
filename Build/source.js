@@ -34,12 +34,12 @@ var BeansCuest;
         BeansCuest.gameMenu = BeansCuest.fS.Menu.create(BeansCuest.transformMenu(BeansCuest.menuDefinition), BeansCuest.useCallbacks, "in-game-menu");
         BeansCuest.gameMenu.close();
         let scenes = [
-            { scene: BeansCuest.scene1_1, name: "Scene 1.1" },
-            { scene: BeansCuest.scene1_2, name: "Scene 1.2" },
-            { scene: BeansCuest.scene2_1, name: "Scene 2.1" },
-            { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
-            { scene: BeansCuest.scene4_1, name: "Scene 4.1" },
-            { scene: BeansCuest.scene5, name: "Scene 5" },
+            // { scene: scene1_1, name: "Scene 1.1" },
+            // { scene: scene1_2, name: "Scene 1.2" },
+            // { scene: scene2_1, name: "Scene 2.1" },
+            // { scene: scene3_1, name: "Scene 3.1" },
+            // { scene: scene4_1, name: "Scene 4.1" },
+            // { scene: scene5, name: "Scene 5"},
             { scene: BeansCuest.scene6, name: "Scene 6" }
         ];
         BeansCuest.fS.Speech.hide();
@@ -217,43 +217,43 @@ var BeansCuest;
     BeansCuest.ITEMS = {
         fishingRod: {
             name: "Fishing Rod",
-            description: "",
+            description: "Old but sturdy",
             image: "Images/Items/rod.png",
             handler: handleItemUsage
         },
         moonstone: {
             name: "Moonstone",
-            description: "TEST",
+            description: "Gives off a cool light",
             image: "Images/Items/moonstone.png",
             handler: handleItemUsage
         },
         pixieDust: {
             name: "Pixie Dust",
-            description: "",
+            description: "Feels light",
             image: "Images/Items/pixiedust.png",
             handler: handleItemUsage
         },
         ladder: {
             name: "Ladder",
-            description: "",
+            description: "Creaks when used",
             image: "Images/Items/ladder.png",
             handler: handleItemUsage
         },
         note: {
             name: "Note",
-            description: "",
+            description: `<i>"I rhyme on mittens, yet I am nothing to wear</i>"`,
             image: "Images/Items/notes.png",
             static: true
         },
         sunstone: {
             name: "Sunstone",
-            description: "",
+            description: "Emits a warm glow",
             image: "Images/Items/sunstone.png",
             handler: handleItemUsage
         },
         starstone: {
             name: "Starstone",
-            description: "",
+            description: "Sparkles",
             image: "Images/Items/starstone.png",
             handler: handleItemUsage
         },
@@ -1198,7 +1198,7 @@ var BeansCuest;
                     text: "So this is the best place to start looking for the first stone.",
                 },
                 T0001: {
-                    text: "I can barely make out features, but it looks something like a… frog?",
+                    text: "I can barely make out features, but it looks something like a... frog?",
                 },
                 T0002: {
                     text: "HELLOOO??",
@@ -1207,13 +1207,13 @@ var BeansCuest;
                     text: "HELLO!? CAN YOU HELP US? WE'RE SEARCHING FOR SOMETHING AND IT'S URGENT!",
                 },
                 T0004: {
-                    text: "Shhh…"
+                    text: "Shhh..."
                 },
                 T0005: {
-                    text: "Hello there. It’s okay, we won't hurt you. We just need some information about something lost. And by the way - I’m Bean."
+                    text: "Hello there. It's okay, we won't hurt you. We just need some information about something lost. And by the way - I'm Bean."
                 },
                 T0006: {
-                    text: "Nice to meet you, Lillypad! I’m searching for a lost relict, and I think you might be able to help. By any chance - Have you noticed anything strange lately?"
+                    text: "Nice to meet you, Lillypad! I'm searching for a lost relict, and I think you might be able to help. By any chance - Have you noticed anything strange lately?"
                 },
                 T0007: {
                     text: "That's cat-astic!"
@@ -1228,16 +1228,16 @@ var BeansCuest;
                     text: "What was it you wanted to say?"
                 },
                 T0011: {
-                    text: "Don’t be shy! I’m listening!"
+                    text: "Don't be shy! I'm listening!"
                 },
                 T0012: {
-                    text: "Fur-real?? That’s great!"
+                    text: "Fur-real?? That's great!"
                 },
                 T0013: {
                     text: "No, of course not! Why would you think so?"
                 },
                 T0014: {
-                    text: "That’s mean. I wish I could swim too. I've been afraid of water all my life. It’s really distressing. You have a su-paw-power!"
+                    text: "That's mean. I wish I could swim too. I've been afraid of water all my life. It's really distressing. You have a su-paw-power!"
                 },
                 T0015: {
                     text: "That would be fur-midable!"
@@ -1267,22 +1267,22 @@ var BeansCuest;
                     text: "Have you been sitting in the pond for a long time? - If yes, surely you could help us."
                 },
                 T0024: {
-                    text: "It's about a lost stone that I need to get back home. I came from another world and just ended up here by accident…"
+                    text: "It's about a lost stone that I need to get back home. I came from another world and just ended up here by accident..."
                 },
                 T0025: {
-                    text: "… Because at home I played hide and seek with my best friend Oliver! But now I'm traveling with Sto-"
+                    text: "... Because at home I played hide and seek with my best friend Oliver! But now I'm traveling with Sto-"
                 },
                 T0026: {
                     text: "Oh? What happened?"
                 },
                 T0027: {
-                    text: "Oh no! That’s un-fur-tunate."
+                    text: "Oh no! That's un-fur-tunate."
                 },
                 T0028: {
                     text: "Let's search the area for the stones."
                 },
                 T0029: {
-                    text: "Stool you are cat-astic! That could be the stone! We just have to find something to reach it…"
+                    text: "Stool you are cat-astic! That could be the stone! We just have to find something to reach it..."
                 },
                 T0030: {
                     text: "Stool. Hear me out. I hold you by your feet. "
@@ -1294,7 +1294,7 @@ var BeansCuest;
                     text: "Well, but it was worth a try. Let's look elsewhere."
                 },
                 T0033: {
-                    text: "Let’s check in between these mossy stones."
+                    text: "Let's check in between these mossy stones."
                 },
                 T0034: {
                     text: "HAHAHA Stool! You have to be more careful!"
@@ -1303,19 +1303,19 @@ var BeansCuest;
                     text: "Did you hurt yourself?"
                 },
                 T0036: {
-                    text: "Hihi - paw promise! Now let’s check somewhere else."
+                    text: "Hihi - paw promise! Now let's check somewhere else."
                 },
                 T0037: {
-                    text: "Stool, see the reeds? I think I can see something peeking through…"
+                    text: "Stool, see the reeds? I think I can see something peeking through..."
                 },
                 T0038: {
-                    text: "Uhaaah – but – arh - I’m too big -uhh - to fit between the – arhhhg –… Stool? Can you just take a look?"
+                    text: "Uhaaah - but - arh - I'm too big -uhh - to fit between the - arhhhg -... Stool? Can you just take a look?"
                 },
                 T0039: {
                     text: "Pleaaaase?"
                 },
                 T0040: {
-                    text: "Everything’s alright?"
+                    text: "Everything's alright?"
                 },
                 T0041: {
                     text: "A Rod! I think this will work! Let's use this rod to try and hook the stone."
@@ -1330,7 +1330,7 @@ var BeansCuest;
                     text: "We'll find the stones. It wasn't THAT difficult. Let's keep looking. Soo - where are we heading next? What do you suggest?"
                 },
                 T0045: {
-                    text: "Let’s go!"
+                    text: "Let's go!"
                 }
             }
         },
@@ -1338,19 +1338,19 @@ var BeansCuest;
             defaultPosition: BeansCuest.POSITIONS[2][1],
             texts: {
                 T0000: {
-                    text: "Well, I don’t know why but something draws me here.",
+                    text: "Well, I don't know why but something draws me here.",
                     emotion: "explanatory"
                 },
                 T0001: {
-                    text: "Oh Bean – can you see that? Right there, in the pond.",
+                    text: "Oh Bean - can you see that? Right there, in the pond.",
                     emotion: "anxious"
                 },
                 T0002: {
-                    text: "SHH - Be careful! You don’t know wha-",
+                    text: "SHH - Be careful! You don't know wha-",
                     emotion: "anxious"
                 },
                 T0003: {
-                    text: "Be careful! You don’t know wha-",
+                    text: "Be careful! You don't know wha-",
                     emotion: "anxious"
                 },
                 T0004: {
@@ -1366,19 +1366,19 @@ var BeansCuest;
                     emotion: "worried"
                 },
                 T0007: {
-                    text: "I think… you might have overwhelmed it…",
+                    text: "I think... you might have overwhelmed it...",
                     emotion: "worried"
                 },
                 T0008: {
-                    text: "Alright - but let’s search together. This pond is a bit fishy…",
+                    text: "Alright - but let's search together. This pond is a bit fishy...",
                     emotion: "anxious"
                 },
                 T0009: {
-                    text: "By the way – do you see this glowy thing at the bottom of the pond?",
+                    text: "By the way - do you see this glowy thing at the bottom of the pond?",
                     emotion: "explanatory"
                 },
                 T0010: {
-                    text: "I don’t like where this is going.",
+                    text: "I don't like where this is going.",
                     emotion: "anxious"
                 },
                 T0011: {
@@ -1386,7 +1386,7 @@ var BeansCuest;
                     emotion: "serious"
                 },
                 T0012: {
-                    text: "<i>*Gurgling*</i> I CRN’T REE A THRING! <i>*Splash*</i>"
+                    text: "<i>*Gurgling*</i> I CRN'T REE A THRING! <i>*Splash*</i>"
                 },
                 T0013: {
                     text: "It's pitch black - I literally can't see anything.",
@@ -1401,15 +1401,15 @@ var BeansCuest;
                     emotion: "anxious"
                 },
                 T0016: {
-                    text: "I don’t think so. But don't ever make me do that again!",
+                    text: "I don't think so. But don't ever make me do that again!",
                     emotion: "crying"
                 },
                 T0017: {
-                    text: "… You know I’m scared, right?",
+                    text: "... You know I'm scared, right?",
                     emotion: "anxious"
                 },
                 T0018: {
-                    text: "Okay I’ll do it.",
+                    text: "Okay I'll do it.",
                     emotion: "crying"
                 },
                 T0019: {
@@ -1420,19 +1420,19 @@ var BeansCuest;
                     emotion: "happy"
                 },
                 T0021: {
-                    text: "Only two more to go…",
+                    text: "Only two more to go...",
                     emotion: "worried"
                 },
                 T0022: {
-                    text: "We have one stone to repair the portal. But we’ll NEVER find the other two! They could be anywhere!",
+                    text: "We have one stone to repair the portal. But we'll NEVER find the other two! They could be anywhere!",
                     emotion: "hysterical"
                 },
                 T0023: {
-                    text: "Why are you asking ME??? I don’t know! – But…",
+                    text: "Why are you asking ME??? I don't know! - But...",
                     emotion: "anxious"
                 },
                 T0024: {
-                    text: "… Something tells me we should search by the Mystique Meadows down the hill. I just can’t tell why…",
+                    text: "... Something tells me we should search by the Mystique Meadows down the hill. I just can't tell why...",
                     emotion: "explanatory"
                 },
                 T0025: {
@@ -1453,23 +1453,23 @@ var BeansCuest;
                     emotion: "shy"
                 },
                 T0002: {
-                    text: "A-Actually…",
+                    text: "A-Actually...",
                     emotion: "shy"
                 },
                 T0003: {
-                    text: "N…Nothing. Nothing important.",
+                    text: "N...Nothing. Nothing important.",
                     emotion: "shy"
                 },
                 T0004: {
-                    text: "I-… I can swim. And dive…",
+                    text: "I-... I can swim. And dive...",
                     emotion: "shy"
                 },
                 T0005: {
-                    text: "S-So you’re not going to laugh at me?",
+                    text: "S-So you're not going to laugh at me?",
                     emotion: "blushing"
                 },
                 T0006: {
-                    text: "Oh… I-I was laughed at by everyone the whole time. That's why I ran away and now I live alone in this pond.",
+                    text: "Oh... I-I was laughed at by everyone the whole time. That's why I ran away and now I live alone in this pond.",
                     emotion: "sad"
                 },
                 T0007: {
@@ -1489,11 +1489,11 @@ var BeansCuest;
                     emotion: "sad"
                 },
                 T0011: {
-                    text: "I saw something in the reeds recently… M- Maybe this can help you.",
+                    text: "I saw something in the reeds recently... M- Maybe this can help you.",
                     emotion: "shy"
                 },
                 T0012: {
-                    text: "I-…",
+                    text: "I-...",
                     emotion: "sad"
                 }
             }
@@ -1797,10 +1797,10 @@ var BeansCuest;
                     text: "Did you hear that?"
                 },
                 T0002: {
-                    text: "Let’s check it out!"
+                    text: "Let's check it out!"
                 },
                 T0003: {
-                    text: "Hello? Paw-don me. I’m searching for a small glowing stone! It’s very important…"
+                    text: "Hello? Paw-don me. I'm searching for a small glowing stone! It's very important..."
                 },
                 T0004: {
                     text: "Is everything alright?"
@@ -1809,7 +1809,7 @@ var BeansCuest;
                     text: "sometimes, unexpected alliances can turn the tides in our favor."
                 },
                 T0006: {
-                    text: "Charm, Chant, I’m Bean and I would like to help you. Do you have any recollection of the last time you used the pixie dust? Purr-haps a specific place or activity?"
+                    text: "Charm, Chant, I'm Bean and I would like to help you. Do you have any recollection of the last time you used the pixie dust? Purr-haps a specific place or activity?"
                 },
                 T0007: {
                     text: "okay..."
@@ -1824,13 +1824,13 @@ var BeansCuest;
                     text: "Chant's suggestion to check the left side seems promising. We might stumble upon something significant that could help us reunite Charm and Chant with their precious dust."
                 },
                 T0011: {
-                    text: "Hmm. Seems like nothings here. Let’s check for the other side."
+                    text: "Hmm. Seems like nothings here. Let's check for the other side."
                 },
                 T0012: {
-                    text: "Hello. I’m Bean. Why are you so grumpy? Can I help you?"
+                    text: "Hello. I'm Bean. Why are you so grumpy? Can I help you?"
                 },
                 T0013: {
-                    text: "Oh no, that must’ve been claw-ful! I understand that you were just trying to find some peace and quiet, but taking something that doesn't belong to you isn't the best way to solve the problem…"
+                    text: "Oh no, that must've been claw-ful! I understand that you were just trying to find some peace and quiet, but taking something that doesn't belong to you isn't the best way to solve the problem..."
                 },
                 T0014: {
                     text: "Let's find a way to bring harmony to this meadow without resorting to theft, okay?"
@@ -1842,10 +1842,10 @@ var BeansCuest;
                     text: "Stool, we have to find a way to put an end to Charm and Chant's constant arguing. It's the only way to get the pixie dust back from Bandit."
                 },
                 T0017: {
-                    text: "Good news! We found your pixie dust! There's just one small catch…"
+                    text: "Good news! We found your pixie dust! There's just one small catch..."
                 },
                 T0018: {
-                    text: "Well… here's the thing, a raccoon has it, and he said he would only give it back if you two stopped arguing."
+                    text: "Well... here's the thing, a raccoon has it, and he said he would only give it back if you two stopped arguing."
                 },
                 T0019: {
                     text: "So, if you really want your pixie dust back, you'll have to make a pact to put an end to your arguments."
@@ -1857,19 +1857,19 @@ var BeansCuest;
                     text: "By dividing the pixie dust equally, you'll realize that there is more than enough pixie dust to go around."
                 },
                 T0022: {
-                    text: "With that out of the way, I'll take care of your pixie dust. I’ll be back any minute."
+                    text: "With that out of the way, I'll take care of your pixie dust. I'll be back any minute."
                 },
                 T0023: {
                     text: "i'll take that. hope you do not mind."
                 },
                 T0024: {
-                    text: "Here’s your pixie dust!"
+                    text: "Here's your pixie dust!"
                 },
                 T0025: {
                     text: "Pixie dust? That sounds claw-some! I truly appreciate your kindness. The pixie dust would be a tremendous help in finding the stone I need for my journey home."
                 },
                 T0026: {
-                    text: "You know – I’m from another world and need to repair a portal to get back."
+                    text: "You know - I'm from another world and need to repair a portal to get back."
                 },
                 T0027: {
                     text: "Thank you, Charm and Chant. I'm honored to accept your offer."
@@ -1890,10 +1890,10 @@ var BeansCuest;
                     text: "And hey, look! What's that on the cloud over there?",
                 },
                 T0033: {
-                    text: "It seems to be glowing… Looks like the second relict!"
+                    text: "It seems to be glowing... Looks like the second relict!"
                 },
                 T0034: {
-                    text: "I can’t accept your offer."
+                    text: "I can't accept your offer."
                 },
                 T0035: {
                     text: "The pixie dust is such a valuable and precious gift, and I wouldn't want to take advantage of your kindness."
@@ -1908,10 +1908,10 @@ var BeansCuest;
                     text: "Charm, Chant, I understand that you both have your own opinions and preferences. But constantly arguing won't get us anywhere."
                 },
                 T0039: {
-                    text: "It’s not about winning or being right, it's about finding a solution that works for both of you."
+                    text: "It's not about winning or being right, it's about finding a solution that works for both of you."
                 },
                 T0040: {
-                    text: "True, these two brawlers don’t seem like they want to get interrupted. Let’s continue searching.",
+                    text: "True, these two brawlers don't seem like they want to get interrupted. Let's continue searching.",
                 },
                 T0041: {
                     text: "What is it?",
@@ -1935,13 +1935,13 @@ var BeansCuest;
                     text: "Wow, Stool! Can you believe it? We're standing on a cloud! It feels so soft and the light up here is absolutely cat-astic."
                 },
                 T0048: {
-                    text: "Don't worry, Stool. Look, the cloud seems stable, and we're safe up here. Let's take a moment to enjoy the view. And look, there’s the stone!"
+                    text: "Don't worry, Stool. Look, the cloud seems stable, and we're safe up here. Let's take a moment to enjoy the view. And look, there's the stone!"
                 },
                 T0049: {
                     text: "Stool, can you believe it? We've found two of the stones already! We're making progress."
                 },
                 T0050: {
-                    text: "That’s purr-fect! Let's make our way to the mansion and see what lies ahead.",
+                    text: "That's purr-fect! Let's make our way to the mansion and see what lies ahead.",
                 }
             }
         },
@@ -1949,7 +1949,7 @@ var BeansCuest;
             defaultPosition: BeansCuest.POSITIONS[3][1],
             texts: {
                 T0000: {
-                    text: "Yeah, it’s really beautiful.",
+                    text: "Yeah, it's really beautiful.",
                     emotion: "charmed"
                 },
                 T0001: {
@@ -1973,11 +1973,11 @@ var BeansCuest;
                     emotion: "worried"
                 },
                 T0006: {
-                    text: "bean, let’s just start searching.",
+                    text: "bean, let's just start searching.",
                     emotion: "anxious"
                 },
                 T0007: {
-                    text: "Bean, I-I think we should tread carefully around this… creature.",
+                    text: "Bean, I-I think we should tread carefully around this... creature.",
                     emotion: "anxious"
                 },
                 T0008: {
@@ -1993,7 +1993,7 @@ var BeansCuest;
                     emotion: "crying"
                 },
                 T0011: {
-                    text: "psst - bean, i think talking won’t do much here. we need to come up with something that will make them see the bigger picture.",
+                    text: "psst - bean, i think talking won't do much here. we need to come up with something that will make them see the bigger picture.",
                     emotion: "worried"
                 },
                 T0012: {
@@ -2001,7 +2001,7 @@ var BeansCuest;
                     emotion: "crying"
                 },
                 T0013: {
-                    text: "pssst bean i think you said the wrong thing…",
+                    text: "pssst bean i think you said the wrong thing...",
                     emotion: "serious"
                 },
                 T0014: {
@@ -2009,7 +2009,7 @@ var BeansCuest;
                     emotion: "explanatory"
                 },
                 T0015: {
-                    text: "The portal could implode soon Bean. Let’s hurry. We don’t know how much time’s left.",
+                    text: "The portal could implode soon Bean. Let's hurry. We don't know how much time's left.",
                     emotion: "worried"
                 },
                 T0016: {
@@ -2017,7 +2017,7 @@ var BeansCuest;
                     emotion: "confused"
                 },
                 T0017: {
-                    text: "I swear the sunstone is somewhere around here. But… Well… Further up. There is a peculiar magic emanating from up there. It's likely that the relict we seek is on that cloud.",
+                    text: "I swear the sunstone is somewhere around here. But... Well... Further up. There is a peculiar magic emanating from up there. It's likely that the relict we seek is on that cloud.",
                     emotion: "confused"
                 },
                 T0018: {
@@ -2049,11 +2049,11 @@ var BeansCuest;
                     emotion: "anxious"
                 },
                 T0025: {
-                    text: "Well – in fact I have this strong feeling that the next stone is in this mysterious mansion below us in the swamp. See? It's like a faint whisper in my mind.",
+                    text: "Well - in fact I have this strong feeling that the next stone is in this mysterious mansion below us in the swamp. See? It's like a faint whisper in my mind.",
                     emotion: "explanatory"
                 },
                 T0026: {
-                    text: "But we don’t know for sure, right?",
+                    text: "But we don't know for sure, right?",
                     emotion: "crying"
                 }
             }
@@ -2068,10 +2068,10 @@ var BeansCuest;
                     text: "Are you kitten me? I will never speak to YOU again!"
                 },
                 T0002: {
-                    text: "Not exactly – Charm lost our pixie dust and without the dust we can’t fly."
+                    text: "Not exactly - Charm lost our pixie dust and without the dust we can't fly."
                 },
                 T0003: {
-                    text: "I won't admit it because it wasn’t my fault!",
+                    text: "I won't admit it because it wasn't my fault!",
                     emotion: "angry"
                 },
                 T0004: {
@@ -2083,11 +2083,11 @@ var BeansCuest;
                     emotion: "angry"
                 },
                 T0006: {
-                    text: "That’s great! Where is it?",
+                    text: "That's great! Where is it?",
                     emotion: "happy"
                 },
                 T0007: {
-                    text: "…and we won't have to keep track of who used it last or constantly compare our flying skills.",
+                    text: "...and we won't have to keep track of who used it last or constantly compare our flying skills.",
                     emotion: "happy"
                 },
                 T0008: {
@@ -2136,7 +2136,7 @@ var BeansCuest;
                     text: "What was that?"
                 },
                 T0020: {
-                    text: "I think the thing your searching for is on that cloud. Bean, your selflessness is admirable and we’re glad that our arguments are behind us.",
+                    text: "I think the thing your searching for is on that cloud. Bean, your selflessness is admirable and we're glad that our arguments are behind us.",
                     emotion: "happy"
                 },
                 T0021: {
@@ -2157,7 +2157,7 @@ var BeansCuest;
             defaultPosition: BeansCuest.POSITIONS[3][3],
             texts: {
                 T0000: {
-                    text: "ME? I was the one who had it last??? You’re crazy!"
+                    text: "ME? I was the one who had it last??? You're crazy!"
                 },
                 T0001: {
                     text: "I will never speak to you again!"
@@ -2183,11 +2183,11 @@ var BeansCuest;
                     emotion: "crying"
                 },
                 T0007: {
-                    text: "Chant, if we share the pixie dust equally, we won't have to waste time arguing about who gets more or who flew higher…",
+                    text: "Chant, if we share the pixie dust equally, we won't have to waste time arguing about who gets more or who flew higher...",
                     emotion: "thinking"
                 },
                 T0008: {
-                    text: "I’m sorry Chant!",
+                    text: "I'm sorry Chant!",
                     emotion: "crying"
                 },
                 T0009: {
@@ -2203,7 +2203,7 @@ var BeansCuest;
                     emotion: "thinking"
                 },
                 T0012: {
-                    text: "Why do you have to brag like that again… ",
+                    text: "Why do you have to brag like that again... ",
                     emotion: "angry"
                 },
                 T0013: {
@@ -2214,13 +2214,13 @@ var BeansCuest;
                     text: "Really? You're just making that up to mess with me, aren't you?"
                 },
                 T0015: {
-                    text: "Yeah, if that eagle had a questionable tendency to bump into trees…"
+                    text: "Yeah, if that eagle had a questionable tendency to bump into trees..."
                 },
                 T0016: {
                     text: "Nothing."
                 },
                 T0017: {
-                    text: "You’ve taught us an important lesson. We thank you for that. If there's ever anything else we can do for you on your journey, please don't hesitate to ask. ",
+                    text: "You've taught us an important lesson. We thank you for that. If there's ever anything else we can do for you on your journey, please don't hesitate to ask. ",
                     emotion: "happy"
                 },
                 T0018: {
@@ -2640,7 +2640,7 @@ var BeansCuest;
                     text: "Don't be hiss-terical, Stool. Let's head inside. You can hide behind me."
                 },
                 T0003: {
-                    text: "What is th-…"
+                    text: "What is th-..."
                 },
                 T0004: {
                     text: "Stool, are you okay?"
@@ -2673,13 +2673,13 @@ var BeansCuest;
                     text: "Spook - can I hear the riddle again?"
                 },
                 T0014: {
-                    text: "Maybe I can find something to help me… The rug looks very suspicious…"
+                    text: "Maybe I can find something to help me... The rug looks very suspicious..."
                 },
                 T0015: {
-                    text: `Huff, huff - it's a dusty note! It says: "I rhyme on mittens, yet I am nothing to wear."… Maybe this could be a clue?`
+                    text: `Huff, huff - it's a dusty note! It says: "I rhyme on mittens, yet I am nothing to wear."... Maybe this could be a clue?`
                 },
                 T0016: {
-                    text: `The note says: "I rhyme on mittens, yet I am nothing to wear."… Maybe this could be a clue?`
+                    text: `The note says: "I rhyme on mittens, yet I am nothing to wear."... Maybe this could be a clue?`
                 },
                 T0017: {
                     text: "Spook, do you have any clues or hints that could help us solve this riddle?"
@@ -2733,7 +2733,7 @@ var BeansCuest;
                     emotion: "shivering"
                 },
                 T0001: {
-                    text: "But what if there are monsters or worse… - D O G S!?",
+                    text: "But what if there are monsters or worse... - D O G S!?",
                     emotion: "anxious",
                 },
                 T0002: {
@@ -2757,7 +2757,7 @@ var BeansCuest;
                     emotion: "confused"
                 },
                 T0007: {
-                    text: "What…? Where am I?",
+                    text: "What...? Where am I?",
                     emotion: "confused"
                 },
                 T0008: {
@@ -3093,13 +3093,13 @@ var BeansCuest;
             defaultPosition: BeansCuest.POSITIONS[1],
             texts: {
                 T0000: {
-                    text: "There’s the portal! See? I didn’t implode! We did it!"
+                    text: "There's the portal! See? I didn't implode! We did it!"
                 },
                 T0001: {
                     text: "I understand that time is running out, but we need to stay calm and think this through. Can you see the three small notches?"
                 },
                 T0002: {
-                    text: "The stones would fit perfectly. But in which order am I supposed to put them in…?"
+                    text: "The stones would fit perfectly. But in which order am I supposed to put them in...?"
                 },
                 T0003: {
                     text: "Stool, can you repeat the poem?",
@@ -3117,13 +3117,13 @@ var BeansCuest;
                     text: "You were guiding us all along? It really does make sense now!"
                 },
                 T0008: {
-                    text: "That makes sense – in a magic context – I guess? I can't believe you've been guiding us this whole time."
+                    text: "That makes sense - in a magic context - I guess? I can't believe you've been guiding us this whole time."
                 },
                 T0009: {
                     text: "Stool. I really have to leave now. Oliver must be so worried. "
                 },
                 T0010: {
-                    text: "I don't want to leave you behind, but I also don't want to abandon my own world. I’m sorry Stool - I have to leave."
+                    text: "I don't want to leave you behind, but I also don't want to abandon my own world. I'm sorry Stool - I have to leave."
                 },
                 T0011: {
                     text: "Enchantica is an amazing place, and I've grown to love it. We truly are friends, but my heart longs to return to my world, and my friends there. I can't ignore that."
@@ -3138,7 +3138,7 @@ var BeansCuest;
                     text: "Oliver?"
                 },
                 T0015: {
-                    text: "Oh Oliver! I’m so glad to see you!"
+                    text: "Oh Oliver! I'm so glad to see you!"
                 },
                 T0016: {
                     text: "Oh, Oliver, I would never want that. You mean the world to me."
@@ -3208,11 +3208,11 @@ var BeansCuest;
                     emotion: "confused"
                 },
                 T0038: {
-                    text: "I’m not at home…? No, this can't be right... Why didn't the portal work? WHAT WENT WRONG?",
+                    text: "I'm not at home...? No, this can't be right... Why didn't the portal work? WHAT WENT WRONG?",
                     emotion: "scared"
                 },
                 T0039: {
-                    text: "I followed all the steps, placed the stones in the right order… WHY AM I NOT BACK HOME? And what do I do now?",
+                    text: "I followed all the steps, placed the stones in the right order... WHY AM I NOT BACK HOME? And what do I do now?",
                     emotion: "sad"
                 },
                 T0040: {
@@ -3225,7 +3225,7 @@ var BeansCuest;
                     text: "The enchantment, the friendships I've forged, and the extraordinary adventures we've shared—it's all too precious to leave behind."
                 },
                 T0043: {
-                    text: "OH NO! What’s wrong with the portal??"
+                    text: "OH NO! What's wrong with the portal??"
                 },
                 T0044: {
                     text: "Maybe this is a sign. Maybe I was meant to stay in Enchantica all along."
@@ -3239,7 +3239,7 @@ var BeansCuest;
             defaultPosition: BeansCuest.POSITIONS[1],
             texts: {
                 T0000: {
-                    text: "… yet! - It didn’t implode yet!",
+                    text: "... yet! - It didn't implode yet!",
                     emotion: "anxious"
                 },
                 T0001: {
@@ -3247,7 +3247,7 @@ var BeansCuest;
                     emotion: "crying"
                 },
                 T0002: {
-                    text: "… Well - in fact this reminds me of a poem I once stumbled upon. Listen closely:",
+                    text: "... Well - in fact this reminds me of a poem I once stumbled upon. Listen closely:",
                     emotion: "explanatory"
                 },
                 T0003: {
@@ -3261,7 +3261,7 @@ var BeansCuest;
                     emotion: "explanatory"
                 },
                 T0005: {
-                    text: "But I don’t know how this is supposed to help…",
+                    text: "But I don't know how this is supposed to help...",
                     emotion: "anxious"
                 },
                 T0006: {
@@ -3297,7 +3297,7 @@ var BeansCuest;
                     emotion: "explanatory"
                 },
                 T0014: {
-                    text: "It was my duty, and now, with my memories restored, I feel more confident and determined than ever. From now on I’ll watch the portal more carefully.",
+                    text: "It was my duty, and now, with my memories restored, I feel more confident and determined than ever. From now on I'll watch the portal more carefully.",
                     emotion: "happy"
                 },
                 T0015: {
@@ -3305,7 +3305,7 @@ var BeansCuest;
                     emotion: "sad"
                 },
                 T0016: {
-                    text: "Please stay with me… Don’t leave me…",
+                    text: "Please stay with me... Don't leave me...",
                     emotion: "sad"
                 },
                 T0017: {
@@ -3337,7 +3337,7 @@ var BeansCuest;
                     emotion: "charmed"
                 },
                 T0024: {
-                    text: "Bean, something just clicked in my mind…",
+                    text: "Bean, something just clicked in my mind...",
                     emotion: "confused"
                 },
                 T0025: {
@@ -3401,14 +3401,14 @@ var BeansCuest;
                     emotion: "happy"
                 },
                 T0040: {
-                    text: "BEAN! SOMETHING'S WRONG! THE PORTAL… IT'S BREAKING DOWN! WE NEED TO…"
+                    text: "BEAN! SOMETHING'S WRONG! THE PORTAL... IT'S BREAKING DOWN! WE NEED TO..."
                 },
                 T0041: {
                     text: "Bean, are you absolutely certain? Your world, your life... they're back there.",
                     emotion: "confused"
                 },
                 T0042: {
-                    text: "I don't know, Bean! It's falling apart! We must have done something wrong! Luckily you decided to stay…",
+                    text: "I don't know, Bean! It's falling apart! We must have done something wrong! Luckily you decided to stay...",
                     emotion: "anxious"
                 },
                 T0043: {
@@ -3453,6 +3453,9 @@ var BeansCuest;
     async function scene6() {
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods);
         await BeansCuest.makeTransition("sceneChange");
+        BeansCuest.fS.Inventory.add(BeansCuest.ITEMS.moonstone);
+        BeansCuest.fS.Inventory.add(BeansCuest.ITEMS.starstone);
+        BeansCuest.fS.Inventory.add(BeansCuest.ITEMS.sunstone);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0000, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0000, null],

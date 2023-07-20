@@ -13,13 +13,13 @@ namespace BeansCuest {
             defaultPosition: POSITIONS[1],
             texts: {
                 T0000: {
-                    text: "There’s the portal! See? I didn’t implode! We did it!"
+                    text: "There's the portal! See? I didn't implode! We did it!"
                 },
                 T0001: {
                     text: "I understand that time is running out, but we need to stay calm and think this through. Can you see the three small notches?"
                 },
                 T0002: {
-                    text: "The stones would fit perfectly. But in which order am I supposed to put them in…?"
+                    text: "The stones would fit perfectly. But in which order am I supposed to put them in...?"
                 },
                 T0003: {
                     text: "Stool, can you repeat the poem?",
@@ -37,13 +37,13 @@ namespace BeansCuest {
                     text: "You were guiding us all along? It really does make sense now!"
                 },
                 T0008: {
-                    text: "That makes sense – in a magic context – I guess? I can't believe you've been guiding us this whole time."
+                    text: "That makes sense - in a magic context - I guess? I can't believe you've been guiding us this whole time."
                 },
                 T0009: {
                     text: "Stool. I really have to leave now. Oliver must be so worried. "
                 },
                 T0010: {
-                    text: "I don't want to leave you behind, but I also don't want to abandon my own world. I’m sorry Stool - I have to leave."
+                    text: "I don't want to leave you behind, but I also don't want to abandon my own world. I'm sorry Stool - I have to leave."
                 },
                 T0011: {
                     text: "Enchantica is an amazing place, and I've grown to love it. We truly are friends, but my heart longs to return to my world, and my friends there. I can't ignore that."
@@ -58,7 +58,7 @@ namespace BeansCuest {
                     text: "Oliver?"
                 },
                 T0015: {
-                    text: "Oh Oliver! I’m so glad to see you!"
+                    text: "Oh Oliver! I'm so glad to see you!"
                 },
                 T0016: {
                     text: "Oh, Oliver, I would never want that. You mean the world to me."
@@ -128,11 +128,11 @@ namespace BeansCuest {
                     emotion: "confused"
                 },
                 T0038: {
-                    text: "I’m not at home…? No, this can't be right... Why didn't the portal work? WHAT WENT WRONG?",
+                    text: "I'm not at home...? No, this can't be right... Why didn't the portal work? WHAT WENT WRONG?",
                     emotion: "scared"
                 },
                 T0039: {
-                    text: "I followed all the steps, placed the stones in the right order… WHY AM I NOT BACK HOME? And what do I do now?",
+                    text: "I followed all the steps, placed the stones in the right order... WHY AM I NOT BACK HOME? And what do I do now?",
                     emotion: "sad"
                 },
                 T0040: {
@@ -145,7 +145,7 @@ namespace BeansCuest {
                     text: "The enchantment, the friendships I've forged, and the extraordinary adventures we've shared—it's all too precious to leave behind."
                 },
                 T0043: {
-                    text: "OH NO! What’s wrong with the portal??"
+                    text: "OH NO! What's wrong with the portal??"
                 },
                 T0044: {
                     text: "Maybe this is a sign. Maybe I was meant to stay in Enchantica all along."
@@ -159,7 +159,7 @@ namespace BeansCuest {
             defaultPosition: POSITIONS[1],
             texts: {
                 T0000: {
-                    text: "… yet! - It didn’t implode yet!",
+                    text: "... yet! - It didn't implode yet!",
                     emotion: "anxious"
                 },
                 T0001: {
@@ -167,7 +167,7 @@ namespace BeansCuest {
                     emotion: "crying"
                 },
                 T0002: {
-                    text: "… Well - in fact this reminds me of a poem I once stumbled upon. Listen closely:",
+                    text: "... Well - in fact this reminds me of a poem I once stumbled upon. Listen closely:",
                     emotion: "explanatory"
                 },
                 T0003: {
@@ -181,7 +181,7 @@ namespace BeansCuest {
                     emotion: "explanatory"
                 },
                 T0005: {
-                    text: "But I don’t know how this is supposed to help…",
+                    text: "But I don't know how this is supposed to help...",
                     emotion: "anxious"
                 },
                 T0006: {
@@ -217,7 +217,7 @@ namespace BeansCuest {
                     emotion: "explanatory"
                 },
                 T0014: {
-                    text: "It was my duty, and now, with my memories restored, I feel more confident and determined than ever. From now on I’ll watch the portal more carefully.",
+                    text: "It was my duty, and now, with my memories restored, I feel more confident and determined than ever. From now on I'll watch the portal more carefully.",
                     emotion: "happy"
                 },
                 T0015: {
@@ -225,7 +225,7 @@ namespace BeansCuest {
                     emotion: "sad"
                 },
                 T0016: {
-                    text: "Please stay with me… Don’t leave me…",
+                    text: "Please stay with me... Don't leave me...",
                     emotion: "sad"
                 },
                 T0017: {
@@ -257,7 +257,7 @@ namespace BeansCuest {
                     emotion: "charmed"
                 },
                 T0024: {
-                    text: "Bean, something just clicked in my mind…",
+                    text: "Bean, something just clicked in my mind...",
                     emotion: "confused"
                 },
                 T0025: {
@@ -321,14 +321,14 @@ namespace BeansCuest {
                     emotion: "happy"
                 },
                 T0040: {
-                    text: "BEAN! SOMETHING'S WRONG! THE PORTAL… IT'S BREAKING DOWN! WE NEED TO…"
+                    text: "BEAN! SOMETHING'S WRONG! THE PORTAL... IT'S BREAKING DOWN! WE NEED TO..."
                 },
                 T0041: {
                     text: "Bean, are you absolutely certain? Your world, your life... they're back there.",
                     emotion: "confused"
                 },
                 T0042: {
-                    text: "I don't know, Bean! It's falling apart! We must have done something wrong! Luckily you decided to stay…",
+                    text: "I don't know, Bean! It's falling apart! We must have done something wrong! Luckily you decided to stay...",
                     emotion: "anxious"
                 },
                 T0043: {
@@ -374,6 +374,10 @@ namespace BeansCuest {
     export async function scene6(): fS.SceneReturn {
         await fS.Location.show(LOCATIONS.wistfulwoods);
         await makeTransition("sceneChange");
+
+        fS.Inventory.add(ITEMS.moonstone);
+        fS.Inventory.add(ITEMS.starstone);
+        fS.Inventory.add(ITEMS.sunstone);
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0000, null],

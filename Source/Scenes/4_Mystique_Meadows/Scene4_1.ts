@@ -15,10 +15,10 @@ namespace BeansCuest {
                     text: "Did you hear that?"
                 },
                 T0002: {
-                    text: "Let’s check it out!"
+                    text: "Let's check it out!"
                 },
                 T0003: {
-                    text: "Hello? Paw-don me. I’m searching for a small glowing stone! It’s very important…"
+                    text: "Hello? Paw-don me. I'm searching for a small glowing stone! It's very important..."
                 },
                 T0004: {
                     text: "Is everything alright?"
@@ -27,7 +27,7 @@ namespace BeansCuest {
                     text: "sometimes, unexpected alliances can turn the tides in our favor."
                 },
                 T0006: {
-                    text: "Charm, Chant, I’m Bean and I would like to help you. Do you have any recollection of the last time you used the pixie dust? Purr-haps a specific place or activity?"
+                    text: "Charm, Chant, I'm Bean and I would like to help you. Do you have any recollection of the last time you used the pixie dust? Purr-haps a specific place or activity?"
                 },
                 T0007: {
                     text: "okay..."
@@ -42,13 +42,13 @@ namespace BeansCuest {
                     text: "Chant's suggestion to check the left side seems promising. We might stumble upon something significant that could help us reunite Charm and Chant with their precious dust."
                 },
                 T0011: {
-                    text: "Hmm. Seems like nothings here. Let’s check for the other side."
+                    text: "Hmm. Seems like nothings here. Let's check for the other side."
                 },
                 T0012: {
-                    text: "Hello. I’m Bean. Why are you so grumpy? Can I help you?"
+                    text: "Hello. I'm Bean. Why are you so grumpy? Can I help you?"
                 },
                 T0013: {
-                    text: "Oh no, that must’ve been claw-ful! I understand that you were just trying to find some peace and quiet, but taking something that doesn't belong to you isn't the best way to solve the problem…"
+                    text: "Oh no, that must've been claw-ful! I understand that you were just trying to find some peace and quiet, but taking something that doesn't belong to you isn't the best way to solve the problem..."
                 },
                 T0014: {
                     text: "Let's find a way to bring harmony to this meadow without resorting to theft, okay?"
@@ -60,10 +60,10 @@ namespace BeansCuest {
                     text: "Stool, we have to find a way to put an end to Charm and Chant's constant arguing. It's the only way to get the pixie dust back from Bandit."
                 },
                 T0017: {
-                    text: "Good news! We found your pixie dust! There's just one small catch…"
+                    text: "Good news! We found your pixie dust! There's just one small catch..."
                 },
                 T0018: {
-                    text: "Well… here's the thing, a raccoon has it, and he said he would only give it back if you two stopped arguing."
+                    text: "Well... here's the thing, a raccoon has it, and he said he would only give it back if you two stopped arguing."
                 },
                 T0019: {
                     text: "So, if you really want your pixie dust back, you'll have to make a pact to put an end to your arguments."
@@ -75,19 +75,19 @@ namespace BeansCuest {
                     text: "By dividing the pixie dust equally, you'll realize that there is more than enough pixie dust to go around."
                 },
                 T0022: {
-                    text: "With that out of the way, I'll take care of your pixie dust. I’ll be back any minute."
+                    text: "With that out of the way, I'll take care of your pixie dust. I'll be back any minute."
                 },
                 T0023: {
                     text: "i'll take that. hope you do not mind."
                 },
                 T0024: {
-                    text: "Here’s your pixie dust!"
+                    text: "Here's your pixie dust!"
                 },
                 T0025: {
                     text: "Pixie dust? That sounds claw-some! I truly appreciate your kindness. The pixie dust would be a tremendous help in finding the stone I need for my journey home."
                 },
                 T0026: {
-                    text: "You know – I’m from another world and need to repair a portal to get back."
+                    text: "You know - I'm from another world and need to repair a portal to get back."
                 },
                 T0027: {
                     text: "Thank you, Charm and Chant. I'm honored to accept your offer."
@@ -108,10 +108,10 @@ namespace BeansCuest {
                     text: "And hey, look! What's that on the cloud over there?",
                 },
                 T0033: {
-                    text: "It seems to be glowing… Looks like the second relict!"
+                    text: "It seems to be glowing... Looks like the second relict!"
                 },
                 T0034: {
-                    text: "I can’t accept your offer."
+                    text: "I can't accept your offer."
                 },
                 T0035: {
                     text: "The pixie dust is such a valuable and precious gift, and I wouldn't want to take advantage of your kindness."
@@ -126,10 +126,10 @@ namespace BeansCuest {
                     text: "Charm, Chant, I understand that you both have your own opinions and preferences. But constantly arguing won't get us anywhere."
                 },
                 T0039: {
-                    text: "It’s not about winning or being right, it's about finding a solution that works for both of you."
+                    text: "It's not about winning or being right, it's about finding a solution that works for both of you."
                 },
                 T0040: {
-                    text: "True, these two brawlers don’t seem like they want to get interrupted. Let’s continue searching.",
+                    text: "True, these two brawlers don't seem like they want to get interrupted. Let's continue searching.",
                 },
                 T0041: {
                     text: "What is it?",
@@ -153,13 +153,13 @@ namespace BeansCuest {
                     text: "Wow, Stool! Can you believe it? We're standing on a cloud! It feels so soft and the light up here is absolutely cat-astic."
                 },
                 T0048: {
-                    text: "Don't worry, Stool. Look, the cloud seems stable, and we're safe up here. Let's take a moment to enjoy the view. And look, there’s the stone!"
+                    text: "Don't worry, Stool. Look, the cloud seems stable, and we're safe up here. Let's take a moment to enjoy the view. And look, there's the stone!"
                 },
                 T0049: {
                     text: "Stool, can you believe it? We've found two of the stones already! We're making progress."
                 },
                 T0050: {
-                    text: "That’s purr-fect! Let's make our way to the mansion and see what lies ahead.",
+                    text: "That's purr-fect! Let's make our way to the mansion and see what lies ahead.",
                 }
             }
         },
@@ -167,7 +167,7 @@ namespace BeansCuest {
             defaultPosition: POSITIONS[3][1],
             texts: {
                 T0000: {
-                    text: "Yeah, it’s really beautiful.",
+                    text: "Yeah, it's really beautiful.",
                     emotion: "charmed"
                 },
                 T0001: {
@@ -191,11 +191,11 @@ namespace BeansCuest {
                     emotion: "worried"
                 },
                 T0006: {
-                    text: "bean, let’s just start searching.",
+                    text: "bean, let's just start searching.",
                     emotion: "anxious"
                 },
                 T0007: {
-                    text: "Bean, I-I think we should tread carefully around this… creature.",
+                    text: "Bean, I-I think we should tread carefully around this... creature.",
                     emotion: "anxious"
                 },
                 T0008: {
@@ -211,7 +211,7 @@ namespace BeansCuest {
                     emotion: "crying"
                 },
                 T0011: {
-                    text: "psst - bean, i think talking won’t do much here. we need to come up with something that will make them see the bigger picture.",
+                    text: "psst - bean, i think talking won't do much here. we need to come up with something that will make them see the bigger picture.",
                     emotion: "worried"
                 },
                 T0012: {
@@ -219,7 +219,7 @@ namespace BeansCuest {
                     emotion: "crying"
                 },
                 T0013: {
-                    text: "pssst bean i think you said the wrong thing…",
+                    text: "pssst bean i think you said the wrong thing...",
                     emotion: "serious"
                 },
                 T0014: {
@@ -227,7 +227,7 @@ namespace BeansCuest {
                     emotion: "explanatory"
                 },
                 T0015: {
-                    text: "The portal could implode soon Bean. Let’s hurry. We don’t know how much time’s left.",
+                    text: "The portal could implode soon Bean. Let's hurry. We don't know how much time's left.",
                     emotion: "worried"
                 },
                 T0016: {
@@ -235,7 +235,7 @@ namespace BeansCuest {
                     emotion: "confused"
                 },
                 T0017: {
-                    text: "I swear the sunstone is somewhere around here. But… Well… Further up. There is a peculiar magic emanating from up there. It's likely that the relict we seek is on that cloud.",
+                    text: "I swear the sunstone is somewhere around here. But... Well... Further up. There is a peculiar magic emanating from up there. It's likely that the relict we seek is on that cloud.",
                     emotion: "confused"
                 },
                 T0018: {
@@ -267,11 +267,11 @@ namespace BeansCuest {
                     emotion: "anxious"
                 },
                 T0025: {
-                    text: "Well – in fact I have this strong feeling that the next stone is in this mysterious mansion below us in the swamp. See? It's like a faint whisper in my mind.",
+                    text: "Well - in fact I have this strong feeling that the next stone is in this mysterious mansion below us in the swamp. See? It's like a faint whisper in my mind.",
                     emotion: "explanatory"
                 },
                 T0026: {
-                    text: "But we don’t know for sure, right?",
+                    text: "But we don't know for sure, right?",
                     emotion: "crying"
                 }
             }
@@ -286,10 +286,10 @@ namespace BeansCuest {
                     text: "Are you kitten me? I will never speak to YOU again!"
                 },
                 T0002: {
-                    text: "Not exactly – Charm lost our pixie dust and without the dust we can’t fly."
+                    text: "Not exactly - Charm lost our pixie dust and without the dust we can't fly."
                 },
                 T0003: {
-                    text: "I won't admit it because it wasn’t my fault!",
+                    text: "I won't admit it because it wasn't my fault!",
                     emotion: "angry"
                 },
                 T0004: {
@@ -301,11 +301,11 @@ namespace BeansCuest {
                     emotion: "angry"
                 },
                 T0006: {
-                    text: "That’s great! Where is it?",
+                    text: "That's great! Where is it?",
                     emotion: "happy"
                 },
                 T0007: {
-                    text: "…and we won't have to keep track of who used it last or constantly compare our flying skills.",
+                    text: "...and we won't have to keep track of who used it last or constantly compare our flying skills.",
                     emotion: "happy"
                 },
                 T0008: {
@@ -354,7 +354,7 @@ namespace BeansCuest {
                     text: "What was that?"
                 },
                 T0020: {
-                    text: "I think the thing your searching for is on that cloud. Bean, your selflessness is admirable and we’re glad that our arguments are behind us.",
+                    text: "I think the thing your searching for is on that cloud. Bean, your selflessness is admirable and we're glad that our arguments are behind us.",
                     emotion: "happy"
                 },
                 T0021: {
@@ -375,7 +375,7 @@ namespace BeansCuest {
             defaultPosition: POSITIONS[3][3],
             texts: {
                 T0000: {
-                    text: "ME? I was the one who had it last??? You’re crazy!"
+                    text: "ME? I was the one who had it last??? You're crazy!"
                 },
                 T0001: {
                     text: "I will never speak to you again!"
@@ -401,11 +401,11 @@ namespace BeansCuest {
                     emotion: "crying"
                 },
                 T0007: {
-                    text: "Chant, if we share the pixie dust equally, we won't have to waste time arguing about who gets more or who flew higher…",
+                    text: "Chant, if we share the pixie dust equally, we won't have to waste time arguing about who gets more or who flew higher...",
                     emotion: "thinking"
                 },
                 T0008: {
-                    text: "I’m sorry Chant!",
+                    text: "I'm sorry Chant!",
                     emotion: "crying"
                 },
                 T0009: {
@@ -421,7 +421,7 @@ namespace BeansCuest {
                     emotion: "thinking"
                 },
                 T0012: {
-                    text: "Why do you have to brag like that again… ",
+                    text: "Why do you have to brag like that again... ",
                     emotion: "angry"
                 },
                 T0013: {
@@ -432,13 +432,13 @@ namespace BeansCuest {
                     text: "Really? You're just making that up to mess with me, aren't you?"
                 },
                 T0015: {
-                    text: "Yeah, if that eagle had a questionable tendency to bump into trees…"
+                    text: "Yeah, if that eagle had a questionable tendency to bump into trees..."
                 },
                 T0016: {
                     text: "Nothing."
                 },
                 T0017: {
-                    text: "You’ve taught us an important lesson. We thank you for that. If there's ever anything else we can do for you on your journey, please don't hesitate to ask. ",
+                    text: "You've taught us an important lesson. We thank you for that. If there's ever anything else we can do for you on your journey, please don't hesitate to ask. ",
                     emotion: "happy"
                 },
                 T0018: {

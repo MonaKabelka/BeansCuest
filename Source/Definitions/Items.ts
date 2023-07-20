@@ -2,43 +2,43 @@ namespace BeansCuest {
     export const ITEMS = {
         fishingRod: {
             name: "Fishing Rod",
-            description: "",
+            description: "Old but sturdy",
             image:  "Images/Items/rod.png",
             handler: handleItemUsage
         } satisfies fS.ItemDefinition,
         moonstone: {
             name: "Moonstone",
-            description: "TEST",
+            description: "Gives off a cool light",
             image:  "Images/Items/moonstone.png",
             handler: handleItemUsage
         } satisfies fS.ItemDefinition,
         pixieDust: {
             name: "Pixie Dust",
-            description: "",
+            description: "Feels light",
             image:  "Images/Items/pixiedust.png",
             handler: handleItemUsage
         } satisfies fS.ItemDefinition,
         ladder: {
             name: "Ladder",
-            description: "",
+            description: "Creaks when used",
             image:  "Images/Items/ladder.png",
             handler: handleItemUsage
         } satisfies fS.ItemDefinition,
         note: {
             name: "Note",
-            description: "",
+            description: `<i>"I rhyme on mittens, yet I am nothing to wear</i>"`,
             image:  "Images/Items/notes.png",
             static: true
         } satisfies fS.ItemDefinition,
         sunstone: {
             name: "Sunstone",
-            description: "",
+            description: "Emits a warm glow",
             image:  "Images/Items/sunstone.png",
             handler: handleItemUsage
         } satisfies fS.ItemDefinition,
         starstone: {
             name: "Starstone",
-            description: "",
+            description: "Sparkles",
             image:  "Images/Items/starstone.png",
             handler: handleItemUsage
         } satisfies fS.ItemDefinition,
