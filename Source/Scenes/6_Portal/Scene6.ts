@@ -521,7 +521,7 @@ namespace BeansCuest {
             [CHARACTERS.Stool, script.Stool.texts.T0020, null],
         ], script);
 
-        await fS.Location.show(LOCATIONS.woods);
+        await fS.Location.show(LOCATIONS.woods3);
         await hideCharacter(CHARACTERS.Stool);
         fS.Speech.hide();
         await makeTransition("portal");
@@ -536,6 +536,10 @@ namespace BeansCuest {
             [CHARACTERS.Oliver, script.Oliver.texts.T0003, null], 
             [CHARACTERS.Bean, script.Bean.texts.T0017, null],           
         ], script);
+
+        await hideCharacter(CHARACTERS.Oliver);
+        fS.Speech.hide();
+        await makeTransition("fade_in", 0.5);
 
         await showNovelPages("novelpage6", LOCATIONS.black);
 
@@ -556,6 +560,10 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0024, null],
             [CHARACTERS.Bean, script.Bean.texts.T0025, null],
         ], script);
+
+        fS.Speech.hide();
+        await hideCharacter(CHARACTERS.Stool);
+        await makeTransition("fade_in", 0.5);
 
         await fS.Location.show(LOCATIONS.woods);
         await makeTransition("inScene");

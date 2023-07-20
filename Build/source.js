@@ -3576,7 +3576,7 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0013, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0020, null],
         ], script);
-        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods);
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods3);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
         BeansCuest.fS.Speech.hide();
         await BeansCuest.makeTransition("portal");
@@ -3590,6 +3590,9 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Oliver, script.Oliver.texts.T0003, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0017, null],
         ], script);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Oliver);
+        BeansCuest.fS.Speech.hide();
+        await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.showNovelPages("novelpage6", BeansCuest.LOCATIONS.black);
         await showEnd();
     }
@@ -3607,6 +3610,9 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0024, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0025, null],
         ], script);
+        BeansCuest.fS.Speech.hide();
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
+        await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods);
         await BeansCuest.makeTransition("inScene");
         await BeansCuest.letCharactersHaveDialogue([
