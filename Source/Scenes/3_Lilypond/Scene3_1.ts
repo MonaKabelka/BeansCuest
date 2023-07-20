@@ -312,6 +312,10 @@ namespace BeansCuest {
     }
 
     export async function scene3_1(): fS.SceneReturn {
+        fS.Speech.hide();
+        fS.Character.hideAll();
+        await makeTransition("fade_in", 0.5);
+
         await fS.Location.show(LOCATIONS.lilypond);
         await makeTransition("sceneChange");
 
@@ -561,6 +565,11 @@ namespace BeansCuest {
 
         await hideCharacter(CHARACTERS.Bean);
         await hideCharacter(CHARACTERS.Stool);
+
+        fS.Speech.hide();
+        fS.Character.hideAll();
+        await makeTransition("fade_in", 0.5);
+
         await fS.Location.show(LOCATIONS.black);
         await makeTransition("fade_in");
 

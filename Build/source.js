@@ -919,6 +919,8 @@ var BeansCuest;
         }
     };
     async function scene1_2() {
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods2);
         await BeansCuest.makeTransition("inScene");
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Oliver, script.Oliver.texts.T0000.text);
@@ -1084,6 +1086,9 @@ var BeansCuest;
         }
     };
     async function scene2_1() {
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
+        await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
         await BeansCuest.makeTransition("fade_in", 0.1);
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.Unknown, script.Unknown.texts.T0000.text);
@@ -1500,6 +1505,9 @@ var BeansCuest;
         },
     };
     async function scene3_1() {
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
+        await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.lilypond);
         await BeansCuest.makeTransition("sceneChange");
         await BeansCuest.letCharactersHaveDialogue([
@@ -1706,6 +1714,9 @@ var BeansCuest;
         ], script);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Bean);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
+        await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
         await BeansCuest.makeTransition("fade_in");
         await BeansCuest.letCharactersHaveDialogue([
@@ -2275,6 +2286,9 @@ var BeansCuest;
         }
     };
     async function scene4_1() {
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
+        await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.meadow);
         await BeansCuest.makeTransition("sceneChange");
         await BeansCuest.letCharactersHaveDialogue([
@@ -2515,6 +2529,7 @@ var BeansCuest;
             ], script);
         } while (BeansCuest.fS.Inventory.getAmount(BeansCuest.ITEMS.pixieDust) != 0);
         BeansCuest.fS.Character.hideAll();
+        BeansCuest.fS.Speech.hide();
         await BeansCuest.makeTransition("fade_in", 0.5);
         BeansCuest.dataForSave.pixieDust = false;
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.cloud);
@@ -2887,6 +2902,9 @@ var BeansCuest;
     };
     const possibleAnswers = ["kitten", "kittens", "baby cat", "baby cats", "kitty", "kittycat", "babycat", "babycats"];
     async function scene5() {
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
+        await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.mansion);
         await BeansCuest.makeTransition("sceneChange");
         await BeansCuest.letCharactersHaveDialogue([
@@ -3451,6 +3469,9 @@ var BeansCuest;
         }
     };
     async function scene6() {
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
+        await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods);
         await BeansCuest.makeTransition("sceneChange");
         await BeansCuest.letCharactersHaveDialogue([
@@ -3539,7 +3560,7 @@ var BeansCuest;
     }
     async function optionA2_1() {
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods2);
-        await BeansCuest.makeTransition("inScene");
+        await BeansCuest.makeTransition("fade_in");
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0005, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0009, null],
@@ -3577,8 +3598,8 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0020, null],
         ], script);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods3);
-        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
         BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
         await BeansCuest.makeTransition("portal");
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Oliver, script.Oliver.texts.T0000, null],
@@ -3611,7 +3632,7 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0025, null],
         ], script);
         BeansCuest.fS.Speech.hide();
-        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
+        BeansCuest.fS.Character.hideAll();
         await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods);
         await BeansCuest.makeTransition("inScene");
@@ -3676,11 +3697,13 @@ var BeansCuest;
         ], script);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods);
         await BeansCuest.makeTransition("inScene");
+        BeansCuest.fS.Speech.hide();
+        await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Oliver, script.Oliver.texts.T0004, null],
         ], script);
-        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Oliver);
         BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
         await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
         await BeansCuest.makeTransition("fade_in");
@@ -3691,7 +3714,9 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0038, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0039, null],
         ], script);
-        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Bean);
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
+        await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
         await BeansCuest.makeTransition("fade_in");
         await BeansCuest.letCharactersHaveDialogue([
@@ -3706,7 +3731,8 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0041, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0042, null],
         ], script);
-        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
         await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods3);
         await BeansCuest.makeTransition("inScene");
@@ -3717,6 +3743,9 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0043, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0045, null],
         ], script);
+        BeansCuest.fS.Speech.hide();
+        BeansCuest.fS.Character.hideAll();
+        await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
         await BeansCuest.makeTransition("fade_in");
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods);

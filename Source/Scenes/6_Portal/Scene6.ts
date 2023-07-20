@@ -372,6 +372,10 @@ namespace BeansCuest {
     }
 
     export async function scene6(): fS.SceneReturn {
+        fS.Speech.hide();
+        fS.Character.hideAll();
+        await makeTransition("fade_in", 0.5);
+        
         await fS.Location.show(LOCATIONS.wistfulwoods);
         await makeTransition("sceneChange");
 
@@ -479,7 +483,7 @@ namespace BeansCuest {
 
     async function optionA2_1() {
         await fS.Location.show(LOCATIONS.wistfulwoods2);
-        await makeTransition("inScene");
+        await makeTransition("fade_in");
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0005, null],
@@ -522,8 +526,10 @@ namespace BeansCuest {
         ], script);
 
         await fS.Location.show(LOCATIONS.woods3);
-        await hideCharacter(CHARACTERS.Stool);
+
         fS.Speech.hide();
+        fS.Character.hideAll();
+        
         await makeTransition("portal");
 
         await letCharactersHaveDialogue([
@@ -562,7 +568,7 @@ namespace BeansCuest {
         ], script);
 
         fS.Speech.hide();
-        await hideCharacter(CHARACTERS.Stool);
+        fS.Character.hideAll();
         await makeTransition("fade_in", 0.5);
 
         await fS.Location.show(LOCATIONS.woods);
@@ -640,12 +646,15 @@ namespace BeansCuest {
         await fS.Location.show(LOCATIONS.woods);
         await makeTransition("inScene");
 
+        fS.Speech.hide();
+        await makeTransition("fade_in", 0.5);
+
         await letCharactersHaveDialogue([
             [CHARACTERS.Oliver, script.Oliver.texts.T0004, null],
         ], script);
 
-        await hideCharacter(CHARACTERS.Oliver);
         fS.Speech.hide();
+        fS.Character.hideAll();
         await makeTransition("fade_in", 0.5);
 
         await fS.Location.show(LOCATIONS.black);
@@ -660,7 +669,10 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0039, null],
         ], script);
 
-        await hideCharacter(CHARACTERS.Bean);
+        fS.Speech.hide();
+        fS.Character.hideAll();
+        await makeTransition("fade_in", 0.5);
+
         await fS.Location.show(LOCATIONS.black);
         await makeTransition("fade_in");
 
@@ -679,7 +691,8 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0042, null],
         ], script);
 
-        await hideCharacter(CHARACTERS.Stool);
+        fS.Speech.hide();
+        fS.Character.hideAll();
         await makeTransition("fade_in", 0.5);
 
         await fS.Location.show(LOCATIONS.wistfulwoods3);
@@ -693,6 +706,10 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0045, null],
         ], script);
 
+        fS.Speech.hide();
+        fS.Character.hideAll();
+        await makeTransition("fade_in", 0.5);
+        
         await fS.Location.show(LOCATIONS.black);
         await makeTransition("fade_in");
 

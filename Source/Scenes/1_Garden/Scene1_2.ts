@@ -42,6 +42,8 @@ namespace BeansCuest {
         }
     }
     export async function scene1_2(): fS.SceneReturn {
+        fS.Speech.hide();
+        fS.Character.hideAll();
         await fS.Location.show(LOCATIONS.woods2);
         await makeTransition("inScene");
         await createSingleLineSpeech(CHARACTERS.Oliver, script.Oliver.texts.T0000.text);

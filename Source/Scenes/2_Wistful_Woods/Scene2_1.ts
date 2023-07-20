@@ -125,6 +125,10 @@ namespace BeansCuest {
     } as const;
 
     export async function scene2_1(): fS.SceneReturn {
+        fS.Speech.hide();
+        fS.Character.hideAll();
+        await makeTransition("fade_in", 0.5);
+        
         await fS.Location.show(LOCATIONS.black);
         await makeTransition("fade_in", 0.1);
 
@@ -134,7 +138,6 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0000, null]
         ], script);
         
-
         await fS.Location.show(LOCATIONS.wistfulwoods);
         await makeTransition("fade_in");
 

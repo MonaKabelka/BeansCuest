@@ -266,6 +266,10 @@ namespace BeansCuest {
     const possibleAnswers = ["kitten", "kittens", "baby cat", "baby cats", "kitty", "kittycat", "babycat", "babycats"];
 
     export async function scene5(): fS.SceneReturn {
+        fS.Speech.hide();
+        fS.Character.hideAll();
+        await makeTransition("fade_in", 0.5);
+        
         await fS.Location.show(LOCATIONS.mansion);
         await makeTransition("sceneChange");
 

@@ -494,6 +494,10 @@ namespace BeansCuest {
     }
 
     export async function scene4_1(): fS.SceneReturn {
+        fS.Speech.hide();
+        fS.Character.hideAll();
+        await makeTransition("fade_in", 0.5);
+
         await fS.Location.show(LOCATIONS.meadow);
         await makeTransition("sceneChange");
 
@@ -784,9 +788,10 @@ namespace BeansCuest {
           } while (fS.Inventory.getAmount(ITEMS.pixieDust) != 0);
 
         fS.Character.hideAll();
+        fS.Speech.hide();
         await makeTransition("fade_in", 0.5);
 
-          dataForSave.pixieDust = false;
+        dataForSave.pixieDust = false;
 
         await fS.Location.show(LOCATIONS.cloud);
         await makeTransition("inScene");
