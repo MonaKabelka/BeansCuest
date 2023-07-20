@@ -104,6 +104,36 @@ namespace BeansCuest {
                 },
                 T0030: {
                     text: "Stool, I have to go back now. Oliver must be incredibly worried about me."
+                },
+                T0031: {
+                    text: "I don't want to leave you behind, Stool, but I also can't abandon my own world."
+                },
+                T0032: {
+                    text: "I'm sorry, but I have to make the difficult decision to leave."
+                },
+                T0033: {
+                    text: "Enchantica truly is a remarkable place, and I've grown to love it deeply."
+                },
+                T0034: {
+                    text: "Our friendship means a lot to me, Stool, but my heart yearns to return to my world, to the friends and loved ones I left behind. I can't ignore that calling."
+                },
+                T0035: {
+                    text: "Thank you, Stool, for being an extraordinary friend and guiding me on this incredible journey."
+                },
+                T0036: {
+                    text: "Enchantica has become a part of me, and the memories we've created will forever hold a special place in my heart."
+                },
+                T0037: {
+                    text: "Oliver! Oliver! Where are you?",
+                    emotion: "confused"
+                },
+                T0038: {
+                    text: "I’m not at home…? No, this can't be right... Why didn't the portal work? WHAT WENT WRONG?",
+                    emotion: "scared"
+                },
+                T0039: {
+                    text: "I followed all the steps, placed the stones in the right order… WHY AM I NOT BACK HOME? And what do I do now?",
+                    emotion: "sad"
                 }
             }
         },
@@ -251,6 +281,29 @@ namespace BeansCuest {
                 T0034: {
                     text: "Please reconsider... Stay by my side... Don't leave me...",
                     emotion: "sad"
+                },
+                T0035: {
+                    text: "But Bean, Enchantica is filled with endless wonders and opportunities. We could continue to explore and uncover its secrets together. Think about all the adventures we could have!",
+                    emotion: "sad"
+                },
+                T0036: {
+                    text: "I understand, Bean. It's your choice to make, and I respect it.",
+                    emotion: "sad"
+                },
+                T0037: {
+                    text: "Just know that Enchantica will always be here, and I will fulfill my duty as its guardian, watching over this realm and protecting it with all my heart.",
+                    emotion: "sad"
+                },
+                T0038: {
+                    text: "Indeed, Bean. Although our paths may temporarily diverge, I have a deep belief that fate will reunite us in the future.",
+                    emotion: "happy"
+                },
+                T0039: {
+                    text: "Until then, take care and stay true to yourself, my dear friend. Goodbye, for now!",
+                    emotion: "happy"
+                },
+                T0040: {
+                    text: "BEAN! SOMETHING'S WRONG! THE PORTAL… IT'S BREAKING DOWN! WE NEED TO…"
                 }
             }
         },
@@ -275,6 +328,14 @@ namespace BeansCuest {
                 T0004: {
                     text: "BEEEAN? Where are you? You won! I give up! Please show yourself!",
                     emotion: "worried"
+                }
+            }
+        },
+        Unknown: {
+            defaultPosition: POSITIONS[1],
+            texts: {
+                T0000: {
+                    text: "Hello? Can I help you?"
                 }
             }
         }
@@ -506,6 +567,74 @@ namespace BeansCuest {
             [CHARACTERS.Stool, script.Stool.texts.T0033, null],
             [CHARACTERS.Stool, script.Stool.texts.T0034, null],            
         ], script);
+
+        const dialog: DialogConfig = {
+            A2_2_1: {
+                label: "Enter the portal",
+                callback: optionA2_2_1
+            },
+            A2_2_2: {
+                label: "Stay in Enchantica",
+                callback: optionA2_2_2
+            },
+        }
+
+        await createDialog(dialog);
+    }
+
+    async function optionA2_2_1() {
+        await letCharactersHaveDialogue([
+            [CHARACTERS.Bean, script.Bean.texts.T0031, null],
+            [CHARACTERS.Bean, script.Bean.texts.T0032, null],
+            [CHARACTERS.Stool, script.Stool.texts.T0035, null],
+            [CHARACTERS.Bean, script.Bean.texts.T0033, null],
+            [CHARACTERS.Bean, script.Bean.texts.T0034, null],
+            [CHARACTERS.Stool, script.Stool.texts.T0036, null],
+            [CHARACTERS.Stool, script.Stool.texts.T0037, null],
+            [CHARACTERS.Bean, script.Bean.texts.T0035, null],
+            [CHARACTERS.Bean, script.Bean.texts.T0036, null],
+            [CHARACTERS.Stool, script.Stool.texts.T0038, null],
+            [CHARACTERS.Stool, script.Stool.texts.T0039, null],
+            [CHARACTERS.Stool, script.Stool.texts.T0040, null],
+        ], script);
+
+        await fS.Location.show(LOCATIONS.black);
+        await hideCharacter(CHARACTERS.Stool);
+        await makeTransition("portal");
+
+        await fS.Location.show(LOCATIONS.woods);
+        await makeTransition("inScene");
+
+        await letCharactersHaveDialogue([
+            [CHARACTERS.Oliver, script.Oliver.texts.T0004, null],
+        ], script);
+
+        await fS.Location.show(LOCATIONS.black);
+        await makeTransition("fade_in");
+
+        await fS.Location.show(LOCATIONS.otherworld);
+        await makeTransition("inScene");
+
+        await letCharactersHaveDialogue([
+            [CHARACTERS.Bean, script.Bean.texts.T0037, null],
+            [CHARACTERS.Bean, script.Bean.texts.T0038, null],
+            [CHARACTERS.Bean, script.Bean.texts.T0039, null],
+        ], script);
+
+        await hideCharacter(CHARACTERS.Bean);
+        await fS.Location.show(LOCATIONS.black);
+        await makeTransition("fade_in");
+
+        await letCharactersHaveDialogue([
+            [CHARACTERS.Unknown, script.Unknown.texts.T0000, null],
+        ], script);
+
+        fS.Text.setClass("end-screen");
+        await fS.Text.print("THE END");
+    }
+
+    async function optionA2_2_2() {
+
     }
 
     async function optionB() {
