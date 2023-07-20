@@ -1,5 +1,5 @@
 namespace BeansCuest {
-    export const SOUND_NAMES = ["boo", "collapse", "howling","item", "novelpage", "pixiedust","portal", "portalactivates", "snoring","splash"] as const;
+    export const SOUND_NAMES = ["boo", "collapse", "howling","item", "novelpage", "pixiedust","portal", "portalactivates", "snoring","splash", "creak"] as const;
     export type SoundName = typeof SOUND_NAMES[number];
     export type SoundDefinition = {
         url: string,
@@ -8,7 +8,7 @@ namespace BeansCuest {
     export const SOUNDS: Record<SoundName, SoundDefinition> = {
         boo: {
             url: "Audio/FX/boo.mp3",
-            defaultVolume: 0.5
+            defaultVolume: 0.2
         },
         collapse: {
             url: "Audio/FX/collapse.mp3",
@@ -24,7 +24,7 @@ namespace BeansCuest {
         },
         pixiedust: {
             url: "Audio/FX/pixiedust.mp3",
-            defaultVolume: 0.5
+            defaultVolume: 0.3
         },
         portal: {
             url: "Audio/FX/portal.mp3",
@@ -36,15 +36,19 @@ namespace BeansCuest {
         },
         snoring: {
             url: "Audio/FX/snoring.mp3",
-            defaultVolume: 0.5
+            defaultVolume: 0.8
         },
         item: {
             url: "Audio/FX/item.mp3",
-            defaultVolume: 0.5
+            defaultVolume: 0.3
         },
         splash: {
             url: "Audio/FX/splash.mp3",
             defaultVolume: 0.5
+        },
+        creak: {
+            url: "Audio/FX/creak.mp3",
+            defaultVolume: 0.6
         },
     }
 
@@ -67,7 +71,7 @@ namespace BeansCuest {
             looping: true
         },
         cloud: {
-            defaultVolume: 0.5,
+            defaultVolume: 0.3,
             url: "Audio/BGM/cloud.mp3",
             looping: true
         },

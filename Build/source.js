@@ -38,8 +38,8 @@ var BeansCuest;
             // { scene: scene1_2, name: "Scene 1.2" },
             // { scene: scene2_1, name: "Scene 2.1" },
             // { scene: scene3_1, name: "Scene 3.1" },
-            { scene: BeansCuest.scene4_1, name: "Scene 4.1" },
-            { scene: BeansCuest.scene5, name: "Scene 5" },
+            // { scene: scene4_1, name: "Scene 4.1" },
+            // { scene: scene5, name: "Scene 5"},
             { scene: BeansCuest.scene6, name: "Scene 6" }
         ];
         BeansCuest.fS.Speech.hide();
@@ -430,11 +430,11 @@ var BeansCuest;
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
-    BeansCuest.SOUND_NAMES = ["boo", "collapse", "howling", "item", "novelpage", "pixiedust", "portal", "portalactivates", "snoring", "splash"];
+    BeansCuest.SOUND_NAMES = ["boo", "collapse", "howling", "item", "novelpage", "pixiedust", "portal", "portalactivates", "snoring", "splash", "creak"];
     BeansCuest.SOUNDS = {
         boo: {
             url: "Audio/FX/boo.mp3",
-            defaultVolume: 0.5
+            defaultVolume: 0.2
         },
         collapse: {
             url: "Audio/FX/collapse.mp3",
@@ -450,7 +450,7 @@ var BeansCuest;
         },
         pixiedust: {
             url: "Audio/FX/pixiedust.mp3",
-            defaultVolume: 0.5
+            defaultVolume: 0.3
         },
         portal: {
             url: "Audio/FX/portal.mp3",
@@ -462,15 +462,19 @@ var BeansCuest;
         },
         snoring: {
             url: "Audio/FX/snoring.mp3",
-            defaultVolume: 0.5
+            defaultVolume: 0.8
         },
         item: {
             url: "Audio/FX/item.mp3",
-            defaultVolume: 0.5
+            defaultVolume: 0.3
         },
         splash: {
             url: "Audio/FX/splash.mp3",
             defaultVolume: 0.5
+        },
+        creak: {
+            url: "Audio/FX/creak.mp3",
+            defaultVolume: 0.6
         },
     };
     BeansCuest.MUSIC_NAMES = ["woods", "woodsportal", "cloud", "lilypond", "mansion", "meadow", "otherworld", "splashscreen", "wistfulwoods"];
@@ -486,7 +490,7 @@ var BeansCuest;
             looping: true
         },
         cloud: {
-            defaultVolume: 0.5,
+            defaultVolume: 0.3,
             url: "Audio/BGM/cloud.mp3",
             looping: true
         },
@@ -2608,6 +2612,9 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0032, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0033, null],
         ], script);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Chant);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Charm);
+        await BeansCuest.makeTransition("fade_in", 0.5);
         await optionF();
     }
     async function optionC1_2() {
@@ -2694,13 +2701,13 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0026, BeansCuest.POSITIONS[1]],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0050, null],
         ], script);
+        BeansCuest.fS.Character.hideAll();
+        BeansCuest.fS.Speech.hide();
+        await BeansCuest.makeTransition("fade_in");
         if (unlockNovelPages[3])
             await BeansCuest.showNovelPages("novelpage3", BeansCuest.LOCATIONS.cloud);
         if (unlockNovelPages[4])
             await BeansCuest.showNovelPages("novelpage4", BeansCuest.LOCATIONS.cloud);
-        BeansCuest.fS.Character.hideAll();
-        BeansCuest.fS.Speech.hide();
-        await BeansCuest.makeTransition("fade_in");
         await BeansCuest.muteBGM(BeansCuest.MUSICS.cloud);
     }
 })(BeansCuest || (BeansCuest = {}));
@@ -2972,8 +2979,10 @@ var BeansCuest;
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
         await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.playBGM(BeansCuest.MUSICS.mansion);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.mansion);
         await BeansCuest.makeTransition("sceneChange");
+        await BeansCuest.playSound(BeansCuest.SOUNDS.howling);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0000, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0000, null],
@@ -2991,6 +3000,9 @@ var BeansCuest;
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0004, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0003, null],
+        ], script);
+        await BeansCuest.playSound(BeansCuest.SOUNDS.boo);
+        await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0005, null],
         ], script);
         let [x, y] = script.Stool.defaultPosition;
@@ -3006,6 +3018,7 @@ var BeansCuest;
         positionVector = BeansCuest.fS.positionPercent(x, y);
         await BeansCuest.showCharacter(BeansCuest.CHARACTERS.Spook, "sad", positionVector);
         await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.playSound(BeansCuest.SOUNDS.boo);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Unknown, script.Spook.texts.T0000, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0005, null],
@@ -3043,6 +3056,7 @@ var BeansCuest;
             await optionB();
     }
     async function optionA() {
+        await BeansCuest.playSound(BeansCuest.SOUNDS.creak);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0018, null],
             [BeansCuest.CHARACTERS.Spook, script.Spook.texts.T0012, null],
@@ -3166,6 +3180,7 @@ var BeansCuest;
             await BeansCuest.showNovelPages("novelpage5", BeansCuest.LOCATIONS.mansion2);
         BeansCuest.fS.Character.hideAll();
         BeansCuest.fS.Speech.hide();
+        await BeansCuest.muteBGM(BeansCuest.MUSICS.mansion);
     }
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
@@ -3539,6 +3554,7 @@ var BeansCuest;
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
         await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.playBGM(BeansCuest.MUSICS.wistfulwoods);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods);
         await BeansCuest.makeTransition("sceneChange");
         await BeansCuest.letCharactersHaveDialogue([
@@ -3628,6 +3644,7 @@ var BeansCuest;
     async function optionA2_1() {
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods2);
         await BeansCuest.makeTransition("fade_in");
+        await BeansCuest.playSound(BeansCuest.SOUNDS.portalactivates);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0005, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0009, null],
@@ -3654,6 +3671,8 @@ var BeansCuest;
         await BeansCuest.createDialog(dialog);
     }
     async function optionA2_1_1() {
+        await BeansCuest.muteBGM(BeansCuest.MUSICS.wistfulwoods);
+        await BeansCuest.playBGM(BeansCuest.MUSICS.splashscreen);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0010, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0017, null],
@@ -3668,6 +3687,7 @@ var BeansCuest;
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
         await BeansCuest.makeTransition("portal");
+        await BeansCuest.playSound(BeansCuest.SOUNDS.portal);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Oliver, script.Oliver.texts.T0000, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0014, null],
@@ -3685,6 +3705,8 @@ var BeansCuest;
         await showEnd();
     }
     async function optionA2_1_2() {
+        await BeansCuest.muteBGM(BeansCuest.MUSICS.wistfulwoods);
+        await BeansCuest.playBGM(BeansCuest.MUSICS.splashscreen);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0018, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0021, null],
@@ -3711,6 +3733,7 @@ var BeansCuest;
     async function optionA2_2() {
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods2);
         await BeansCuest.makeTransition("fade_in");
+        await BeansCuest.playSound(BeansCuest.SOUNDS.portalactivates);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0026, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0024, null],
@@ -3742,6 +3765,8 @@ var BeansCuest;
         await BeansCuest.createDialog(dialog);
     }
     async function optionA2_2_1() {
+        await BeansCuest.muteBGM(BeansCuest.MUSICS.wistfulwoods);
+        await BeansCuest.playBGM(BeansCuest.MUSICS.splashscreen);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0031, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0032, null],
@@ -3762,6 +3787,7 @@ var BeansCuest;
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0040, null],
         ], script);
+        await BeansCuest.playSound(BeansCuest.SOUNDS.collapse);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods);
         await BeansCuest.makeTransition("inScene");
         BeansCuest.fS.Speech.hide();
@@ -3772,10 +3798,12 @@ var BeansCuest;
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
         await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.muteBGM(BeansCuest.MUSICS.splashscreen);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
         await BeansCuest.makeTransition("fade_in");
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.otherworld);
         await BeansCuest.makeTransition("inScene");
+        await BeansCuest.playBGM(BeansCuest.MUSICS.otherworld);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0037, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0038, null],
@@ -3792,6 +3820,8 @@ var BeansCuest;
         await showEnd();
     }
     async function optionA2_2_2() {
+        await BeansCuest.muteBGM(BeansCuest.MUSICS.wistfulwoods);
+        await BeansCuest.playBGM(BeansCuest.MUSICS.splashscreen);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0040, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0041, null],
@@ -3803,6 +3833,7 @@ var BeansCuest;
         await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods3);
         await BeansCuest.makeTransition("inScene");
+        await BeansCuest.playSound(BeansCuest.SOUNDS.collapse);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0043, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0042, null],

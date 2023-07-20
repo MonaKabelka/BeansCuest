@@ -269,9 +269,13 @@ namespace BeansCuest {
         fS.Speech.hide();
         fS.Character.hideAll();
         await makeTransition("fade_in", 0.5);
+
+        await playBGM(MUSICS.mansion);
         
         await fS.Location.show(LOCATIONS.mansion);
         await makeTransition("sceneChange");
+
+        await playSound(SOUNDS.howling);
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0000, null],
@@ -293,6 +297,11 @@ namespace BeansCuest {
         await letCharactersHaveDialogue([
             [CHARACTERS.Stool, script.Stool.texts.T0004, null],
             [CHARACTERS.Bean, script.Bean.texts.T0003, null],
+        ], script);
+
+        await playSound(SOUNDS.boo);
+
+        await letCharactersHaveDialogue([
             [CHARACTERS.Stool, script.Stool.texts.T0005, null],
         ], script);
 
@@ -312,6 +321,8 @@ namespace BeansCuest {
         positionVector = fS.positionPercent(x, y);
         await showCharacter(CHARACTERS.Spook, "sad", positionVector);
         await makeTransition("fade_in", 0.5);
+
+        await playSound(SOUNDS.boo);
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Unknown, script.Spook.texts.T0000, null],
@@ -353,6 +364,8 @@ namespace BeansCuest {
     }
 
     async function optionA() {
+        await playSound(SOUNDS.creak);
+
         await letCharactersHaveDialogue([
         [CHARACTERS.Bean, script.Bean.texts.T0018, null],
         [CHARACTERS.Spook, script.Spook.texts.T0012, null],
@@ -497,6 +510,8 @@ namespace BeansCuest {
 
         fS.Character.hideAll();
         fS.Speech.hide();
+
+        await muteBGM(MUSICS.mansion);
     }
 
 }

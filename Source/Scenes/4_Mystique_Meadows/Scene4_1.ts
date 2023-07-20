@@ -817,6 +817,10 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0033, null],
         ], script);
 
+        await hideCharacter(CHARACTERS.Chant);
+        await hideCharacter(CHARACTERS.Charm);
+        await makeTransition("fade_in", 0.5);
+
         await optionF();
     }
 
@@ -927,13 +931,13 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0050, null],
         ], script);
 
-        if (unlockNovelPages[3]) await showNovelPages("novelpage3", LOCATIONS.cloud);
-        
-        if (unlockNovelPages[4]) await showNovelPages("novelpage4", LOCATIONS.cloud);
-
         fS.Character.hideAll();
         fS.Speech.hide();
         await makeTransition("fade_in");
+
+        if (unlockNovelPages[3]) await showNovelPages("novelpage3", LOCATIONS.cloud);
+        
+        if (unlockNovelPages[4]) await showNovelPages("novelpage4", LOCATIONS.cloud);
 
         await muteBGM(MUSICS.cloud);
     }
