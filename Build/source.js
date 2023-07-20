@@ -689,6 +689,7 @@ var BeansCuest;
         </table>`);
         return;
     }
+    BeansCuest.showCredits = showCredits;
     async function openInventory() {
         await BeansCuest.fS.Inventory.open();
     }
@@ -3232,9 +3233,6 @@ var BeansCuest;
                 T0045: {
                     text: "Sometimes, fate has its own plans. Maybe this is where I'm meant to be, with you and in this magical world."
                 },
-                T0046: {
-                    text: "Looks like we're in for a repeat performance, Stool."
-                }
             }
         },
         Stool: {
@@ -3417,10 +3415,6 @@ var BeansCuest;
                     text: "What? But Bean, we didn't plan for this! We were supposed to repair the portal!",
                     emotion: "worried"
                 },
-                T0044: {
-                    text: "Maybe this is a chance for us to embark on new adventures, find the stones, and restore the portal once again.",
-                    emotion: "serious"
-                }
             }
         },
         Oliver: {
@@ -3459,9 +3453,6 @@ var BeansCuest;
     async function scene6() {
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods);
         await BeansCuest.makeTransition("sceneChange");
-        BeansCuest.fS.Inventory.add(BeansCuest.ITEMS.moonstone);
-        BeansCuest.fS.Inventory.add(BeansCuest.ITEMS.sunstone);
-        BeansCuest.fS.Inventory.add(BeansCuest.ITEMS.starstone);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0000, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0000, null],
@@ -3599,11 +3590,8 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Oliver, script.Oliver.texts.T0003, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0017, null],
         ], script);
-        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
-        await BeansCuest.makeTransition("fade_in");
-        BeansCuest.fS.Text.setClass("end-screen");
-        await BeansCuest.fS.Text.print("THE END");
         await BeansCuest.showNovelPages("novelpage6", BeansCuest.LOCATIONS.black);
+        await showEnd();
     }
     async function optionA2_1_2() {
         await BeansCuest.letCharactersHaveDialogue([
@@ -3624,12 +3612,11 @@ var BeansCuest;
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Oliver, script.Oliver.texts.T0004, null],
         ], script);
-        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
-        await BeansCuest.makeTransition("fade_in");
-        BeansCuest.fS.Text.setClass("end-screen");
-        await BeansCuest.fS.Text.print("THE END");
+        await showEnd();
     }
     async function optionA2_2() {
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods2);
+        await BeansCuest.makeTransition("fade_in");
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0026, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0024, null],
@@ -3678,11 +3665,17 @@ var BeansCuest;
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
         await BeansCuest.makeTransition("portal");
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0040, null],
+        ], script);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods);
         await BeansCuest.makeTransition("inScene");
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Oliver, script.Oliver.texts.T0004, null],
         ], script);
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Oliver);
+        BeansCuest.fS.Speech.hide();
+        await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
         await BeansCuest.makeTransition("fade_in");
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.otherworld);
@@ -3698,8 +3691,7 @@ var BeansCuest;
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Unknown, script.Unknown.texts.T0000, null],
         ], script);
-        BeansCuest.fS.Text.setClass("end-screen");
-        await BeansCuest.fS.Text.print("THE END");
+        await showEnd();
     }
     async function optionA2_2_2() {
         await BeansCuest.letCharactersHaveDialogue([
@@ -3718,8 +3710,6 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0044, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0043, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0045, null],
-            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0044, null],
-            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0046, null],
         ], script);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
         await BeansCuest.makeTransition("fade_in");
@@ -3728,10 +3718,7 @@ var BeansCuest;
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Oliver, script.Oliver.texts.T0004, null],
         ], script);
-        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
-        await BeansCuest.makeTransition("fade_in");
-        BeansCuest.fS.Text.setClass("end-screen");
-        await BeansCuest.fS.Text.print("THE END");
+        await showEnd();
     }
     async function optionB() {
         await BeansCuest.letCharactersHaveDialogue([
@@ -3747,6 +3734,15 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0006, null],
         ], script);
         await decisionDialog1();
+    }
+    async function showEnd() {
+        BeansCuest.fS.Character.hideAll();
+        BeansCuest.fS.Speech.hide();
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
+        await BeansCuest.makeTransition("fade_in");
+        BeansCuest.fS.Text.setClass("end-screen");
+        await BeansCuest.fS.Text.print("THE END");
+        await BeansCuest.showCredits();
     }
 })(BeansCuest || (BeansCuest = {}));
 //# sourceMappingURL=source.js.map

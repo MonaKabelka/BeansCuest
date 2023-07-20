@@ -210,6 +210,7 @@ declare namespace BeansCuest {
     let menuDefinition: MenuDefinition;
     function transformMenu(definition: MenuDefinition): Object;
     function useCallbacks(option: string): Promise<void>;
+    function showCredits(): Promise<void>;
 }
 declare namespace BeansCuest {
     function showNovelPages(novelpage: NovelpageName, previousLocation: fS.LocationDefinition): Promise<void>;

@@ -153,9 +153,6 @@ namespace BeansCuest {
                 T0045: {
                     text: "Sometimes, fate has its own plans. Maybe this is where I'm meant to be, with you and in this magical world."
                 },
-                T0046: {
-                    text: "Looks like we're in for a repeat performance, Stool."
-                }
             }
         },
         Stool: {
@@ -338,10 +335,6 @@ namespace BeansCuest {
                     text: "What? But Bean, we didn't plan for this! We were supposed to repair the portal!",
                     emotion: "worried"
                 },
-                T0044: {
-                    text: "Maybe this is a chance for us to embark on new adventures, find the stones, and restore the portal once again.",
-                    emotion: "serious"
-                }
             }
         },
         Oliver: {
@@ -381,10 +374,6 @@ namespace BeansCuest {
     export async function scene6(): fS.SceneReturn {
         await fS.Location.show(LOCATIONS.wistfulwoods);
         await makeTransition("sceneChange");
-
-        fS.Inventory.add(ITEMS.moonstone);
-        fS.Inventory.add(ITEMS.sunstone);
-        fS.Inventory.add(ITEMS.starstone);
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0000, null],
@@ -548,12 +537,9 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0017, null],           
         ], script);
 
-        await fS.Location.show(LOCATIONS.black);
-        await makeTransition("fade_in");
-
-        fS.Text.setClass("end-screen");
-        await fS.Text.print("THE END");
         await showNovelPages("novelpage6", LOCATIONS.black);
+
+        await showEnd();
     }
 
     async function optionA2_1_2() {
@@ -578,14 +564,13 @@ namespace BeansCuest {
             [CHARACTERS.Oliver, script.Oliver.texts.T0004, null],
         ], script);
 
-        await fS.Location.show(LOCATIONS.black);
-        await makeTransition("fade_in");
-
-        fS.Text.setClass("end-screen");
-        await fS.Text.print("THE END");
+        await showEnd();
     }
 
     async function optionA2_2() {
+        await fS.Location.show(LOCATIONS.wistfulwoods2);
+        await makeTransition("fade_in");
+
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0026, null],
             [CHARACTERS.Stool, script.Stool.texts.T0024, null],
@@ -635,9 +620,14 @@ namespace BeansCuest {
             [CHARACTERS.Stool, script.Stool.texts.T0040, null],
         ], script);
 
+
         await fS.Location.show(LOCATIONS.black);
         await hideCharacter(CHARACTERS.Stool);
         await makeTransition("portal");
+
+        await letCharactersHaveDialogue([
+            [CHARACTERS.Stool, script.Stool.texts.T0040, null],
+        ], script);
 
         await fS.Location.show(LOCATIONS.woods);
         await makeTransition("inScene");
@@ -645,6 +635,10 @@ namespace BeansCuest {
         await letCharactersHaveDialogue([
             [CHARACTERS.Oliver, script.Oliver.texts.T0004, null],
         ], script);
+
+        await hideCharacter(CHARACTERS.Oliver);
+        fS.Speech.hide();
+        await makeTransition("fade_in", 0.5);
 
         await fS.Location.show(LOCATIONS.black);
         await makeTransition("fade_in");
@@ -666,8 +660,7 @@ namespace BeansCuest {
             [CHARACTERS.Unknown, script.Unknown.texts.T0000, null],
         ], script);
 
-        fS.Text.setClass("end-screen");
-        await fS.Text.print("THE END");
+        await showEnd();
     }
 
     async function optionA2_2_2() {
@@ -690,8 +683,6 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0044, null],
             [CHARACTERS.Stool, script.Stool.texts.T0043, null],
             [CHARACTERS.Bean, script.Bean.texts.T0045, null],
-            [CHARACTERS.Stool, script.Stool.texts.T0044, null],
-            [CHARACTERS.Bean, script.Bean.texts.T0046, null],
         ], script);
 
         await fS.Location.show(LOCATIONS.black);
@@ -704,11 +695,7 @@ namespace BeansCuest {
             [CHARACTERS.Oliver, script.Oliver.texts.T0004, null],
         ], script);
 
-        await fS.Location.show(LOCATIONS.black);
-        await makeTransition("fade_in");
-
-        fS.Text.setClass("end-screen");
-        await fS.Text.print("THE END");
+        await showEnd();
     }
 
     async function optionB() {
@@ -728,5 +715,16 @@ namespace BeansCuest {
         ], script);
 
         await decisionDialog1();
+    }
+
+    async function showEnd() {
+        fS.Character.hideAll();
+        fS.Speech.hide();
+        await fS.Location.show(LOCATIONS.black);
+        await makeTransition("fade_in");
+
+        fS.Text.setClass("end-screen");
+        await fS.Text.print("THE END");
+        await showCredits();
     }
 }

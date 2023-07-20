@@ -60,7 +60,7 @@ namespace BeansCuest {
         isMenuOpen = !isMenuOpen;
     }
 
-    async function showCredits() {
+    export async function showCredits() {
         fS.Text.setClass('');
         await fS.Text.print(`<table class="credits-table">
         <thead>
