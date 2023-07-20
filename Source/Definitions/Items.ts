@@ -27,7 +27,7 @@ namespace BeansCuest {
         note: {
             name: "Note",
             description: "",
-            image:  "Images/Items/note.png",
+            image:  "Images/Items/notes.png",
             static: true
         } satisfies fS.ItemDefinition,
         sunstone: {
@@ -70,7 +70,7 @@ namespace BeansCuest {
             name: "note",
             origin: fS.ORIGIN.CENTER,
             pose: {
-                center: "Images/Items/note.png"
+                center: "Images/Items/notes.png"
             }
         },
         pixieDust: {
