@@ -76,11 +76,39 @@ dialog[type=splash] {
   border: none;
   cursor: pointer;
   text-align: center;
-  background-image: url("Images/Backgrounds/space.jpg");
+  background-image: url("Images/Splashscreen/splashscreen.gif");
   background-size: cover;
 }
 dialog[type=splash] > img#FudgeStoryLogo {
-  width: 100%;
+  width: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+dialog[type=splash] > img#BeanLogo {
+  width: 50%;
+  transition: all 300ms ease-in-out;
+}
+dialog[type=splash] > img#BeanLogo:hover {
+  width: 52%;
+}
+
+dialog[type=splash] > span#clickToPlay {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ab97e0;
+  -webkit-text-stroke: 1px black;
+  font-weight: bold;
+  transition: all 300ms ease-in-out;
+  font-size: 6vmin;
+}
+
+dialog[type=splash] > span#clickToPlay:hover {
+  color: #e9bbff;
 }
 
 .in-game-menu, .choice, .inventory {

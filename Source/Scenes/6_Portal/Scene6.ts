@@ -375,10 +375,6 @@ namespace BeansCuest {
         await fS.Location.show(LOCATIONS.wistfulwoods);
         await makeTransition("sceneChange");
 
-        fS.Inventory.add(ITEMS.moonstone);
-        fS.Inventory.add(ITEMS.starstone);
-        fS.Inventory.add(ITEMS.sunstone);
-
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0000, null],
             [CHARACTERS.Stool, script.Stool.texts.T0000, null],
