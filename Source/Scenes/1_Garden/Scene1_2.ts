@@ -16,7 +16,7 @@ namespace BeansCuest {
             texts: {
                 T0000: {
                     emotion: "curious",
-                    text: "it's getting rather dark around here... this seems like the purr-fect spot to hide. oliver never ventures beyond the garden. but what is this weird light?"
+                    text: "it's getting rather dark around here... this seems like the purr-fect spot to hide. but what is this weird light?"
                 },
                 T0001: {
                     emotion: "charmed",
@@ -36,7 +36,7 @@ namespace BeansCuest {
                 },
                 T0005: {
                     emotion: "scared",
-                    text: "Oh no! My paw... it's stuck! AHHH!"
+                    text: "Oh no! MY PAW... IT'S STUCK! AHHH!"
                 }
             }
         }

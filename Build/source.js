@@ -893,7 +893,7 @@ var BeansCuest;
             texts: {
                 T0000: {
                     emotion: "curious",
-                    text: "it's getting rather dark around here... this seems like the purr-fect spot to hide. oliver never ventures beyond the garden. but what is this weird light?"
+                    text: "it's getting rather dark around here... this seems like the purr-fect spot to hide. but what is this weird light?"
                 },
                 T0001: {
                     emotion: "charmed",
@@ -913,7 +913,7 @@ var BeansCuest;
                 },
                 T0005: {
                     emotion: "scared",
-                    text: "Oh no! My paw... it's stuck! AHHH!"
+                    text: "Oh no! MY PAW... IT'S STUCK! AHHH!"
                 }
             }
         }
@@ -2040,7 +2040,7 @@ var BeansCuest;
                     emotion: "offended"
                 },
                 T0020: {
-                    text: "Let me guess, it's a golden ladder with sparkles and a sign saying 'Use Me to Reach the Cloud'?",
+                    text: `Let me guess, it's a golden ladder with sparkles and a sign saying "Use Me to Reach the Cloud"?`,
                     emotion: "serious"
                 },
                 T0021: {
@@ -2147,7 +2147,7 @@ var BeansCuest;
                     text: "What was that?"
                 },
                 T0020: {
-                    text: "I think the thing your searching for is on that cloud. Bean, your selflessness is admirable and we're glad that our arguments are behind us.",
+                    text: "I think the thing you're searching for is on that cloud. Bean, your selflessness is admirable and we're glad that our arguments are behind us.",
                     emotion: "happy"
                 },
                 T0021: {

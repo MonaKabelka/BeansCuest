@@ -247,7 +247,7 @@ namespace BeansCuest {
                     emotion: "offended"
                 },
                 T0020: {
-                    text: "Let me guess, it's a golden ladder with sparkles and a sign saying 'Use Me to Reach the Cloud'?",
+                    text: `Let me guess, it's a golden ladder with sparkles and a sign saying "Use Me to Reach the Cloud"?`,
                     emotion: "serious"
                 },
                 T0021: {
@@ -354,7 +354,7 @@ namespace BeansCuest {
                     text: "What was that?"
                 },
                 T0020: {
-                    text: "I think the thing your searching for is on that cloud. Bean, your selflessness is admirable and we're glad that our arguments are behind us.",
+                    text: "I think the thing you're searching for is on that cloud. Bean, your selflessness is admirable and we're glad that our arguments are behind us.",
                     emotion: "happy"
                 },
                 T0021: {
