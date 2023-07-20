@@ -2737,6 +2737,21 @@ var BeansCuest;
                 },
                 T0025: {
                     text: "We'll create new memories, uncover hidden treasures, and embrace the magic together."
+                },
+                T0026: {
+                    text: "Stool, look! The stones are aligned! The portal is starting to glow!!"
+                },
+                T0027: {
+                    text: "What is it? Are you feeling alright?"
+                },
+                T0028: {
+                    text: "You mean you were guiding us this whole time? It suddenly all falls into place!"
+                },
+                T0029: {
+                    text: "What do you mean? We've worked so hard to repair it. It should be safe now, shouldn't it?"
+                },
+                T0030: {
+                    text: "Stool, I have to go back now. Oliver must be incredibly worried about me."
                 }
             }
         },
@@ -2840,6 +2855,50 @@ var BeansCuest;
                 T0023: {
                     text: "Oh Bean! If you're willing to stay, I'll be here by your side, guiding you and sharing in the wonders this world has to offer.",
                     emotion: "charmed"
+                },
+                T0024: {
+                    text: "Bean, something just clicked in my mind…",
+                    emotion: "confused"
+                },
+                T0025: {
+                    text: "I remember now. I was the guardian of this very portal before it fell into ruin. The memories have come rushing back to me.",
+                    emotion: "serious"
+                },
+                T0026: {
+                    text: "It's incredible how they resurfaced after being buried for so long. I was entrusted with the knowledge of the stones, and it all makes sense now.",
+                    emotion: "serious"
+                },
+                T0027: {
+                    text: "Indeed! Each stone symbolizes a different force of nature.",
+                    emotion: "explanatory"
+                },
+                T0028: {
+                    text: "The starstone embodies the celestial light, the sunstone represents the radiant warmth, and the moonstone captures the mystical allure of the night.",
+                    emotion: "explanatory"
+                },
+                T0029: {
+                    text: "But I can't shake this strange feeling about the portal. Something doesn't feel right.",
+                    emotion: "worried"
+                },
+                T0030: {
+                    text: "I can't explain it, but deep down, I sense that there might be something wrong.",
+                    emotion: "explanatory"
+                },
+                T0031: {
+                    text: "But for now I am grateful for the opportunity to fulfill my duty once again, and with my memories restored, I feel a renewed sense of purpose.",
+                    emotion: "explanatory"
+                },
+                T0032: {
+                    text: "I will watch over the portal diligently from now on.",
+                    emotion: "explanatory"
+                },
+                T0033: {
+                    text: "I know it's hard for both of us, Bean. But think about the incredible journey we've had, the bonds we've formed, and the fun we had.",
+                    emotion: "sad"
+                },
+                T0034: {
+                    text: "Please reconsider... Stay by my side... Don't leave me...",
+                    emotion: "sad"
                 }
             }
         },
@@ -3042,6 +3101,24 @@ var BeansCuest;
         await BeansCuest.fS.Text.print("THE END");
     }
     async function optionA2_2() {
+        await BeansCuest.letCharactersHaveDialogue([
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0026, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0024, null],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0027, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0025, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0026, null],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0028, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0027, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0028, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0029, null],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0029, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0030, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0031, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0032, null],
+            [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0030, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0033, null],
+            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0034, null],
+        ], script);
     }
     async function optionB() {
         await BeansCuest.letCharactersHaveDialogue([
