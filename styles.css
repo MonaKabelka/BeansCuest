@@ -21,6 +21,15 @@ body {
   user-select: none;
 }
 
+.controls {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  color: white;
+  -webkit-text-stroke: 1px black;
+  font-weight: bold;
+}
+
 speech {
   position: absolute;
   bottom: 3vmin;
