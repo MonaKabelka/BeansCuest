@@ -2707,7 +2707,7 @@ var BeansCuest;
                 },
                 T0004: {
                     text: "let's be as quiet as possible. we don't want to alert anyone inside the house.",
-                    emotion: "serious",
+                    emotion: "shivering",
                 },
                 T0005: {
                     text: "AAAAH! What was that? I can't take it anymore~",
