@@ -4,7 +4,7 @@ namespace BeansCuest {
     export type SingleText = string;
     export type SceneText = Partial<Record<CharacterName, Partial<Record<TextName, SingleText>>>>;
 
-    type ScriptText = {
+    export type ScriptText = {
         text: SingleText;
         emotion?: EmotionName;
     }

@@ -316,6 +316,8 @@ namespace BeansCuest {
         fS.Character.hideAll();
         await makeTransition("fade_in", 0.5);
 
+        await playBGM(MUSICS.lilypond);
+
         await fS.Location.show(LOCATIONS.lilypond);
         await makeTransition("sceneChange");
 
@@ -427,6 +429,8 @@ namespace BeansCuest {
 
         await hideCharacter(CHARACTERS.Lillypad);
         await makeTransition("fade_in", 0.5);
+
+        await playSound(SOUNDS.splash);
         
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0026, null],
@@ -480,6 +484,8 @@ namespace BeansCuest {
 
         await hideCharacter(CHARACTERS.Lillypad);
         await makeTransition("fade_in", 0.5)
+
+        await playSound(SOUNDS.splash);
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Stool, script.Stool.texts.T0005, null],
@@ -661,6 +667,8 @@ namespace BeansCuest {
 
         fS.Speech.hide();
         fS.Character.hideAll();
+
+        await muteBGM(MUSICS.lilypond);
     }
 
 }

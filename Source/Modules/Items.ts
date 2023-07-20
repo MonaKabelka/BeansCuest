@@ -5,6 +5,7 @@ namespace BeansCuest {
         fS.Character.hideAll();
         await makeTransition("fade_in", 0.5);
         await fS.Character.animate(itemChar, itemChar.pose.center, ANIMATIONS.getBigger(1));
+        await playSound(SOUNDS.item);
         await createSingleLineSpeech(CHARACTERS.System, `You aquired ${item.name}`);
         await fS.Character.animate(itemChar, itemChar.pose.center, ANIMATIONS.getSmaller(1));
     }
