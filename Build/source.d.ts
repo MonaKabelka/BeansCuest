@@ -148,7 +148,7 @@ declare namespace BeansCuest {
     export type TextName = `T${SingleNumber}${SingleNumber}${SingleNumber}${SingleNumber}`;
     export type SingleText = string;
     export type SceneText = Partial<Record<CharacterName, Partial<Record<TextName, SingleText>>>>;
-    type ScriptText = {
+    export type ScriptText = {
         text: SingleText;
         emotion?: EmotionName;
     };
@@ -162,14 +162,14 @@ declare namespace BeansCuest {
     export {};
 }
 declare namespace BeansCuest {
-    const SOUND_NAMES: readonly ["a", "b", "c"];
+    const SOUND_NAMES: readonly ["boo", "collapse", "howling", "item", "novelpage", "pixiedust", "portal", "portalactivates", "snoring", "splash"];
     type SoundName = typeof SOUND_NAMES[number];
     type SoundDefinition = {
         url: string;
         defaultVolume: number;
     };
     const SOUNDS: Record<SoundName, SoundDefinition>;
-    const MUSIC_NAMES: readonly ["garden", "woods", "lilypond", "meadows", "mansion", "portal"];
+    const MUSIC_NAMES: readonly ["woods", "woodsportal", "cloud", "lilypond", "mansion", "meadow", "otherworld", "splashscreen", "wistfulwoods"];
     type MusicName = typeof MUSIC_NAMES[number];
     type MusicDefinition = {
         url: string;
@@ -217,8 +217,8 @@ declare namespace BeansCuest {
 }
 declare namespace BeansCuest {
     function playSound(sound: SoundDefinition): Promise<void>;
-    function playBGM(music: MusicDefinition, duration: number): Promise<void>;
-    function muteBGM(music: MusicDefinition, duration: number): Promise<void>;
+    function playBGM(music: MusicDefinition, duration?: number): Promise<void>;
+    function muteBGM(music: MusicDefinition, duration?: number): Promise<void>;
 }
 declare namespace BeansCuest {
     function createMultiLineSpeech(character: CharacterDefinition, textNames: TextName[], text: SceneText): Promise<void>;

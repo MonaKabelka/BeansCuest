@@ -1,26 +1,54 @@
 namespace BeansCuest {
-    export const SOUND_NAMES = ["a", "b", "c"] as const;
+    export const SOUND_NAMES = ["boo", "collapse", "howling","item", "novelpage", "pixiedust","portal", "portalactivates", "snoring","splash"] as const;
     export type SoundName = typeof SOUND_NAMES[number];
     export type SoundDefinition = {
         url: string,
         defaultVolume: number,
     };
     export const SOUNDS: Record<SoundName, SoundDefinition> = {
-        a: {
-            url: "Audio/Sounds/a.mp3",
-            defaultVolume: 1
+        boo: {
+            url: "Audio/FX/boo.mp3",
+            defaultVolume: 0.5
         },
-        b: {
-            url: "Audio/Sounds/b.mp3",
-            defaultVolume: 1
+        collapse: {
+            url: "Audio/FX/collapse.mp3",
+            defaultVolume: 0.5
         },
-        c: {
-            url: "Audio/Sounds/c.mp3",
-            defaultVolume: 1
+        howling: {
+            url: "Audio/FX/howling.mp3",
+            defaultVolume: 0.5
+        },
+        novelpage: {
+            url: "Audio/FX/novelpage.mp3",
+            defaultVolume: 0.5
+        },
+        pixiedust: {
+            url: "Audio/FX/pixiedust.mp3",
+            defaultVolume: 0.5
+        },
+        portal: {
+            url: "Audio/FX/portal.mp3",
+            defaultVolume: 0.5
+        },
+        portalactivates: {
+            url: "Audio/FX/a.mp3",
+            defaultVolume: 0.5
+        },
+        snoring: {
+            url: "Audio/FX/snoring.mp3",
+            defaultVolume: 0.5
+        },
+        item: {
+            url: "Audio/FX/item.mp3",
+            defaultVolume: 0.5
+        },
+        splash: {
+            url: "Audio/FX/splash.mp3",
+            defaultVolume: 0.5
         },
     }
 
-    export const MUSIC_NAMES = ["garden", "woods", "lilypond", "meadows", "mansion", "portal"] as const;
+    export const MUSIC_NAMES = ["woods", "woodsportal", "cloud", "lilypond", "mansion", "meadow", "otherworld", "splashscreen", "wistfulwoods"] as const;
     export type MusicName = typeof MUSIC_NAMES[number];
     export type MusicDefinition = {
         url: string,
@@ -28,35 +56,50 @@ namespace BeansCuest {
         looping?: boolean,
     };
     export const MUSICS: Record<MusicName, MusicDefinition> = {
-        garden: {
-            defaultVolume: 1,
-            url: "Audio/BGM/garden.mp3",
-            looping: true
-        },
         woods: {
-            defaultVolume: 1,
+            defaultVolume: 0.2,
             url: "Audio/BGM/woods.mp3",
             looping: true
         },
+        woodsportal: {
+            defaultVolume: 0.5,
+            url: "Audio/BGM/woodsportal.mp3",
+            looping: true
+        },
+        cloud: {
+            defaultVolume: 0.5,
+            url: "Audio/BGM/cloud.mp3",
+            looping: true
+        },
         lilypond: {
-            defaultVolume: 1,
+            defaultVolume: 0.5,
             url: "Audio/BGM/lilypond.mp3",
             looping: true
         },
-        meadows: {
-            defaultVolume: 1,
-            url: "Audio/BGM/meadows.mp3",
-            looping: true
-        },
         mansion: {
-            defaultVolume: 1,
+            defaultVolume: 0.5,
             url: "Audio/BGM/mansion.mp3",
             looping: true
         },
-        portal: {
-            defaultVolume: 1,
-            url: "Audio/BGM/portal.mp3",
+        meadow: {
+            defaultVolume: 0.5,
+            url: "Audio/BGM/meadow.mp3",
             looping: true
-        }
+        },
+        otherworld: {
+            defaultVolume: 0.5,
+            url: "Audio/BGM/otherworld.mp3",
+            looping: true
+        },
+        splashscreen: {
+            defaultVolume: 0.5,
+            url: "Audio/BGM/splashscreen.mp3",
+            looping: true
+        },
+        wistfulwoods: {
+            defaultVolume: 0.5,
+            url: "Audio/BGM/wistfulwoods.mp3",
+            looping: true
+        },
     }
 }

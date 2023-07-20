@@ -52,6 +52,8 @@ namespace BeansCuest {
         fS.Speech.hide();
         await fS.Location.show(LOCATIONS.woods);
         await makeTransition("sceneChange");
+
+        await playBGM(MUSICS.woods);
         
         await letCharactersHaveDialogue([
             [CHARACTERS.Oliver, text.Oliver.texts.T0000, null], 
@@ -70,9 +72,6 @@ namespace BeansCuest {
         }
 
         await createDialog(dialog);
-
-        fS.Speech.hide();
-        fS.Character.hideAll();
     }
 
     async function optionA() {
@@ -96,6 +95,11 @@ namespace BeansCuest {
             [CHARACTERS.Bean, text.Bean.texts.T0004, null],
             [CHARACTERS.Oliver, text.Oliver.texts.T0004, null],
         ], text);
+
+        fS.Speech.hide();
+        fS.Character.hideAll();
+
+        await muteBGM(MUSICS.woods);
     }
 
     

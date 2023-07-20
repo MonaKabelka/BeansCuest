@@ -1,4 +1,6 @@
 namespace BeansCuest {
+    let lastText: ScriptText;
+
     let script: ScriptDefinition = {
         Oliver: {
             defaultPosition: POSITIONS[1],
@@ -46,6 +48,9 @@ namespace BeansCuest {
         fS.Character.hideAll();
         await fS.Location.show(LOCATIONS.woods2);
         await makeTransition("inScene");
+
+        await playBGM(MUSICS.woodsportal);
+
         await createSingleLineSpeech(CHARACTERS.Oliver, script.Oliver.texts.T0000.text);
 
         await letCharactersHaveDialogue([[CHARACTERS.Bean, script.Bean.texts.T0000, null]], script);
@@ -71,12 +76,11 @@ namespace BeansCuest {
     async function optionC1() {
         await letCharactersHaveDialogue([[CHARACTERS.Bean, script.Bean.texts.T0002, null]], script);
 
-        fS.Speech.hide();
-        await fS.Character.animate(CHARACTERS.Bean, CHARACTERS.Bean.pose[script.Bean.texts.T0002.emotion], ANIMATIONS.portalTripping(2));
-        
-        fS.Character.hideAll();
-        await fS.Location.show(LOCATIONS.black);
-        await makeTransition("portal");
+        lastText = script.Bean.texts.T0002;
+
+        await playSound(SOUNDS.portal);
+
+        await optionD();
     }
 
     async function optionC2() {
@@ -85,12 +89,23 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0004, null],
             [CHARACTERS.Bean, script.Bean.texts.T0005, null]
         ], script);
+
+        lastText = script.Bean.texts.T0005;
+
+        await playSound(SOUNDS.portal);
         
+        await optionD();
+    }
+
+    async function optionD() {
         fS.Speech.hide();
-        await fS.Character.animate(CHARACTERS.Bean, CHARACTERS.Bean.pose[script.Bean.texts.T0005.emotion], ANIMATIONS.portalTripping(2));
+        await fS.Character.animate(CHARACTERS.Bean, CHARACTERS.Bean.pose[lastText.emotion], ANIMATIONS.portalTripping(2));
 
         fS.Character.hideAll();
         await fS.Location.show(LOCATIONS.black);
+
+        await muteBGM(MUSICS.woodsportal);
+
         await makeTransition("portal");
     }
 }

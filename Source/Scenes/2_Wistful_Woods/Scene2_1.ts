@@ -32,7 +32,7 @@ namespace BeansCuest {
                     text: "To get back home I have to find... stones?", 
                 },
                 T0004: { 
-                    text: "Enchantica? I'm not in the garden? With Oliver? Am I dreaming?", 
+                    text: "Enchantica? I'm not in the woods? With Oliver? Am I dreaming?", 
                 },
                 T0005: { 
                     text: "How is that even paw-ssible? How are YOU paw-ssible?", 
@@ -128,6 +128,8 @@ namespace BeansCuest {
         fS.Speech.hide();
         fS.Character.hideAll();
         await makeTransition("fade_in", 0.5);
+
+        await playBGM(MUSICS.wistfulwoods);
         
         await fS.Location.show(LOCATIONS.black);
         await makeTransition("fade_in", 0.1);
@@ -252,5 +254,7 @@ namespace BeansCuest {
 
         fS.Speech.hide();
         fS.Character.hideAll();
+
+        await muteBGM(MUSICS.wistfulwoods);
     }
 }
