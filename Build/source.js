@@ -36,10 +36,10 @@ var BeansCuest;
         let scenes = [
             // { scene: scene1_1, name: "Scene 1.1" },
             // { scene: scene1_2, name: "Scene 1.2" },
-            { scene: BeansCuest.scene2_1, name: "Scene 2.1" },
-            { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
-            { scene: BeansCuest.scene4_1, name: "Scene 4.1" },
-            { scene: BeansCuest.scene5, name: "Scene 5" },
+            // { scene: scene2_1, name: "Scene 2.1" },
+            // { scene: scene3_1, name: "Scene 3.1" },
+            // { scene: scene4_1, name: "Scene 4.1" },
+            // { scene: scene5, name: "Scene 5"},
             { scene: BeansCuest.scene6, name: "Scene 6" }
         ];
         BeansCuest.fS.Speech.hide();
@@ -481,7 +481,7 @@ var BeansCuest;
             defaultVolume: 0.6
         },
     };
-    BeansCuest.MUSIC_NAMES = ["woods", "woodsportal", "cloud", "lilypond", "mansion", "meadow", "otherworld", "splashscreen", "wistfulwoods"];
+    BeansCuest.MUSIC_NAMES = ["woods", "woodsportal", "cloud", "lilypond", "mansion", "meadow", "otherworld", "splashscreen", "wistfulwoods", "end"];
     BeansCuest.MUSICS = {
         woods: {
             defaultVolume: 0.2,
@@ -524,8 +524,13 @@ var BeansCuest;
             looping: true
         },
         wistfulwoods: {
-            defaultVolume: 0.3,
+            defaultVolume: 0.15,
             url: "Audio/BGM/wistfulwoods.mp3",
+            looping: true
+        },
+        end: {
+            defaultVolume: 0.3,
+            url: "Audio/BGM/end.mp3",
             looping: true
         },
     };
@@ -686,59 +691,72 @@ var BeansCuest;
     async function showCredits() {
         BeansCuest.fS.Text.setClass('');
         await BeansCuest.fS.Text.print(`<table class="credits-table">
+        <table>
         <thead>
-          <tr>
-            <th>   Resources   </th>
-            <th>   Credits   </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>   Concept   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Script   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Background Artworks   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Character Design   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Character Artworks   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   GUI Design   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Item Artworks   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Programming   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Logo Design   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Fudge Core   </td>
-            <td>   Jirka Dell'Oro-Friedl   </td>
-          </tr>
-          <tr>
-            <td>   Lecturer   </td>
-            <td>   Riem Yasin   </td>
-          </tr>
-        </tbody>
-        </table>`);
+        <tr>
+          <th>&nbsp;&nbsp;&nbsp;<br>Resources&nbsp;&nbsp;&nbsp;</th>
+          <th>&nbsp;&nbsp;&nbsp;<br>Credits&nbsp;&nbsp;&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Story and Screenplay&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Concept&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Background Artworks&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Character Design and Artworks&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Animations&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Novel Pages&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>GUI Design&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Item Artworks&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Development and Styling&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Sound Design&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Logo Design&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Music&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Geoff Harvey (Pixabay)&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Lecturer&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Riem Yasin&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Fudge Core&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Jirka Dell’Oro-Friedl&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+      </tbody>
+      </table>`);
         return;
     }
     BeansCuest.showCredits = showCredits;

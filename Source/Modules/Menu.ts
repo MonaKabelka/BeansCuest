@@ -63,59 +63,72 @@ namespace BeansCuest {
     export async function showCredits() {
         fS.Text.setClass('');
         await fS.Text.print(`<table class="credits-table">
+        <table>
         <thead>
-          <tr>
-            <th>   Resources   </th>
-            <th>   Credits   </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>   Concept   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Script   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Background Artworks   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Character Design   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Character Artworks   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   GUI Design   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Item Artworks   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Programming   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Logo Design   </td>
-            <td>   Mona Kabelka   </td>
-          </tr>
-          <tr>
-            <td>   Fudge Core   </td>
-            <td>   Jirka Dell'Oro-Friedl   </td>
-          </tr>
-          <tr>
-            <td>   Lecturer   </td>
-            <td>   Riem Yasin   </td>
-          </tr>
-        </tbody>
-        </table>`);
+        <tr>
+          <th>&nbsp;&nbsp;&nbsp;<br>Resources&nbsp;&nbsp;&nbsp;</th>
+          <th>&nbsp;&nbsp;&nbsp;<br>Credits&nbsp;&nbsp;&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Story and Screenplay&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Concept&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Background Artworks&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Character Design and Artworks&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Animations&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Novel Pages&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>GUI Design&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Item Artworks&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Development and Styling&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Sound Design&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Logo Design&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Music&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Geoff Harvey (Pixabay)&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Lecturer&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Riem Yasin&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<br>Fudge Core&nbsp;&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;<br>Jirka Dell’Oro-Friedl&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+      </tbody>
+      </table>`);
         return;
     }
 

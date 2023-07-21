@@ -56,7 +56,7 @@ namespace BeansCuest {
         },
     }
 
-    export const MUSIC_NAMES = ["woods", "woodsportal", "cloud", "lilypond", "mansion", "meadow", "otherworld", "splashscreen", "wistfulwoods"] as const;
+    export const MUSIC_NAMES = ["woods", "woodsportal", "cloud", "lilypond", "mansion", "meadow", "otherworld", "splashscreen", "wistfulwoods", "end"] as const;
     export type MusicName = typeof MUSIC_NAMES[number];
     export type MusicDefinition = {
         url: string,
@@ -105,8 +105,13 @@ namespace BeansCuest {
             looping: true
         },
         wistfulwoods: {
-            defaultVolume: 0.3,
+            defaultVolume: 0.15,
             url: "Audio/BGM/wistfulwoods.mp3",
+            looping: true
+        },
+        end: {
+            defaultVolume: 0.3,
+            url: "Audio/BGM/end.mp3",
             looping: true
         },
     }

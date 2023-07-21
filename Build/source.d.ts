@@ -169,7 +169,7 @@ declare namespace BeansCuest {
         defaultVolume: number;
     };
     const SOUNDS: Record<SoundName, SoundDefinition>;
-    const MUSIC_NAMES: readonly ["woods", "woodsportal", "cloud", "lilypond", "mansion", "meadow", "otherworld", "splashscreen", "wistfulwoods"];
+    const MUSIC_NAMES: readonly ["woods", "woodsportal", "cloud", "lilypond", "mansion", "meadow", "otherworld", "splashscreen", "wistfulwoods", "end"];
     type MusicName = typeof MUSIC_NAMES[number];
     type MusicDefinition = {
         url: string;
