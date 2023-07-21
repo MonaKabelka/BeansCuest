@@ -484,11 +484,13 @@ namespace BeansCuest {
     }
 
     async function optionA2_1() {
+        await playSound(SOUNDS.portalactivates);
+
+
         await fS.Location.show(LOCATIONS.wistfulwoods2);
         await makeTransition("fade_in");
 
-        await playSound(SOUNDS.portalactivates);
-
+       
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0005, null],
             [CHARACTERS.Stool, script.Stool.texts.T0009, null],
@@ -532,13 +534,18 @@ namespace BeansCuest {
             [CHARACTERS.Stool, script.Stool.texts.T0020, null],
         ], script);
 
-        await fS.Location.show(LOCATIONS.woods3);
-
         fS.Speech.hide();
         fS.Character.hideAll();
-        
-        await makeTransition("portal");
+        await makeTransition("fade_in", 0.5);
+
+        await fS.Location.show(LOCATIONS.black);
+        await makeTransition("fade_in");
+
         await playSound(SOUNDS.portal);
+
+        await fS.Location.show(LOCATIONS.woods3);
+        await makeTransition("portal");
+        
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Oliver, script.Oliver.texts.T0000, null],
@@ -593,10 +600,11 @@ namespace BeansCuest {
     }
 
     async function optionA2_2() {
+        await playSound(SOUNDS.portalactivates);
+
         await fS.Location.show(LOCATIONS.wistfulwoods2);
         await makeTransition("fade_in");
 
-        await playSound(SOUNDS.portalactivates);
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0026, null],
@@ -633,6 +641,7 @@ namespace BeansCuest {
 
     async function optionA2_2_1() {
         await muteBGM(MUSICS.wistfulwoods);
+
         await playBGM(MUSICS.splashscreen);
 
         await letCharactersHaveDialogue([
@@ -647,7 +656,6 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0036, null],
             [CHARACTERS.Stool, script.Stool.texts.T0038, null],
             [CHARACTERS.Stool, script.Stool.texts.T0039, null],
-            [CHARACTERS.Stool, script.Stool.texts.T0040, null],
         ], script);
 
 
@@ -655,11 +663,11 @@ namespace BeansCuest {
         await hideCharacter(CHARACTERS.Stool);
         await makeTransition("portal");
 
+        await playSound(SOUNDS.collapse);
+
         await letCharactersHaveDialogue([
             [CHARACTERS.Stool, script.Stool.texts.T0040, null],
         ], script);
-
-        await playSound(SOUNDS.collapse);
 
         await fS.Location.show(LOCATIONS.woods);
         await makeTransition("inScene");
@@ -721,10 +729,10 @@ namespace BeansCuest {
         fS.Character.hideAll();
         await makeTransition("fade_in", 0.5);
 
+        await playSound(SOUNDS.collapse);
+
         await fS.Location.show(LOCATIONS.wistfulwoods3);
         await makeTransition("inScene");
-
-        await playSound(SOUNDS.collapse);
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0043, null],

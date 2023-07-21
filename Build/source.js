@@ -34,12 +34,12 @@ var BeansCuest;
         BeansCuest.gameMenu = BeansCuest.fS.Menu.create(BeansCuest.transformMenu(BeansCuest.menuDefinition), BeansCuest.useCallbacks, "in-game-menu");
         BeansCuest.gameMenu.close();
         let scenes = [
-            // { scene: scene1_1, name: "Scene 1.1" },
-            // { scene: scene1_2, name: "Scene 1.2" },
-            // { scene: scene2_1, name: "Scene 2.1" },
-            // { scene: scene3_1, name: "Scene 3.1" },
-            // { scene: scene4_1, name: "Scene 4.1" },
-            // { scene: scene5, name: "Scene 5"},
+            { scene: BeansCuest.scene1_1, name: "Scene 1.1" },
+            { scene: BeansCuest.scene1_2, name: "Scene 1.2" },
+            { scene: BeansCuest.scene2_1, name: "Scene 2.1" },
+            { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
+            { scene: BeansCuest.scene4_1, name: "Scene 4.1" },
+            { scene: BeansCuest.scene5, name: "Scene 5" },
             { scene: BeansCuest.scene6, name: "Scene 6" }
         ];
         BeansCuest.fS.Speech.hide();
@@ -454,11 +454,11 @@ var BeansCuest;
         },
         portal: {
             url: "Audio/FX/portal.mp3",
-            defaultVolume: 0.5
+            defaultVolume: 0.4
         },
         portalactivates: {
-            url: "Audio/FX/a.mp3",
-            defaultVolume: 0.5
+            url: "Audio/FX/portalactivates.mp3",
+            defaultVolume: 0.3
         },
         snoring: {
             url: "Audio/FX/snoring.mp3",
@@ -3642,9 +3642,9 @@ var BeansCuest;
         }
     }
     async function optionA2_1() {
+        await BeansCuest.playSound(BeansCuest.SOUNDS.portalactivates);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods2);
         await BeansCuest.makeTransition("fade_in");
-        await BeansCuest.playSound(BeansCuest.SOUNDS.portalactivates);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0005, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0009, null],
@@ -3683,11 +3683,14 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0013, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0020, null],
         ], script);
-        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods3);
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
-        await BeansCuest.makeTransition("portal");
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
+        await BeansCuest.makeTransition("fade_in");
         await BeansCuest.playSound(BeansCuest.SOUNDS.portal);
+        await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods3);
+        await BeansCuest.makeTransition("portal");
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Oliver, script.Oliver.texts.T0000, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0014, null],
@@ -3731,9 +3734,9 @@ var BeansCuest;
         await showEnd();
     }
     async function optionA2_2() {
+        await BeansCuest.playSound(BeansCuest.SOUNDS.portalactivates);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods2);
         await BeansCuest.makeTransition("fade_in");
-        await BeansCuest.playSound(BeansCuest.SOUNDS.portalactivates);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0026, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0024, null],
@@ -3779,15 +3782,14 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0036, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0038, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0039, null],
-            [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0040, null],
         ], script);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.black);
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Stool);
         await BeansCuest.makeTransition("portal");
+        await BeansCuest.playSound(BeansCuest.SOUNDS.collapse);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0040, null],
         ], script);
-        await BeansCuest.playSound(BeansCuest.SOUNDS.collapse);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.woods);
         await BeansCuest.makeTransition("inScene");
         BeansCuest.fS.Speech.hide();
@@ -3831,9 +3833,9 @@ var BeansCuest;
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
         await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.playSound(BeansCuest.SOUNDS.collapse);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods3);
         await BeansCuest.makeTransition("inScene");
-        await BeansCuest.playSound(BeansCuest.SOUNDS.collapse);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0043, null],
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0042, null],

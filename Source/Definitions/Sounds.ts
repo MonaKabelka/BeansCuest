@@ -28,11 +28,11 @@ namespace BeansCuest {
         },
         portal: {
             url: "Audio/FX/portal.mp3",
-            defaultVolume: 0.5
+            defaultVolume: 0.4
         },
         portalactivates: {
-            url: "Audio/FX/a.mp3",
-            defaultVolume: 0.5
+            url: "Audio/FX/portalactivates.mp3",
+            defaultVolume: 0.3
         },
         snoring: {
             url: "Audio/FX/snoring.mp3",
