@@ -34,8 +34,8 @@ var BeansCuest;
         BeansCuest.gameMenu = BeansCuest.fS.Menu.create(BeansCuest.transformMenu(BeansCuest.menuDefinition), BeansCuest.useCallbacks, "in-game-menu");
         BeansCuest.gameMenu.close();
         let scenes = [
-            { scene: BeansCuest.scene1_1, name: "Scene 1.1" },
-            { scene: BeansCuest.scene1_2, name: "Scene 1.2" },
+            // { scene: scene1_1, name: "Scene 1.1" },
+            // { scene: scene1_2, name: "Scene 1.2" },
             { scene: BeansCuest.scene2_1, name: "Scene 2.1" },
             { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
             { scene: BeansCuest.scene4_1, name: "Scene 4.1" },
@@ -430,7 +430,7 @@ var BeansCuest;
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
 (function (BeansCuest) {
-    BeansCuest.SOUND_NAMES = ["boo", "collapse", "howling", "item", "novelpage", "pixiedust", "portal", "portalactivates", "snoring", "splash", "creak"];
+    BeansCuest.SOUND_NAMES = ["boo", "collapse", "howling", "item", "novelpage", "pixiedust", "portal", "portalactivates", "snoring", "splash", "creak", "bites"];
     BeansCuest.SOUNDS = {
         boo: {
             url: "Audio/FX/boo.mp3",
@@ -474,6 +474,10 @@ var BeansCuest;
         },
         creak: {
             url: "Audio/FX/creak.mp3",
+            defaultVolume: 0.6
+        },
+        bites: {
+            url: "Audio/FX/bites.mp3",
             defaultVolume: 0.6
         },
     };
@@ -520,7 +524,7 @@ var BeansCuest;
             looping: true
         },
         wistfulwoods: {
-            defaultVolume: 0.5,
+            defaultVolume: 0.3,
             url: "Audio/BGM/wistfulwoods.mp3",
             looping: true
         },
@@ -793,10 +797,12 @@ var BeansCuest;
         await BeansCuest.fS.Location.show(BeansCuest.NOVELPAGES[novelpage]);
         BeansCuest.fS.Character.hideAll();
         BeansCuest.fS.Speech.hide();
+        await BeansCuest.playSound(BeansCuest.SOUNDS.bites);
         await BeansCuest.makeTransition("novelpage");
         await BeansCuest.playSound(BeansCuest.SOUNDS.novelpage);
         await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.System, "You've unlocked a new novel page!");
         await BeansCuest.fS.Location.show(previousLocation);
+        await BeansCuest.playSound(BeansCuest.SOUNDS.bites);
         await BeansCuest.makeTransition("novelpage");
     }
     BeansCuest.showNovelPages = showNovelPages;
@@ -3554,6 +3560,9 @@ var BeansCuest;
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
         await BeansCuest.makeTransition("fade_in", 0.5);
+        BeansCuest.fS.Inventory.add(BeansCuest.ITEMS.starstone);
+        BeansCuest.fS.Inventory.add(BeansCuest.ITEMS.moonstone);
+        BeansCuest.fS.Inventory.add(BeansCuest.ITEMS.sunstone);
         await BeansCuest.playBGM(BeansCuest.MUSICS.wistfulwoods);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods);
         await BeansCuest.makeTransition("sceneChange");

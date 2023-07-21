@@ -376,6 +376,10 @@ namespace BeansCuest {
         fS.Character.hideAll();
         await makeTransition("fade_in", 0.5);
 
+        fS.Inventory.add(ITEMS.starstone);
+        fS.Inventory.add(ITEMS.moonstone);
+        fS.Inventory.add(ITEMS.sunstone);
+
         await playBGM(MUSICS.wistfulwoods);
         
         await fS.Location.show(LOCATIONS.wistfulwoods);

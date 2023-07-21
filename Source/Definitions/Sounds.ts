@@ -1,5 +1,5 @@
 namespace BeansCuest {
-    export const SOUND_NAMES = ["boo", "collapse", "howling","item", "novelpage", "pixiedust","portal", "portalactivates", "snoring","splash", "creak"] as const;
+    export const SOUND_NAMES = ["boo", "collapse", "howling","item", "novelpage", "pixiedust","portal", "portalactivates", "snoring","splash", "creak", "bites"] as const;
     export type SoundName = typeof SOUND_NAMES[number];
     export type SoundDefinition = {
         url: string,
@@ -48,6 +48,10 @@ namespace BeansCuest {
         },
         creak: {
             url: "Audio/FX/creak.mp3",
+            defaultVolume: 0.6
+        },
+        bites: {
+            url: "Audio/FX/bites.mp3",
             defaultVolume: 0.6
         },
     }
@@ -101,7 +105,7 @@ namespace BeansCuest {
             looping: true
         },
         wistfulwoods: {
-            defaultVolume: 0.5,
+            defaultVolume: 0.3,
             url: "Audio/BGM/wistfulwoods.mp3",
             looping: true
         },

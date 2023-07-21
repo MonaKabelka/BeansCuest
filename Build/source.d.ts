@@ -162,7 +162,7 @@ declare namespace BeansCuest {
     export {};
 }
 declare namespace BeansCuest {
-    const SOUND_NAMES: readonly ["boo", "collapse", "howling", "item", "novelpage", "pixiedust", "portal", "portalactivates", "snoring", "splash", "creak"];
+    const SOUND_NAMES: readonly ["boo", "collapse", "howling", "item", "novelpage", "pixiedust", "portal", "portalactivates", "snoring", "splash", "creak", "bites"];
     type SoundName = typeof SOUND_NAMES[number];
     type SoundDefinition = {
         url: string;
