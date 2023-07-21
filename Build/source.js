@@ -36,8 +36,8 @@ var BeansCuest;
         let scenes = [
             // { scene: scene1_1, name: "Scene 1.1" },
             // { scene: scene1_2, name: "Scene 1.2" },
-            // { scene: scene2_1, name: "Scene 2.1" },
-            { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
+            { scene: BeansCuest.scene2_1, name: "Scene 2.1" },
+            // { scene: scene3_1, name: "Scene 3.1" },
             // { scene: scene4_1, name: "Scene 4.1" },
             { scene: BeansCuest.scene5, name: "Scene 5" },
             { scene: BeansCuest.scene6, name: "Scene 6" }
@@ -818,9 +818,10 @@ var BeansCuest;
     async function showNovelPages(novelpage, previousLocation) {
         BeansCuest.dataForSave[novelpage] = true;
         const { pageNr, ...page } = BeansCuest.NOVELPAGES[novelpage];
-        await BeansCuest.fS.Location.show(page);
         BeansCuest.fS.Character.hideAll();
         BeansCuest.fS.Speech.hide();
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.fS.Location.show(page);
         await BeansCuest.playSound(BeansCuest.SOUNDS.bites);
         await BeansCuest.makeTransition("novelpage");
         await BeansCuest.playSound(BeansCuest.SOUNDS.novelpage);
