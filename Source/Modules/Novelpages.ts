@@ -1,8 +1,8 @@
 namespace BeansCuest {
     export async function showNovelPages(novelpage: NovelpageName, previousLocation: fS.LocationDefinition) {
         dataForSave[novelpage] = true;
-        const {pageNr, ...page} = NOVELPAGES[novelpage]
-        
+        const { pageNr, ...page } = NOVELPAGES[novelpage]
+
         fS.Character.hideAll();
         fS.Speech.hide();
         await makeTransition("fade_in", 0.5);

@@ -1,8 +1,8 @@
 namespace BeansCuest {
     function getBigger(duration: number): fS.AnimationDefinition {
         return {
-            start: { scaling: new f.Vector2(0, 0), translation: fS.positionPercent(50,50) },
-            end: { scaling: new f.Vector2(1,1), translation: fS.positionPercent(50,50) },
+            start: { scaling: new f.Vector2(0, 0), translation: fS.positionPercent(50, 50) },
+            end: { scaling: new f.Vector2(1, 1), translation: fS.positionPercent(50, 50) },
             duration,
             playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
         }
@@ -10,8 +10,8 @@ namespace BeansCuest {
 
     function getSmaller(duration: number): fS.AnimationDefinition {
         return {
-            end: { scaling: new f.Vector2(0, 0), translation: fS.positionPercent(50,50) },
-            start: { scaling: new f.Vector2(1,1), translation: fS.positionPercent(50,50) },
+            end: { scaling: new f.Vector2(0, 0), translation: fS.positionPercent(50, 50) },
+            start: { scaling: new f.Vector2(1, 1), translation: fS.positionPercent(50, 50) },
             duration,
             playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
         }
@@ -45,11 +45,31 @@ namespace BeansCuest {
         }
     }
 
+    function lillypadFlee(duration: number, [x, y]: [number, number]): fS.AnimationDefinition {
+        return {
+            start: { translation: fS.positionPercent(x, y) },
+            end: { translation: fS.positionPercent(x, 150) },
+            duration,
+            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
+        }
+    }
+
+    function lillypadReappear(duration: number, [x, y]: [number, number]): fS.AnimationDefinition {
+        return {
+            end: { translation: fS.positionPercent(x, y) },
+            start: { translation: fS.positionPercent(x, 150) },
+            duration,
+            playmode: fS.ANIMATION_PLAYMODE.PLAYONCE
+        }
+    }
+
     export const ANIMATIONS = {
         getBigger,
         getSmaller,
         portalTripping,
         flyUp,
-        flyDown
+        flyDown,
+        lillypadFlee,
+        lillypadReappear
     }
 }

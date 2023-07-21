@@ -34,12 +34,16 @@ declare namespace BeansCuest {
     function portalTripping(duration: number): fS.AnimationDefinition;
     function flyUp(duration: number, [x, y]: [number, number]): fS.AnimationDefinition;
     function flyDown(duration: number, [x, y]: [number, number]): fS.AnimationDefinition;
+    function lillypadFlee(duration: number, [x, y]: [number, number]): fS.AnimationDefinition;
+    function lillypadReappear(duration: number, [x, y]: [number, number]): fS.AnimationDefinition;
     export const ANIMATIONS: {
         getBigger: typeof getBigger;
         getSmaller: typeof getSmaller;
         portalTripping: typeof portalTripping;
         flyUp: typeof flyUp;
         flyDown: typeof flyDown;
+        lillypadFlee: typeof lillypadFlee;
+        lillypadReappear: typeof lillypadReappear;
     };
     export {};
 }

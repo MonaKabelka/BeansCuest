@@ -416,22 +416,24 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0023, null],
             [CHARACTERS.Bean, script.Bean.texts.T0024, null],
             [CHARACTERS.Stool, script.Stool.texts.T0006, null],
-        ],script);
+        ], script);
 
         const [x, y] = script.Lillypad.defaultPosition;
         const positionVector = fS.positionPercent(x, y);
         await showCharacter(CHARACTERS.Lillypad, "sad", positionVector);
         await makeTransition("fade_in", 0.1);
-        
+
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0025, null],
         ], script);
 
-        await hideCharacter(CHARACTERS.Lillypad);
-        await makeTransition("fade_in", 0.5);
-
+        await fS.Character.animate(
+            CHARACTERS.Lillypad,
+            CHARACTERS.Lillypad.pose["sad"],
+            ANIMATIONS.lillypadFlee(0.66, script.Lillypad.defaultPosition)
+        );
         await playSound(SOUNDS.splash);
-        
+
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0026, null],
             [CHARACTERS.Stool, script.Stool.texts.T0007, null],
@@ -482,8 +484,13 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0020, null],
         ], script);
 
-        await hideCharacter(CHARACTERS.Lillypad);
-        await makeTransition("fade_in", 0.5)
+        await fS.Character.animate(
+            CHARACTERS.Lillypad,
+            CHARACTERS.Lillypad.pose[
+            script.Lillypad.texts.T0012.emotion
+            ],
+            ANIMATIONS.lillypadFlee(0.66, script.Lillypad.defaultPosition)
+        );
 
         await playSound(SOUNDS.splash);
 
@@ -496,14 +503,37 @@ namespace BeansCuest {
         await optionD();
     }
 
-    async function  optionC1_1_1() {
+    async function optionC1_1_1() {
         await hideCharacter(CHARACTERS.Stool);
         await makeTransition("fade_in", 0.5);
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0015, null],
-            [CHARACTERS.Lillypad, script.Lillypad.texts.T0008, null],],script);
-        
+        ], script);
+
+        await fS.Character.animate(
+            CHARACTERS.Lillypad,
+            CHARACTERS.Lillypad.pose[
+            script.Lillypad.texts.T0007.emotion
+            ],
+            ANIMATIONS.lillypadFlee(0.66, script.Lillypad.defaultPosition)
+        );
+
+        await playSound(SOUNDS.splash);
+
+        await fS.Progress.delay(2);
+
+        await fS.Character.animate(
+            CHARACTERS.Lillypad,
+            CHARACTERS.Lillypad.pose[
+            script.Lillypad.texts.T0007.emotion
+            ],
+            ANIMATIONS.lillypadReappear(0.66, script.Lillypad.defaultPosition)
+        );
+
+        await letCharactersHaveDialogue([
+            [CHARACTERS.Lillypad, script.Lillypad.texts.T0008, null],], script);
+
         await getItem(ITEMS.starstone, "starstone");
 
         await letCharactersHaveDialogue([
@@ -639,7 +669,7 @@ namespace BeansCuest {
             await letCharactersHaveDialogue([
                 [CHARACTERS.Stool, script.Stool.texts.T0025, POSITIONS[1]],
             ], script);
-          } while (fS.Inventory.getAmount(ITEMS.fishingRod) != 0);
+        } while (fS.Inventory.getAmount(ITEMS.fishingRod) != 0);
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Stool, script.Stool.texts.T0020, POSITIONS[1]],

@@ -36,8 +36,8 @@ var BeansCuest;
         let scenes = [
             // { scene: scene1_1, name: "Scene 1.1" },
             // { scene: scene1_2, name: "Scene 1.2" },
-            { scene: BeansCuest.scene2_1, name: "Scene 2.1" },
-            // { scene: scene3_1, name: "Scene 3.1" },
+            // { scene: scene2_1, name: "Scene 2.1" },
+            { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
             // { scene: scene4_1, name: "Scene 4.1" },
             { scene: BeansCuest.scene5, name: "Scene 5" },
             { scene: BeansCuest.scene6, name: "Scene 6" }
@@ -89,12 +89,30 @@ var BeansCuest;
             playmode: BeansCuest.fS.ANIMATION_PLAYMODE.PLAYONCE
         };
     }
+    function lillypadFlee(duration, [x, y]) {
+        return {
+            start: { translation: BeansCuest.fS.positionPercent(x, y) },
+            end: { translation: BeansCuest.fS.positionPercent(x, 150) },
+            duration,
+            playmode: BeansCuest.fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+    }
+    function lillypadReappear(duration, [x, y]) {
+        return {
+            end: { translation: BeansCuest.fS.positionPercent(x, y) },
+            start: { translation: BeansCuest.fS.positionPercent(x, 150) },
+            duration,
+            playmode: BeansCuest.fS.ANIMATION_PLAYMODE.PLAYONCE
+        };
+    }
     BeansCuest.ANIMATIONS = {
         getBigger,
         getSmaller,
         portalTripping,
         flyUp,
-        flyDown
+        flyDown,
+        lillypadFlee,
+        lillypadReappear
     };
 })(BeansCuest || (BeansCuest = {}));
 var BeansCuest;
@@ -1691,8 +1709,7 @@ var BeansCuest;
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0025, null],
         ], script);
-        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Lillypad);
-        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.fS.Character.animate(BeansCuest.CHARACTERS.Lillypad, BeansCuest.CHARACTERS.Lillypad.pose["sad"], BeansCuest.ANIMATIONS.lillypadFlee(0.66, script.Lillypad.defaultPosition));
         await BeansCuest.playSound(BeansCuest.SOUNDS.splash);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0026, null],
@@ -1735,8 +1752,7 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0019, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0020, null],
         ], script);
-        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Lillypad);
-        await BeansCuest.makeTransition("fade_in", 0.5);
+        await BeansCuest.fS.Character.animate(BeansCuest.CHARACTERS.Lillypad, BeansCuest.CHARACTERS.Lillypad.pose[script.Lillypad.texts.T0012.emotion], BeansCuest.ANIMATIONS.lillypadFlee(0.66, script.Lillypad.defaultPosition));
         await BeansCuest.playSound(BeansCuest.SOUNDS.splash);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Stool, script.Stool.texts.T0005, null],
@@ -1750,6 +1766,12 @@ var BeansCuest;
         await BeansCuest.makeTransition("fade_in", 0.5);
         await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0015, null],
+        ], script);
+        await BeansCuest.fS.Character.animate(BeansCuest.CHARACTERS.Lillypad, BeansCuest.CHARACTERS.Lillypad.pose[script.Lillypad.texts.T0007.emotion], BeansCuest.ANIMATIONS.lillypadFlee(0.66, script.Lillypad.defaultPosition));
+        await BeansCuest.playSound(BeansCuest.SOUNDS.splash);
+        await BeansCuest.fS.Progress.delay(2);
+        await BeansCuest.fS.Character.animate(BeansCuest.CHARACTERS.Lillypad, BeansCuest.CHARACTERS.Lillypad.pose[script.Lillypad.texts.T0007.emotion], BeansCuest.ANIMATIONS.lillypadReappear(0.66, script.Lillypad.defaultPosition));
+        await BeansCuest.letCharactersHaveDialogue([
             [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0008, null],
         ], script);
         await BeansCuest.getItem(BeansCuest.ITEMS.starstone, "starstone");
