@@ -6,17 +6,17 @@
 }
 
 @media only screen and (max-width: 1280px) {
-  speech > name {
+  speech>name {
     font-size: 3vmin;
   }
 
-  speech > content {
+  speech>content {
     font-size: 2.5vmin !important;
   }
 }
 
 @media only screen and (max-width: 950px) {
-  speech > name {
+  speech>name {
     font-size: 2.5vmin;
   }
 }
@@ -57,13 +57,13 @@ speech {
   background-size: 100% 100%;
 }
 
-speech > name {
+speech>name {
   position: absolute;
   top: 2%;
   left: 8%;
 }
 
-speech > content {
+speech>content {
   position: absolute;
   top: 38%;
   left: 3%;
@@ -71,7 +71,7 @@ speech > content {
   width: 95%;
 }
 
-speech > content input {
+speech>content input {
   height: 4.5vmin;
   box-sizing: border-box;
   font-size: 3.5vmin;
@@ -107,22 +107,24 @@ dialog[type=splash] {
   background-image: url("Images/Splashscreen/splashscreen.gif");
   background-size: cover;
 }
-dialog[type=splash] > img#FudgeStoryLogo {
+
+dialog[type=splash]>img#FudgeStoryLogo {
   width: 20%;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-dialog[type=splash] > img#BeanLogo {
+dialog[type=splash]>img#BeanLogo {
   width: 50%;
   transition: all 300ms ease-in-out;
 }
-dialog[type=splash] > img#BeanLogo:hover {
+
+dialog[type=splash]>img#BeanLogo:hover {
   width: 52%;
 }
 
-dialog[type=splash] > span#clickToPlay {
+dialog[type=splash]>span#clickToPlay {
   position: absolute;
   bottom: 20%;
   left: 50%;
@@ -135,16 +137,18 @@ dialog[type=splash] > span#clickToPlay {
   font-size: 6vmin;
 }
 
-dialog[type=splash] > span#clickToPlay:hover {
+dialog[type=splash]>span#clickToPlay:hover {
   color: #e9bbff;
 }
 
-.in-game-menu, .choice, .inventory {
+.in-game-menu,
+.choice,
+.inventory {
   border: 5px solid black;
   border-top-left-radius: 210px 10px;
   border-top-right-radius: 10px 210px;
   border-bottom-right-radius: 210px 10px;
-  border-bottom-left-radius:10px 210px;
+  border-bottom-left-radius: 10px 210px;
   background-color: rgba(255, 255, 255, 0.8);
 }
 
@@ -158,13 +162,13 @@ dialog[type=splash] > span#clickToPlay:hover {
   transform: translate(-50%, -50%);
 }
 
-:is(.in-game-menu, .choice, .inventory) > button {
+:is(.in-game-menu, .choice, .inventory)>button {
   padding: 10px;
   margin: 2px;
   border-top-left-radius: 150px 25px;
   border-top-right-radius: 25px 190px;
   border-bottom-right-radius: 190px 25px;
-  border-bottom-left-radius:25px 150px;
+  border-bottom-left-radius: 25px 150px;
   border: 1px solid #333;
   background-color: #fff;
   transition: all 100ms ease-out;
@@ -172,7 +176,7 @@ dialog[type=splash] > span#clickToPlay:hover {
   font-size: 3vmin;
 }
 
-:is(.in-game-menu, .choice .inventory) > button:hover {
+:is(.in-game-menu, .choice .inventory)>button:hover {
   background-color: #ffefff;
   border-color: #000;
   cursor: pointer;

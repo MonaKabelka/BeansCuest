@@ -1,5 +1,5 @@
 namespace BeansCuest {
-    export const SOUND_NAMES = ["boo", "collapse", "howling","item", "novelpage", "pixiedust","portal", "portalactivates", "snoring","splash", "creak", "bites"] as const;
+    export const SOUND_NAMES = ["boo", "collapse", "howling", "item", "novelpage", "pixiedust", "portal", "portalactivates", "snoring", "splash", "creak", "bites"] as const;
     export type SoundName = typeof SOUND_NAMES[number];
     export type SoundDefinition = {
         url: string,

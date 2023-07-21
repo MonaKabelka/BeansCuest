@@ -19,40 +19,40 @@ namespace BeansCuest {
         Bean: {
             defaultPosition: POSITIONS[1],
             texts: {
-                T0000: { 
+                T0000: {
                     text: "...urgh... Oliver...?",
                 },
-                T0001: { 
-                    text: "Where am I? I was playing hide and seek with Oliver, and then everything is just a blur. I hope he's alright!", 
+                T0001: {
+                    text: "Where am I? I was playing hide and seek with Oliver, and then everything is just a blur. I hope he's alright!",
                 },
-                T0002: { 
-                    text: "Wha...?", 
+                T0002: {
+                    text: "Wha...?",
                 },
-                T0003: { 
-                    text: "To get back home I have to find... stones?", 
+                T0003: {
+                    text: "To get back home I have to find... stones?",
                 },
-                T0004: { 
-                    text: "Enchantica? I'm not in the woods? With Oliver? Am I dreaming?", 
+                T0004: {
+                    text: "Enchantica? I'm not in the woods? With Oliver? Am I dreaming?",
                 },
-                T0005: { 
-                    text: "How is that even paw-ssible? How are YOU paw-ssible?", 
+                T0005: {
+                    text: "How is that even paw-ssible? How are YOU paw-ssible?",
                 },
-                T0006: { 
-                    text: "No that's not it. Don't get me wrong but you're a talking mushroom. This is enchanted!", 
+                T0006: {
+                    text: "No that's not it. Don't get me wrong but you're a talking mushroom. This is enchanted!",
                 },
-                T0007: { 
-                    text: "... Um - nevermind", 
+                T0007: {
+                    text: "... Um - nevermind",
                 },
-                T0008: { 
-                    text: "Can you tell me the best place to start looking for the stones? I want to go home. I hope Oliver is fine... ", 
+                T0008: {
+                    text: "Can you tell me the best place to start looking for the stones? I want to go home. I hope Oliver is fine... ",
                 },
-                T0009: { 
-                    text: "It will definitely come in handy if you accompany me! Also, I'm looking forward to some company.", 
+                T0009: {
+                    text: "It will definitely come in handy if you accompany me! Also, I'm looking forward to some company.",
                 },
-                T0010: { 
-                    text: "I don't know. I think it would be safer for you to stay here.", 
+                T0010: {
+                    text: "I don't know. I think it would be safer for you to stay here.",
                 },
-                T0011: { 
+                T0011: {
                     text: "Sigh. Okay you can come with me.",
                 },
             }
@@ -130,7 +130,7 @@ namespace BeansCuest {
         await makeTransition("fade_in", 0.5);
 
         await playBGM(MUSICS.wistfulwoods);
-        
+
         await fS.Location.show(LOCATIONS.black);
         await makeTransition("fade_in", 0.1);
 
@@ -139,7 +139,7 @@ namespace BeansCuest {
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0000, null]
         ], script);
-        
+
         await fS.Location.show(LOCATIONS.wistfulwoods);
         await makeTransition("fade_in");
 
@@ -215,7 +215,7 @@ namespace BeansCuest {
 
         let dialog: DialogConfig = {
             C1: {
-                label: "Take Stool with you", 
+                label: "Take Stool with you",
                 callback: optionC1
             },
             C2: {
@@ -231,7 +231,7 @@ namespace BeansCuest {
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0009, null],
         ], script);
-        
+
         await optionD();
     }
 

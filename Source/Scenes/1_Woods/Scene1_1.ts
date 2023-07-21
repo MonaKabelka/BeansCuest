@@ -54,9 +54,9 @@ namespace BeansCuest {
         await makeTransition("sceneChange");
 
         await playBGM(MUSICS.woods);
-        
+
         await letCharactersHaveDialogue([
-            [CHARACTERS.Oliver, text.Oliver.texts.T0000, null], 
+            [CHARACTERS.Oliver, text.Oliver.texts.T0000, null],
             [CHARACTERS.Oliver, text.Oliver.texts.T0001, null]
         ], text);
 
@@ -102,5 +102,5 @@ namespace BeansCuest {
         await muteBGM(MUSICS.woods);
     }
 
-    
+
 }

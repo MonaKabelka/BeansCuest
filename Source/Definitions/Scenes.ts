@@ -28,7 +28,7 @@ namespace BeansCuest {
     export async function letCharactersHaveDialogue(texts: [CharacterDefinition, ScriptText, [number, number]][], script: ScriptDefinition) {
         for (let [character, scriptText, position] of texts) {
             await letCharacterSayText(
-                character, 
+                character,
                 scriptText,
                 position ?? script[character.name].defaultPosition
             );

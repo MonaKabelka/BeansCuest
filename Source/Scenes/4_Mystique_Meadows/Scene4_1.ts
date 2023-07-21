@@ -720,9 +720,9 @@ namespace BeansCuest {
             await letCharactersHaveDialogue([
                 [CHARACTERS.Bean, script.Bean.texts.T0028, null],
             ], script);
-          } while (fS.Inventory.getAmount(ITEMS.pixieDust) != 0);
+        } while (fS.Inventory.getAmount(ITEMS.pixieDust) != 0);
 
-        
+
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0024, null],
             [CHARACTERS.Charm, script.Charm.texts.T0009, null],
@@ -779,7 +779,7 @@ namespace BeansCuest {
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0027, null],
         ], script);
-        
+
         await getItem(ITEMS.pixieDust, "pixieDust");
 
         dataForSave.pixieDust = true;
@@ -789,7 +789,7 @@ namespace BeansCuest {
                 [CHARACTERS.Chant, script.Chant.texts.T0010, POSITIONS[1]],
                 [CHARACTERS.Chant, script.Chant.texts.T0011, POSITIONS[1]],
             ], script);
-          } while (fS.Inventory.getAmount(ITEMS.pixieDust) != 0);
+        } while (fS.Inventory.getAmount(ITEMS.pixieDust) != 0);
 
         await playSound(SOUNDS.pixiedust);
 
@@ -839,7 +839,7 @@ namespace BeansCuest {
         ], script);
 
         await fS.Character.animate(CHARACTERS.Chant, CHARACTERS.Chant.pose.happy, ANIMATIONS.flyUp(1, script.Chant.defaultPosition));
-    
+
         await letCharactersHaveDialogue([
             [CHARACTERS.Charm, script.Charm.texts.T0013, null],
         ], script);
@@ -899,10 +899,10 @@ namespace BeansCuest {
             await letCharactersHaveDialogue([
                 [CHARACTERS.Stool, script.Stool.texts.T0022, POSITIONS[1]],
             ], script);
-          } while (fS.Inventory.getAmount(ITEMS.ladder) != 0);
+        } while (fS.Inventory.getAmount(ITEMS.ladder) != 0);
 
         await muteBGM(MUSICS.meadow);
-        
+
         fS.Speech.hide();
         fS.Character.hideAll();
         await fS.Location.show(LOCATIONS.cloud);
@@ -936,7 +936,7 @@ namespace BeansCuest {
         await makeTransition("fade_in");
 
         if (unlockNovelPages[3]) await showNovelPages("novelpage3", LOCATIONS.cloud);
-        
+
         if (unlockNovelPages[4]) await showNovelPages("novelpage4", LOCATIONS.cloud);
 
         await muteBGM(MUSICS.cloud);

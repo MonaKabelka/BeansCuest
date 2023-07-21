@@ -93,7 +93,7 @@ namespace BeansCuest {
         lastText = script.Bean.texts.T0005;
 
         await playSound(SOUNDS.portal);
-        
+
         await optionD();
     }
 

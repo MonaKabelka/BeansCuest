@@ -7,7 +7,7 @@ namespace BeansCuest {
 
     export function getStatusOfStones() {
         const items = getItemsInInventory();
-        const stones: {el: HTMLLIElement, item: fS.ItemDefinition}[] = [];
+        const stones: { el: HTMLLIElement, item: fS.ItemDefinition }[] = [];
         for (let item of items) {
             switch (item.id) {
                 case "Moonstone":

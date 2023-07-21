@@ -377,7 +377,7 @@ namespace BeansCuest {
         await makeTransition("fade_in", 0.5);
 
         await playBGM(MUSICS.wistfulwoods);
-        
+
         await fS.Location.show(LOCATIONS.wistfulwoods);
         await makeTransition("sceneChange");
 
@@ -420,31 +420,31 @@ namespace BeansCuest {
         dataForSave.starstone = true;
         dataForSave.sunstone = true;
 
-        
+
 
         await stoneDecision();
     }
 
     async function stoneDecision() {
         stones = getStatusOfStones();
-        stones.forEach(({el, item}) => el.addEventListener("pointerdown", handleStoneSelection(item)));
+        stones.forEach(({ el, item }) => el.addEventListener("pointerdown", handleStoneSelection(item)));
 
         do {
             await letCharactersHaveDialogue([
                 [CHARACTERS.Stool, script.Stool.texts.T0007, null],
             ], script);
-          } while (getStoneAmount(stones.map((stone) => stone.item)) > 0);
+        } while (getStoneAmount(stones.map((stone) => stone.item)) > 0);
 
-          await createSingleLineSpeech(CHARACTERS.Bean, `I choose this order: ${stoneOrder.join(', ')}.`);
+        await createSingleLineSpeech(CHARACTERS.Bean, `I choose this order: ${stoneOrder.join(', ')}.`);
 
-          await letCharactersHaveDialogue([
+        await letCharactersHaveDialogue([
             [CHARACTERS.Stool, script.Stool.texts.T0008, null],
         ], script);
 
         const dialog: DialogConfig = {
             A1: {
                 label: "Rearrange",
-                callback: optionA1,          
+                callback: optionA1,
             },
             A2: {
                 label: "Keep the order",
@@ -490,7 +490,7 @@ namespace BeansCuest {
         await fS.Location.show(LOCATIONS.wistfulwoods2);
         await makeTransition("fade_in");
 
-       
+
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0005, null],
             [CHARACTERS.Stool, script.Stool.texts.T0009, null],
@@ -545,7 +545,7 @@ namespace BeansCuest {
 
         await fS.Location.show(LOCATIONS.woods3);
         await makeTransition("portal");
-        
+
 
         await letCharactersHaveDialogue([
             [CHARACTERS.Oliver, script.Oliver.texts.T0000, null],
@@ -554,8 +554,8 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0015, null],
             [CHARACTERS.Oliver, script.Oliver.texts.T0002, null],
             [CHARACTERS.Bean, script.Bean.texts.T0016, null],
-            [CHARACTERS.Oliver, script.Oliver.texts.T0003, null], 
-            [CHARACTERS.Bean, script.Bean.texts.T0017, null],           
+            [CHARACTERS.Oliver, script.Oliver.texts.T0003, null],
+            [CHARACTERS.Bean, script.Bean.texts.T0017, null],
         ], script);
 
         await hideCharacter(CHARACTERS.Oliver);
@@ -622,7 +622,7 @@ namespace BeansCuest {
             [CHARACTERS.Stool, script.Stool.texts.T0032, null],
             [CHARACTERS.Bean, script.Bean.texts.T0030, null],
             [CHARACTERS.Stool, script.Stool.texts.T0033, null],
-            [CHARACTERS.Stool, script.Stool.texts.T0034, null],            
+            [CHARACTERS.Stool, script.Stool.texts.T0034, null],
         ], script);
 
         const dialog: DialogConfig = {
@@ -745,7 +745,7 @@ namespace BeansCuest {
         fS.Speech.hide();
         fS.Character.hideAll();
         await makeTransition("fade_in", 0.5);
-        
+
         await fS.Location.show(LOCATIONS.black);
         await makeTransition("fade_in");
 

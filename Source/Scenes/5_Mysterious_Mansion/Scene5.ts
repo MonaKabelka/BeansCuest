@@ -40,7 +40,7 @@ namespace BeansCuest {
                 T0010: {
                     text: "I'm truly sorry for the pain you've endured all this time. But now, I'm here to help."
                 },
-                T0011: { 
+                T0011: {
                     text: "There must be a way to open the clock and retrieve both your charm and the moonstone. Let's think this through together."
                 },
                 T0012: {
@@ -113,7 +113,7 @@ namespace BeansCuest {
                     text: "But what if there are monsters or worse... - D O G S!?",
                     emotion: "anxious",
                 },
-                T0002: { 
+                T0002: {
                     text: "I'm not prepared for that.",
                     emotion: "crying",
                 },
@@ -211,7 +211,7 @@ namespace BeansCuest {
                 T0015: {
                     text: "Your willingness to help means more to me than words can express. Let us focus on the present.",
                 },
-                T0016: { 
+                T0016: {
                     text: "Long ago, I was desperate to revive my dear friend who had passed away. I stumbled upon a riddle spell that promised to bring her back to life.",
                     emotion: "sad"
                 },
@@ -220,7 +220,7 @@ namespace BeansCuest {
                     emotion: "sad"
                 },
                 T0018: {
-                    text : "The curse bound me to a tormenting paradox.",
+                    text: "The curse bound me to a tormenting paradox.",
                     emotion: "grief"
                 },
                 T0019: {
@@ -237,7 +237,7 @@ namespace BeansCuest {
                 },
                 T0022: {
                     text: "I've come to realize that the memories I hold dear are more than enough to keep my friend alive in my heart.",
-                     emotion: "thinking"
+                    emotion: "thinking"
                 },
                 T0023: {
                     text: "I've learned that it's not the physical charm that truly matters, but the bond and love we shared.",
@@ -271,7 +271,7 @@ namespace BeansCuest {
         await makeTransition("fade_in", 0.5);
 
         await playBGM(MUSICS.mansion);
-        
+
         await fS.Location.show(LOCATIONS.mansion);
         await makeTransition("sceneChange");
 
@@ -367,11 +367,11 @@ namespace BeansCuest {
         await playSound(SOUNDS.creak);
 
         await letCharactersHaveDialogue([
-        [CHARACTERS.Bean, script.Bean.texts.T0018, null],
-        [CHARACTERS.Spook, script.Spook.texts.T0012, null],
-        [CHARACTERS.Bean, script.Bean.texts.T0019, null],
-        [CHARACTERS.Spook, script.Spook.texts.T0013, null],
-        [CHARACTERS.Spook, script.Spook.texts.T0014, null],
+            [CHARACTERS.Bean, script.Bean.texts.T0018, null],
+            [CHARACTERS.Spook, script.Spook.texts.T0012, null],
+            [CHARACTERS.Bean, script.Bean.texts.T0019, null],
+            [CHARACTERS.Spook, script.Spook.texts.T0013, null],
+            [CHARACTERS.Spook, script.Spook.texts.T0014, null],
         ], script);
 
         const dialog: DialogConfig = {
@@ -410,7 +410,7 @@ namespace BeansCuest {
 
         await createDialog(dialog);
     }
-    
+
     async function optionB1() {
         await letCharactersHaveDialogue([
             [CHARACTERS.Bean, script.Bean.texts.T0013, null],
@@ -426,7 +426,7 @@ namespace BeansCuest {
                 [CHARACTERS.Bean, script.Bean.texts.T0014, null],
                 [CHARACTERS.Bean, script.Bean.texts.T0015, null],
             ], script);
-    
+
             await getItem(ITEMS.note, "note");
             foundClue = true;
         } else {
@@ -505,7 +505,7 @@ namespace BeansCuest {
 
         await hideCharacter(CHARACTERS.Stool);
         await makeTransition("fade_in", 0.5);
-        
+
         if (unlockedNovelpage) await showNovelPages("novelpage5", LOCATIONS.mansion2);
 
         fS.Character.hideAll();

@@ -3,43 +3,43 @@ namespace BeansCuest {
         fishingRod: {
             name: "Fishing Rod",
             description: "Old but sturdy",
-            image:  "Images/Items/rod.png",
+            image: "Images/Items/rod.png",
             handler: handleItemUsage
         } satisfies fS.ItemDefinition,
         moonstone: {
             name: "Moonstone",
             description: "Gives off a cool light",
-            image:  "Images/Items/moonstone.png",
+            image: "Images/Items/moonstone.png",
             handler: handleItemUsage
         } satisfies fS.ItemDefinition,
         pixieDust: {
             name: "Pixie Dust",
             description: "Feels light",
-            image:  "Images/Items/pixiedust.png",
+            image: "Images/Items/pixiedust.png",
             handler: handleItemUsage
         } satisfies fS.ItemDefinition,
         ladder: {
             name: "Ladder",
             description: "Creaks when used",
-            image:  "Images/Items/ladder.png",
+            image: "Images/Items/ladder.png",
             handler: handleItemUsage
         } satisfies fS.ItemDefinition,
         note: {
             name: "Note",
             description: `<i>"I rhyme on mittens, yet I am nothing to wear</i>"`,
-            image:  "Images/Items/notes.png",
+            image: "Images/Items/notes.png",
             static: true
         } satisfies fS.ItemDefinition,
         sunstone: {
             name: "Sunstone",
             description: "Emits a warm glow",
-            image:  "Images/Items/sunstone.png",
+            image: "Images/Items/sunstone.png",
             handler: handleItemUsage
         } satisfies fS.ItemDefinition,
         starstone: {
             name: "Starstone",
             description: "Sparkles",
-            image:  "Images/Items/starstone.png",
+            image: "Images/Items/starstone.png",
             handler: handleItemUsage
         } satisfies fS.ItemDefinition,
     }
@@ -98,7 +98,7 @@ namespace BeansCuest {
 
     function handleItemUsage(event: CustomEvent) {
         if (event.type === 'pointerdown') {
-            const [itemKey, item] = Object.entries(ITEMS).find(([,item]) => item.name === event.detail);
+            const [itemKey, item] = Object.entries(ITEMS).find(([, item]) => item.name === event.detail);
             if (!dataForSave[itemKey as Partial<keyof typeof dataForSave>]) {
                 fS.Inventory.add(item);
             }
