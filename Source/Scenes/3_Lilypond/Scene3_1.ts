@@ -522,7 +522,9 @@ namespace BeansCuest {
             [CHARACTERS.Bean, script.Bean.texts.T0018, null],
         ], script);
 
-        await optionD();
+        await hideCharacter(CHARACTERS.Lillypad);
+        await makeTransition("fade_in", 0.5);
+        await optionD3();
     }
 
     async function optionD() {

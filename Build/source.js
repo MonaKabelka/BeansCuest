@@ -36,8 +36,8 @@ var BeansCuest;
         let scenes = [
             // { scene: scene1_1, name: "Scene 1.1" },
             // { scene: scene1_2, name: "Scene 1.2" },
-            { scene: BeansCuest.scene2_1, name: "Scene 2.1" },
-            // { scene: scene3_1, name: "Scene 3.1" },
+            // { scene: scene2_1, name: "Scene 2.1" },
+            { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
             // { scene: scene4_1, name: "Scene 4.1" },
             { scene: BeansCuest.scene5, name: "Scene 5" },
             { scene: BeansCuest.scene6, name: "Scene 6" }
@@ -1765,7 +1765,9 @@ var BeansCuest;
             [BeansCuest.CHARACTERS.Lillypad, script.Lillypad.texts.T0011, null],
             [BeansCuest.CHARACTERS.Bean, script.Bean.texts.T0018, null],
         ], script);
-        await optionD();
+        await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Lillypad);
+        await BeansCuest.makeTransition("fade_in", 0.5);
+        await optionD3();
     }
     async function optionD() {
         await BeansCuest.hideCharacter(BeansCuest.CHARACTERS.Lillypad);
