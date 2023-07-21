@@ -138,6 +138,7 @@ declare namespace BeansCuest {
     type Novelpage = {
         name: NovelpageName;
         background: `Images/Novelpages/${NovelpageName}.png`;
+        pageNr: number;
     };
     type NovelpageDefinition = Record<NovelpageName, Novelpage>;
     export const NOVELPAGES: NovelpageDefinition;

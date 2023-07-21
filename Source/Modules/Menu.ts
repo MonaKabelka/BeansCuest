@@ -153,7 +153,7 @@ namespace BeansCuest {
         let choice: typeof close[keyof typeof close];
         do {
             fS.Text.setClass('novelpage');
-            await fS.Text.print(`<img src="${allValidPages[currentPage]}" />`);
+            await fS.Text.print(`<img src="${allValidPages[currentPage]}" /> <p class="unlocked">Unlocked: ${allValidPages.length}/6</p>`);
             choice = await  fS.Menu.getInput(close, "choice") as typeof close[keyof typeof close];
 
             switch (choice) {

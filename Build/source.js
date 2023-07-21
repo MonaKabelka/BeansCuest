@@ -36,7 +36,7 @@ var BeansCuest;
         let scenes = [
             // { scene: scene1_1, name: "Scene 1.1" },
             // { scene: scene1_2, name: "Scene 1.2" },
-            // { scene: scene2_1, name: "Scene 2.1" },
+            { scene: BeansCuest.scene2_1, name: "Scene 2.1" },
             // { scene: scene3_1, name: "Scene 3.1" },
             // { scene: scene4_1, name: "Scene 4.1" },
             { scene: BeansCuest.scene5, name: "Scene 5" },
@@ -385,27 +385,33 @@ var BeansCuest;
     BeansCuest.NOVELPAGES = {
         novelpage1: {
             name: "novelpage1",
-            background: "Images/Novelpages/novelpage1.png"
+            background: "Images/Novelpages/novelpage1.png",
+            pageNr: 1
         },
         novelpage2: {
             name: "novelpage2",
-            background: "Images/Novelpages/novelpage2.png"
+            background: "Images/Novelpages/novelpage2.png",
+            pageNr: 2
         },
         novelpage3: {
             name: "novelpage3",
-            background: "Images/Novelpages/novelpage3.png"
+            background: "Images/Novelpages/novelpage3.png",
+            pageNr: 3
         },
         novelpage4: {
             name: "novelpage4",
-            background: "Images/Novelpages/novelpage4.png"
+            background: "Images/Novelpages/novelpage4.png",
+            pageNr: 4
         },
         novelpage5: {
             name: "novelpage5",
-            background: "Images/Novelpages/novelpage5.png"
+            background: "Images/Novelpages/novelpage5.png",
+            pageNr: 5
         },
         novelpage6: {
             name: "novelpage6",
-            background: "Images/Novelpages/novelpage6.png"
+            background: "Images/Novelpages/novelpage6.png",
+            pageNr: 6
         },
     };
 })(BeansCuest || (BeansCuest = {}));
@@ -778,7 +784,7 @@ var BeansCuest;
         let choice;
         do {
             BeansCuest.fS.Text.setClass('novelpage');
-            await BeansCuest.fS.Text.print(`<img src="${allValidPages[currentPage]}" />`);
+            await BeansCuest.fS.Text.print(`<img src="${allValidPages[currentPage]}" /> <p class="unlocked">Unlocked: ${allValidPages.length}/6</p>`);
             choice = await BeansCuest.fS.Menu.getInput(close, "choice");
             switch (choice) {
                 case "➡️":
@@ -811,13 +817,14 @@ var BeansCuest;
 (function (BeansCuest) {
     async function showNovelPages(novelpage, previousLocation) {
         BeansCuest.dataForSave[novelpage] = true;
-        await BeansCuest.fS.Location.show(BeansCuest.NOVELPAGES[novelpage]);
+        const { pageNr, ...page } = BeansCuest.NOVELPAGES[novelpage];
+        await BeansCuest.fS.Location.show(page);
         BeansCuest.fS.Character.hideAll();
         BeansCuest.fS.Speech.hide();
         await BeansCuest.playSound(BeansCuest.SOUNDS.bites);
         await BeansCuest.makeTransition("novelpage");
         await BeansCuest.playSound(BeansCuest.SOUNDS.novelpage);
-        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.System, "You've unlocked a new novel page!");
+        await BeansCuest.createSingleLineSpeech(BeansCuest.CHARACTERS.System, `You've unlocked novel page ${pageNr}!`);
         await BeansCuest.fS.Location.show(previousLocation);
         await BeansCuest.playSound(BeansCuest.SOUNDS.bites);
         await BeansCuest.makeTransition("novelpage");

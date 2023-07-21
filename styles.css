@@ -216,3 +216,10 @@ dialog[type=splash] > span#clickToPlay:hover {
 .novelpage img {
   width: 100%;
 }
+
+.novelpage p.unlocked {
+  top: 0;
+  right: 0;
+  position: absolute;
+  margin: 0 5px;
+}
