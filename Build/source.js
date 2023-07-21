@@ -34,11 +34,11 @@ var BeansCuest;
         BeansCuest.gameMenu = BeansCuest.fS.Menu.create(BeansCuest.transformMenu(BeansCuest.menuDefinition), BeansCuest.useCallbacks, "in-game-menu");
         BeansCuest.gameMenu.close();
         let scenes = [
-            // { scene: scene1_1, name: "Scene 1.1" },
-            // { scene: scene1_2, name: "Scene 1.2" },
-            // { scene: scene2_1, name: "Scene 2.1" },
+            { scene: BeansCuest.scene1_1, name: "Scene 1.1" },
+            { scene: BeansCuest.scene1_2, name: "Scene 1.2" },
+            { scene: BeansCuest.scene2_1, name: "Scene 2.1" },
             { scene: BeansCuest.scene3_1, name: "Scene 3.1" },
-            // { scene: scene4_1, name: "Scene 4.1" },
+            { scene: BeansCuest.scene4_1, name: "Scene 4.1" },
             { scene: BeansCuest.scene5, name: "Scene 5" },
             { scene: BeansCuest.scene6, name: "Scene 6" }
         ];
@@ -3609,9 +3609,6 @@ var BeansCuest;
         BeansCuest.fS.Speech.hide();
         BeansCuest.fS.Character.hideAll();
         await BeansCuest.makeTransition("fade_in", 0.5);
-        BeansCuest.fS.Inventory.add(BeansCuest.ITEMS.starstone);
-        BeansCuest.fS.Inventory.add(BeansCuest.ITEMS.moonstone);
-        BeansCuest.fS.Inventory.add(BeansCuest.ITEMS.sunstone);
         await BeansCuest.playBGM(BeansCuest.MUSICS.wistfulwoods);
         await BeansCuest.fS.Location.show(BeansCuest.LOCATIONS.wistfulwoods);
         await BeansCuest.makeTransition("sceneChange");
