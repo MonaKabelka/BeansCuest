@@ -5,6 +5,22 @@
     url("Images/Fonts/VT323-Regular.ttf") format("truetype")
 }
 
+@media only screen and (max-width: 1280px) {
+  speech > name {
+    font-size: 3vmin;
+  }
+
+  speech > content {
+    font-size: 2.5vmin !important;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  speech > name {
+    font-size: 2.5vmin;
+  }
+}
+
 
 html,
 body {
@@ -43,15 +59,16 @@ speech {
 
 speech > name {
   position: absolute;
-  top: 1%;
+  top: 2%;
   left: 8%;
 }
 
 speech > content {
   position: absolute;
-  top: 25%;
-  left: 5%;
+  top: 38%;
+  left: 3%;
   font-size: 3.5vmin;
+  width: 95%;
 }
 
 speech > content input {
@@ -189,7 +206,7 @@ dialog[type=splash] > span#clickToPlay:hover {
 }
 
 .credits-table {
-  border-spacing: 3vmin;
+  border-spacing: 3vmin 1vmin;
 }
 
 .novelpage {

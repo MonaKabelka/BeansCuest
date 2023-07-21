@@ -39,7 +39,7 @@ var BeansCuest;
             // { scene: scene2_1, name: "Scene 2.1" },
             // { scene: scene3_1, name: "Scene 3.1" },
             // { scene: scene4_1, name: "Scene 4.1" },
-            // { scene: scene5, name: "Scene 5"},
+            { scene: BeansCuest.scene5, name: "Scene 5" },
             { scene: BeansCuest.scene6, name: "Scene 6" }
         ];
         BeansCuest.fS.Speech.hide();
@@ -691,69 +691,68 @@ var BeansCuest;
     async function showCredits() {
         BeansCuest.fS.Text.setClass('');
         await BeansCuest.fS.Text.print(`<table class="credits-table">
-        <table>
         <thead>
         <tr>
-          <th>&nbsp;&nbsp;&nbsp;<br>Resources&nbsp;&nbsp;&nbsp;</th>
-          <th>&nbsp;&nbsp;&nbsp;<br>Credits&nbsp;&nbsp;&nbsp;</th>
+          <th>Resources</th>
+          <th>Credits</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;<br>Story and Screenplay&nbsp;&nbsp;&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+          <td>Story and Screenplay</td>
+          <td>Mona Kabelka</td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;<br>Concept&nbsp;&nbsp;&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+          <td>Concept</td>
+          <td>Mona Kabelka</td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;<br>Background Artworks&nbsp;&nbsp;&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+          <td>Background Artworks</td>
+          <td>Mona Kabelka</td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;<br>Character Design and Artworks&nbsp;&nbsp;&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+          <td>Character Design and Artworks</td>
+          <td>Mona Kabelka</td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;<br>Animations&nbsp;&nbsp;&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+          <td>Animations</td>
+          <td>Mona Kabelka</td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;<br>Novel Pages&nbsp;&nbsp;&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+          <td>Novel Pages</td>
+          <td>Mona Kabelka</td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;<br>GUI Design&nbsp;&nbsp;&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+          <td>GUI Design</td>
+          <td>Mona Kabelka</td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;<br>Item Artworks&nbsp;&nbsp;&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+          <td>Item Artworks</td>
+          <td>Mona Kabelka</td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;<br>Development and Styling&nbsp;&nbsp;&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+          <td>Development and Styling</td>
+          <td>Mona Kabelka</td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;<br>Sound Design&nbsp;&nbsp;&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+          <td>Sound Design</td>
+          <td>Mona Kabelka</td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;<br>Logo Design&nbsp;&nbsp;&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;<br>Mona Kabelka&nbsp;&nbsp;&nbsp;</td>
+          <td>Logo Design</td>
+          <td>Mona Kabelka</td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;<br>Music&nbsp;&nbsp;&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;<br>Geoff Harvey (Pixabay)&nbsp;&nbsp;&nbsp;</td>
+          <td>Music</td>
+          <td>Geoff Harvey (Pixabay)</td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;<br>Lecturer&nbsp;&nbsp;&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;<br>Riem Yasin&nbsp;&nbsp;&nbsp;</td>
+          <td>Lecturer</td>
+          <td>Riem Yasin</td>
         </tr>
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;<br>Fudge Core&nbsp;&nbsp;&nbsp;</td>
-          <td>&nbsp;&nbsp;&nbsp;<br>Jirka Dell’Oro-Friedl&nbsp;&nbsp;&nbsp;</td>
+          <td>Fudge Core</td>
+          <td>Jirka Dell’Oro-Friedl</td>
         </tr>
       </tbody>
       </table>`);
