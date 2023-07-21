@@ -1,12 +1,17 @@
-# FUDGE_Story
+# BeansCuest
+
+- [Pages-Link](https://monakabelka.github.io/BeansCuest/)
+- [Concept](https://github.com/MonaKabelka/BeansCuest/tree/main/Concept)
+
+# Original README
+## FUDGE_Story
 A FUDGE module for the easy development of interactive stories, visual novels and simple adventure games
 
-
-# References
+## References
 - [APIs](https://jirkadelloro.github.io/FUDGE_Story/Documentation/Reference/#fudge-story-reference)
 - [Pages-Link](https://jirkadelloro.github.io/FUDGE_Story/Tutorial_WS22/Tutorial_WS22.html)
 
-## Bewertungskriterien
+### Bewertungskriterien
 © Prof. Dipl.-Ing. Jirka R. Dell'Oro-Friedl, HFU  
 
 | Nr | Bezeichnung           | Inhalt |
@@ -33,7 +38,7 @@ A FUDGE module for the easy development of interactive stories, visual novels an
 
 
 
-##  Abgabeformat
+###  Abgabeformat
 
 * Die vollständige Konzeption soll als .pdf-Dokument abgegeben werden.
   * Das Konzept enthält:
